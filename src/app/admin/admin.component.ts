@@ -12,6 +12,7 @@ import { ChangeLoginComponent } from './change-login/change-login.component';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { BlogDialogComponent } from './blog-dialog/blog-dialog.component';
+import { BlogPreviewDialogComponent } from './blog-preview-dialog/blog-preview-dialog.component';
 
 export interface Mail {
   id: number;
@@ -153,6 +154,16 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
   }
 
+  openBlogPreview(blog): void {
+    const dialogRef = this.dialog.open(BlogPreviewDialogComponent, {
+      width: 'auto',
+      data: blog
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
   logout() {
     var isAuthenticated = { "isAuthenticated": false };
 
@@ -188,7 +199,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   openBlogDialog(): void {
     const dialogRef = this.dialog.open(BlogDialogComponent, {
       width: '1000px',
-      height: 'auto'
+      height: '100vh'
     });
 
     dialogRef.afterClosed().subscribe(result => {

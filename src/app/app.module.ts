@@ -24,6 +24,7 @@ import { OrderRoutingModule } from "./order-site/order.module";
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { BlogDialogComponent } from './admin/blog-dialog/blog-dialog.component';
+import { BlogPreviewDialogComponent } from './admin/blog-preview-dialog/blog-preview-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { BlogDialogComponent } from './admin/blog-dialog/blog-dialog.component';
     OrderPreviewComponent,
     MailAnswerComponent,
     ChangeLoginComponent,
-    BlogDialogComponent
+    BlogDialogComponent,
+    BlogPreviewDialogComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +61,7 @@ import { BlogDialogComponent } from './admin/blog-dialog/blog-dialog.component';
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [MessagePreviewDialogComponent,BlogDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+  entryComponents: [MessagePreviewDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
