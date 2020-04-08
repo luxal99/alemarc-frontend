@@ -1,0 +1,100 @@
+.header-btn {
+    border: 0px;
+    background-color: transparent;
+    border-radius: 24px;
+    border: 1px solid #ff9600;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    color: #eee;
+    font-size: 18px;
+    margin-left: .5em;
+    margin-top: 1em;
+}
+
+.nav-link {
+    border-bottom: 1px solid #ff9600;
+    color: #eee !important;
+    padding-left: 3.5em !important;
+    padding-right: 3.5em !important;
+}
+
+.nav-link:hover {
+    background-color: #ff9600;
+    transition: .3s ease-in !important;
+    color: #09090a !important;
+    border-bottom: 1px solid #09090a !important;
+}
+
+.menu-btn {
+    border: 0px;
+    color: #ff9600;
+    font-size: 40px;
+    padding: .5em;
+    background-color: transparent;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 20px;
+}
+
+.social-icon-left {}
+
+.sidenav-content {
+    padding: 5em;
+    background-color: #ff9600;
+    width: 60vh;
+    position: fixed;
+}
+
+.nav-link-h2 {
+    font-family: 'Bebas Neue', cursive;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.5em;
+    ;
+}
+
+.nav-link-h2:hover {
+    color: #a55d00;
+    transition: .5s ease;
+}
+
+.small-link-div {
+    padding-top: 3em;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 30px;
+}
+
+.social-icon-left {
+    color: #fff;
+    font-size: 30px;
+    margin-left: 2em;
+}
+
+.social-icon:hover,
+.social-icon-left:hover,
+.close-icon:hover {
+    color: #a55d00;
+    transition: .5s ease;
+}
+
+.close-icon {
+    font-size: 40px;
+    position: fixed;
+}
+
+.nav-link-h4 {
+    color: #a55d00;
+    font-family: 'Dosis', sans-serif;
+    text-transform: uppercase;
+    line-height: 2em;
+}

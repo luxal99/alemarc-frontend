@@ -1,0 +1,96 @@
+<div style="background-color: #ff9600;height: auto;">
+    <div class="container">
+        <h1 class="info-h1 text-center">
+            Podaci o klijentu
+        </h1>
+        <mat-divider></mat-divider>
+        <div class="text-left about-client-div">
+            <h3><span>{{data.name}}</span></h3>
+            <h3><span>{{data.lastname}}</span></h3>
+            <h3><span>{{data.mail}}</span></h3>
+            <h3><span>{{data.telephone}}</span> </h3>
+            <mat-divider style="padding-top: 2em;"></mat-divider>
+
+        </div>
+        <div>
+            <h1 class="text-center">Komentar</h1>
+
+            <h4>{{data.comment}}</h4>
+        </div>
+        <div style="padding-top: 2em;">
+
+            <div class="row" s>
+                <div class="col">
+                    Domen
+                </div>
+                <div class="col">{{data.domain}}</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">
+                    Hosting
+                </div>
+                <div class="col">{{data.hosting}}</div>
+
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">
+                    Strani jezik
+                </div>
+                <div class="col">{{data.foreign_language}}</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">
+                    Mail sender
+                </div>
+                <div class="col">{{data.mail_sender}}</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">
+                    Animacije
+                </div>
+                <div class="col">{{data.animation}}</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">
+                    Broj stranica
+                </div>
+                <div class="col">{{data.number_of_pages}}</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">
+                    Link zeljenog sajta
+                </div>
+                <div class="col">{{data.site_link}}</div>
+            </div>
+            <mat-divider></mat-divider>
+
+            <div class="row">
+                <div class="col">
+                    Tip placanja
+                </div>
+                <div class="col">{{data.title}}</div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="row">
+                <div class="col">
+                    Kontakt forma
+                </div>
+                <div class="col">{{data.contact_form}}</div>
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+
+        <div class="text-left">
+            <button mat-button class="send-btn" (click)="openAnswerMessageDialog(data)">Odgovori</button>
+        </div>
+
+
+
+    </div>
+</div>

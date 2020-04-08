@@ -1,0 +1,514 @@
+<mat-drawer-container class="example-container" value="true">
+    <mat-drawer #drawer mode="over" class="sidenav-content zoom">
+        <div class="text-right">
+            <a><i class="fa fa-times close-icon" (click)="drawer.toggle()"></i></a>
+        </div>
+        <div class="content text-left" style="position: fixed;padding-top: 3em;">
+
+            <a (click)="scrollToElement(target)">
+                <h2 class="nav-link-h2">{{this.multiLanguage[0][0][language].sidebar_text1}}</h2>
+            </a>
+            <a [routerLink]="['/about']" routerLinkActive="router-link-active">
+                <h2 class="nav-link-h2">{{this.multiLanguage[0][0][language].sidebar_text2}}</h2>
+            </a>
+            <a [routerLink]="['/order']" routerLinkActive="router-link-active">
+                <h2 class="nav-link-h2">{{this.multiLanguage[0][0][language].sidebar_text3}}</h2>
+            </a>
+
+
+            <div class="text-left small-link-div">
+                <a (click)="scrollToElement(skill)">
+                    <a (click)="drawer.toggle()">
+                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text4}}</h4>
+                    </a>
+                </a>
+                <a (click)="scrollToElement(table)">
+                    <a (click)="drawer.toggle()">
+                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text5}}</h4>
+                    </a>
+                </a>
+                <a (click)="scrollToElement(webapp)">
+                    <a (click)="drawer.toggle()">
+                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text6}}</h4>
+                    </a>
+                </a>
+                <a (click)="scrollToElement(photo)">
+                    <a (click)="drawer.toggle()">
+                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text7}}</h4>
+                    </a>
+                </a>
+                <a (click)="scrollToElement(contact)">
+                    <a (click)="drawer.toggle()">
+                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text8}}</h4>
+                    </a>
+                </a>
+                <a [routerLink]="['/admin']" routerLinkActive="router-link-active">
+                    <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text9}}</h4>
+                </a>
+
+
+            </div>
+
+            <div class="text-left-social-div side-icon" style="padding-top: 4em;">
+                <a href=""><i class="fa fa-facebook social-icon"></i></a>
+                <a href=""><i class="fa fa-instagram social-icon-left"></i></a>
+                <a href=""><i class="fa fa-linkedin social-icon-left"></i></a>
+            </div>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div id="main">
+
+
+            <div class=" header" id="text-div" #target>
+                <div style="position: fixed;">
+                    <button class="menu-btn" (click)="drawer.toggle()"><i class="fa fa-align-left"></i></button>
+                </div>
+                <div class="row text-right text-container">
+                    <div class="col-sm"></div>
+                    <div class="col-sm ">
+                        <div class="col-sm text-right language-div">
+                            <a (click)="changeLanguage('en')" id="en" class="language-link">EN</a> | <a (click)="changeLanguage('sr')" id="sr" class="language-link">SRB</a>
+                        </div>
+                        <h1 class="h1-header" data-aos="fade-down" data-aos-duration="1000">Alemarc Dev</h1>
+                        <h1 class="main-h1 " data-aos="fade-right" data-aos-duration="1000">
+                            {{this.multiLanguage[0][0][language].header_big_text}}</h1>
+                        <mat-divider class="orange-divider" data-aos="zoom-in" data-aos-duration="1000"></mat-divider>
+                        <p class="header-paragraf" data-aos="fade-up" data-aos-duration="1000">
+                            {{this.multiLanguage[0][0][language].header_underline_text}}
+                        </p>
+                        <a (click)="scrollToElement(about)">
+                            <button class="header-btn " data-aos="fade-up"
+                            data-aos-duration="1000">{{this.multiLanguage[0][0][language].header_btn}}</button>
+                        </a>
+                        
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container card-container ">
+                <div class="row ">
+                    <div class="col-sm-4 ">
+                        <div class="card-container-text-col " #about>
+                            <h1 data-aos="fade-right" data-aos-duration="1000">
+                                {{this.multiLanguage[0][0][language].four_card_h1}}</h1>
+                            <p class="four-card-header-paragraf" data-aos="fade-right" data-aos-duration="1000">{{this.multiLanguage[0][0][language].four_card_paragraf_fp}}<span style="color: #0f0f0f;">{{this.multiLanguage[0][0][language].four_card_paragraf_span}}</span> {{this.multiLanguage[0][0][language].four_card_paragraf_sp}}</p>
+                            <a [routerLink]="['/order']" routerLinkActive="router-link-active">
+                                <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
+                                data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row card-container-card-row ">
+                        <div>
+                            <div class="container four-card-container">
+                                <div class="row four-card-row">
+                                    <div class="col-lg-10 text-center orange-card " data-aos="zoom-in"
+                                        data-aos-duration="1000" data-aos-delay="200">
+                                        <img src="../../assets/img/Coding-icon.png " alt=" " class="img-fluid "
+                                            style="width: 80px; ">
+                                        <div class="">
+                                            <p class="four-card-paragraf">{{this.multiLanguage[0][0][language].code_card_fp}}<br>{{this.multiLanguage[0][0][language].code_card_sp}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-10 text-center dark-card " data-aos="zoom-in"
+                                        data-aos-duration="1000" data-aos-delay="400" style="margin-top: 3em; ">
+                                        <img src="../../assets/img/228-2283810_website-design-web-design-icon-png.png "
+                                            alt=" " class="img-fluid " style="width: 80px; ">
+                                        <div class=" ">
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].modern_design_card}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="container " style="margin-top: 7em; ">
+                                <div class="row ">
+                                    <div class="col-lg-10 dark-card " data-aos="zoom-in" data-aos-duration="1000"
+                                        data-aos-delay="600">
+                                        <img src="../../assets/img/relationship.png " alt=" " class="img-fluid "
+                                            style="width: 80px; ">
+                                        <div class=" ">
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].relationship_card}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-10 orange-card " data-aos="zoom-in" data-aos-duration="1000"
+                                        data-aos-delay="800" style="margin-top: 3em; ">
+                                        <img src="../../assets/img/clock_fast_66649.png " alt=" " class="img-fluid "
+                                            style="width: 80px; ">
+                                        <div class=" ">
+                                            <p class="four-card-paragraf">{{this.multiLanguage[0][0][language].production_card_fp}} <br> {{this.multiLanguage[0][0][language].production_card_sp}}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-div">
+                <div class="text-left">
+                    <h1 class="about-h1" data-aos="fade-right" data-aos-duration="1000">{{this.multiLanguage[0][0][language].about_div}}</h1>
+                    <div style="height: 5px;background-color: #fff;width: 3em;margin-top: 2em;" data-aos="zoom-in"
+                        data-aos-duration="1000"></div>
+                    <p class="about-paragraf" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">{{this.multiLanguage[0][0][language].about_paragraf_fp}} <span class="black-span"> {{this.multiLanguage[0][0][language].about_paragraf_span1}}</span>
+                        <br> <span class="black-span">{{this.multiLanguage[0][0][language].about_paragraf_span2}}</span> {{this.multiLanguage[0][0][language].about_paragraf_sp}}<br>{{this.multiLanguage[0][0][language].about_paragraf_tp}}</p>
+                    
+                        <a [routerLink]="['/about']" routerLinkActive="router-link-active">
+                            <button class="about-btn" data-aos="fade-up" data-aos-duration="1000"
+                            data-aos-delay="400">{{this.multiLanguage[0][0][language].about_div_btn}}</button>
+                        </a>
+                </div>
+            </div>
+
+            <div class="skill-div" #skill>
+                <h1 class="text-center skill-h1" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="100">
+                    {{this.multiLanguage[0][0][language].skill_header}}
+                </h1>
+                <div class="container text-center">
+                    <img src="../../assets/img/divider.png" alt="" class="img-fluid" style="width: 300px;">
+                </div>
+                <div class="container skill-container">
+                    <div class="row" style="padding-bottom: 5em;">
+                        <div class="col-sm">
+                            <h4 class="progress-text" data-aos="fade-down-right" data-aos-duration="1000"
+                                data-aos-delay="100">Html</h4>
+                            <mat-progress-bar mode="determinate" value="95" data-aos="zoom-in" data-aos-duration="1000"
+                                data-aos-delay="200"></mat-progress-bar>
+                            <mat-progress-bar mode="determinate" value="95" data-aos="zoom-in" data-aos-duration="1000"
+                                data-aos-delay="200"></mat-progress-bar><br>
+                            <h4 class="progress-text" data-aos="fade-down-right" data-aos-duration="1000"
+                                data-aos-delay="300">Css</h4>
+                            <mat-progress-bar mode="determinate" value="85" data-aos="zoom-in" data-aos-duration="1000"
+                                data-aos-delay="400"></mat-progress-bar>
+                            <mat-progress-bar mode="determinate" value="85" data-aos="zoom-in" data-aos-duration="1000"
+                                data-aos-delay="400"></mat-progress-bar>
+                            <br>
+                            <h4 class="progress-text" data-aos="fade-down-right" data-aos-duration="1000"
+                                data-aos-delay="500">Design</h4>
+                            <mat-progress-bar mode="determinate" value="65" data-aos="zoom-in" data-aos-duration="1000"
+                                data-aos-delay="600"></mat-progress-bar>
+                            <mat-progress-bar mode="determinate" value="65" data-aos="zoom-in" data-aos-duration="1000"
+                                data-aos-delay="600"></mat-progress-bar>
+                            <br>
+                        </div>
+                        <div class="col-sm circle-col">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="circle-border-70">
+                                        <div class="circle">
+                                            <h3 class="circle-text" data-value="70">70%</h3>
+                                        </div>
+                                        <h4 class="circle-down-txt">Spring</h4>
+
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="circle-border-60">
+                                        <div class="circle">
+                                            <h3 class="circle-text" data-value="60">60%</h3>
+                                        </div>
+                                        <h4 class="circle-down-txt">NodeJS</h4>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="circle-border-60" data-aos="fade-up">
+                                        <div class="circle">
+                                            <h3 class="circle-text" data-value="60">60%</h3>
+                                        </div>
+                                        <h4 class="circle-down-txt">Angular</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="container text-center">
+                        <div class="row text-center icon-div" style="padding-left: 5em;padding-bottom: 5em;">
+                            <div class="row text-center">
+                                <div class="col-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+                                    <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
+                                        style="width: 150px;filter: grayscale(100%)" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                                    <img src="../../assets/img/nodejs-logo-png--435.png"
+                                        style="width: 150px;filter: grayscale(100%)" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                                    <img src="../../assets/img/512px-HTML5_logo_and_wordmark.svg.png"
+                                        style="width: 150px;filter: grayscale(100%)" alt="" class="img-fluid">
+                                </div>
+                                <div class="col-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                                    <img src="../../assets/img/unnamed.png"
+                                        style="width: 150px;height: 120px;;filter: grayscale(100%)" alt=""
+                                        class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="500">
+                                    <img src="../../assets/img/angular.png" style="width: 150px;filter: grayscale(100%)"
+                                        alt="" class="img-fluid">
+                                </div>
+                                <div class="col-5" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                                    <img src="../../assets/img/Bootstrap-Logo-PNG-715x715.png"
+                                        style="width: 150px;filter: grayscale(100%)" alt="" class="img-fluid">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="price-card-div" #table>
+                <div class="card-div-header-txt container text-center">
+                    <h1 class="pricing-h1" data-aos="fade-down" data-aos-duration="1000">
+                        {{this.multiLanguage[0][0][language].pricing_header}}</h1>
+                    <p class="pricing-paragraf" data-aos="fade-right" data-aos-duration="1000">
+                        {{this.multiLanguage[0][0][language].pricing_paragraf_fp}}<span
+                            style="background-color: #ff9600;padding-left: .5em;padding-right: .5em;">{{this.multiLanguage[0][0][language].pricing_paragraf_span}}</span>,<br> {{this.multiLanguage[0][0][language].pricing_paragraf_sp}}
+                    </p>
+                </div>
+                <div class="container text-center" data-aos="zoom-in" data-aos-duration="1000">
+                    <img src="../../assets/img/line-img.png" alt="" class="img-fluid ">
+                </div>
+                <div class="container price-card-container">
+                    <div class="row">
+                        <div class="col-sm text-center price-card" data-aos="fade-up" data-aos-duration="1000"
+                            data-aos-delay="200" style="padding: 0%;" id="price-card">
+                            <div class="price-div">
+                                <p style="font-size: 30px;" id="price-div">€<span
+                                        style="font-size: 80px;">20</span>{{this.multiLanguage[0][0][language].month_span}}
+                                </p>
+                            </div>
+                            <div class="header-card text-center">
+                                <h4>{{this.multiLanguage[0][0][language].basic_text}}</h4>
+                            </div>
+                            <div class="text-center price-card-content">
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].basic_card_fact1}}
+                                </h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].basic_card_fact2}}
+                                </h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].basic_card_fact3}}
+                                </h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].basic_card_fact4}}
+                                </h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].basic_card_fact5}}
+                                </h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].basic_card_fact6}}
+                                </h6>
+                            </div>
+                            <div class="line"></div>
+                            <div class="price-card-btn-div" id="btn-div">
+                                <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
+                                <a (click)="scrollToElement(contact)">
+                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                </a>
+                              
+                            </div>
+                        </div>
+                        <div class="col-sm text-center price-card" data-aos="fade-up" data-aos-duration="1000"
+                            data-aos-delay="600" style="margin-left: 2em;padding: 0%;" id="price-card">
+                            <div class="price-div">
+                                <p style="font-size: 30px;" id="price-div">€<span
+                                        style="font-size: 80px;">40</span>{{this.multiLanguage[0][0][language].month_span}}
+                                </p>
+                            </div>
+                            <div class="header-card text-center">
+                                <h4>{{this.multiLanguage[0][0][language].advanced}}</h4>
+                            </div>
+                            <div class="text-center price-card-content">
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].advanced_fact1}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].advanced_fact2}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].advanced_fact3}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].advanced_fact4}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].advanced_fact5}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].advanced_fact6}}</h6>
+                            </div>
+                            <div class="line"></div>
+                            <div class="price-card-btn-div" id="btn-div">
+                                <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
+                                <a (click)="scrollToElement(contact)">
+                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm text-center price-card" data-aos="fade-up" data-aos-duration="1000"
+                            data-aos-delay="1000" style="margin-left: 2em;padding: 0%;" id="price-card">
+                            <div class="price-div">
+                                <p style="font-size: 30px;" id="price-div">€<span
+                                        style="font-size: 80px;">60</span>{{this.multiLanguage[0][0][language].month_span}}</p>
+                            </div>
+                            <div class="header-card text-center">
+                                <h4>{{this.multiLanguage[0][0][language].pro}}</h4>
+                            </div>
+                            <div class="text-center price-card-content">
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].pro_fact1}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].pro_fact2}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].pro_fact3}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].pro_fact4}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].pro_fact5}}</h6>
+                                <h6 class="card-content-txt">{{this.multiLanguage[0][0][language].pro_fact6}}</h6>
+                            </div>
+                            <div class="line"></div>
+                            <div class="price-card-btn-div" id="btn-div">
+                                <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
+                                <a (click)="scrollToElement(contact)">
+                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="web-example-div">
+                <div class="container">
+                    <div class="text-center web-header-div" #webapp>
+                        <h1 class="text-center web-h1" data-aos="fade-down" data-aos-duration="1000">
+                            {{this.multiLanguage[0][0][language].web_app_header}}</h1>
+                        <img src="../../assets/img/divider.png" data-aos="fade-right" data-aos-duration="1000" alt=""
+                            class="img-fluid" style="width: 300px;">
+
+                    </div>
+                    <div class="row phone-element">
+                        <div class="col-sm-3">
+                            <div class="" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="200">
+                                <div class="row">
+                                    <img src="../../assets/img/login-icon.png" style="width: 60px;" class="img-fluid"
+                                        alt="">
+                                    <h2 class="web-card-h2">{{this.multiLanguage[0][0][language].encryption}}</h2>
+                                </div>
+                                <p class="web-paragraf">{{this.multiLanguage[0][0][language].encryption_text}}</p>
+                            </div>
+                            <div class="bottom-div" data-aos="fade-up-right" data-aos-duration="1000"
+                                data-aos-delay="400">
+                                <div class="row">
+                                    <img src="../../assets/img/100570_preview.png" style="width: 60px;"
+                                        class="img-fluid" alt="">
+                                    <h2 class="web-card-h2">{{this.multiLanguage[0][0][language].performance}}</h2>
+                                </div>
+                                <p class="web-paragraf">{{this.multiLanguage[0][0][language].peformance_text}}</p>
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-6" >
+                            <img src="../../assets/img/responsive.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-sm-3" data-aos="fade-down-left" data-aos-duration="1000">
+                            <div class="row">
+                                <img src="../../assets/img/window_screen_with_mobile_icon-512.png" style="width: 60px;"
+                                    class="img-fluid" alt="">
+                                <h2 class="web-card-h2">{{this.multiLanguage[0][0][language].responsive}}</h2>
+
+                                <p class="web-paragraf">{{this.multiLanguage[0][0][language].responsive_text}}</p>
+                            </div>
+
+                            <div class="bottom-div" data-aos="fade-up-left" data-aos-duration="1000">
+                                <div class="row">
+                                    <img src="../../assets/img/admin-dashboard-icon-png.png" style="width: 60px;"
+                                        class="img-fluid" alt="">
+                                    <h2 class="web-card-h2">{{this.multiLanguage[0][0][language].admin_panel}}</h2>
+                                </div>
+                                <p class="web-paragraf">{{this.multiLanguage[0][0][language].admin_panel_text}}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center line-svg" data-aos="fade-down" data-aos-duration="1100" data-aos-delay="200"
+                style="padding-top: 4em;">
+                <img src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/connecting-line-3.svg"
+                    alt="" class="img-fluid zoom" >
+            </div>
+            <div class="order-div">
+                <div class="">
+                    <div class="row" style="width: 99%;">
+                        <div class="col-sm" id="make-website">
+                            <div class="order-content  left-order-col container">
+                                <h1 class="orange-h1" data-aos="fade-right" data-aos-duration="1100"
+                                    data-aos-delay="400">{{this.multiLanguage[0][0][language].order_first_header}}</h1>
+                                <h1 class="white-h1" data-aos="fade-right" data-aos-duration="1100"
+                                    data-aos-delay="600">{{this.multiLanguage[0][0][language].order_second_header}}</h1>
+                                <mat-divider class="orange-divider" data-aos="zoom-in" data-aos-duration="1100"
+                                    data-aos-delay="400"></mat-divider>
+                                <p class="order-paragraf" data-aos="fade-up" data-aos-duration="1100"
+                                    data-aos-delay="800">
+                                    {{this.multiLanguage[0][0][language].order_paragraf_fp}} <span
+                                        class="black-span">{{this.multiLanguage[0][0][language].order_paragraf_span}}</span>,{{this.multiLanguage[0][0][language].order_paragraf_sp}}
+                                </p>
+                                
+                                    <a [routerLink]="['/order']" routerLinkActive="router-link-active">
+                                        <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
+                                        data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
+                                    </a>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm right-order-col text-center" data-aos="fade-up" data-aos-duration="1100"
+                            data-aos-delay="1200">
+                            <img src="../../assets/img/web-development.png" alt="" class="img-fluid" id="web-png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container photo-container text-center" #photo>
+                <h1 class="photo-h1">{{this.multiLanguage[0][0][language].photography_header}}</h1>
+                <p class="photo-large-paragraf">{{this.multiLanguage[0][0][language].photography_paragraf}}</p>
+                <mat-divider></mat-divider>
+                <div class="row text-center photo-row">
+                    <div class="col-sm-3 ">
+
+                    </div>
+                    <div class="col-sm-3 photo-col" style="margin-right: -3em;">
+                        <div class="photo-card-content">
+                            <h1 class="photo-card-h1">{{this.multiLanguage[0][0][language].photo_shoot}}</h1>
+                            <p class="photo-card-paragraf">
+                                {{this.multiLanguage[0][0][language].photo_shoot}}
+                            </p>
+                            <i class="fa fa-camera"></i>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 photo-col" style="margin-left: 5em;">
+                        <div class="photo-card-content">
+                            <h1 class="photo-card-h1">{{this.multiLanguage[0][0][language].photo_edit2}}</h1><br><br>
+                            <p class="photo-card-paragraf">
+                                {{this.multiLanguage[0][0][language].photo_edit}}
+                            </p>
+                            <i class="fa fa-picture-o"></i>
+
+
+                        </div>
+                    </div>
+                    <div class="col-sm-3 ">
+
+                    </div>
+                </div>
+            </div>
+            <div #contact>
+                <app-footer></app-footer>
+            </div>
+
+            <div class="text-right">
+                <button class="up-btn"><i class="fa fa-arrow-up" style="color: #ff9600;font-size: 40px;"
+                        (click)="scrollToElement(target)"></i></button>
+            </div>
+
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

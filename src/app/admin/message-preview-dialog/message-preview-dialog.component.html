@@ -1,0 +1,43 @@
+<div class="container" style="height: 100vh;">
+    <div class="row">
+        <div class="col-sm" style="padding: 2em;height: 100vh;">
+            <form [formGroup]="sendMailForm">
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Favorite food</mat-label>
+                        <input matInput formControlName="toMail" value="{{data.mail.mail}}">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Favorite food</mat-label>
+                        <input matInput formControlName="subject">
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Leave a comment</mat-label>
+                        <textarea matInput formControlName="message" placeholder="Ex. It makes me feel..."></textarea>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-raised-button (click)="sendMail();">Posalji</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm" style="padding: 2em;background-color: #0f0f0f;">
+            <div style="padding-bottom: 1em;">
+                <h1 class="h1-form">From: {{data.mail.name + " " + data.mail.lastname}} </h1>
+                <h3 class="mail-h3">Mail: {{data.mail.mail}}</h3>
+                <h4 class="subject-h4">{{data.mail.subject}}</h4>
+            </div>
+            <mat-divider></mat-divider>
+            <div style="padding-top: 1em;">
+                <h5 class="mail-content" id="mail-content">
+                    {{data.mail.message}}
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

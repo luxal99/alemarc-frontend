@@ -1,0 +1,124 @@
+.menu-btn {
+    border: 0px;
+    color: #ff9600;
+    font-size: 40px;
+    padding: .5em;
+    background-color: transparent;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 20px;
+}
+a:hover{
+    text-decoration: none;
+}
+
+.social-icon-left {}
+
+.sidenav-content {
+    padding: 5em;
+    background-color: #ff9600;
+    position: fixed;
+}
+
+.nav-link-h2 {
+    font-family: 'Bebas Neue', cursive;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.5em;
+    ;
+}
+
+.nav-link-h2:hover {
+    color: #a55d00;
+    transition: .5s ease;
+}
+
+.small-link-div {
+    padding-top: 3em;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 30px;
+}
+
+.social-icon-left {
+    color: #fff;
+    font-size: 30px;
+    margin-left: 2em;
+}
+
+.social-icon:hover,
+.social-icon-left:hover,
+.close-icon:hover {
+    color: #a55d00;
+    transition: .5s ease;
+}
+
+.close-icon {
+    font-size: 40px;
+    position: fixed;
+}
+
+.nav-link-h4 {
+    color: #a55d00;
+    font-family: 'Dosis', sans-serif;
+    text-transform: uppercase;
+    line-height: 2em;
+}
+
+.nav-link-h4:hover {
+    color: #fff;
+    transition: .5s ease;
+}
+
+@media screen and (min-width:1100px){
+    .sidenav-content{
+        width: 60vh;
+    }
+}
+
+@media screen and (max-width:380px){
+    .sidenav-content{
+        padding: 3em !important;
+        width: 45vh !important;
+        margin-top: -2em !important;
+    }
+    .social-div{
+        padding-top: 2em !important;
+    }
+    .small-link-div{
+        padding-top: 2em !important;
+    }
+    .side-icon{
+        padding-top: 1em !important;
+    }
+   
+
+}
+@media screen and (max-width:420px){
+    .sidenav-content{
+        margin-top: -1em !important;
+        padding: 3em !important;
+        width: 40vh !important;
+        
+    }
+    .mob-sidenav{
+        margin-top: -1em !important;
+        padding: 3em !important;
+        width: 40vh !important;
+    }
+
+    .social-div{
+        padding-top: 2em !important;
+    }
+    .small-link-div{
+        padding-top: 2em !important;
+    }
+    .side-icon{
+        padding-top: 1em !important;
+    } 
+}
+

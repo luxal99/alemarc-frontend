@@ -1,0 +1,27 @@
+<div class="container text-center">
+    <form [formGroup]="changeLoginForm">
+        <div>
+            <i class="fa fa-user" style="padding-right: .5em;"></i>
+            <mat-form-field class="example-full-width">
+
+                <input matInput formControlName="username" placeholder="Username" value="">
+            </mat-form-field><br>
+        </div>
+        <div>
+            <i class="fa fa-lock" style="padding-right: .5em;"></i>
+            <mat-form-field class="example-full-width">
+                <input matInput type="password" placeholder="Old Password" formControlName="password" value="">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="example-full-width">
+            <input matInput type="newPassword" placeholder="New Password" formControlName="newPassword" value="">
+        </mat-form-field>
+        <div class="col text-center">
+            <button mat-button class="border-btn" (click)="changeLogin();">Change login data</button>
+        </div>
+
+
+
+    </form>
+</div>

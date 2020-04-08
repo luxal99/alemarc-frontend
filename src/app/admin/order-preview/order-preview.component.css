@@ -1,0 +1,46 @@
+h1,
+h3 {
+    font-family: 'Cairo', sans-serif;
+}
+
+h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+.about-client-div {
+    padding-top: 2em;
+}
+
+.info-h1 {
+    padding-top: .3em;
+    padding-bottom: .3em;
+}
+
+mat-dialog-container {
+    padding: 0px !important;
+    background: #ff9600;
+}
+
+.row {
+    padding: .5em;
+}
+
+mat-dialog-container {
+    background-color: #ff9600;
+}
+
+.send-btn {
+    background-color: #fff;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border-radius: 25px;
+}
