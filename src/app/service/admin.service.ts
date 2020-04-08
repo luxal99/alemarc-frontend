@@ -53,6 +53,10 @@ export class AdminService implements CanActivate {
     return this.http.get('/admin/getBlogs',{responseType:'json'});
   }
 
+  deleteBlog(_id){
+    return this.http.delete("/admin/deleteBlog/"+_id,{responseType:'text'});
+  }
+
   uploadPhoto(photos) {
     return this.http.post("/admin/upload", photos, { responseType: 'text' })
   }

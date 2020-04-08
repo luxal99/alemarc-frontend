@@ -211,6 +211,12 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   }
 
+  delteBlog(_id){
+    this.adminService.deleteBlog(_id).subscribe(data=>{
+      this.getBlogs();
+    })
+  }
+
 
   removeToken() {
     setTimeout(() => {
