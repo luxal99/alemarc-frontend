@@ -16,6 +16,12 @@
             </a>
 
         </div>
+        <div class="text-left nav-link-div">
+            <a (click)="openBlogDialog();">
+                <h3 style="color: #fff;border-left: 5px solid #ff9000;padding-left: .5em;"><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size: 35px;color: #ff9000;"></i> Orders</h3>
+            </a>
+
+        </div>
         <div>
             <div style="margin-top: 10em;">
                 <div class="text-center">
@@ -121,12 +127,6 @@
 
                 </table>
 
-                <button mat-raised-button color="basic" (click)="getEditor()" >Add</button>
-                <button mat-raised-button color="basic" (click)="someFunction()" >Print</button>
-                <div class="container" style="margin-top: 5em;">
-                    <ckeditor #editor (focus)="onChange($event)" [editor]="Editor" data="{{editorData}}"></ckeditor>
-                </div>
-                <h1 [innerHTML]="html"></h1>
             </div>
 
         </div>

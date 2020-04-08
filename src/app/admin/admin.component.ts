@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { ChangeLoginComponent } from './change-login/change-login.component';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
+import { BlogDialogComponent } from './blog-dialog/blog-dialog.component';
 
 export interface Mail {
   id: number;
@@ -35,32 +36,6 @@ export interface Order {
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit, AfterViewInit {
-
-  @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
-
-  html = '';
-  editorData = '';
-
-  getEditor() {
-    // Warning: This may return "undefined" if the editor is hidden behind the `*ngIf` directive or
-    // if the editor is not fully initialised yet.
-
-    this.html = this.editorComponent.editorInstance.getData();
-    return this.editorComponent.change;
-  }
-
-  someFunction(text) {
-    console.log(text);
-
-  }
-
-  onChange({ editor }: ChangeEvent) {
-    const data = editor.getData();
-
-    console.log(data);
-  }
-
-  public Editor = ClassicEditor;
 
   mailColumn: string[] = ['id', 'name', 'lastname', 'subject', 'option'];
   orderColumn: string[] = ['name', 'lastname', 'mail', 'telephone', 'option'];
@@ -183,9 +158,26 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
   }
 
+  
   openChangeLoginDialog(): void {
     const dialogRef = this.dialog.open(ChangeLoginComponent, {
       width: 'auto'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (localStorage.getItem('isPasswordChanged') === 'true') {
+        this.router.navigate(['/login']);
+      }
+    });
+
+
+  }
+
+    
+  openBlogDialog(): void {
+    const dialogRef = this.dialog.open(BlogDialogComponent, {
+      width: '1000px',
+      height:'auto'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -201,7 +193,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   removeToken() {
     setTimeout(() => {
       localStorage.removeItem('token')
-    }, 1000 * 30);
+    }, 1000 * 120);
   }
 
 

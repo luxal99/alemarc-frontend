@@ -1,0 +1,29 @@
+<div class="container">
+
+    <!-- <button mat-raised-button color="basic" (click)="getEditor()" >Add</button>
+    <button mat-raised-button color="basic" (click)="someFunction()" >Print</button> -->
+<div style="padding-left: 2em;">
+    <div>
+        <h1 style="padding-top: 1em;">Post new blog</h1>
+        <form [formGroup]="blogHeader">
+            <mat-form-field appearance="outline" style="width: 50vh;padding-top: 2em;">
+                <mat-label>Outline form field</mat-label>
+                <input formControlName="header" matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+        </form>
+    </div>
+    <div>
+        <input type="file" #file  (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+    </div>
+    
+
+</div>
+    <div class="container" style="margin-top: 2em;">
+        <ckeditor #editor [editor]="Editor" data="{{editorData}}"></ckeditor>
+    </div>
+
+    <button (click)="saveBlog()" mat-raised-button color="primary" class="save-btn">Save</button>
+    
+</div>

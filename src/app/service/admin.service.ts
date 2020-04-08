@@ -44,4 +44,12 @@ export class AdminService implements CanActivate {
   changeLogin(user) {
     return this.http.put('/admin/changeLogin', user, { responseType: 'text' });
   }
+
+  saveBlog(blog) {
+    return this.http.post("/admin/saveBlog", blog, { responseType: 'text' });
+  }
+
+  uploadPhoto(photos) {
+    return this.http.post("/admin/upload", photos, { responseType: 'text' })
+  }
 }
