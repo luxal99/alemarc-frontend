@@ -16,6 +16,7 @@ export class BlogDialogComponent implements OnInit {
   // One of the select images
   image_url;
 
+
   /**
    * List of images path destination
    * This use to send to MongoDB and later
@@ -26,6 +27,7 @@ export class BlogDialogComponent implements OnInit {
   constructor(public adminService: AdminService) { }
 
   ngOnInit() {
+    
   }
   blogHeader = new FormGroup({
     header: new FormControl()
@@ -33,7 +35,7 @@ export class BlogDialogComponent implements OnInit {
 
   // Html editor
   @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
-  
+
   public Editor = ClassicEditor;
 
   // Multiple file selector
@@ -44,15 +46,15 @@ export class BlogDialogComponent implements OnInit {
   blog_content = '';
   editorData = '';
 
-  
+
   // Add images to list for upload
   onFilesAdded() {
     const files: { [key: string]: File } = this.file.nativeElement.files;
     for (let key in files) {
       if (!isNaN(parseInt(key))) {
         this.files.add(files[key]);
-        this.images.push('assets/img/blog/'+files[key].name)
-        
+        this.images.push('assets/img/blog/' + files[key].name)
+
 
       }
     }
@@ -77,5 +79,6 @@ export class BlogDialogComponent implements OnInit {
     this.adminService.saveBlog(blog).subscribe(data => {
     })
   }
+
 
 }

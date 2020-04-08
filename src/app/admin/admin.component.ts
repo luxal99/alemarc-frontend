@@ -37,6 +37,8 @@ export interface Order {
 })
 export class AdminComponent implements OnInit, AfterViewInit {
 
+  listOfBlogs: any = [];
+
   mailColumn: string[] = ['id', 'name', 'lastname', 'subject', 'option'];
   orderColumn: string[] = ['name', 'lastname', 'mail', 'telephone', 'option'];
 
@@ -64,6 +66,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this.getAllMessages();
     this.getAllOrders();
     this.removeToken();
+    this.getBlogs();
 
   }
 
@@ -123,6 +126,14 @@ export class AdminComponent implements OnInit, AfterViewInit {
     })
   }
 
+  getBlogs() {
+    this.adminService.getBlogs().subscribe(data => {
+      this.listOfBlogs = data;
+      console.log(data);
+      
+    })
+  }
+
   deleteOrder(id_site_order) {
     this.adminService.deleteOrder(id_site_order).subscribe(data => {
       this.getAllOrders();
@@ -158,7 +169,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
   }
 
-  
+
   openChangeLoginDialog(): void {
     const dialogRef = this.dialog.open(ChangeLoginComponent, {
       width: 'auto'
@@ -173,11 +184,11 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   }
 
-    
+
   openBlogDialog(): void {
     const dialogRef = this.dialog.open(BlogDialogComponent, {
       width: '1000px',
-      height:'auto'
+      height: 'auto'
     });
 
     dialogRef.afterClosed().subscribe(result => {
