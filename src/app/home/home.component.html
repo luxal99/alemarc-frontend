@@ -495,7 +495,7 @@
             <div class="blog-container container text-center">
 
 
-                <div class="blog-div">
+                <div class="blog-div" *ngFor="let blog of listOfBlogs">
                     <figure class="imghvr-shutter-in-out-diag-2">
                         <img src="../../assets/img/avatar3.png" class="img-fluid">
                         <figcaption class="text-center figcaption-container" style="background-color: #ff9600   ;">
@@ -529,19 +529,10 @@
                            
                             <div class="swiper-wrapper">
                                
-                                <div class="swiper-slide ">
-                                    <img src="../../assets/img/avatar3.png" class="img-fluid">
+                                <div class="swiper-slide " *ngFor="let image of blog.images">
+                                    <img src="{{image}}" class="img-fluid">
                                 </div>
-                                <div class="swiper-slide"> 
-                                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                                </div>
-                                <div class="swiper-slide">
-                                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                                </div>
-                                
-                                <div class="swiper-slide">
-                                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                                </div>
+                               
                                
                             </div>
                             

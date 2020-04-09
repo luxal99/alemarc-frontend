@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeTranslate } from '../translate/home';
 import Swiper, { SwiperOptions } from 'swiper';
 import * as $ from 'jquery';
+import { AdminService } from '../service/admin.service';
 
 @Component({
   selector: 'app-home',
@@ -9,53 +10,51 @@ import * as $ from 'jquery';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+
   isDisplay = true;
-  toggleDisplay(){
+  toggleDisplay() {
     this.isDisplay = !this.isDisplay;
   }
 
+  listOfBlogs:any=[];
+  
+
   language = '';
   multiLanguage: Array<any> = [HomeTranslate.languagesWords];
-  
-  
+
+
   config: SwiperOptions = {
-    pagination: {
-      el: '.swiper-pagination',
-    },  loop: true,
-  }
- 
-  constructor() { }
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  };
+
+  constructor(public adminServie:AdminService) { }
 
   setDefault() {
     var isLanguageSet = localStorage.getItem('language');
 
     if (isLanguageSet === null) {
-      localStorage.setItem('language','en');
+      localStorage.setItem('language', 'en');
       this.language = localStorage.getItem('language');
     }
   }
 
   ngOnInit() {
-    
+
     this.printTest();
     window.scrollTo(0, 0);
     this.setDefault();
     this.language = localStorage.getItem('language');
-    document.getElementById(localStorage.getItem('language')).style.color='#fff';
+    document.getElementById(localStorage.getItem('language')).style.color = '#fff';
+    window.scrollTo(0, 0);
+    this.language = localStorage.getItem('language');
+    document.getElementById(localStorage.getItem('language')).style.color = '#fff';
 
-
-
-
-    this.swiper();
-    
-   window.scrollTo(0,0);
-   this.language= localStorage.getItem('language');
-   document.getElementById(localStorage.getItem('language')).style.color='#fff';
-
-
-  
-
-  
+    this.getBlogs();
   }
   scrollToElement($element): void {
     $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
@@ -64,22 +63,20 @@ export class HomeComponent implements OnInit {
 
   changeLanguage(changeLanguage) {
     localStorage.setItem("language", changeLanguage);
-    document.getElementById(localStorage.getItem('language')).style.color='#fff';
+    document.getElementById(localStorage.getItem('language')).style.color = '#fff';
     this.language = changeLanguage;
     document.getElementById('main').style.display = 'none';
     location.reload();
   }
-  swiper(){
-    var swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
 
+
+  getBlogs(){
+    this.adminServie.getBlogs().subscribe(data=>{
+      this.listOfBlogs = data;
+      console.log(this.listOfBlogs[0].images);
+      
+      
+    })
   }
 
 
