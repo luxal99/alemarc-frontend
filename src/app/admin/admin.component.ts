@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 import { ChangeLoginComponent } from './change-login/change-login.component';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
+import { BlogDialogComponent } from './blog-dialog/blog-dialog.component';
+import { BlogPreviewDialogComponent } from './blog-preview-dialog/blog-preview-dialog.component';
 
 export interface Mail {
   id: number;
@@ -36,31 +38,7 @@ export interface Order {
 })
 export class AdminComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
-
-  html = '';
-  editorData = '';
-
-  getEditor() {
-    // Warning: This may return "undefined" if the editor is hidden behind the `*ngIf` directive or
-    // if the editor is not fully initialised yet.
-
-    this.html = this.editorComponent.editorInstance.getData();
-    return this.editorComponent.change;
-  }
-
-  someFunction(text) {
-    console.log(text);
-
-  }
-
-  onChange({ editor }: ChangeEvent) {
-    const data = editor.getData();
-
-    console.log(data);
-  }
-
-  public Editor = ClassicEditor;
+  listOfBlogs: any = [];
 
   mailColumn: string[] = ['id', 'name', 'lastname', 'subject', 'option'];
   orderColumn: string[] = ['name', 'lastname', 'mail', 'telephone', 'option'];
@@ -89,6 +67,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     this.getAllMessages();
     this.getAllOrders();
     this.removeToken();
+    this.getBlogs();
 
   }
 
@@ -109,21 +88,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
     document.getElementById('mail-div').style.transition = 'opacity 1s ease-out';
   }
 
-
-  openMessage(mail): void {
-    const dialogRef = this.dialog.open(MessagePreviewDialogComponent, {
-      width: 'auto',
-      position: { left: '0' },
-      height: '100vh',
-      data: {
-        mail: mail
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
-    });
-  }
   getAllMessages() {
     const token = localStorage.getItem("token");
 
@@ -148,6 +112,14 @@ export class AdminComponent implements OnInit, AfterViewInit {
     })
   }
 
+  getBlogs() {
+    this.adminService.getBlogs().subscribe(data => {
+      this.listOfBlogs = data;
+      console.log(data);
+      
+    })
+  }
+
   deleteOrder(id_site_order) {
     this.adminService.deleteOrder(id_site_order).subscribe(data => {
       this.getAllOrders();
@@ -167,21 +139,39 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
   }
 
-  logout() {
-    var isAuthenticated = { "isAuthenticated": false };
+  openBlogPreview(blog): void {
+    const dialogRef = this.dialog.open(BlogPreviewDialogComponent, {
+      width: 'auto',
+      data: blog
+    });
 
-    this.adminService.logout(isAuthenticated).subscribe(data => {
-
-    })
-    this.router.navigate(['login']);
-    localStorage.removeItem("token");
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
+
+
+  openMessage(mail): void {
+    const dialogRef = this.dialog.open(MessagePreviewDialogComponent, {
+      width: 'auto',
+      position: { left: '0' },
+      height: '100vh',
+      data: {
+        mail: mail
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
+  }
+
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
   }
+
 
   openChangeLoginDialog(): void {
     const dialogRef = this.dialog.open(ChangeLoginComponent, {
@@ -198,10 +188,43 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
 
+  openBlogDialog(): void {
+    const dialogRef = this.dialog.open(BlogDialogComponent, {
+      width: '1000px',
+      height: '100vh'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (localStorage.getItem('isPasswordChanged') === 'true') {
+        this.router.navigate(['/login']);
+      }
+    });
+
+
+  }
+
+  logout() {
+    var isAuthenticated = { "isAuthenticated": false };
+
+    this.adminService.logout(isAuthenticated).subscribe(data => {
+
+    })
+    this.router.navigate(['login']);
+    localStorage.removeItem("token");
+  }
+
+
+  delteBlog(_id){
+    this.adminService.deleteBlog(_id).subscribe(data=>{
+      this.getBlogs();
+    })
+  }
+
+
   removeToken() {
     setTimeout(() => {
       localStorage.removeItem('token')
-    }, 1000 * 30);
+    }, 1000 * 120);
   }
 
 
