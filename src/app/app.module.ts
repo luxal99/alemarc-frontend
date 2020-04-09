@@ -27,6 +27,7 @@ import { BlogDialogComponent } from './admin/blog-dialog/blog-dialog.component';
 import { BlogPreviewDialogComponent } from './admin/blog-preview-dialog/blog-preview-dialog.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { ShowBlogDialogComponent } from './home/show-blog-dialog/show-blog-dialog.component';
+import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ShowBlogDialogComponent } from './home/show-blog-dialog/show-blog-dialo
     ChangeLoginComponent,
     BlogDialogComponent,
     BlogPreviewDialogComponent,
-    ShowBlogDialogComponent
+    ShowBlogDialogComponent,
+    BlogDetailComponent
   ],
   imports: [
     CommonModule,

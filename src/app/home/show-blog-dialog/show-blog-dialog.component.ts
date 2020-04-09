@@ -13,7 +13,7 @@ export class ShowBlogDialogComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.data);
-    
+    this.swiper()
   }
 
   config: SwiperOptions = {
@@ -22,5 +22,18 @@ export class ShowBlogDialogComponent implements OnInit {
       prevEl: '.swiper-button-prev'
     },
   };
+
+  swiper(){
+    var swiper = new Swiper('.swiper-container', {
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+  }
 
 }

@@ -3,27 +3,25 @@
                     <div class="col-sm-8" style="padding: 0% !important;">
                         <swiper [config]="config">
 
-                          <div class="swiper-container">
-                           
-                            <div class="swiper-wrapper">
-                               
-                                <div class="swiper-slide " *ngFor="let image of data.images">
-                                    <img src="{{image}}" class="img-fluid">
+                            <div class="swiper-wrapper product-slider-container">
+                    
+                              <div class="swiper-slide slider" *ngFor="let image of data.images">
+                                <div>
+                                  <img class="img-fluid" src="{{image}}" />
+                              
                                 </div>
-                               
-                               
+                              </div>
+                    
                             </div>
-                            
-                        </div>
-
+                    
                             <!-- Add Pagination -->
                             <div class="swiper-pagination"></div>
-
+                    
                             <!-- Add Arrows -->
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
-
-                        </swiper>
+                    
+                          </swiper>
 
                     </div>
 

@@ -498,7 +498,7 @@
                 <div class="blog-div" *ngFor="let blog of listOfBlogs">
                     <figure class="imghvr-shutter-in-out-diag-2">
                         <img src="{{blog.cover}}" class="img-fluid">
-                        <figcaption class="text-center figcaption-container" style="background-color: #ff9600   ;">
+                    <figcaption class="text-center figcaption-container" style="background-color: #ff9600;">
                             <h4 class="">Naslov</h4>
                             <h6> LOREM IPSUM
                                 IMAGES
@@ -508,7 +508,7 @@
 
                             <div>
 
-                                <button class="header-btn" (click)="openBlog(blog)" style="">More</button>
+                                <button class="header-btn" routerLink="/blog/{{blog._id}}" routerLinkActive="router-link-active"  style="">More</button>
 
                             </div>
 

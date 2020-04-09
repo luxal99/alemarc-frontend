@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Cairo|Dosis&display=swap');
+@import '../../../assets/css/sidebar/sidebar.css';
+div{
+    font-family: Cairo, sans-serif;
+    color: #eee;
+}
+
+mat-drawer{
+    width: 40vh;
+}
+
+h1{
+    color: orange;
+    padding-top: 5em;
+}
+
+.blog{
+    background-color: #0f0f0f;
+    min-height: 100vh;
+}
+
+.mat-divider {
+    border-top-color: orange;
+}

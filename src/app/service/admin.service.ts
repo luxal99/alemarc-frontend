@@ -57,6 +57,9 @@ export class AdminService implements CanActivate {
     return this.http.delete("/admin/deleteBlog/"+_id,{responseType:'text'});
   }
 
+  findBlogById(_id){
+    return this.http.get("/admin/getOneBlog/"+_id,{responseType:'json'})
+  }
   uploadPhoto(photos) {
     return this.http.post("/admin/upload", photos, { responseType: 'text' })
   }
