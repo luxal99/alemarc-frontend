@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import Swiper,{SwiperOptions} from 'swiper'
 
 @Component({
   selector: 'app-show-blog-dialog',
@@ -14,5 +15,12 @@ export class ShowBlogDialogComponent implements OnInit {
     console.log(this.data);
     
   }
+
+  config: SwiperOptions = {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+  };
 
 }

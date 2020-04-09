@@ -80,7 +80,8 @@ export class BlogDialogComponent implements OnInit {
       header: header,
       images: this.images,
       text_sr: this.text_sr,
-      text_en:this.text_en
+      text_en:this.text_en,
+      cover:this.images[0]
     }
     this.adminService.saveBlog(blog).subscribe(data => {
     })
