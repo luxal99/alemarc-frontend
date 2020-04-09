@@ -22,3 +22,21 @@ h1{
 .mat-divider {
     border-top-color: orange;
 }
+
+.white-divider{
+    border-top-color: #eee ;
+}
+
+.back-btn{
+    font-size: 20px;
+    margin-top: 2em;
+    background-color: transparent;
+    border: 0;
+    color: #eee;
+    padding: .5em;
+
+}
+
+.back-btn:hover{
+    background-color: rgba(29, 29, 29, 0.253);;
+}
