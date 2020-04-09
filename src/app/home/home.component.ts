@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeTranslate } from '../translate/home';
-import Swiper from 'swiper';
+import Swiper, { SwiperOptions } from 'swiper';
 import * as $ from 'jquery';
 
 @Component({
@@ -18,6 +18,11 @@ export class HomeComponent implements OnInit {
   multiLanguage: Array<any> = [HomeTranslate.languagesWords];
   
   
+  config: SwiperOptions = {
+    pagination: {
+      el: '.swiper-pagination',
+    },  loop: true,
+  }
  
   constructor() { }
 
@@ -66,12 +71,12 @@ export class HomeComponent implements OnInit {
   }
   swiper(){
     var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 4,
-      spaceBetween: 30,
-      centeredSlides: true,
       pagination: {
         el: '.swiper-pagination',
-        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
     });
 

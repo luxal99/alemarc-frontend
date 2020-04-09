@@ -68,7 +68,8 @@
                     <div class="col-sm"></div>
                     <div class="col-sm ">
                         <div class="col-sm text-right language-div">
-                            <a (click)="changeLanguage('en')" id="en" class="language-link">EN</a> | <a (click)="changeLanguage('sr')" id="sr" class="language-link">SRB</a>
+                            <a (click)="changeLanguage('en')" id="en" class="language-link">EN</a> | <a
+                                (click)="changeLanguage('sr')" id="sr" class="language-link">SRB</a>
                         </div>
                         <h1 class="h1-header" data-aos="fade-down" data-aos-duration="1000">Alemarc Dev</h1>
                         <h1 class="main-h1 " data-aos="fade-right" data-aos-duration="1000">
@@ -79,9 +80,9 @@
                         </p>
                         <a (click)="scrollToElement(about)">
                             <button class="header-btn " data-aos="fade-up"
-                            data-aos-duration="1000">{{this.multiLanguage[0][0][language].header_btn}}</button>
+                                data-aos-duration="1000">{{this.multiLanguage[0][0][language].header_btn}}</button>
                         </a>
-                        
+
                     </div>
 
                 </div>
@@ -93,10 +94,13 @@
                         <div class="card-container-text-col " #about>
                             <h1 data-aos="fade-right" data-aos-duration="1000">
                                 {{this.multiLanguage[0][0][language].four_card_h1}}</h1>
-                            <p class="four-card-header-paragraf" data-aos="fade-right" data-aos-duration="1000">{{this.multiLanguage[0][0][language].four_card_paragraf_fp}}<span style="color: #0f0f0f;">{{this.multiLanguage[0][0][language].four_card_paragraf_span}}</span> {{this.multiLanguage[0][0][language].four_card_paragraf_sp}}</p>
+                            <p class="four-card-header-paragraf" data-aos="fade-right" data-aos-duration="1000">
+                                {{this.multiLanguage[0][0][language].four_card_paragraf_fp}}<span
+                                    style="color: #0f0f0f;">{{this.multiLanguage[0][0][language].four_card_paragraf_span}}</span>
+                                {{this.multiLanguage[0][0][language].four_card_paragraf_sp}}</p>
                             <a [routerLink]="['/order']" routerLinkActive="router-link-active">
                                 <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
-                                data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
+                                    data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
                             </a>
                         </div>
                     </div>
@@ -109,7 +113,9 @@
                                         <img src="../../assets/img/Coding-icon.png " alt=" " class="img-fluid "
                                             style="width: 80px; ">
                                         <div class="">
-                                            <p class="four-card-paragraf">{{this.multiLanguage[0][0][language].code_card_fp}}<br>{{this.multiLanguage[0][0][language].code_card_sp}}</p>
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].code_card_fp}}<br>{{this.multiLanguage[0][0][language].code_card_sp}}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +151,9 @@
                                         <img src="../../assets/img/clock_fast_66649.png " alt=" " class="img-fluid "
                                             style="width: 80px; ">
                                         <div class=" ">
-                                            <p class="four-card-paragraf">{{this.multiLanguage[0][0][language].production_card_fp}} <br> {{this.multiLanguage[0][0][language].production_card_sp}}</p>
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].production_card_fp}} <br>
+                                                {{this.multiLanguage[0][0][language].production_card_sp}}</p>
                                         </div>
                                     </div>
 
@@ -157,16 +165,21 @@
             </div>
             <div class="about-div">
                 <div class="text-left">
-                    <h1 class="about-h1" data-aos="fade-right" data-aos-duration="1000">{{this.multiLanguage[0][0][language].about_div}}</h1>
+                    <h1 class="about-h1" data-aos="fade-right" data-aos-duration="1000">
+                        {{this.multiLanguage[0][0][language].about_div}}</h1>
                     <div style="height: 5px;background-color: #fff;width: 3em;margin-top: 2em;" data-aos="zoom-in"
                         data-aos-duration="1000"></div>
-                    <p class="about-paragraf" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">{{this.multiLanguage[0][0][language].about_paragraf_fp}} <span class="black-span"> {{this.multiLanguage[0][0][language].about_paragraf_span1}}</span>
-                        <br> <span class="black-span">{{this.multiLanguage[0][0][language].about_paragraf_span2}}</span> {{this.multiLanguage[0][0][language].about_paragraf_sp}}<br>{{this.multiLanguage[0][0][language].about_paragraf_tp}}</p>
-                    
-                        <a [routerLink]="['/about']" routerLinkActive="router-link-active">
-                            <button class="about-btn" data-aos="fade-up" data-aos-duration="1000"
+                    <p class="about-paragraf" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        {{this.multiLanguage[0][0][language].about_paragraf_fp}} <span class="black-span">
+                            {{this.multiLanguage[0][0][language].about_paragraf_span1}}</span>
+                        <br> <span class="black-span">{{this.multiLanguage[0][0][language].about_paragraf_span2}}</span>
+                        {{this.multiLanguage[0][0][language].about_paragraf_sp}}<br>{{this.multiLanguage[0][0][language].about_paragraf_tp}}
+                    </p>
+
+                    <a [routerLink]="['/about']" routerLinkActive="router-link-active">
+                        <button class="about-btn" data-aos="fade-up" data-aos-duration="1000"
                             data-aos-delay="400">{{this.multiLanguage[0][0][language].about_div_btn}}</button>
-                        </a>
+                    </a>
                 </div>
             </div>
 
@@ -279,7 +292,8 @@
                         {{this.multiLanguage[0][0][language].pricing_header}}</h1>
                     <p class="pricing-paragraf" data-aos="fade-right" data-aos-duration="1000">
                         {{this.multiLanguage[0][0][language].pricing_paragraf_fp}}<span
-                            style="background-color: #ff9600;padding-left: .5em;padding-right: .5em;">{{this.multiLanguage[0][0][language].pricing_paragraf_span}}</span>,<br> {{this.multiLanguage[0][0][language].pricing_paragraf_sp}}
+                            style="background-color: #ff9600;padding-left: .5em;padding-right: .5em;">{{this.multiLanguage[0][0][language].pricing_paragraf_span}}</span>,<br>
+                        {{this.multiLanguage[0][0][language].pricing_paragraf_sp}}
                     </p>
                 </div>
                 <div class="container text-center" data-aos="zoom-in" data-aos-duration="1000">
@@ -315,9 +329,10 @@
                             <div class="price-card-btn-div" id="btn-div">
                                 <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
                                 <a (click)="scrollToElement(contact)">
-                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                    <button
+                                        class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
                                 </a>
-                              
+
                             </div>
                         </div>
                         <div class="col-sm text-center price-card" data-aos="fade-up" data-aos-duration="1000"
@@ -342,7 +357,8 @@
                             <div class="price-card-btn-div" id="btn-div">
                                 <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
                                 <a (click)="scrollToElement(contact)">
-                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                    <button
+                                        class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
                                 </a>
                             </div>
                         </div>
@@ -350,7 +366,8 @@
                             data-aos-delay="1000" style="margin-left: 2em;padding: 0%;" id="price-card">
                             <div class="price-div">
                                 <p style="font-size: 30px;" id="price-div">€<span
-                                        style="font-size: 80px;">60</span>{{this.multiLanguage[0][0][language].month_span}}</p>
+                                        style="font-size: 80px;">60</span>{{this.multiLanguage[0][0][language].month_span}}
+                                </p>
                             </div>
                             <div class="header-card text-center">
                                 <h4>{{this.multiLanguage[0][0][language].pro}}</h4>
@@ -367,7 +384,8 @@
                             <div class="price-card-btn-div" id="btn-div">
                                 <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
                                 <a (click)="scrollToElement(contact)">
-                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                    <button
+                                        class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
                                 </a>
                             </div>
                         </div>
@@ -405,7 +423,7 @@
 
 
                         </div>
-                        <div class="col-sm-6" >
+                        <div class="col-sm-6">
                             <img src="../../assets/img/responsive.png" alt="" class="img-fluid">
                         </div>
                         <div class="col-sm-3" data-aos="fade-down-left" data-aos-duration="1000">
@@ -433,7 +451,7 @@
             <div class="text-center line-svg" data-aos="fade-down" data-aos-duration="1100" data-aos-delay="200"
                 style="padding-top: 4em;">
                 <img src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/connecting-line-3.svg"
-                    alt="" class="img-fluid zoom" >
+                    alt="" class="img-fluid zoom">
             </div>
             <div class="order-div">
                 <div class="">
@@ -451,13 +469,13 @@
                                     {{this.multiLanguage[0][0][language].order_paragraf_fp}} <span
                                         class="black-span">{{this.multiLanguage[0][0][language].order_paragraf_span}}</span>,{{this.multiLanguage[0][0][language].order_paragraf_sp}}
                                 </p>
-                                
-                                    <a [routerLink]="['/order']" routerLinkActive="router-link-active">
-                                        <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
+
+                                <a [routerLink]="['/order']" routerLinkActive="router-link-active">
+                                    <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
                                         data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
-                                    </a>
+                                </a>
                             </div>
-                            
+
                         </div>
                         <div class="col-sm right-order-col text-center" data-aos="fade-up" data-aos-duration="1100"
                             data-aos-delay="1200">
@@ -471,130 +489,43 @@
                 <div class="container text-center">
                     <img src="../../assets/img/divider.png" alt="" class="img-fluid" style="width: 300px;">
                 </div>
-                
-                
+
+
             </div>
-            <div class="blog-container">
-               
-                
+            <div class="blog-container container text-center">
+
+
                 <div class="blog-div">
-                    <figure class="imghvr-shutter-in-out-diag-2" >
-                     <img src="../../assets/img/avatar3.png" class="img-fluid">
-                        <figcaption class="text-center figcaption-container" >
-                            <h4 class="">Naslov</h4>  
-                            <h6>  LOREM IPSUM
+                    <figure class="imghvr-shutter-in-out-diag-2">
+                        <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <figcaption class="text-center figcaption-container" style="background-color: #ff9600   ;">
+                            <h4 class="">Naslov</h4>
+                            <h6> LOREM IPSUM
                                 IMAGES
                                 PLUGINS
                                 GENERATORS
-                                ENGLISH</h6>     
-                                <a (click)="scrollToElement(blog)">
+                                ENGLISH</h6>
 
-                                    <button class="header-btn"  (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
-                                </a>   
-                        </figcaption>
-                      </figure>
-                  
-                 </div>
-                 <div class="blog-div">
-                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
-                     <img src="../../assets/img/avatar3.png" class="img-fluid">
-                        <figcaption class="text-center figcaption-container" >
-                            <h4 class="">Naslov</h4>  
-                            <h6>  LOREM IPSUM
-                                IMAGES
-                                PLUGINS
-                                GENERATORSasdasijdnaijsijkdnas<br>jkdnkasndnajksdnajksndjkanjksdnjk
-                                ENGLISH</h6>     
-                                <a (click)="scrollToElement(blog)">
+                            <div>
 
-                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
-                                </a>   
-                        </figcaption>
-                      </figure>
-                  
-                 </div>
-                 <div class="blog-div">
-                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
-                     <img src="../../assets/img/avatar3.png" class="img-fluid">
-                        <figcaption class="text-center figcaption-container" >
-                            <h4 class="">Naslov</h4>  
-                            <h6>  LOREM IPSUM
-                                IMAGES
-                                PLUGINS
-                                GENERATORS
-                                ENGLISH
-                            </h6>     
-                               
-                                <a (click)="scrollToElement(blog)">
-                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
-                                </a>
-                        </figcaption>
-                      </figure>
-                  
-                 </div>
-                 <div class="blog-div">
-                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
-                     <img src="../../assets/img/avatar3.png" class="img-fluid">
-                        <figcaption class="text-center figcaption-container"  >
-                            <h4 class="">Naslov</h4>  
-                            <h6>  LOREM IPSUM
-                                IMAGES
-                                PLUGINS
-                                GENERATORS
-                                ENGLISH</h6> 
-                              
-                                <a (click)="scrollToElement(blog)">
-                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
+                                <button class="header-btn" (click)="toggleDisplay(blog)" style="">More</button>
 
-                                </a>
-                            
+                            </div>
+
                         </figcaption>
-                      </figure>
-                  
-                 </div>
-                 <div class="blog-div">
-                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
-                     <img src="../../assets/img/avatar3.png" class="img-fluid">
-                        <figcaption class="text-center figcaption-container" >
-                            <h4 class="">Naslov</h4>  
-                            <h6>  LOREM IPSUM
-                                IMAGES
-                                PLUGINS
-                                GENERATORS
-                                ENGLISH</h6>     
-                             
-                                <a (click)="scrollToElement(blog)">
-                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
-                                </a>
-                        </figcaption>
-                      </figure>
-                  
-                 </div>
-                 <div class="blog-div">
-                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
-                     <img src="../../assets/img/avatar3.png" class="img-fluid">
-                        <figcaption class="text-center figcaption-container" >
-                            <h4 class="">Naslov</h4>  
-                            <h6>  LOREM IPSUM
-                                IMAGES
-                                PLUGINS
-                                GENERATORS
-                                ENGLISH</h6>     
-                               
-                                <a (click)="scrollToElement(blog)">
-                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
-                           </a>
-                        </figcaption>
-                      </figure>
+                    </figure>
+
                 </div>
-                 </div>
-            
+            </div>
 
-            
-            <div  [hidden] ="isDisplay" style="background-color: #ccc; height: 500px; width: 80%; margin-left: 10em;" #blog>
-                <div class="row" style="padding: 1em;">
-                    <div class="col-sm-8">
-                        <div class="swiper-container">
+
+
+            <div [hidden]="isDisplay" style="background-color: #ccc; width: 80%; " class="container" #blog>
+                <div class="row">
+                    <div class="col-sm-8" style="padding: 0% !important;">
+                        <swiper [config]="config">
+
+                          <div class="swiper-container">
                            
                             <div class="swiper-wrapper">
                                
@@ -611,21 +542,22 @@
                                 <div class="swiper-slide">
                                     <img src="../../assets/img/avatar3.png" class="img-fluid">
                                 </div>
-                                <div class="swiper-slide">Slide 2</div>
-                                <div class="swiper-slide">Slide 3</div>
-                                <div class="swiper-slide">Slide 4</div>
-                                <div class="swiper-slide">Slide 5</div>
-                                <div class="swiper-slide">Slide 6</div>
-                                <div class="swiper-slide">Slide 7</div>
-                                <div class="swiper-slide">Slide 8</div>
-                                <div class="swiper-slide">Slide 9</div>
-                                <div class="swiper-slide">Slide 10</div>
+                               
                             </div>
                             
                         </div>
-                     
+
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+
+                        </swiper>
+
                     </div>
-                    
+
                     <div class="col-sm-4">
                         <h4 class="">Naslov 1</h4>
                         <p class="">
@@ -635,44 +567,49 @@
                             GENERATORS
                             ENGLISH
                             Lorem Ipsum
-                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-                     </p>
-                            <h4 class="">Naslov 2</h4>
-                            <p>
-                                LOREM IPSUM
-                                IMAGES
-                                PLUGINS
-                                GENERATORS
-                                ENGLISH
-                                Lorem Ipsum
-                                Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.
-                                
-                                LOREM IPSUM GENERATOR
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                
-                                
-                                
-                                <h4 class="">Naslov 3</h4>
-                                <div class="col" style="padding: .5em;" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
-                                    <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                        style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                                        <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                        style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                                        <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                        style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                                        <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                        style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                                </div>
-                            </div>
+                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                            industries for previewing layouts and visual mockups.
+                        </p>
+                        <h4 class="">Naslov 2</h4>
+                        <p>
+                            LOREM IPSUM
+                            IMAGES
+                            PLUGINS
+                            GENERATORS
+                            ENGLISH
+                            Lorem Ipsum
+                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
+                            industries for previewing layouts and visual mockups.
+
+                            LOREM IPSUM GENERATOR
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. </p>
+
+
+
+                        <h4 class="">Naslov 3</h4>
+                        <div class="col" style="padding: .5em;" data-aos="zoom-in" data-aos-duration="1000"
+                            data-aos-delay="100">
+                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
+                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
+                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
+                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
+                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
+                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
+                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
+                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
+                        </div>
+                    </div>
 
 
 
 
                 </div>
-         
+
+
+
             </div>
-            
-               
+
             <!-- <div class="container photo-container text-center" #photo>
                 <h1 class="photo-h1">{{this.multiLanguage[0][0][language].photography_header}}</h1>
                 <p class="photo-large-paragraf">{{this.multiLanguage[0][0][language].photography_paragraf}}</p>

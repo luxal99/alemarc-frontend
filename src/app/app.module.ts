@@ -23,6 +23,7 @@ import { AboutRoutingModule } from "./about/about.module";
 import { OrderRoutingModule } from "./order-site/order.module";
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
   imports: [
     CommonModule,
     BrowserModule,
+    NgxUsefulSwiperModule,
     ReactiveFormsModule,
     AppRoutingModule,
     LoginRoutingModule,

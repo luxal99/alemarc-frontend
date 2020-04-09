@@ -12,10 +12,6 @@
     transition: .6s ease
 }
  .blog-container{
-   
-    margin: 50px;
-    margin-left: 140px;
-    margin-right: 140px;
     font-size: 0;
     display: -ms-flexbox;
     -ms-flexbox-wrap: wrap;
