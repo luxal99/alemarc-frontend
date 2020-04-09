@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeTranslate } from '../translate/home';
+import Swiper from 'swiper';
 import * as $ from 'jquery';
 
 @Component({
@@ -8,6 +9,10 @@ import * as $ from 'jquery';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  isDisplay = true;
+  toggleDisplay(){
+    this.isDisplay = !this.isDisplay;
+  }
 
   language = '';
   multiLanguage: Array<any> = [HomeTranslate.languagesWords];
@@ -26,12 +31,26 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.printTest();
     window.scrollTo(0, 0);
     this.setDefault();
     this.language = localStorage.getItem('language');
     document.getElementById(localStorage.getItem('language')).style.color='#fff';
 
+
+
+
+    this.swiper();
+    
+   window.scrollTo(0,0);
+   this.language= localStorage.getItem('language');
+   document.getElementById(localStorage.getItem('language')).style.color='#fff';
+
+
+  
+
+  
   }
   scrollToElement($element): void {
     $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
@@ -45,7 +64,18 @@ export class HomeComponent implements OnInit {
     document.getElementById('main').style.display = 'none';
     location.reload();
   }
+  swiper(){
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      centeredSlides: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
 
+  }
 
 
 
