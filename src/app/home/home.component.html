@@ -478,29 +478,120 @@
                
                 
                 <div class="blog-div">
-                   
-                   <img src="../../assets/img/avatar3.png" class="img-fluid">
-                   </div>
-                <div class="blog-div">
-                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                 </div>
-                 <div class="blog-div">
-                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                 </div>
-                 <div class="blog-div">
-                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                 </div>
-                 <div class="blog-div">
-                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                 </div>
-                 <div class="blog-div">
-                    <img src="../../assets/img/avatar3.png" class="img-fluid">
-                 </div>
-                 <button class="header-btn" (click)="toggleDisplay()">More</button>
+                    <figure class="imghvr-shutter-in-out-diag-2" >
+                     <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <figcaption class="text-center figcaption-container" >
+                            <h4 class="">Naslov</h4>  
+                            <h6>  LOREM IPSUM
+                                IMAGES
+                                PLUGINS
+                                GENERATORS
+                                ENGLISH</h6>     
+                                <a (click)="scrollToElement(blog)">
+
+                                    <button class="header-btn"  (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
+                                </a>   
+                        </figcaption>
+                      </figure>
                   
-            </div>
+                 </div>
+                 <div class="blog-div">
+                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
+                     <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <figcaption class="text-center figcaption-container" >
+                            <h4 class="">Naslov</h4>  
+                            <h6>  LOREM IPSUM
+                                IMAGES
+                                PLUGINS
+                                GENERATORSasdasijdnaijsijkdnas<br>jkdnkasndnajksdnajksndjkanjksdnjk
+                                ENGLISH</h6>     
+                                <a (click)="scrollToElement(blog)">
+
+                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
+                                </a>   
+                        </figcaption>
+                      </figure>
+                  
+                 </div>
+                 <div class="blog-div">
+                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
+                     <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <figcaption class="text-center figcaption-container" >
+                            <h4 class="">Naslov</h4>  
+                            <h6>  LOREM IPSUM
+                                IMAGES
+                                PLUGINS
+                                GENERATORS
+                                ENGLISH
+                            </h6>     
+                               
+                                <a (click)="scrollToElement(blog)">
+                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
+                                </a>
+                        </figcaption>
+                      </figure>
+                  
+                 </div>
+                 <div class="blog-div">
+                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
+                     <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <figcaption class="text-center figcaption-container"  >
+                            <h4 class="">Naslov</h4>  
+                            <h6>  LOREM IPSUM
+                                IMAGES
+                                PLUGINS
+                                GENERATORS
+                                ENGLISH</h6> 
+                              
+                                <a (click)="scrollToElement(blog)">
+                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
+
+                                </a>
+                            
+                        </figcaption>
+                      </figure>
+                  
+                 </div>
+                 <div class="blog-div">
+                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
+                     <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <figcaption class="text-center figcaption-container" >
+                            <h4 class="">Naslov</h4>  
+                            <h6>  LOREM IPSUM
+                                IMAGES
+                                PLUGINS
+                                GENERATORS
+                                ENGLISH</h6>     
+                             
+                                <a (click)="scrollToElement(blog)">
+                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
+                                </a>
+                        </figcaption>
+                      </figure>
+                  
+                 </div>
+                 <div class="blog-div">
+                    <figure class="imghvr-shutter-in-out-diag-2" style="background-color:#ff9600; ">
+                     <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <figcaption class="text-center figcaption-container" >
+                            <h4 class="">Naslov</h4>  
+                            <h6>  LOREM IPSUM
+                                IMAGES
+                                PLUGINS
+                                GENERATORS
+                                ENGLISH</h6>     
+                               
+                                <a (click)="scrollToElement(blog)">
+                                    <button class="header-btn" (click)="toggleDisplay()" style="margin-top: 60%;">More</button>
+                           </a>
+                        </figcaption>
+                      </figure>
+                </div>
+                 </div>
             
-            <div  [hidden] ="isDisplay" style="background-color: #ccc; height: 500px; width: 80%; margin-left: 10em;">
+
+            
+            <div  [hidden] ="isDisplay" style="background-color: #ccc; height: 500px; width: 80%; margin-left: 10em;" #blog>
                 <div class="row" style="padding: 1em;">
                     <div class="col-sm-8">
                         <div class="swiper-container">
@@ -530,14 +621,6 @@
                                 <div class="swiper-slide">Slide 9</div>
                                 <div class="swiper-slide">Slide 10</div>
                             </div>
-                         
-                           
-                        
-<!--                 
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div> -->
-                        
-                           
                             
                         </div>
                      

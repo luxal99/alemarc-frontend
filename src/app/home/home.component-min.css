@@ -13,7 +13,9 @@
 }
  .blog-container{
    
-    margin: 150px;
+    margin: 50px;
+    margin-left: 140px;
+    margin-right: 140px;
     font-size: 0;
     display: -ms-flexbox;
     -ms-flexbox-wrap: wrap;
@@ -55,7 +57,12 @@
     align-items: center;
   }
 
-  
+  .figcaption-container{
+      padding-top: 30%;
+  }
+  .imghvr-shutter-in-out-diag-2{
+      background-color: #ff9600 !important;
+  }
 
 
 
