@@ -27,14 +27,16 @@ export class BlogDialogComponent implements OnInit {
   constructor(public adminService: AdminService) { }
 
   ngOnInit() {
-    
+
   }
   blogHeader = new FormGroup({
     header: new FormControl()
   })
 
   // Html editor
-  @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
+  @ViewChild('editorSn', { static: false }) editorComponentSr: CKEditorComponent;
+
+  @ViewChild('editorEn', { static: false }) editorComponentEn: CKEditorComponent;
 
   public Editor = ClassicEditor;
 
@@ -43,7 +45,8 @@ export class BlogDialogComponent implements OnInit {
   public files: Set<File> = new Set()
 
   // Content of html editor
-  blog_content = '';
+  text_en = '';
+  text_sr = '';
   editorData = '';
 
 
@@ -63,7 +66,9 @@ export class BlogDialogComponent implements OnInit {
   // Save blog service
   saveBlog() {
     var header = this.blogHeader.get('header').value;
-    this.blog_content = this.editorComponent.editorInstance.getData();
+
+    this.text_en = this.editorComponentEn.editorInstance.getData();
+    this.text_sr = this.editorComponentSr.editorInstance.getData();
 
     this.files.forEach(element => {
       const formData: FormData = new FormData();
@@ -74,7 +79,8 @@ export class BlogDialogComponent implements OnInit {
     var blog = {
       header: header,
       images: this.images,
-      blog_content: this.blog_content
+      text_sr: this.text_sr,
+      text_en:this.text_en
     }
     this.adminService.saveBlog(blog).subscribe(data => {
     })
