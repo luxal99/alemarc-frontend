@@ -25,6 +25,7 @@ import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/c
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { BlogDialogComponent } from './admin/blog-dialog/blog-dialog.component';
 import { BlogPreviewDialogComponent } from './admin/blog-preview-dialog/blog-preview-dialog.component';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { BlogPreviewDialogComponent } from './admin/blog-preview-dialog/blog-pre
   imports: [
     CommonModule,
     BrowserModule,
+    NgxUsefulSwiperModule,
     ReactiveFormsModule,
     AppRoutingModule,
     LoginRoutingModule,
