@@ -88,21 +88,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
     document.getElementById('mail-div').style.transition = 'opacity 1s ease-out';
   }
 
-
-  openMessage(mail): void {
-    const dialogRef = this.dialog.open(MessagePreviewDialogComponent, {
-      width: 'auto',
-      position: { left: '0' },
-      height: '100vh',
-      data: {
-        mail: mail
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
-    });
-  }
   getAllMessages() {
     const token = localStorage.getItem("token");
 
@@ -164,15 +149,22 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
   }
 
-  logout() {
-    var isAuthenticated = { "isAuthenticated": false };
 
-    this.adminService.logout(isAuthenticated).subscribe(data => {
+  openMessage(mail): void {
+    const dialogRef = this.dialog.open(MessagePreviewDialogComponent, {
+      width: 'auto',
+      position: { left: '0' },
+      height: '100vh',
+      data: {
+        mail: mail
+      }
+    });
 
-    })
-    this.router.navigate(['login']);
-    localStorage.removeItem("token");
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
+
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
@@ -210,6 +202,17 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
 
   }
+
+  logout() {
+    var isAuthenticated = { "isAuthenticated": false };
+
+    this.adminService.logout(isAuthenticated).subscribe(data => {
+
+    })
+    this.router.navigate(['login']);
+    localStorage.removeItem("token");
+  }
+
 
   delteBlog(_id){
     this.adminService.deleteBlog(_id).subscribe(data=>{

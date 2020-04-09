@@ -17,6 +17,13 @@
     <div>
         <input type="file" #file  (change)="onFilesAdded()" style="border: 0 !important;" multiple />
     </div>
+
+    <div class="list">
+        <h3>Lista izabranih slika</h3>
+        <li *ngFor="let image of images">
+            {{image}}
+        </li>
+    </div>
     
 
 </div>
