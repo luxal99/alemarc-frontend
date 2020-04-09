@@ -497,7 +497,7 @@
 
                 <div class="blog-div" *ngFor="let blog of listOfBlogs">
                     <figure class="imghvr-shutter-in-out-diag-2">
-                        <img src="../../assets/img/avatar3.png" class="img-fluid">
+                        <img src="{{blog.images}}" class="img-fluid">
                         <figcaption class="text-center figcaption-container" style="background-color: #ff9600   ;">
                             <h4 class="">Naslov</h4>
                             <h6> LOREM IPSUM
@@ -508,7 +508,7 @@
 
                             <div>
 
-                                <button class="header-btn" (click)="toggleDisplay(blog)" style="">More</button>
+                                <button class="header-btn" (click)="openBlog(blog)" style="">More</button>
 
                             </div>
 
@@ -519,87 +519,6 @@
             </div>
 
 
-
-            <div [hidden]="isDisplay" style="background-color: #ccc; width: 80%; " class="container" #blog>
-                <div class="row">
-                    <div class="col-sm-8" style="padding: 0% !important;">
-                        <swiper [config]="config">
-
-                          <div class="swiper-container">
-                           
-                            <div class="swiper-wrapper">
-                               
-                                <div class="swiper-slide " *ngFor="let image of blog.images">
-                                    <img src="{{image}}" class="img-fluid">
-                                </div>
-                               
-                               
-                            </div>
-                            
-                        </div>
-
-                            <!-- Add Pagination -->
-                            <div class="swiper-pagination"></div>
-
-                            <!-- Add Arrows -->
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-
-                        </swiper>
-
-                    </div>
-
-                    <div class="col-sm-4">
-                        <h4 class="">Naslov 1</h4>
-                        <p class="">
-                            LOREM IPSUM
-                            IMAGES
-                            PLUGINS
-                            GENERATORS
-                            ENGLISH
-                            Lorem Ipsum
-                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
-                            industries for previewing layouts and visual mockups.
-                        </p>
-                        <h4 class="">Naslov 2</h4>
-                        <p>
-                            LOREM IPSUM
-                            IMAGES
-                            PLUGINS
-                            GENERATORS
-                            ENGLISH
-                            Lorem Ipsum
-                            Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing
-                            industries for previewing layouts and visual mockups.
-
-                            LOREM IPSUM GENERATOR
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. </p>
-
-
-
-                        <h4 class="">Naslov 3</h4>
-                        <div class="col" style="padding: .5em;" data-aos="zoom-in" data-aos-duration="1000"
-                            data-aos-delay="100">
-                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                            <img src="../../assets/img/1_J9d-VtiLfN9APIQgWTP9ow.png"
-                                style="width: 50px;filter: grayscale(100%)" alt="" class="img-fluid">
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-
-
-
-            </div>
 
             <!-- <div class="container photo-container text-center" #photo>
                 <h1 class="photo-h1">{{this.multiLanguage[0][0][language].photography_header}}</h1>

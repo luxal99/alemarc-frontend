@@ -3,6 +3,8 @@ import { HomeTranslate } from '../translate/home';
 import Swiper, { SwiperOptions } from 'swiper';
 import * as $ from 'jquery';
 import { AdminService } from '../service/admin.service';
+import { MatDialog } from '@angular/material';
+import { ShowBlogDialogComponent } from './show-blog-dialog/show-blog-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +34,7 @@ export class HomeComponent implements OnInit {
     }
   };
 
-  constructor(public adminServie:AdminService) { }
+  constructor(public adminServie:AdminService,public dialog: MatDialog) { }
 
   setDefault() {
     var isLanguageSet = localStorage.getItem('language');
@@ -80,7 +82,13 @@ export class HomeComponent implements OnInit {
   }
 
 
-
+  openBlog(blog): void {
+    const dialogRef = this.dialog.open(ShowBlogDialogComponent, {
+      width: 'auto',
+      data: blog,
+      backdropClass:'blogDialog'
+    });
+  }
   printTest() {
 
     $('.skill-div').mouseover(function () {
