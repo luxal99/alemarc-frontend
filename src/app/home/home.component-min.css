@@ -512,7 +512,8 @@ screen and (min-width:380px) {
 }
 
 .card-container {
-    padding-top: 10em
+    padding-top: 10em;
+    padding-bottom: 10em;
 }
 
 .card-container-text-col {

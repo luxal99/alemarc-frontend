@@ -78,7 +78,7 @@
                         <p class="header-paragraf" data-aos="fade-up" data-aos-duration="1000">
                             {{this.multiLanguage[0][0][language].header_underline_text}}
                         </p>
-                        <a (click)="scrollToElement(about)">
+                        <a (click)="scrollToElement(contact)">
                             <button class="header-btn " data-aos="fade-up"
                                 data-aos-duration="1000">{{this.multiLanguage[0][0][language].header_btn}}</button>
                         </a>
@@ -437,6 +437,9 @@
                     </div>
                 </div>
             </div>
+            <div class="container text-center" style="padding-top: 10em;">
+                <img src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/connecting-line-2.svg" alt="" class="img-fluid">
+            </div>
             <div class="container card-container ">
                 <div class="row ">
                     <div class="col-sm-4 ">
@@ -513,40 +516,6 @@
                 </div>
             </div>
 
-
-            <!-- <div class="container photo-container text-center" #photo>
-                <h1 class="photo-h1">{{this.multiLanguage[0][0][language].photography_header}}</h1>
-                <p class="photo-large-paragraf">{{this.multiLanguage[0][0][language].photography_paragraf}}</p>
-                <mat-divider></mat-divider>
-                <div class="row text-center photo-row">
-                    <div class="col-sm-3 ">
-
-                    </div>
-                    <div class="col-sm-3 photo-col" style="margin-right: -3em;">
-                        <div class="photo-card-content">
-                            <h1 class="photo-card-h1">{{this.multiLanguage[0][0][language].photo_shoot}}</h1>
-                            <p class="photo-card-paragraf">
-                                {{this.multiLanguage[0][0][language].photo_shoot}}
-                            </p>
-                            <i class="fa fa-camera"></i>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 photo-col" style="margin-left: 5em;">
-                        <div class="photo-card-content">
-                            <h1 class="photo-card-h1">{{this.multiLanguage[0][0][language].photo_edit2}}</h1><br><br>
-                            <p class="photo-card-paragraf">
-                                {{this.multiLanguage[0][0][language].photo_edit}}
-                            </p>
-                            <i class="fa fa-picture-o"></i>
-
-
-                        </div>
-                    </div>
-                    <div class="col-sm-3 ">
-
-                    </div>
-                </div>
-            </div> -->
             <div #contact>
                 <app-footer></app-footer>
             </div>
