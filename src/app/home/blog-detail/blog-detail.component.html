@@ -1,5 +1,5 @@
 <mat-drawer-container>
-    <mat-drawer #drawer opened mode="side" style="background-color: orange;position: fixed;">
+    <mat-drawer #drawer [opened]="!isMobile" mode="side" style="background-color: orange;position: fixed;">
         <div class="text-right close-menu">
             <a><i class="fa fa-times" (click)="drawer.toggle()"></i></a>
         </div>
@@ -24,8 +24,11 @@
         </div>
     </mat-drawer>
     <mat-drawer-content>
-
+        
         <div class="blog">
+            <div class="text-right close-menu">
+                <a><i class="fa fa-align-right" (click)="drawer.toggle()"></i></a>
+            </div>
             <div class="container">
                 <h1 class="text-left">
                     {{blog['header']}}

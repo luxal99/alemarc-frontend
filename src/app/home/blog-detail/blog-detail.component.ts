@@ -19,9 +19,17 @@ export class BlogDetailComponent implements OnInit {
 
   listOfBlogs: any = [];
 
-  ngOnInit() {
-    console.log(this.route.params);
+  isMobile = false;
 
+  ngOnInit() {
+
+    if (window.screen.width <=500) {
+      this.isMobile = true;
+    }
+    console.log(this.isMobile);
+    
+    
+    window.scrollTo(0,0);
     this.route.params.subscribe(param => {
       this.adminService.findBlogById(param.id).subscribe(data => {
         this.blog = data;
