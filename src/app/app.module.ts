@@ -26,7 +26,6 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { BlogDialogComponent } from './admin/blog-dialog/blog-dialog.component';
 import { BlogPreviewDialogComponent } from './admin/blog-preview-dialog/blog-preview-dialog.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
-import { ShowBlogDialogComponent } from './home/show-blog-dialog/show-blog-dialog.component';
 import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 @NgModule({
   declarations: [
@@ -46,7 +45,6 @@ import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
     ChangeLoginComponent,
     BlogDialogComponent,
     BlogPreviewDialogComponent,
-    ShowBlogDialogComponent,
     BlogDetailComponent
   ],
   imports: [
@@ -67,7 +65,7 @@ import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [MessagePreviewDialogComponent,ShowBlogDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+  entryComponents: [MessagePreviewDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

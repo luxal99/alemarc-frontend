@@ -15,12 +15,12 @@ h1{
 }
 
 .blog{
-    background-color: #0f0f0f;
-    min-height: 100vh;
+    background-color: #18191a;
+    min-height: 110vh;
 }
 
 .mat-divider {
-    border-top-color: orange;
+    border-top-color: #ff9600;
 }
 
 .white-divider{
@@ -37,6 +37,16 @@ h1{
 
 }
 
+.content{
+    padding-top: 2em;
+}
+
 .back-btn:hover{
     background-color: rgba(29, 29, 29, 0.253);;
+}
+
+.close-menu{
+    font-size: 40px;
+    padding-right: 1em;
+    padding-top: 1em;
 }

@@ -1,5 +1,8 @@
 <mat-drawer-container>
     <mat-drawer #drawer opened mode="side" style="background-color: orange;position: fixed;">
+        <div class="text-right close-menu">
+            <a><i class="fa fa-times" (click)="drawer.toggle()"></i></a>
+        </div>
         <div style="padding-top: 5em;padding-left: 3em;">
             <img src="../../../assets/img/5-52840_code-icon-png-free-coding-for-kids.png" style="width: 100px;" alt=""
                 class="img-fluid">
@@ -7,7 +10,7 @@
             <div class="content text-left" style="position: fixed;">
 
                 <div class="text-left small-link-div">
-                    
+
                     <div *ngFor="let blog of listOfBlogs">
                         <h4><a class="nav-link-h4" routerLink="/blog/{{blog._id}}">{{blog.header}}</a></h4>
                     </div>
@@ -15,7 +18,8 @@
                 </div>
 
                 <mat-divider class="white-divider"></mat-divider>
-                <button [routerLink]="['/']" routerLinkActive="router-link-active"  class="back-btn"><i class="fa fa-arrow-left"></i> BACK</button>
+                <button [routerLink]="['/']" routerLinkActive="router-link-active" class="back-btn"><i
+                        class="fa fa-arrow-left"></i> BACK</button>
             </div>
         </div>
     </mat-drawer>
@@ -28,19 +32,22 @@
                 </h1>
                 <mat-divider></mat-divider>
 
+                <h1 style="padding-top: 1em !important;">Technologies</h1>
+                <h4 *ngFor="let item of blog['technologies']"><i style="color: orange;" class="fa fa-angle-right"></i>
+                    {{item}}</h4>
+
+
                 <div class="content" [innerHTML]="blog['text_sr']">
 
                 </div>
 
 
                 <div class="swiper-slide slider text-center" *ngFor="let image of blog['images']">
-                    <div style="margin-top: 2em;margin-bottom: 2em;">
+                    <div style="padding-top: 2em;padding-bottom: 2em;">
                         <img class="img-fluid" src="{{image}}" />
-
                     </div>
-                    <mat-divider></mat-divider>
                 </div>
-                
+
             </div>
         </div>
     </mat-drawer-content>

@@ -12,6 +12,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class BlogDialogComponent implements OnInit {
 
+  // List of technique which use in some project
+  listOfTechnologies: any = [];
 
   // One of the select images
   image_url;
@@ -29,13 +31,17 @@ export class BlogDialogComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  // Blog from
   blogHeader = new FormGroup({
-    header: new FormControl()
+    header: new FormControl(),
+    technologie: new FormControl()
   })
 
-  // Html editor
+  // Html editor SRB
   @ViewChild('editorSn', { static: false }) editorComponentSr: CKEditorComponent;
 
+  // Html editor EN
   @ViewChild('editorEn', { static: false }) editorComponentEn: CKEditorComponent;
 
   public Editor = ClassicEditor;
@@ -70,25 +76,35 @@ export class BlogDialogComponent implements OnInit {
     this.text_en = this.editorComponentEn.editorInstance.getData();
     this.text_sr = this.editorComponentSr.editorInstance.getData();
 
+    // Service for image upload
     this.files.forEach(element => {
       const formData: FormData = new FormData();
       formData.append('image_url', element)
       this.adminService.uploadPhoto(formData).subscribe(data => {
       })
     });
+
+    // Object which send data to NODE JS
     var blog = {
       header: header,
       images: this.images,
       text_sr: this.text_sr,
-      text_en:this.text_en,
-      cover:this.images[0]
+      text_en: this.text_en,
+      cover: this.images[0],
+      technologies: this.listOfTechnologies
     }
     this.adminService.saveBlog(blog).subscribe(data => {
     })
   }
 
+  addTechnologie() {
+    var technologie = this.blogHeader.get('technologie').value;
 
-  
+    this.listOfTechnologies.push(technologie);
+  }
+
+
+
 
 
 }

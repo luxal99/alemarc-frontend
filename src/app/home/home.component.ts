@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HomeTranslate } from '../translate/home';
-import Swiper, { SwiperOptions } from 'swiper';
 import * as $ from 'jquery';
 import { AdminService } from '../service/admin.service';
 import { MatDialog } from '@angular/material';
-import { ShowBlogDialogComponent } from './show-blog-dialog/show-blog-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -13,29 +11,16 @@ import { ShowBlogDialogComponent } from './show-blog-dialog/show-blog-dialog.com
 })
 export class HomeComponent implements OnInit {
 
-
-  isDisplay = true;
-  toggleDisplay() {
-    this.isDisplay = !this.isDisplay;
-  }
-
+  // Return div with list of blogs
   listOfBlogs:any=[];
   
 
   language = '';
   multiLanguage: Array<any> = [HomeTranslate.languagesWords];
 
-
-  config: SwiperOptions = {
-    pagination: { el: '.swiper-pagination', clickable: true },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev'
-    }
-  };
-
   constructor(public adminServie:AdminService,public dialog: MatDialog) { }
 
+  // Function which set English to default language
   setDefault() {
     var isLanguageSet = localStorage.getItem('language');
 
@@ -58,11 +43,14 @@ export class HomeComponent implements OnInit {
 
     this.getBlogs();
   }
+
+  // Function for smooth scroll
   scrollToElement($element): void {
     $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 
   }
 
+  
   changeLanguage(changeLanguage) {
     localStorage.setItem("language", changeLanguage);
     document.getElementById(localStorage.getItem('language')).style.color = '#fff';
@@ -82,13 +70,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-  openBlog(blog): void {
-    const dialogRef = this.dialog.open(ShowBlogDialogComponent, {
-      width: 'auto',
-      data: blog,
-      backdropClass:'blogDialog'
-    });
-  }
   printTest() {
 
     $('.skill-div').mouseover(function () {
