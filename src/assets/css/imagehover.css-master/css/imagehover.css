@@ -13,7 +13,7 @@
     display: inline-block;
     margin: 0;
     max-width: 100%;
-    background-color: #2266a5;
+    background-color: orange;
     color: #fff;
     overflow: hidden;
     -webkit-backface-visibility: hidden;
@@ -29,7 +29,7 @@
 }
 
 [class^='imghvr-'] figcaption, [class*=' imghvr-'] figcaption {
-    background-color: #135796;
+    background-color: #a8a8a8;
     padding: 30px;
     position: absolute;
     top: 0;
@@ -606,7 +606,7 @@
 /* imghvr-shutter-in-*
    ----------------------------- */
 [class^='imghvr-shutter-in-']:after, [class^='imghvr-shutter-in-']:before, [class*=' imghvr-shutter-in-']:after, [class*=' imghvr-shutter-in-']:before {
-    background: #135796;
+    background: #d4d4d4;
     position: absolute;
     content: '';
 }

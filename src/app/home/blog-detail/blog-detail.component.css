@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Cairo|Dosis&display=swap');
+@import '../../../assets/css/sidebar/sidebar.css';
+div{
+    font-family: Cairo, sans-serif;
+    color: #eee;
+}
+
+mat-drawer{
+    width: 40vh;
+}
+
+h1{
+    color: orange;
+    padding-top: 5em;
+}
+
+.blog{
+    background-color: #18191a;
+    min-height: 110vh;
+}
+
+.mat-divider {
+    border-top-color: #ff9600;
+}
+
+.white-divider{
+    border-top-color: #eee ;
+}
+
+.back-btn{
+    font-size: 20px;
+    margin-top: 2em;
+    background-color: transparent;
+    border: 0;
+    color: #eee;
+    padding: .5em;
+
+}
+
+.content{
+    padding-top: 2em;
+}
+
+.back-btn:hover{
+    background-color: rgba(29, 29, 29, 0.253);;
+}
+
+.close-menu{
+    font-size: 40px;
+    padding-right: 1em;
+    padding-top: 1em;
+}
+
+@media screen and (max-width:600px){
+    .blog{
+        zoom: 90%;
+    }
+}

@@ -116,3 +116,9 @@ mat-paginator {
     border: 0;
     background-color: #fff;
 }
+.blog-card{
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    padding: 1em;
+    margin-bottom: 2em;
+}

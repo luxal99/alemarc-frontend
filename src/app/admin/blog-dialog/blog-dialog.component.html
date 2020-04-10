@@ -1,0 +1,63 @@
+<div class="container">
+
+    <!-- <button mat-raised-button color="basic" (click)="getEditor()" >Add</button>
+    <button mat-raised-button color="basic" (click)="someFunction()" >Print</button> -->
+    <div style="padding-left: 2em;">
+        <div>
+            <h1 style="padding-top: 1em;">Post new blog</h1>
+            <form [formGroup]="blogHeader">
+                <mat-form-field appearance="outline" style="width: 50vh;padding-top: 2em;">
+                    <mat-label>Header of blog</mat-label>
+                    <input formControlName="header" matInput placeholder="Header">
+                    <mat-icon matSuffix>book</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline" style="width: 50vh;padding-top: 2em;">
+                    <mat-label>Technlogies</mat-label>
+                    <input formControlName="technologie" matInput placeholder="List of used technologies">
+                    <mat-icon matSuffix>dvr</mat-icon>
+                </mat-form-field>
+                <button mat-raised-button color="primary" (click)="addTechnologie()" style="margin-left: 1em;"><mat-icon style="color: #eee;">add_box</mat-icon></button>
+            </form>
+
+            <li *ngFor="let technologie of listOfTechnologies">
+                <div>
+                    {{technologie}}
+                </div>
+
+            </li>
+        </div>
+
+        
+        <div style="margin-top: 2em;">
+            <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+        </div>
+
+        <div class="list">
+            <h3>Image list</h3>
+            <li *ngFor="let image of images">
+                {{image}}
+            </li>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-6">
+
+            <div class="container" style="margin-top: 2em;">
+                <h3>Sprski</h3>
+                <ckeditor #editorSn [editor]="Editor"  data="{{editorData}}"></ckeditor>
+            </div>
+        </div>
+        <div class="col-6">
+
+            <div class="container" style="margin-top: 2em;">
+                <h3>English</h3>
+                <ckeditor #editorEn [editor]="Editor" data="{{editorData}}"></ckeditor>
+            </div>
+        </div>
+    </div>
+
+    <button (click)="saveBlog()" mat-raised-button color="primary" class="save-btn">Save</button>
+
+</div>

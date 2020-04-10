@@ -68,7 +68,8 @@
                     <div class="col-sm"></div>
                     <div class="col-sm ">
                         <div class="col-sm text-right language-div">
-                            <a (click)="changeLanguage('en')" id="en" class="language-link">EN</a> | <a (click)="changeLanguage('sr')" id="sr" class="language-link">SRB</a>
+                            <a (click)="changeLanguage('en')" id="en" class="language-link">EN</a> | <a
+                                (click)="changeLanguage('sr')" id="sr" class="language-link">SRB</a>
                         </div>
                         <h1 class="h1-header" data-aos="fade-down" data-aos-duration="1000">Alemarc Dev</h1>
                         <h1 class="main-h1 " data-aos="fade-right" data-aos-duration="1000">
@@ -77,96 +78,61 @@
                         <p class="header-paragraf" data-aos="fade-up" data-aos-duration="1000">
                             {{this.multiLanguage[0][0][language].header_underline_text}}
                         </p>
-                        <a (click)="scrollToElement(about)">
+                        <a (click)="scrollToElement(contact)">
                             <button class="header-btn " data-aos="fade-up"
-                            data-aos-duration="1000">{{this.multiLanguage[0][0][language].header_btn}}</button>
+                                data-aos-duration="1000">{{this.multiLanguage[0][0][language].header_btn}}</button>
                         </a>
-                        
+
                     </div>
 
                 </div>
             </div>
+            <div class="text-center">
+                <h1 class   ="photo-h1">Our Works</h1>
+                <div class="container text-center ">
+                    <img src="../../assets/img/divider.png" alt="" class="img-fluid" style="width: 300px;">
+                </div>
 
-            <div class="container card-container ">
-                <div class="row ">
-                    <div class="col-sm-4 ">
-                        <div class="card-container-text-col " #about>
-                            <h1 data-aos="fade-right" data-aos-duration="1000">
-                                {{this.multiLanguage[0][0][language].four_card_h1}}</h1>
-                            <p class="four-card-header-paragraf" data-aos="fade-right" data-aos-duration="1000">{{this.multiLanguage[0][0][language].four_card_paragraf_fp}}<span style="color: #0f0f0f;">{{this.multiLanguage[0][0][language].four_card_paragraf_span}}</span> {{this.multiLanguage[0][0][language].four_card_paragraf_sp}}</p>
-                            <a [routerLink]="['/order']" routerLinkActive="router-link-active">
-                                <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
-                                data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row card-container-card-row ">
-                        <div>
-                            <div class="container four-card-container">
-                                <div class="row four-card-row">
-                                    <div class="col-lg-10 text-center orange-card " data-aos="zoom-in"
-                                        data-aos-duration="1000" data-aos-delay="200">
-                                        <img src="../../assets/img/Coding-icon.png " alt=" " class="img-fluid "
-                                            style="width: 80px; ">
-                                        <div class="">
-                                            <p class="four-card-paragraf">{{this.multiLanguage[0][0][language].code_card_fp}}<br>{{this.multiLanguage[0][0][language].code_card_sp}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <div class="col-lg-10 text-center dark-card " data-aos="zoom-in"
-                                        data-aos-duration="1000" data-aos-delay="400" style="margin-top: 3em; ">
-                                        <img src="../../assets/img/228-2283810_website-design-web-design-icon-png.png "
-                                            alt=" " class="img-fluid " style="width: 80px; ">
-                                        <div class=" ">
-                                            <p class="four-card-paragraf">
-                                                {{this.multiLanguage[0][0][language].modern_design_card}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="container " style="margin-top: 7em; ">
-                                <div class="row ">
-                                    <div class="col-lg-10 dark-card " data-aos="zoom-in" data-aos-duration="1000"
-                                        data-aos-delay="600">
-                                        <img src="../../assets/img/relationship.png " alt=" " class="img-fluid "
-                                            style="width: 80px; ">
-                                        <div class=" ">
-                                            <p class="four-card-paragraf">
-                                                {{this.multiLanguage[0][0][language].relationship_card}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row ">
-                                    <div class="col-lg-10 orange-card " data-aos="zoom-in" data-aos-duration="1000"
-                                        data-aos-delay="800" style="margin-top: 3em; ">
-                                        <img src="../../assets/img/clock_fast_66649.png " alt=" " class="img-fluid "
-                                            style="width: 80px; ">
-                                        <div class=" ">
-                                            <p class="four-card-paragraf">{{this.multiLanguage[0][0][language].production_card_fp}} <br> {{this.multiLanguage[0][0][language].production_card_sp}}</p>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+            </div>
+            <div class="blog-container container text-center">
+
+
+                <div class="blog-div" *ngFor="let blog of listOfBlogs">
+                    <figure class="imghvr-shutter-in-out-diag-2 blog-img" >
+                        <img src="{{blog.cover}}" class="img-fluid">
+                    <figcaption class="text-center figcaption-container" style="background-color: #ff9600;padding: 0 !important;">
+                           <div class="hover-div">
+                            <h4 class="blog-card">{{blog.header}}</h4>
+                            <button class="header-btn" routerLink="/blog/{{blog._id}}" routerLinkActive="router-link-active" style="background-color: #eee;color: #0f0f0f;">More</button>
+                       
+                           </div>
+
+                        </figcaption>
+                    </figure>
+                    
                 </div>
             </div>
+
+
             <div class="about-div">
                 <div class="text-left">
-                    <h1 class="about-h1" data-aos="fade-right" data-aos-duration="1000">{{this.multiLanguage[0][0][language].about_div}}</h1>
+                    <h1 class="about-h1" data-aos="fade-right" data-aos-duration="1000">
+                        {{this.multiLanguage[0][0][language].about_div}}</h1>
                     <div style="height: 5px;background-color: #fff;width: 3em;margin-top: 2em;" data-aos="zoom-in"
                         data-aos-duration="1000"></div>
-                    <p class="about-paragraf" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">{{this.multiLanguage[0][0][language].about_paragraf_fp}} <span class="black-span"> {{this.multiLanguage[0][0][language].about_paragraf_span1}}</span>
-                        <br> <span class="black-span">{{this.multiLanguage[0][0][language].about_paragraf_span2}}</span> {{this.multiLanguage[0][0][language].about_paragraf_sp}}<br>{{this.multiLanguage[0][0][language].about_paragraf_tp}}</p>
-                    
-                        <a [routerLink]="['/about']" routerLinkActive="router-link-active">
-                            <button class="about-btn" data-aos="fade-up" data-aos-duration="1000"
+                    <p class="about-paragraf" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        {{this.multiLanguage[0][0][language].about_paragraf_fp}} <span class="black-span">
+                            {{this.multiLanguage[0][0][language].about_paragraf_span1}}</span>
+                        <br> <span class="black-span">{{this.multiLanguage[0][0][language].about_paragraf_span2}}</span>
+                        {{this.multiLanguage[0][0][language].about_paragraf_sp}}<br>{{this.multiLanguage[0][0][language].about_paragraf_tp}}
+                    </p>
+
+                    <a [routerLink]="['/about']" routerLinkActive="router-link-active">
+                        <button class="about-btn" data-aos="fade-up" data-aos-duration="1000"
                             data-aos-delay="400">{{this.multiLanguage[0][0][language].about_div_btn}}</button>
-                        </a>
+                    </a>
                 </div>
             </div>
 
@@ -279,7 +245,8 @@
                         {{this.multiLanguage[0][0][language].pricing_header}}</h1>
                     <p class="pricing-paragraf" data-aos="fade-right" data-aos-duration="1000">
                         {{this.multiLanguage[0][0][language].pricing_paragraf_fp}}<span
-                            style="background-color: #ff9600;padding-left: .5em;padding-right: .5em;">{{this.multiLanguage[0][0][language].pricing_paragraf_span}}</span>,<br> {{this.multiLanguage[0][0][language].pricing_paragraf_sp}}
+                            style="background-color: #ff9600;padding-left: .5em;padding-right: .5em;">{{this.multiLanguage[0][0][language].pricing_paragraf_span}}</span>,<br>
+                        {{this.multiLanguage[0][0][language].pricing_paragraf_sp}}
                     </p>
                 </div>
                 <div class="container text-center" data-aos="zoom-in" data-aos-duration="1000">
@@ -315,9 +282,10 @@
                             <div class="price-card-btn-div" id="btn-div">
                                 <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
                                 <a (click)="scrollToElement(contact)">
-                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                    <button
+                                        class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
                                 </a>
-                              
+
                             </div>
                         </div>
                         <div class="col-sm text-center price-card" data-aos="fade-up" data-aos-duration="1000"
@@ -342,7 +310,8 @@
                             <div class="price-card-btn-div" id="btn-div">
                                 <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
                                 <a (click)="scrollToElement(contact)">
-                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                    <button
+                                        class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
                                 </a>
                             </div>
                         </div>
@@ -350,7 +319,8 @@
                             data-aos-delay="1000" style="margin-left: 2em;padding: 0%;" id="price-card">
                             <div class="price-div">
                                 <p style="font-size: 30px;" id="price-div">€<span
-                                        style="font-size: 80px;">60</span>{{this.multiLanguage[0][0][language].month_span}}</p>
+                                        style="font-size: 80px;">60</span>{{this.multiLanguage[0][0][language].month_span}}
+                                </p>
                             </div>
                             <div class="header-card text-center">
                                 <h4>{{this.multiLanguage[0][0][language].pro}}</h4>
@@ -367,7 +337,8 @@
                             <div class="price-card-btn-div" id="btn-div">
                                 <h3 id="heading-div">{{this.multiLanguage[0][0][language].contact_us_fm}}</h3>
                                 <a (click)="scrollToElement(contact)">
-                                    <button class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
+                                    <button
+                                        class="header-btn ">{{this.multiLanguage[0][0][language].contact_us}}</button>
                                 </a>
                             </div>
                         </div>
@@ -405,7 +376,7 @@
 
 
                         </div>
-                        <div class="col-sm-6" >
+                        <div class="col-sm-6">
                             <img src="../../assets/img/responsive.png" alt="" class="img-fluid">
                         </div>
                         <div class="col-sm-3" data-aos="fade-down-left" data-aos-duration="1000">
@@ -433,7 +404,7 @@
             <div class="text-center line-svg" data-aos="fade-down" data-aos-duration="1100" data-aos-delay="200"
                 style="padding-top: 4em;">
                 <img src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/connecting-line-3.svg"
-                    alt="" class="img-fluid zoom" >
+                    alt="" class="img-fluid zoom">
             </div>
             <div class="order-div">
                 <div class="">
@@ -451,13 +422,13 @@
                                     {{this.multiLanguage[0][0][language].order_paragraf_fp}} <span
                                         class="black-span">{{this.multiLanguage[0][0][language].order_paragraf_span}}</span>,{{this.multiLanguage[0][0][language].order_paragraf_sp}}
                                 </p>
-                                
-                                    <a [routerLink]="['/order']" routerLinkActive="router-link-active">
-                                        <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
+
+                                <a [routerLink]="['/order']" routerLinkActive="router-link-active">
+                                    <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
                                         data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
-                                    </a>
+                                </a>
                             </div>
-                            
+
                         </div>
                         <div class="col-sm right-order-col text-center" data-aos="fade-up" data-aos-duration="1100"
                             data-aos-delay="1200">
@@ -466,39 +437,85 @@
                     </div>
                 </div>
             </div>
-            <div class="container photo-container text-center" #photo>
-                <h1 class="photo-h1">{{this.multiLanguage[0][0][language].photography_header}}</h1>
-                <p class="photo-large-paragraf">{{this.multiLanguage[0][0][language].photography_paragraf}}</p>
-                <mat-divider></mat-divider>
-                <div class="row text-center photo-row">
-                    <div class="col-sm-3 ">
-
-                    </div>
-                    <div class="col-sm-3 photo-col" style="margin-right: -3em;">
-                        <div class="photo-card-content">
-                            <h1 class="photo-card-h1">{{this.multiLanguage[0][0][language].photo_shoot}}</h1>
-                            <p class="photo-card-paragraf">
-                                {{this.multiLanguage[0][0][language].photo_shoot}}
-                            </p>
-                            <i class="fa fa-camera"></i>
+            <div class="container text-center" style="padding-top: 10em;">
+                <img src="https://3j6x6z2bx1qq1aawwt3b6y0a-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/connecting-line-2.svg" alt="" class="img-fluid">
+            </div>
+            <div class="container card-container ">
+                <div class="row ">
+                    <div class="col-sm-4 ">
+                        <div class="card-container-text-col " #about>
+                            <h1 data-aos="fade-right" data-aos-duration="1000">
+                                {{this.multiLanguage[0][0][language].four_card_h1}}</h1>
+                            <p class="four-card-header-paragraf" data-aos="fade-right" data-aos-duration="1000">
+                                {{this.multiLanguage[0][0][language].four_card_paragraf_fp}}<span
+                                    style="color: #0f0f0f;">{{this.multiLanguage[0][0][language].four_card_paragraf_span}}</span>
+                                {{this.multiLanguage[0][0][language].four_card_paragraf_sp}}</p>
+                            <a [routerLink]="['/order']" routerLinkActive="router-link-active">
+                                <button class="order-btn" data-aos="fade-up" data-aos-duration="1100"
+                                    data-aos-delay="1000">{{this.multiLanguage[0][0][language].order_btn}}</button>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-sm-3 photo-col" style="margin-left: 5em;">
-                        <div class="photo-card-content">
-                            <h1 class="photo-card-h1">{{this.multiLanguage[0][0][language].photo_edit2}}</h1><br><br>
-                            <p class="photo-card-paragraf">
-                                {{this.multiLanguage[0][0][language].photo_edit}}
-                            </p>
-                            <i class="fa fa-picture-o"></i>
-
-
+                    <div class="row card-container-card-row ">
+                        <div>
+                            <div class="container four-card-container">
+                                <div class="row four-card-row">
+                                    <div class="col-lg-10 text-center orange-card " data-aos="zoom-in"
+                                        data-aos-duration="1000" data-aos-delay="200">
+                                        <img src="../../assets/img/Coding-icon.png " alt=" " class="img-fluid "
+                                            style="width: 80px; ">
+                                        <div class="">
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].code_card_fp}}<br>{{this.multiLanguage[0][0][language].code_card_sp}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-10 text-center dark-card " data-aos="zoom-in"
+                                        data-aos-duration="1000" data-aos-delay="400" style="margin-top: 3em; ">
+                                        <img src="../../assets/img/228-2283810_website-design-web-design-icon-png.png "
+                                            alt=" " class="img-fluid " style="width: 80px; ">
+                                        <div class=" ">
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].modern_design_card}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-3 ">
+                        <div>
+                            <div class="container " style="margin-top: 7em; ">
+                                <div class="row ">
+                                    <div class="col-lg-10 dark-card " data-aos="zoom-in" data-aos-duration="1000"
+                                        data-aos-delay="600">
+                                        <img src="../../assets/img/relationship.png " alt=" " class="img-fluid "
+                                            style="width: 80px; ">
+                                        <div class=" ">
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].relationship_card}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-lg-10 orange-card " data-aos="zoom-in" data-aos-duration="1000"
+                                        data-aos-delay="800" style="margin-top: 3em; ">
+                                        <img src="../../assets/img/clock_fast_66649.png " alt=" " class="img-fluid "
+                                            style="width: 80px; ">
+                                        <div class=" ">
+                                            <p class="four-card-paragraf">
+                                                {{this.multiLanguage[0][0][language].production_card_fp}} <br>
+                                                {{this.multiLanguage[0][0][language].production_card_sp}}</p>
+                                        </div>
+                                    </div>
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div #contact>
                 <app-footer></app-footer>
             </div>
