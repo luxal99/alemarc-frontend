@@ -1,0 +1,14 @@
+<div class="text-center" style="padding: 2em;">
+    <form [formGroup]="boardForm">
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Create new taskboard</mat-label>
+                <input formControlName="title" matInput placeholder="Board name">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              </mat-form-field>
+        </div>
+        <div>
+            <button mat-raised-button color="primary" (click)="createNewBoard()">Create Board</button>
+        </div>
+    </form>
+</div>

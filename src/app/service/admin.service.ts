@@ -49,18 +49,26 @@ export class AdminService implements CanActivate {
     return this.http.post("/admin/saveBlog", blog, { responseType: 'text' });
   }
 
-  getBlogs(){
-    return this.http.get('/admin/getBlogs',{responseType:'json'});
+  getBlogs() {
+    return this.http.get('/admin/getBlogs', { responseType: 'json' });
   }
 
-  deleteBlog(_id){
-    return this.http.delete("/admin/deleteBlog/"+_id,{responseType:'text'});
+  deleteBlog(_id) {
+    return this.http.delete("/admin/deleteBlog/" + _id, { responseType: 'text' });
   }
 
-  findBlogById(_id){
-    return this.http.get("/admin/getOneBlog/"+_id,{responseType:'json'})
+  findBlogById(_id) {
+    return this.http.get("/admin/getOneBlog/" + _id, { responseType: 'json' })
   }
   uploadPhoto(photos) {
     return this.http.post("/admin/upload", photos, { responseType: 'text' })
+  }
+
+  createNewTaskBoard(board) {
+    return this.http.post("/admin/newBoard", board, { responseType: 'json' });
+  }
+
+  getBoard(){
+    return this.http.get("/admin/getBoards",{responseType:'json'})
   }
 }

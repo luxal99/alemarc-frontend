@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskDialogDetailComponent } from './task-dialog-detail/task-dialog-detail.component';
 import { MatDialog } from '@angular/material';
+import { AdminService } from 'src/app/service/admin.service';
+import { CreateBoardDialogComponent } from './create-board-dialog/create-board-dialog.component';
 
 @Component({
   selector: 'app-task-board',
@@ -9,15 +11,12 @@ import { MatDialog } from '@angular/material';
 })
 export class TaskBoardComponent implements OnInit {
 
-  constructor(public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog,public adminService:AdminService) { }
 
-  listOfBoard:any=[{title:"Task1"},{title:"Task2"}]
+  listOfBoard:any=[];
 
   ngOnInit() {
-  }
-
-  addTab(){
-    this.listOfBoard.push({title:'Task3'})
+    this.getBoards();
   }
 
   openTaskDialog(task): void {
@@ -29,5 +28,22 @@ export class TaskBoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
     });
   }
+
+  openCreateBoardDialog(): void {
+    const dialogRef = this.dialog.open(CreateBoardDialogComponent, {
+      width: 'auto',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getBoards();
+    });
+  }
+
+  getBoards(){
+    this.adminService.getBoard().subscribe(data=>{
+      this.listOfBoard = data;
+    })
+  }
+
 
 }
