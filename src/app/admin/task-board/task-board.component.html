@@ -1,1 +1,46 @@
-<p>task-board works!</p>
+<mat-tab-group mat-stretch-tabs>
+    <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}">
+
+        <div class="content">
+            <div class="row card-row">
+                <div class="col">
+                    <div class="new-card card-title">
+                        <h1>NEW</h1>
+                        <div class="container card">
+                            <h2>Name of card</h2>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="in-progress-card card-title">
+                        <h1>NEW</h1>
+                        <div class="container card">
+                            <h2>Name of card</h2>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="done-card card-title">
+                        <h1>NEW</h1>
+                        <div class="container card">
+                            <h2>Name of card</h2>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab disabled>
+        <ng-template mat-tab-label>
+            <button mat-icon-button (click)="addTab()">
+                <mat-icon>add_circle</mat-icon>
+            </button>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

@@ -9,7 +9,14 @@ export class TaskBoardComponent implements OnInit {
 
   constructor() { }
 
+  listOfBoard:any=[{title:"Task1"},{title:"Task2"}]
+
   ngOnInit() {
+  }
+
+  addTab(){
+    
+    this.listOfBoard.push({title:'Task3'})
   }
 
 }
