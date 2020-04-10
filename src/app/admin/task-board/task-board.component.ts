@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TaskDialogDetailComponent } from './task-dialog-detail/task-dialog-detail.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-task-board',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskBoardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog:MatDialog) { }
 
   listOfBoard:any=[{title:"Task1"},{title:"Task2"}]
 
@@ -15,8 +17,17 @@ export class TaskBoardComponent implements OnInit {
   }
 
   addTab(){
-    
     this.listOfBoard.push({title:'Task3'})
+  }
+
+  openTaskDialog(task): void {
+    const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
+      width: 'auto',
+      data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
 }

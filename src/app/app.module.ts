@@ -28,6 +28,7 @@ import { BlogPreviewDialogComponent } from './admin/blog-preview-dialog/blog-pre
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 import { TaskBoardComponent } from './admin/task-board/task-board.component';
+import { TaskDialogDetailComponent } from './admin/task-board/task-dialog-detail/task-dialog-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +48,8 @@ import { TaskBoardComponent } from './admin/task-board/task-board.component';
     BlogDialogComponent,
     BlogPreviewDialogComponent,
     BlogDetailComponent,
-    TaskBoardComponent
+    TaskBoardComponent,
+    TaskDialogDetailComponent
   ],
   imports: [
     CommonModule,
@@ -67,7 +69,7 @@ import { TaskBoardComponent } from './admin/task-board/task-board.component';
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [MessagePreviewDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+  entryComponents: [MessagePreviewDialogComponent,TaskDialogDetailComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
