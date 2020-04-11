@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { AdminService } from 'src/app/service/admin.service';
+import { ImgShowDialogComponent } from './img-show-dialog/img-show-dialog.component';
 
 @Component({
   selector: 'app-task-dialog-detail',
@@ -9,7 +10,7 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class TaskDialogDetailComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public adminService:AdminService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public adminService:AdminService,public dialog:MatDialog) { }
 
   ngOnInit() {
     console.log(this.data);
@@ -65,6 +66,13 @@ export class TaskDialogDetailComponent implements OnInit {
       
     })
 
+  }
+
+  openImg(url): void {
+    const dialogRef = this.dialog.open(ImgShowDialogComponent, {
+     width:'auto',
+      data: url
+    });
   }
 
 }

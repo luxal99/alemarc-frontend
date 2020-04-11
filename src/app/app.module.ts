@@ -75,7 +75,7 @@ import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/im
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [AddNewTaskDialogComponent,TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+  entryComponents: [ImgShowDialogComponent,AddNewTaskDialogComponent,TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
