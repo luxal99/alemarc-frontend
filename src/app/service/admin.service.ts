@@ -69,6 +69,6 @@ export class AdminService implements CanActivate {
   }
 
   getBoard(){
-    return this.http.get("/admin/getBoards",{responseType:'json'})
+    return this.http.get("/admin/board/getBoard",{responseType:'json'})
   }
 }

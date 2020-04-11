@@ -1,43 +1,49 @@
-<mat-tab-group mat-stretch-tabs>
-    <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}">
+<mat-tab-group  mat-stretch-tabs>
+    <mat-tab  (click)="test(tab)" *ngFor="let tab of listOfBoard" label="{{tab.title}}">
 
         <div class="content">
             <div class="row card-row">
                 <div class="col">
-                    <div class="new-card card-title">
-                        <div class="row">
+                    <div class="new-card card">
+                        <div class="row new-card-title-row">
                             <div class="col">
-                                <h1>NEW</h1>
+                                <h1>To Do</h1>
                             </div>
                             <div class="col text-right">
-                                <button mat-button (click)="openTaskDialog()"><i class="fa fa-plus-circle" style="font-size: 30px;"></i></button>
+                                <button mat-button (click)="openNewTaskDialog(tab)"><i class="fa fa-plus-circle" style="font-size: 30px;"></i></button>
                             </div>
                         </div>
-                        <div class="container card">
-                            <h2>Name of card</h2>
+                        <div class="container card-container" *ngFor="let task of tab.cardList" >
+                           <div class="card-content" *ngIf="task.id_card_status.id_card_status===1;">
+                            <h2>{{task.header}}</h2>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry's standard dummy text ever since the </p>
+                           </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="in-progress-card card-title">
-                        <h1>NEW</h1>
-                        <div class="container card">
-                            <h2>Name of card</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the </p>
-                        </div>
+                    <div class="in-progress-card card">
+                        <h1 class="card-header-title">In progress</h1>
+                        <div class="container card-container" *ngFor="let task of tab.cardList" >
+                            <div class="card-content" *ngIf="task.id_card_status.id_card_status===2;">
+                             <h2>{{task.header}}</h2>
+                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                 has been the industry's standard dummy text ever since the </p>
+                            </div>
+                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="done-card card-title">
-                        <h1>NEW</h1>
-                        <div class="container card">
-                            <h2>Name of card</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the </p>
-                        </div>
+                    <div class="done-card card">
+                        <h1 class="card-header-title">Done</h1>
+                        <div class="container card-container" *ngFor="let task of tab.cardList" >
+                            <div class="card-content" *ngIf="task.id_card_status.id_card_status===3;">
+                             <h2>{{task.header}}</h2>
+                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                 has been the industry's standard dummy text ever since the </p>
+                            </div>
+                         </div>
                     </div>
                 </div>
             </div>

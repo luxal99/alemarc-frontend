@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-task-dialog-detail',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TaskDialogDetailComponent implements OnInit {
 
   constructor() { }
-
+   
   ngOnInit() {
   }
 

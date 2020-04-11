@@ -1,25 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai+2&display=swap');
+
 .row {
     margin: 0 !important;
 }
 
 .content {
-    background-color: #21253D;
+    background-color: #191D2E;
     min-height: 95vh;
 }
 
-.card-title {
-    padding-top: 1em;
-    padding-left: 2em;
-    padding-right: 2em;
-    padding-bottom: 1em;
+.card {
     margin-top: 2em;
     color: #eee;
     background-color: #2E2F3C;
 }
 
-.card{
+.card-content{
     color: #21253D;
-    padding-top: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    background-color: #eee;
+    padding: 1em;
 }
 
 .new-card {
@@ -33,4 +34,22 @@
     border-top: 4px solid #FFC830;
 }
 
-.card-row{}
+.card-row{
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.new-card-title-row{
+    padding-top: 1em;
+    padding-left: 1em;
+    font-family: 'Baloo Bhai 2', cursive;
+    background-color: #323647;
+}
+
+.card-header-title{
+    font-family: 'Baloo Bhai 2', cursive;
+    background-color: #323647;
+    padding-top: .4em;
+    padding-bottom: .2em;
+    padding-left: 1em;
+}

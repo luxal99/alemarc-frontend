@@ -1,0 +1,27 @@
+<div class="container" style="padding-top: 2em;padding-left: 2em;">
+    <form [formGroup]="taskForm">
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint</mat-hint>
+            </mat-form-field>
+        </div>
+
+       <div>
+        <mat-form-field appearance="outline">
+            <mat-label>Outline form field</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+       </div>
+
+       <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+
+        <ckeditor #editorSn [editor]="Editor"  data="{{editorData}}"></ckeditor>
+
+    </form>
+</div>

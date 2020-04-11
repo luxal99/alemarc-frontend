@@ -30,6 +30,7 @@ import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
 import { TaskBoardComponent } from './admin/task-board/task-board.component';
 import { TaskDialogDetailComponent } from './admin/task-board/task-dialog-detail/task-dialog-detail.component';
 import { CreateBoardDialogComponent } from './admin/task-board/create-board-dialog/create-board-dialog.component';
+import { AddNewTaskDialogComponent } from './admin/task-board/add-new-task-dialog/add-new-task-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { CreateBoardDialogComponent } from './admin/task-board/create-board-dial
     BlogDetailComponent,
     TaskBoardComponent,
     TaskDialogDetailComponent,
-    CreateBoardDialogComponent
+    CreateBoardDialogComponent,
+    AddNewTaskDialogComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +73,7 @@ import { CreateBoardDialogComponent } from './admin/task-board/create-board-dial
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [MessagePreviewDialogComponent,TaskDialogDetailComponent,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+  entryComponents: [AddNewTaskDialogComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

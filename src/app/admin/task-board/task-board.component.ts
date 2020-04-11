@@ -3,6 +3,7 @@ import { TaskDialogDetailComponent } from './task-dialog-detail/task-dialog-deta
 import { MatDialog } from '@angular/material';
 import { AdminService } from 'src/app/service/admin.service';
 import { CreateBoardDialogComponent } from './create-board-dialog/create-board-dialog.component';
+import { AddNewTaskDialogComponent } from './add-new-task-dialog/add-new-task-dialog.component';
 
 @Component({
   selector: 'app-task-board',
@@ -19,9 +20,9 @@ export class TaskBoardComponent implements OnInit {
     this.getBoards();
   }
 
-  openTaskDialog(task): void {
-    const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
-      width: 'auto',
+  openNewTaskDialog(task): void {
+    const dialogRef = this.dialog.open(AddNewTaskDialogComponent, {
+     minWidth:'100vh',
       data: task
     });
 
@@ -42,7 +43,14 @@ export class TaskBoardComponent implements OnInit {
   getBoards(){
     this.adminService.getBoard().subscribe(data=>{
       this.listOfBoard = data;
+      console.log(this.listOfBoard);
+      
     })
+  }
+
+  test(tab){
+    console.log(tab);
+    
   }
 
 
