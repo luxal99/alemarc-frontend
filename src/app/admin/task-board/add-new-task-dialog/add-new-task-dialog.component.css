@@ -1,3 +1,14 @@
 mat-form-field{
     width: 50%;
 }
+
+.add-btn{
+    padding-top: .3em;
+    padding-left: 3em;
+    padding-right: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    color: #eee;
+    font-size: 20px;
+    padding-bottom: .3em;
+}

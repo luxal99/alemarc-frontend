@@ -1,21 +1,17 @@
 <div class="container" style="padding-top: 2em;padding-left: 2em;">
     <form [formGroup]="taskForm">
-
-        <div>
+        <h2>Add new task</h2>
+        <div style="padding-top: 1em;">
             <mat-form-field appearance="outline">
-                <mat-label>Outline form field</mat-label>
-                <input formControlName="header" matInput placeholder="Placeholder">
-                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                <mat-hint>Hint</mat-hint>
+                <input formControlName="header" matInput placeholder="Header">
+                <mat-icon matSuffix>subject</mat-icon>
             </mat-form-field>
         </div>
 
        <div>
         <mat-form-field appearance="outline">
-            <mat-label>Outline form field</mat-label>
-            <input formControlName="text" matInput placeholder="Placeholder">
-            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-            <mat-hint>Hint</mat-hint>
+            <input formControlName="text" matInput placeholder="Short text">
+            <mat-icon matSuffix>subject</mat-icon>
         </mat-form-field>
        </div>
 
@@ -28,11 +24,16 @@
           </mat-form-field>
        </div>
 
-       <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+      <div style="padding-top: 1em;">
+        <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
 
+      </div>
+        
+      <div style="padding-top: 1em;">
         <ckeditor #editor [editor]="Editor"  data="{{editorData}}"></ckeditor>
 
-        <button mat-raised-button color="primary" (click)="saveTask()">Add tast</button>
+      </div>
+        <button class="add-btn" mat-raised-button color="primary" (click)="saveTask()">Add tast</button>
 
     </form>
 </div>
