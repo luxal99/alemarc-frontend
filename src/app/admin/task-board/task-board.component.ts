@@ -27,6 +27,18 @@ export class TaskBoardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.getBoards();
+    });
+  }
+
+  openTaskDetail(task): void {
+    const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
+     width:'auto',
+      data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getBoards();
     });
   }
 

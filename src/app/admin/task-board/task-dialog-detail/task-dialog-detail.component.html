@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row header-row">
+        <div class="col-8">
+            <h2>{{data.header}}</h2>
+        </div>
+        <div class="col-4 text-right">
+            <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
+                <button mat-menu-item style="color: orange;" (click)="moveToInProgress()">In-progress</button>
+                <button mat-menu-item style="color: greenyellow;" (click)="moveToToDone()">Done</button>
+            </mat-menu>
+        </div>
+    </div>
+    <h3><i class="fa fa-align-left"></i> Description</h3>
+    <mat-divider></mat-divider>
+    <h5 [innerHTML]="data.description"></h5>
+    <div *ngFor="let item of data.cardAttachmentList">
+        <img style="width: 200px;padding-top: 1em;padding-bottom: 1em;" src="{{item.url}}" alt="" class="img-fluid">
+    </div>
+</div>

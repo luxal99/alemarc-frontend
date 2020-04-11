@@ -4,7 +4,7 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label>Outline form field</mat-label>
-                <input matInput placeholder="Placeholder">
+                <input formControlName="header" matInput placeholder="Placeholder">
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                 <mat-hint>Hint</mat-hint>
             </mat-form-field>
@@ -13,15 +13,26 @@
        <div>
         <mat-form-field appearance="outline">
             <mat-label>Outline form field</mat-label>
-            <input matInput placeholder="Placeholder">
+            <input formControlName="text" matInput placeholder="Placeholder">
             <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             <mat-hint>Hint</mat-hint>
         </mat-form-field>
        </div>
 
+       <div>
+        <mat-form-field>
+            <mat-label>Choose a date</mat-label>
+            <input formControlName="due_date" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+       </div>
+
        <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
 
-        <ckeditor #editorSn [editor]="Editor"  data="{{editorData}}"></ckeditor>
+        <ckeditor #editor [editor]="Editor"  data="{{editorData}}"></ckeditor>
+
+        <button mat-raised-button color="primary" (click)="saveTask()">Add tast</button>
 
     </form>
 </div>
