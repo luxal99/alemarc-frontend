@@ -15,6 +15,8 @@ export class TaskBoardComponent implements OnInit {
   constructor(public dialog: MatDialog, public adminService: AdminService) { }
 
   listOfBoard: any = [];
+  listOfTasks: any = [];
+  id_board;
 
   ngOnInit() {
     this.getBoards();
@@ -27,7 +29,7 @@ export class TaskBoardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getBoards();
+      this.getTasks();
     });
   }
 
@@ -35,12 +37,12 @@ export class TaskBoardComponent implements OnInit {
     const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
       minWidth: '90vh',
       minHeight: '20vh',
-      maxHeight:'90vh',
+      maxHeight: '90vh',
       data: task
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.getBoards();
+      this.getTasks();
     });
   }
 
@@ -57,9 +59,24 @@ export class TaskBoardComponent implements OnInit {
   getBoards() {
     this.adminService.getBoard().subscribe(data => {
       this.listOfBoard = data;
-      console.log(this.listOfBoard);
+    })
+  }
+
+  getTasks() {
+    this.adminService.getTaskList(this.id_board).subscribe(data => {
+      this.listOfTasks = data;
+
+      this.listOfBoard.forEach(element => {
+        if (element.id_task_board === this.id_board) {
+          element.cardList = data
+        }
+      });
 
     })
+  }
+
+  getBoard($event) {
+    this.id_board = this.listOfBoard[$event.index].id_task_board
   }
 
 

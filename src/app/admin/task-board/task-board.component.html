@@ -1,6 +1,5 @@
-<mat-tab-group mat-stretch-tabs>
-    <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}">
-
+<mat-tab-group (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
+    <mat-tab  *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
         <div class="content">
             <div class="row card-row">
                 <div class="col">

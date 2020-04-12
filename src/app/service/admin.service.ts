@@ -91,4 +91,8 @@ export class AdminService implements CanActivate {
   updateAttachment(attachemnt){
     return this.http.post("/admin/board/addNewAttachment",attachemnt,{responseType:'text'})
   }
+
+  getTaskList(id_task_board){
+    return this.http.get("/admin/board/getTaskList/"+id_task_board,{responseType:'json'});
+  }
 }

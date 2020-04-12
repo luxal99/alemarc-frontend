@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Inject, Directive } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDatepicker, MatDatepickerInput } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDatepicker, MatDatepickerInput, MatDialogRef } from '@angular/material';
 import { AdminService } from 'src/app/service/admin.service';
 import { ImgShowDialogComponent } from './img-show-dialog/img-show-dialog.component';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
@@ -18,7 +18,8 @@ export class TaskDialogDetailComponent implements OnInit {
   descriptionInput = true;
   dueDate = true;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService, public dialog: MatDialog) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+   public adminService: AdminService, public dialog: MatDialog,private dialogRef:MatDialogRef<TaskDialogDetailComponent>) { }
 
 
   @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
@@ -103,6 +104,8 @@ export class TaskDialogDetailComponent implements OnInit {
     this.adminService.updateTask(updatedTask).subscribe(data => {
     })
 
+    this.dialogRef.close();
+
   }
 
   moveToToDo() {
@@ -119,7 +122,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
     })
 
-
+    this.dialogRef.close();
 
   }
 
@@ -135,6 +138,8 @@ export class TaskDialogDetailComponent implements OnInit {
 
     this.adminService.updateTask(updatedTask).subscribe(data => {
     })
+
+    this.dialogRef.close();
 
   }
 
