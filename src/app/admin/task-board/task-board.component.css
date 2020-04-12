@@ -34,15 +34,15 @@ h5 {
 }
 
 .new-card {
-    border-top: 4px solid red;
+    border-top: 3px solid red;
 }
 
 .done-card {
-    border-top: 4px solid #4BB543;
+    border-top: 3px solid #4BB543;
 }
 
 .in-progress-card {
-    border-top: 4px solid #FFC830;
+    border-top: 3px solid #FFC830;
 }
 
 .card-row {
@@ -68,3 +68,4 @@ h5 {
 .modal, .modal-content {
     transition: none !important;
 }
+

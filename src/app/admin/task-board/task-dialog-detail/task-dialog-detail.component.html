@@ -1,4 +1,4 @@
-<div class="container" style="padding-bottom: 2em;">
+<div class="container dialog-content" style="padding-bottom: 2em;">
     <div class="text-right">
         <button mat-icon-button mat-dialog-close>
             <mat-icon>close</mat-icon>
@@ -52,7 +52,7 @@
             <div class="attachment-container">
 
                 <div class="attachment-div" *ngFor="let item of data.cardAttachmentList">
-                    <div class="row">
+                    <div class="row" style="padding-top: 1em;">
                         <button color="warn" mat-button (click)="removeAttachment(item)">Delete</button>
                         <a href="{{item.url}}" download><button color="warn" mat-icon-button>
                                 <mat-icon>cloud_download</mat-icon>
@@ -69,14 +69,14 @@
 
         </div>
         <div class="col-2 text-right">
-            <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
-                <button mat-menu-item style="color: orange;" (click)="moveToInProgress()">In-progress</button>
-                <button mat-menu-item style="color: greenyellow;" (click)="moveToToDone()">Done</button>
+            <button class="dark-btn" mat-raised-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon> Menu</button>
+            <mat-menu  #menu="matMenu">
+                <button class="dark-btn" mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
+                <button class="dark-btn" mat-menu-item style="color: orange;" (click)="moveToInProgress()">In-progress</button>
+                <button class="dark-btn" mat-menu-item style="color: greenyellow;" (click)="moveToToDone()">Done</button>
             </mat-menu>
             <div>
-                <button mat-button style="margin-top: 1em;background-color: #eee;" (click)="showDueDate()">
+                <button class="dark-btn" mat-button style="margin-top: 1em;;" (click)="showDueDate()">
                     <mat-icon>date_range</mat-icon> Due Date
                 </button>
             </div>
@@ -88,8 +88,7 @@
                     </mat-form-field>
                 </form>
             </div>
-            <button style="margin-top: 1em;background-color: #eee;" class="text-right" mat-button
-                (click)="archiveTask()" mat-dialog-close>
+            <button class="dark-btn" style="margin-top: 1em;" mat-button (click)="archiveTask()" mat-dialog-close>
                 <mat-icon>visibility_off</mat-icon> Archive
             </button>
         </div>

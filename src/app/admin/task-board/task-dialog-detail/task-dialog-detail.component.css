@@ -1,75 +1,104 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai+2&display=swap');
-div{
+
+div, button {
     font-family: 'Baloo Bhai 2', cursive;
 }
 
-h5{
-    padding-top: 1em;
+button {
+    font-size: 18px;
 }
 
-.header-row{
+.dialog-content {
+    background-color: #121212;
+}
+
+h1, h5, p {
+    padding-top: 1em;
+    color: #fff;
+    opacity: 87%;
+}
+
+h2,h3 {
+    color: #fff;
+    opacity: 87%;
+}
+
+mat-divider {
+    border-top-color: #ff9000;
+}
+
+.header-row {
     padding-top: 1em;
     padding-left: .5em;
 }
 
-img{
-    border-radius: 5px;
+img {
+    border-radius: 8px;
+    -webkit-box-shadow: 3px 10px 22px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 10px 22px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 10px 22px -8px rgba(0, 0, 0, 0.75);
 }
 
-.row{
+.row {
     margin: 0 !important;
 }
 
-a{
-    color: #21253D;
+a {
+    color: #fff;
+    opacity: 87%;
 }
 
-mat-icon{
+mat-icon {
     color: #ff9000;
 }
 
-.update-btn{
+.update-btn {
     font-size: 18px;
     margin-top: 1em;
     padding-left: 2em;
     padding-right: 2em;
 }
 
-.attachment-container{
+.attachment-container {
     font-size: 0;
     display: -ms-flexbox;
     -ms-flexbox-wrap: wrap;
-    -ms-flexbox-direction:column;
+    -ms-flexbox-direction: column;
     flex-flow: row wrap;
     display: -webkit-box;
     display: flex;
-} 
-.attachment-div{
-    
+}
+
+.attachment-div {
     -webkit-box-flex: auto;
     -ms-flex: auto;
     flex: auto;
 }
+
 .upload-btn-wrapper {
     position: relative;
     overflow: hidden;
     display: inline-block;
-  }
-  
-  .btn {
+}
+
+.btn {
     border: 2px solid gray;
     color: gray;
     background-color: white;
     padding: 8px 20px;
     font-size: 20px;
     font-weight: bold;
-  }
-  
-  .upload-btn-wrapper input[type=file] {
+}
+
+.upload-btn-wrapper input[type=file] {
     font-size: 100px;
     position: absolute;
     left: 0;
     top: 0;
     opacity: 0;
-  }
+}
 
+.dark-btn {
+    background-color: #040404;
+    color: #fff;
+    opacity: 87%;
+}

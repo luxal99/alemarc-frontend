@@ -1,4 +1,4 @@
-<mat-tab-group (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
+<mat-tab-group style="background-color: #111;" (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
     <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
         <div class="content">
             <div class="row card-row">
