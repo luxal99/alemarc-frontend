@@ -6,7 +6,7 @@
     </div>
     <div class="row header-row">
         <div class="col-10">
-            <h2>{{data.header}} <a (click)="showHeaderInput()">
+            <h2><i class="fa fa-bookmark"></i> {{data.header}} <a (click)="showHeaderInput()">
                     <mat-icon>edit</mat-icon>
                 </a></h2>
             <div [hidden]="headerInput">
@@ -21,9 +21,10 @@
                     </button>
                 </form>
             </div>
-            <div class="row">
-                <h3><i class="fa fa-align-left"></i> Description</h3>
-                <button color="primary" (click)="showDescriptionInput()" mat-button>Edit</button>
+            <div class="row" style="padding-top: 2em;">
+                <h3><i class="fa fa-align-left"></i> Description <a (click)="showDescriptionInput()">
+                        <mat-icon>edit</mat-icon>
+                    </a></h3>
             </div>
             <mat-divider></mat-divider>
             <h5 [innerHTML]="data.description"></h5>
@@ -31,7 +32,25 @@
                 <ckeditor #editor [editor]="Editor" data="{{data.description}}"></ckeditor>
             </div>
 
+            <div>
+                <div class="row text-right">
+                    <h3>Attachments</h3>
+                    <div class="upload-btn-wrapper">
+                        
+                        <button mat-icon-button>
+                            <mat-icon>attach_file</mat-icon>
+                        </button>
+                        <input style="width: 25vh;" type="file" onsubmit="return false" #file (change)="onFilesAdded()"
+                            multiple />
+                    </div>
+                    <button mat-icon-button style="color: orange;" (click)="uploadAttachment()">
+                        <mat-icon>cloud_upload</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
             <div class="attachment-container">
+
                 <div class="attachment-div" *ngFor="let item of data.cardAttachmentList">
                     <div class="row">
                         <button color="warn" mat-button (click)="removeAttachment(item)">Delete</button>
@@ -69,23 +88,10 @@
                     </mat-form-field>
                 </form>
             </div>
-            <button style="margin-top: 1em;background-color: #eee;" class="text-right" mat-button (click)="archiveTask()" mat-dialog-close>
+            <button style="margin-top: 1em;background-color: #eee;" class="text-right" mat-button
+                (click)="archiveTask()" mat-dialog-close>
                 <mat-icon>visibility_off</mat-icon> Archive
             </button>
-
-
-
-
-            <div class="row text-right">
-                <div class="upload-btn-wrapper">
-                    <button  mat-icon-button>
-                        <mat-icon>attach_file</mat-icon>
-                    </button>
-                    <input style="width: 25vh;" type="file" onsubmit="return false" #file (change)="onFilesAdded()"
-                        multiple />
-                </div>
-                <button mat-icon-button style="color: orange;" (click)="uploadAttachment()"><mat-icon>cloud_upload</mat-icon></button>
-            </div>
         </div>
     </div>
 </div>
