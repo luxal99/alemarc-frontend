@@ -28,7 +28,9 @@
         <input type="file" onsubmit="return false" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
       </div>
 
- 
+    <div>
+      <button mat-button (click)="upl()">text</button>
+    </div>
 
     <div style="padding-top: 1em;">
       <ckeditor #editor [editor]="Editor" data="{{editorData}}"></ckeditor>

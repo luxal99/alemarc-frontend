@@ -4,9 +4,6 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
-
-const uri = 'http://localhost:8080/admin/board/upload';
 
 @Component({
   selector: 'app-add-new-task-dialog',
@@ -15,12 +12,9 @@ const uri = 'http://localhost:8080/admin/board/upload';
 })
 export class AddNewTaskDialogComponent implements OnInit {
 
-  uploader: FileUploader = new FileUploader({ url: uri });
 
-  attachmentList: any = [];
-
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService) {
+   }
 
   @ViewChild('file', { static: false }) file
   public files: Set<File> = new Set()
@@ -37,8 +31,7 @@ export class AddNewTaskDialogComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.data);
-
+    
   }
 
   onFilesAdded() {

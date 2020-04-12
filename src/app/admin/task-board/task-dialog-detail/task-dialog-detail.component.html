@@ -28,11 +28,15 @@
                 <div style="padding-top: 1em;" [hidden]="descriptionInput">
                     <ckeditor #editor [editor]="Editor" data="{{data.description}}"></ckeditor>
                 </div>
-                <div *ngFor="let item of data.cardAttachmentList">
+                <div >
                     <div class="row">
-                        <div class="col">
-                            <img (click)="openImg(item.url)" style="width: 200px;padding-top: 1em;padding-bottom: 1em;" src="{{item.url}}" alt="" class="img-fluid">
-                            <button mat-icon-button (click)="removeAttachment(item)"><mat-icon>close</mat-icon></button>
+                        <div class="col" *ngFor="let item of data.cardAttachmentList">
+                            <div class="row">
+                                <button color="warn" mat-button (click)="removeAttachment(item)">Delete</button>
+                                <a href="{{item.url}}" download><button color="warn" mat-icon-button ><mat-icon>cloud_download</mat-icon></button></a>
+                            </div>
+                            <img (click)="openImg(item.url)" style="width: 200px;height: 200px;" src="{{item.url}}" alt="" class="img-fluid">
+                            
                         </div>
                     </div>
                 </div>
