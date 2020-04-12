@@ -24,10 +24,11 @@
       </mat-form-field>
     </div>
 
-    <div style="padding-top: 1em;">
-      <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+      <div style="padding-top: 1em;">
+        <input type="file" onsubmit="return false" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+      </div>
 
-    </div>
+ 
 
     <div style="padding-top: 1em;">
       <ckeditor #editor [editor]="Editor" data="{{editorData}}"></ckeditor>

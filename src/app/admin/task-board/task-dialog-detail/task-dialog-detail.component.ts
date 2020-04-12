@@ -16,7 +16,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
   headerInput = true;
   descriptionInput = true;
-  dueDate = true
+  dueDate = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService, public dialog: MatDialog) { }
 
@@ -34,8 +34,6 @@ export class TaskDialogDetailComponent implements OnInit {
   })
 
   ngOnInit() {
-    console.log(this.data);
-
   }
 
   showHeaderInput() {
@@ -81,8 +79,6 @@ export class TaskDialogDetailComponent implements OnInit {
     }
 
     this.adminService.updateTask(updatedTask).subscribe(data => {
-      console.log(data);
-
     })
 
   }
@@ -98,10 +94,10 @@ export class TaskDialogDetailComponent implements OnInit {
     }
 
     this.adminService.updateTask(updatedTask).subscribe(data => {
-        
+
     })
 
-    
+
 
   }
 
@@ -116,8 +112,6 @@ export class TaskDialogDetailComponent implements OnInit {
     }
 
     this.adminService.updateTask(updatedTask).subscribe(data => {
-      console.log(data);
-
     })
 
   }
@@ -133,7 +127,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
     var due_date = this.editTaskForm.get('due_date').value;
 
-    if (due_date!=null) {
+    if (due_date != null) {
       var shorter = String(due_date).substring(4, 10);
       this.data.due_date = shorter;
     }
@@ -148,10 +142,25 @@ export class TaskDialogDetailComponent implements OnInit {
 
   }
 
-  archiveTask(){
+  archiveTask() {
     this.data.id_card_status = 4;
-    this.adminService.updateTask(this.data).subscribe(data=>{
+    this.adminService.updateTask(this.data).subscribe(data => {
     })
+  }
+
+
+  removeAttachment(attachment) {
+
+    var index = this.data.cardAttachmentList.indexOf(attachment);
+    this.data.cardAttachmentList.splice(index,1);
+
+    this.adminService.updateAttachmentList(this.data).subscribe(data=>{
+      console.log(data);
+      
+    })
+    
+    
+
   }
 
 }

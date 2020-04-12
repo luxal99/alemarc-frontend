@@ -1,4 +1,7 @@
 <div class="container" style="padding-bottom: 2em;">
+    <div class="text-right">
+        <button mat-icon-button mat-dialog-close><mat-icon>close</mat-icon></button>
+    </div>
     <div class="row header-row">
         <div class="col-10">
             <h2 >{{data.header}} <a (click)="showHeaderInput()">
@@ -25,8 +28,13 @@
                 <div style="padding-top: 1em;" [hidden]="descriptionInput">
                     <ckeditor #editor [editor]="Editor" data="{{data.description}}"></ckeditor>
                 </div>
-                <div (click)="openImg(item.url)" *ngFor="let item of data.cardAttachmentList">
-                    <img style="width: 200px;padding-top: 1em;padding-bottom: 1em;" src="{{item.url}}" alt="" class="img-fluid">
+                <div *ngFor="let item of data.cardAttachmentList">
+                    <div class="row">
+                        <div class="col">
+                            <img (click)="openImg(item.url)" style="width: 200px;padding-top: 1em;padding-bottom: 1em;" src="{{item.url}}" alt="" class="img-fluid">
+                            <button mat-icon-button (click)="removeAttachment(item)"><mat-icon>close</mat-icon></button>
+                        </div>
+                    </div>
                 </div>
             
                 <button mat-raised-button class="update-btn" [hidden]="headerInput && descriptionInput && dueDate"

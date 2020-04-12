@@ -83,4 +83,8 @@ export class AdminService implements CanActivate {
   updateTask(task){
     return this.http.put("/admin/board/updateTask",task,{responseType:'text'});
   }
+
+  updateAttachmentList(data){
+    return this.http.post("/admin/board/updateAttachmentList",data,{responseType:'text'});
+  }
 }

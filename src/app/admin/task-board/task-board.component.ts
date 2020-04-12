@@ -33,11 +33,14 @@ export class TaskBoardComponent implements OnInit {
 
   openTaskDetail(task): void {
     const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
-      width: 'auto',
+      minWidth: '90vh',
       minHeight: '20vh',
       maxHeight:'90vh',
-      data: task,
-      autoFocus:false
+      data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getBoards();
     });
   }
 
@@ -57,11 +60,6 @@ export class TaskBoardComponent implements OnInit {
       console.log(this.listOfBoard);
 
     })
-  }
-
-  test(tab) {
-    console.log(tab);
-
   }
 
 

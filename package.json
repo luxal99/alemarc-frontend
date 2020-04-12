@@ -28,6 +28,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "jquery": "^3.4.1",
+    "ng2-file-upload": "^1.4.0",
     "ngx-useful-swiper": "^9.0.3",
     "rxjs": "~6.4.0",
     "swiper": "^5.3.6",
