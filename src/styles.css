@@ -18,4 +18,6 @@ body {
 .blogDialog{
     background-color:rgba(26, 26, 26, 0.514);
 }
-
+.mat-menu-content{
+    padding: 1em;
+}

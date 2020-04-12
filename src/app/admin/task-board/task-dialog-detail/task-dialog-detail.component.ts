@@ -28,12 +28,34 @@ export class TaskDialogDetailComponent implements OnInit {
 
   @ViewChild('picker', { static: false }) datePicker: MatDatepicker<Date>;
 
+
+  @ViewChild('file', { static: false }) file
+  public files: Set<File> = new Set()
+
+  images: Array<any> = [];
+  image_url;
+
+
+
   editTaskForm = new FormGroup({
     header: new FormControl(this.data.header),
     due_date: new FormControl()
   })
 
   ngOnInit() {
+  }
+
+  onFilesAdded() {
+    const files: { [key: string]: File } = this.file.nativeElement.files;
+    for (let key in files) {
+      if (!isNaN(parseInt(key))) {
+        this.files.add(files[key]);
+        var attachment = { url: 'assets/img/task/' + files[key].name }
+        this.images.push(attachment)
+
+
+      }
+    }
   }
 
   showHeaderInput() {
@@ -152,15 +174,37 @@ export class TaskDialogDetailComponent implements OnInit {
   removeAttachment(attachment) {
 
     var index = this.data.cardAttachmentList.indexOf(attachment);
-    this.data.cardAttachmentList.splice(index,1);
-
-    this.adminService.updateAttachmentList(this.data).subscribe(data=>{
+    this.data.cardAttachmentList.splice(index, 1);
+    console.log(attachment.url);
+    
+    var url = attachment.url;
+    this.adminService.deleteAttachment(attachment).subscribe(data => {
       console.log(data);
-      
-    })
-    
-    
 
+    })
   }
 
+
+ async uploadAttachment() {
+
+    var attachment = {id_task_card:this.data.id_task_card,cardAttachmentList:this.images}
+
+    if (this.files.size > 0) {
+      this.data.cardAttachmentList = this.images;
+      this.files.forEach(element => {
+        const formData: FormData = new FormData();
+        formData.append('image_url', element)
+        this.adminService.uploadAttachment(formData).subscribe(data => {
+
+        })
+      });
+
+     await this.adminService.updateAttachment(attachment).subscribe(data => {
+        console.log(data);
+
+
+      })
+
+    }
+  }
 }
