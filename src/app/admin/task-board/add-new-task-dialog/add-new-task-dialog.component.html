@@ -1,39 +1,38 @@
 <div class="container" style="padding-top: 2em;padding-left: 2em;">
-    <form [formGroup]="taskForm">
-        <h2>Add new task</h2>
-        <div style="padding-top: 1em;">
-            <mat-form-field appearance="outline">
-                <input formControlName="header" matInput placeholder="Header">
-                <mat-icon matSuffix>subject</mat-icon>
-            </mat-form-field>
-        </div>
+  <form [formGroup]="taskForm">
+    <h2>Add new task</h2>
+    <div style="padding-top: 1em;">
+      <mat-form-field appearance="outline">
+        <input formControlName="header" matInput placeholder="Header">
+        <mat-icon matSuffix>subject</mat-icon>
+      </mat-form-field>
+    </div>
 
-       <div>
-        <mat-form-field appearance="outline">
-            <input formControlName="text" matInput placeholder="Short text">
-            <mat-icon matSuffix>subject</mat-icon>
-        </mat-form-field>
-       </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <input formControlName="text" matInput placeholder="Short text">
+        <mat-icon matSuffix>subject</mat-icon>
+      </mat-form-field>
+    </div>
 
-       <div>
-        <mat-form-field>
-            <mat-label>Choose a date</mat-label>
-            <input formControlName="due_date" matInput [matDatepicker]="picker">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-       </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input formControlName="due_date" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
 
-      <div style="padding-top: 1em;">
-        <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+    <div style="padding-top: 1em;">
+      <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
 
-      </div>
-        
-      <div style="padding-top: 1em;">
-        <ckeditor #editor [editor]="Editor"  data="{{editorData}}"></ckeditor>
+    </div>
 
-      </div>
-        <button class="add-btn" mat-raised-button color="primary" (click)="saveTask()">Add tast</button>
+    <div style="padding-top: 1em;">
+      <ckeditor #editor [editor]="Editor" data="{{editorData}}"></ckeditor>
+    </div>
+    <button class="add-btn" mat-raised-button color="primary" (click)="saveTask()">Add tast</button>
 
-    </form>
+  </form>
 </div>

@@ -38,7 +38,7 @@ export class AddNewTaskDialogComponent implements OnInit {
     for (let key in files) {
       if (!isNaN(parseInt(key))) {
         this.files.add(files[key]);
-        var attachment = {url:'assets/img/task/' + files[key].name}
+        var attachment = { url: 'assets/img/task/' + files[key].name }
         this.images.push(attachment)
 
 
@@ -53,44 +53,46 @@ export class AddNewTaskDialogComponent implements OnInit {
   })
 
 
-  saveTask(){
+  saveTask() {
     var header = this.taskForm.get('header').value;
-    var text= this.taskForm.get('text').value;
+    var text = this.taskForm.get('text').value;
     var due_date = this.taskForm.get('due_date').value;
     var description = this.editorComponent.editorInstance.getData();
 
 
-    var shorter = String(due_date).substring(4,10);
+    var shorter = String(due_date).substring(4, 10);
     console.log(shorter);
-        
-    
 
 
-   if(this.files.size>0){
-    this.files.forEach(element => {
-      const formData: FormData = new FormData();
-      formData.append('image_url', element)
-      this.adminService.uploadAttachment(formData).subscribe(data => {
-      })
-    });
 
-   }
 
-    var task = {header:header,
-                text:text,
-                due_date:shorter,
-                description:description,
-                id_task_board:this.data.id_task_board,
-                id_card_type:1,
-                cardAttachmentList:this.images};
+    if (this.files.size > 0) {
+      this.files.forEach(element => {
+        const formData: FormData = new FormData();
+        formData.append('image_url', element)
+        this.adminService.uploadAttachment(formData).subscribe(data => {
+        })
+      });
 
-                console.log(task);
+    }
 
-                this.adminService.createNewTask(task).subscribe(data=>{
-                  console.log(data);
-                  
-                })
-                
+    var task = {
+      header: header,
+      text: text,
+      due_date: shorter,
+      description: description,
+      id_task_board: this.data.id_task_board,
+      id_card_type: 1,
+      cardAttachmentList: this.images
+    };
+
+    console.log(task);
+
+    this.adminService.createNewTask(task).subscribe(data => {
+      console.log(data);
+
+    })
+
 
   }
 

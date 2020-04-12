@@ -17,3 +17,22 @@ h3,h5{
 img{
     border-radius: 5px;
 }
+
+.row{
+    margin: 0 !important;
+}
+
+a{
+    color: #21253D;
+}
+
+mat-icon{
+    color: #ff9000;
+}
+
+.update-btn{
+    font-size: 18px;
+    margin-top: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
