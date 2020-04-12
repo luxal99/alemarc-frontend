@@ -4,9 +4,8 @@ div{
     font-family: 'Baloo Bhai 2', cursive;
 }
 
-h3,h5{
-    padding-top: .5em;
-    padding-left: .5em;
+h5{
+    padding-top: 1em;
 }
 
 .header-row{

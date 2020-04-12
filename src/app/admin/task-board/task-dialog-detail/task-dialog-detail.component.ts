@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, Inject, Directive } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDatepicker, MatDatepickerInput } from '@angular/material';
 import { AdminService } from 'src/app/service/admin.service';
 import { ImgShowDialogComponent } from './img-show-dialog/img-show-dialog.component';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormGroup, FormControl } from '@angular/forms';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-task-dialog-detail',
@@ -15,6 +16,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
   headerInput = true;
   descriptionInput = true;
+  dueDate = true
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService, public dialog: MatDialog) { }
 
@@ -24,8 +26,11 @@ export class TaskDialogDetailComponent implements OnInit {
   editorData = '';
   description = '';
 
+  @ViewChild('picker', { static: false }) datePicker: MatDatepicker<Date>;
+
   editTaskForm = new FormGroup({
-    header: new FormControl(this.data.header)
+    header: new FormControl(this.data.header),
+    due_date: new FormControl()
   })
 
   ngOnInit() {
@@ -42,6 +47,18 @@ export class TaskDialogDetailComponent implements OnInit {
       this.descriptionInput = false;
     } else {
       this.descriptionInput = true;
+    }
+  }
+
+  showDueDate() {
+
+    if (this.dueDate) {
+      this.dueDate = false;
+      this.datePicker.open();
+    } else {
+      this.dueDate = true;
+      this.datePicker.close();
+
     }
   }
 
@@ -112,15 +129,22 @@ export class TaskDialogDetailComponent implements OnInit {
   }
 
   updateTask() {
-  
-    this.data.header = this.editTaskForm.get('header').value;
-    this.data.description =this.editorComponent.editorInstance.getData();
 
-    this.adminService.updateTask(this.data).subscribe(data=>{
+    var due_date = this.editTaskForm.get('due_date').value;
+
+    if (due_date!=null) {
+      var shorter = String(due_date).substring(4, 10);
+      this.data.due_date = shorter;
+    }
+
+    this.data.header = this.editTaskForm.get('header').value;
+    this.data.description = this.editorComponent.editorInstance.getData();
+
+    this.adminService.updateTask(this.data).subscribe(data => {
       console.log(data);
-      
+
     })
-    
+
   }
 
 }

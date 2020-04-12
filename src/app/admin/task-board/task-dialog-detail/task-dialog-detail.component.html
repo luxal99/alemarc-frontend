@@ -1,12 +1,39 @@
 <div class="container" style="padding-bottom: 2em;">
     <div class="row header-row">
-        <div class="col-8">
+        <div class="col-10">
             <h2 >{{data.header}} <a (click)="showHeaderInput()">
                     <mat-icon>edit</mat-icon>
                 </a></h2>
+                <div [hidden]="headerInput">
+                    <form [formGroup]="editTaskForm">
+                        <mat-form-field appearance="outline">
+                            <input formControlName="header" matInput placeholder="Header">
+                            <mat-icon matSuffix>subject</mat-icon>
+                        </mat-form-field>
+            
+                        <button mat-button (click)="hideHeaderInput()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </form>
+                </div>
+                <div class="row">
+                    <h3><i class="fa fa-align-left"></i> Description</h3>
+                    <button color="primary" (click)="showDescriptionInput()" mat-button>Edit</button>
+                </div>
+                <mat-divider></mat-divider>
+                <h5 [innerHTML]="data.description"></h5>
+                <div style="padding-top: 1em;" [hidden]="descriptionInput">
+                    <ckeditor #editor [editor]="Editor" data="{{data.description}}"></ckeditor>
+                </div>
+                <div (click)="openImg(item.url)" *ngFor="let item of data.cardAttachmentList">
+                    <img style="width: 200px;padding-top: 1em;padding-bottom: 1em;" src="{{item.url}}" alt="" class="img-fluid">
+                </div>
+            
+                <button mat-raised-button class="update-btn" [hidden]="headerInput && descriptionInput && dueDate"
+                    color="primary" (click)="updateTask()">Update</button>
 
         </div>
-        <div class="col-4 text-right">
+        <div class="col-2 text-right">
 
             <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
             <mat-menu #menu="matMenu">
@@ -14,33 +41,17 @@
                 <button mat-menu-item style="color: orange;" (click)="moveToInProgress()">In-progress</button>
                 <button mat-menu-item style="color: greenyellow;" (click)="moveToToDone()">Done</button>
             </mat-menu>
+            <div>
+                <button mat-button style="margin-top: 1em;" (click)="showDueDate()"><mat-icon>date_range</mat-icon> Due Date</button>
+            </div>
+           <div class="text-center">
+            <form  [formGroup]="editTaskForm">
+                <mat-form-field class="example-full-width" [hidden]="dueDate">
+                    <input matInput formControlName="due_date" [matDatepicker]="picker" placeholder="Choose a date">
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+               </form>
+           </div>
         </div>
     </div>
-    <div [hidden]="headerInput">
-        <form [formGroup]="editTaskForm">
-            <mat-form-field appearance="outline">
-                <input formControlName="header" matInput placeholder="Header">
-                <mat-icon matSuffix>subject</mat-icon>
-            </mat-form-field>
-
-            <button mat-button (click)="hideHeaderInput()">
-                <mat-icon>close</mat-icon>
-            </button>
-        </form>
-    </div>
-    <div class="row">
-        <h3><i class="fa fa-align-left"></i> Description</h3>
-        <button color="primary" (click)="showDescriptionInput()" mat-button>Edit</button>
-    </div>
-    <mat-divider></mat-divider>
-    <h5 [innerHTML]="data.description"></h5>
-    <div style="padding-top: 1em;" [hidden]="descriptionInput">
-        <ckeditor #editor [editor]="Editor" data="{{data.description}}"></ckeditor>
-    </div>
-    <div (click)="openImg(item.url)" *ngFor="let item of data.cardAttachmentList">
-        <img style="width: 200px;padding-top: 1em;padding-bottom: 1em;" src="{{item.url}}" alt="" class="img-fluid">
-    </div>
-
-    <button mat-raised-button class="update-btn" [hidden]="headerInput && descriptionInput"
-        color="primary" (click)="updateTask()">Update</button>
 </div>
