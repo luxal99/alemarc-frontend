@@ -98,9 +98,10 @@ export class TaskDialogDetailComponent implements OnInit {
     }
 
     this.adminService.updateTask(updatedTask).subscribe(data => {
-      console.log(data);
-
+        
     })
+
+    
 
   }
 
@@ -141,10 +142,16 @@ export class TaskDialogDetailComponent implements OnInit {
     this.data.description = this.editorComponent.editorInstance.getData();
 
     this.adminService.updateTask(this.data).subscribe(data => {
-      console.log(data);
+      this.adminService.getBoard();
 
     })
 
+  }
+
+  archiveTask(){
+    this.data.id_card_status = 4;
+    this.adminService.updateTask(this.data).subscribe(data=>{
+    })
   }
 
 }

@@ -12,9 +12,9 @@ import { AddNewTaskDialogComponent } from './add-new-task-dialog/add-new-task-di
 })
 export class TaskBoardComponent implements OnInit {
 
-  constructor(public dialog:MatDialog,public adminService:AdminService) { }
+  constructor(public dialog: MatDialog, public adminService: AdminService) { }
 
-  listOfBoard:any=[];
+  listOfBoard: any = [];
 
   ngOnInit() {
     this.getBoards();
@@ -22,7 +22,7 @@ export class TaskBoardComponent implements OnInit {
 
   openNewTaskDialog(task): void {
     const dialogRef = this.dialog.open(AddNewTaskDialogComponent, {
-     minWidth:'100vh',
+      minWidth: '100vh',
       data: task
     });
 
@@ -33,12 +33,11 @@ export class TaskBoardComponent implements OnInit {
 
   openTaskDetail(task): void {
     const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
-     width:'auto',
-      data: task
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.getBoards();
+      width: 'auto',
+      minHeight: '20vh',
+      maxHeight:'90vh',
+      data: task,
+      autoFocus:false
     });
   }
 
@@ -52,17 +51,17 @@ export class TaskBoardComponent implements OnInit {
     });
   }
 
-  getBoards(){
-    this.adminService.getBoard().subscribe(data=>{
+  getBoards() {
+    this.adminService.getBoard().subscribe(data => {
       this.listOfBoard = data;
       console.log(this.listOfBoard);
-      
+
     })
   }
 
-  test(tab){
+  test(tab) {
     console.log(tab);
-    
+
   }
 
 

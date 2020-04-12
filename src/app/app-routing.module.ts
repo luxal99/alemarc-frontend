@@ -27,7 +27,7 @@ const routes: Routes = [
 
   },
   { path: 'admin', component: AdminComponent, canActivate: [AdminService] },
-  { path: 'board', component: TaskBoardComponent}
+  { path: 'board', component: TaskBoardComponent,data:{preload:true}}
 ];
 
 

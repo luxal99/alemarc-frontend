@@ -53,3 +53,7 @@
     padding-bottom: .2em;
     padding-left: 1em;
 }
+
+.modal, .modal-content {
+    transition: none !important;
+}
