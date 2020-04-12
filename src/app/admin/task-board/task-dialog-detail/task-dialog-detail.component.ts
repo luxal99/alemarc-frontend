@@ -163,9 +163,11 @@ export class TaskDialogDetailComponent implements OnInit {
     this.data.description = this.editorComponent.editorInstance.getData();
 
     this.adminService.updateTask(this.data).subscribe(data => {
-      this.adminService.getBoard();
-
     })
+
+    this.headerInput = true;
+    this.dueDate = true;
+    this.descriptionInput = true;
 
   }
 

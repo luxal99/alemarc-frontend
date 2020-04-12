@@ -1,5 +1,5 @@
 <mat-tab-group (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
-    <mat-tab  *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
+    <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
         <div class="content">
             <div class="row card-row">
                 <div class="col">
@@ -18,8 +18,13 @@
                                 *ngIf="task.id_card_status.id_card_status===1;">
                                 <h2>{{task.header}}</h2>
                                 <p>{{task.text}} </p>
-                                <div class="text-right">
-                                    <h6 style="font-weight: bolder;color: red;">{{task.due_date}}</h6>
+                                <div class="row">
+                                    <div class="text-left">
+                                        <h5 *ngIf="task.cardAttachmentList.length>0b"><mat-icon style="color: #ffa200;">attach_file</mat-icon> {{task.cardAttachmentList.length}}</h5>
+                                    </div>
+                                    <div class="col text-right">
+                                        <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -28,13 +33,14 @@
                 <div class="col">
                     <div class="in-progress-card card">
                         <h1 class="card-header-title">In progress</h1>
-                        <div class="container card-container" (click)="openTaskDetail(task)"
-                            *ngFor="let task of tab.cardList">
-                            <div class="card-content" *ngIf="task.id_card_status.id_card_status===2;">
+                        <div class="container card-container" *ngFor="let task of tab.cardList">
+                            <div class="card-content" (click)="openTaskDetail(task)"
+                                *ngIf="task.id_card_status.id_card_status===2;">
                                 <h2>{{task.header}}</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the </p>
+                                <p>{{task.text}} </p>
+                                <div class="text-right">
+                                    <h6 style="font-weight: bolder;color: red;">{{task.due_date}}</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -42,13 +48,14 @@
                 <div class="col">
                     <div class="done-card card">
                         <h1 class="card-header-title">Done</h1>
-                        <div class="container card-container" (click)="openTaskDetail(task)"
-                            *ngFor="let task of tab.cardList">
-                            <div class="card-content" *ngIf="task.id_card_status.id_card_status===3;">
+                        <div class="container card-container" *ngFor="let task of tab.cardList">
+                            <div class="card-content" (click)="openTaskDetail(task)"
+                                *ngIf="task.id_card_status.id_card_status===3;">
                                 <h2>{{task.header}}</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the </p>
+                                <p>{{task.text}} </p>
+                                <div class="text-right">
+                                    <h6 style="font-weight: bolder;color: red;">{{task.due_date}}</h6>
+                                </div>
                             </div>
                         </div>
                     </div>
