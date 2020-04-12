@@ -36,7 +36,7 @@
                 <div class="row text-right">
                     <h3>Attachments</h3>
                     <div class="upload-btn-wrapper">
-                        
+
                         <button mat-icon-button>
                             <mat-icon>attach_file</mat-icon>
                         </button>
@@ -69,11 +69,15 @@
 
         </div>
         <div class="col-2 text-right">
-            <button class="dark-btn" mat-raised-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon> Menu</button>
-            <mat-menu  #menu="matMenu">
+            <button class="dark-btn" mat-raised-button [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon> Menu
+            </button>
+            <mat-menu #menu="matMenu">
                 <button class="dark-btn" mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
-                <button class="dark-btn" mat-menu-item style="color: orange;" (click)="moveToInProgress()">In-progress</button>
-                <button class="dark-btn" mat-menu-item style="color: greenyellow;" (click)="moveToToDone()">Done</button>
+                <button class="dark-btn" mat-menu-item style="color: orange;"
+                    (click)="moveToInProgress()">In-progress</button>
+                <button class="dark-btn" mat-menu-item style="color: greenyellow;"
+                    (click)="moveToToDone()">Done</button>
             </mat-menu>
             <div>
                 <button class="dark-btn" mat-button style="margin-top: 1em;;" (click)="showDueDate()">

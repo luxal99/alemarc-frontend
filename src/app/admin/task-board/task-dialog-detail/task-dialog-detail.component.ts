@@ -14,16 +14,20 @@ import { element } from 'protractor';
 })
 export class TaskDialogDetailComponent implements OnInit {
 
+  // Use for show/hide edit inputs
   headerInput = true;
   descriptionInput = true;
   dueDate = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-   public adminService: AdminService, public dialog: MatDialog,private dialogRef:MatDialogRef<TaskDialogDetailComponent>) { }
+    public adminService: AdminService, public dialog: MatDialog,
+    private dialogRef: MatDialogRef<TaskDialogDetailComponent>) { }
 
 
+  // Set #editor tag.CKEditor
   @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
   public Editor = ClassicEditor;
+  // Data of editor
   editorData = '';
   description = '';
 
@@ -33,9 +37,9 @@ export class TaskDialogDetailComponent implements OnInit {
   @ViewChild('file', { static: false }) file
   public files: Set<File> = new Set()
 
+  // List of attachment for task
   images: Array<any> = [];
   image_url;
-
 
 
   editTaskForm = new FormGroup({
@@ -46,6 +50,7 @@ export class TaskDialogDetailComponent implements OnInit {
   ngOnInit() {
   }
 
+  // When we close file input dialog item added to list
   onFilesAdded() {
     const files: { [key: string]: File } = this.file.nativeElement.files;
     for (let key in files) {
@@ -59,10 +64,16 @@ export class TaskDialogDetailComponent implements OnInit {
     }
   }
 
+  /**
+   * @param headerInput 
+   */
   showHeaderInput() {
     this.headerInput = false;
   }
 
+  /**
+  * @param descriptionInput 
+  */
   showDescriptionInput() {
     if (this.descriptionInput) {
       this.descriptionInput = false;
@@ -71,6 +82,9 @@ export class TaskDialogDetailComponent implements OnInit {
     }
   }
 
+  /**
+  * @param due_date 
+  */
   showDueDate() {
 
     if (this.dueDate) {
@@ -83,6 +97,7 @@ export class TaskDialogDetailComponent implements OnInit {
     }
   }
 
+
   hideHeaderInput() {
     this.headerInput = true;
   }
@@ -91,6 +106,7 @@ export class TaskDialogDetailComponent implements OnInit {
     this.descriptionInput = true;
   }
 
+  // Update card status column 
   moveToInProgress() {
     var updatedTask = {
       id_task_card: this.data.id_task_card,
@@ -108,6 +124,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
   }
 
+  // Update card status column 
   moveToToDo() {
     var updatedTask = {
       id_task_card: this.data.id_task_card,
@@ -125,7 +142,7 @@ export class TaskDialogDetailComponent implements OnInit {
     this.dialogRef.close();
 
   }
-
+  // Update card status column <
   moveToToDone() {
     var updatedTask = {
       id_task_card: this.data.id_task_card,
@@ -143,6 +160,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
   }
 
+  // Open image
   openImg(url): void {
     const dialogRef = this.dialog.open(ImgShowDialogComponent, {
       width: 'auto',
@@ -171,6 +189,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
   }
 
+  // Update colum to id = 4 and hide
   archiveTask() {
     this.data.id_card_status = 4;
     this.adminService.updateTask(this.data).subscribe(data => {
@@ -182,19 +201,17 @@ export class TaskDialogDetailComponent implements OnInit {
 
     var index = this.data.cardAttachmentList.indexOf(attachment);
     this.data.cardAttachmentList.splice(index, 1);
-    console.log(attachment.url);
-    
+
     var url = attachment.url;
     this.adminService.deleteAttachment(attachment).subscribe(data => {
-      console.log(data);
 
     })
   }
 
 
- async uploadAttachment() {
+  async uploadAttachment() {
 
-    var attachment = {id_task_card:this.data.id_task_card,cardAttachmentList:this.images}
+    var attachment = { id_task_card: this.data.id_task_card, cardAttachmentList: this.images }
 
     if (this.files.size > 0) {
       this.data.cardAttachmentList = this.images;
@@ -206,10 +223,7 @@ export class TaskDialogDetailComponent implements OnInit {
         })
       });
 
-     await this.adminService.updateAttachment(attachment).subscribe(data => {
-        console.log(data);
-
-
+      await this.adminService.updateAttachment(attachment).subscribe(data => {
       })
 
     }

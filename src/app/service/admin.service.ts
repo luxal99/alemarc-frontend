@@ -60,6 +60,7 @@ export class AdminService implements CanActivate {
   findBlogById(_id) {
     return this.http.get("/admin/getOneBlog/" + _id, { responseType: 'json' })
   }
+  
   uploadPhoto(photos) {
     return this.http.post("/admin/upload", photos, { responseType: 'text' })
   }
@@ -84,14 +85,21 @@ export class AdminService implements CanActivate {
     return this.http.put("/admin/board/updateTask",task,{responseType:'text'});
   }
 
+
   deleteAttachment(url){
     return this.http.post("/admin/board/updateAttachmentList",url,{responseType:'text'});
   }
 
+  // Add attachment to board
   updateAttachment(attachemnt){
     return this.http.post("/admin/board/addNewAttachment",attachemnt,{responseType:'text'})
   }
 
+  /**
+   * 
+   * @param id_task_board
+   * @returns listOfTasks for cureent board 
+   */
   getTaskList(id_task_board){
     return this.http.get("/admin/board/getTaskList/"+id_task_board,{responseType:'json'});
   }

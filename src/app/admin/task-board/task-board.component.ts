@@ -14,14 +14,19 @@ export class TaskBoardComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public adminService: AdminService) { }
 
+  
   listOfBoard: any = [];
   listOfTasks: any = [];
+
+  // Id of current board
   id_board;
 
   ngOnInit() {
     this.getBoards();
   }
 
+
+  // Dialog for create task
   openNewTaskDialog(task): void {
     const dialogRef = this.dialog.open(AddNewTaskDialogComponent, {
       minWidth: '100vh',
@@ -33,6 +38,7 @@ export class TaskBoardComponent implements OnInit {
     });
   }
 
+  // Overview task
   openTaskDetail(task): void {
     const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
       minWidth: '90vh',
@@ -46,6 +52,7 @@ export class TaskBoardComponent implements OnInit {
     });
   }
 
+  // Dialog for create board
   openCreateBoardDialog(): void {
     const dialogRef = this.dialog.open(CreateBoardDialogComponent, {
       width: 'auto',
@@ -56,12 +63,21 @@ export class TaskBoardComponent implements OnInit {
     });
   }
 
+
+  // Service for get all boards
   getBoards() {
     this.adminService.getBoard().subscribe(data => {
       this.listOfBoard = data;
     })
   }
 
+  /**
+   * This service use for get all tasks of current board
+   * We forward @param id_board and get list of tasks
+   * 
+   * This use to refresh fine on update od add
+   * 
+   */
   getTasks() {
     this.adminService.getTaskList(this.id_board).subscribe(data => {
       this.listOfTasks = data;
@@ -75,6 +91,7 @@ export class TaskBoardComponent implements OnInit {
     })
   }
 
+  // Funcion to get information of current board
   getBoard($event) {
     this.id_board = this.listOfBoard[$event.index].id_task_board
   }
