@@ -12,9 +12,10 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class AddNewTaskDialogComponent implements OnInit {
 
+  theme;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService) {
-   }
+  }
 
   @ViewChild('file', { static: false }) file
   public files: Set<File> = new Set()
@@ -31,7 +32,7 @@ export class AddNewTaskDialogComponent implements OnInit {
 
 
   ngOnInit() {
-    
+      this.theme = localStorage.getItem('theme');
   }
 
   onFilesAdded() {
@@ -73,7 +74,7 @@ export class AddNewTaskDialogComponent implements OnInit {
         formData.append('image_url', element)
         this.adminService.uploadAttachment(formData).subscribe(data => {
           console.log(data);
-          
+
         })
       });
 

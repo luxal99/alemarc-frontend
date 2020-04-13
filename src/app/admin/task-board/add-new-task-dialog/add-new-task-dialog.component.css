@@ -1,8 +1,8 @@
-mat-form-field{
+mat-form-field {
     width: 50%;
 }
 
-.add-btn{
+.add-btn {
     padding-top: .3em;
     padding-left: 3em;
     padding-right: 3em;
@@ -13,26 +13,55 @@ mat-form-field{
     padding-bottom: .3em;
 }
 
-.dialog-content {
-    padding-top: 2em;padding-left: 2em;
-    background-color: #121212;;
+.dark-dialog-content {
+    padding-top: 2em;
+    padding-left: 2em;
+    background-color: #121212;
+    ;
 }
 
-h2{
+.dark-dialog-content h2 {
     color: #fff;
     opacity: 80%;
 }
 
-mat-icon{
-    color: #ff9000;
+.light-dialog-content h2 {
+    color: #121212;
+    opacity: 80%;
 }
 
+.light-dialog-content {
+    padding-top: 2em;
+    padding-left: 2em;
+    ;
+}
+
+mat-icon {
+    color: #ff9000;
+}
 
 mat-divider {
     border-top-color: #ff9000;
 }
 
+mat-label {
+    color: #ff9000;
+}
+
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     color: #ff9000!important;
-     opacity: 1!important;
+    opacity: 1!important;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #ff9000 !important;
+}
+
+.dark-input{
+    color: #eee;
+}
+.light-input{
+    border: 0 !important;
+    color: #121212;
 }

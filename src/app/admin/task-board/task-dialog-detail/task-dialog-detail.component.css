@@ -138,3 +138,10 @@ mat-icon {
     color: #eee !important;
 }
 
+
+.dark-menu{
+    background-color: #040404;
+}
+.light-menu{
+    background-color: #eee;
+}

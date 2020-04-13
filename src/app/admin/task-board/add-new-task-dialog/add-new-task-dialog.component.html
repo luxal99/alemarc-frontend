@@ -1,40 +1,42 @@
-<div class="container dialog-content">
-  <form [formGroup]="taskForm">
-    <h2>Add new task</h2>
-    <div style="padding-top: 1em;">
-      <mat-form-field appearance="outline">
-        <mat-label>Choose a date</mat-label>
-        <input formControlName="header" matInput >
-        <mat-icon matSuffix>subject</mat-icon>
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field appearance="outline">
-        <mat-label>Choose a date</mat-label>  
-        <input formControlName="text" matInput >
-        <mat-icon matSuffix>subject</mat-icon>
-      </mat-form-field>
-    </div>
-
-    <div>
-      <mat-form-field>
-        <mat-label>Choose a date</mat-label>
-        <input formControlName="due_date" matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
-
-    <div style="padding-top: 1em;">
-      <input type="file" onsubmit="return false" #file (change)="onFilesAdded()" style="border: 0 !important;"
-        multiple />
-    </div>
-
-    <div style="padding-top: 1em;">
-      <ckeditor #editor [editor]="Editor" data="{{editorData}}"></ckeditor>
-    </div>
-    <button class="add-btn" mat-raised-button mat-dialog-close color="primary" (click)="saveTask()">Add tast</button>
-
-  </form>
+<div  [className]="theme+'-dialog-content'">
+  <div class="container">
+    <form [formGroup]="taskForm">
+      <h2>Add new task</h2>
+      <div style="padding-top: 1em;">
+        <mat-form-field appearance="outline">
+          <mat-label>Header</mat-label>
+          <input [style.color]="theme=='dark' ? '#eee': '#121212'" formControlName="header" matInput >
+          <mat-icon matSuffix>subject</mat-icon>
+        </mat-form-field>
+      </div>
+  
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Short text</mat-label>  
+          <input [style.color]="theme=='dark' ? '#eee': '#121212'" formControlName="text" matInput >
+          <mat-icon matSuffix>subject</mat-icon>
+        </mat-form-field>
+      </div>
+  
+      <div>
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input [style.color]="theme=='dark' ? '#eee': '#121212'" formControlName="due_date" matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle style="color: orange;" matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+  
+      <div style="padding-top: 1em;">
+        <input  type="file" onsubmit="return false" #file (change)="onFilesAdded()" style="border: 0 !important;"
+          multiple />
+      </div>
+  
+      <div style="padding-top: 1em;">
+        <ckeditor #editor [editor]="Editor" data="{{editorData}}"></ckeditor>
+      </div>
+      <button class="add-btn" mat-raised-button mat-dialog-close color="primary" (click)="saveTask()">Add tast</button>
+  
+    </form>
+  </div>
 </div>

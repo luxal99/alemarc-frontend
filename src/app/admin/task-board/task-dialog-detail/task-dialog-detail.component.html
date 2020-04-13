@@ -73,11 +73,11 @@
             <button [className]="theme +'-btn'" mat-raised-button [matMenuTriggerFor]="menu">
                 <mat-icon>menu</mat-icon> Menu
             </button>
-            <mat-menu #menu="matMenu">
-                <button [className]="theme +'-btn'" mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
-                <button [className]="theme +'-btn'" mat-menu-item style="color: orange;"
+            <mat-menu style="background-color: orange;" #menu="matMenu">
+                <button  mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
+                <button  mat-menu-item style="color: orange;"
                     (click)="moveToInProgress()">In-progress</button>
-                <button class="dark-btn" mat-menu-item style="color: greenyellow;"
+                <button mat-menu-item style="color: greenyellow;"
                     (click)="moveToToDone()">Done</button>
             </mat-menu>
             <div>

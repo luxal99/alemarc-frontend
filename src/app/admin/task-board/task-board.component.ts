@@ -15,22 +15,34 @@ export class TaskBoardComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public adminService: AdminService) { }
 
-  theme = 'light'
-  
+  theme = ''
+
   listOfBoard: any = [];
   listOfTasks: any = [];
 
   // Id of current board
   id_board;
 
-  themeForm=new FormGroup({
-    theme:new FormControl()
+  themeForm = new FormGroup({
+    theme: new FormControl()
   })
 
   ngOnInit() {
-    localStorage.setItem('theme','light')
-    this.setTheme();
     this.getBoards();
+    this.saveTheme();
+  }
+
+  saveTheme(){
+    if (localStorage.getItem('theme') === null) {
+      localStorage.setItem('theme', 'light');
+      this.theme = localStorage.getItem('theme');
+    } else {
+      this.theme = localStorage.getItem('theme');
+    }
+
+    if(localStorage.getItem('theme') === 'dark'){
+      this.themeForm.get('theme').setValue(true)
+    }
   }
 
 
@@ -103,15 +115,15 @@ export class TaskBoardComponent implements OnInit {
   getBoard($event) {
     this.id_board = this.listOfBoard[$event.index].id_task_board
   }
-  
-  setTheme(){
-    
+
+  setTheme() {
+
     if (this.themeForm.get('theme').value) {
       this.theme = 'dark'
-      localStorage.setItem('theme','dark')
-    }else{
+      localStorage.setItem('theme', 'dark')
+    } else {
       this.theme = 'light'
-      localStorage.setItem('theme','light')
+      localStorage.setItem('theme', 'light')
     }
   }
 
