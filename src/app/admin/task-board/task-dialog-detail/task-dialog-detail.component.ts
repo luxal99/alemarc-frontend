@@ -114,6 +114,7 @@ export class TaskDialogDetailComponent implements OnInit {
     var updatedTask = {
       id_task_card: this.data.id_task_card,
       header: this.data.header,
+      visible:this.data.visible,
       description: this.data.description,
       due_date: this.data.due_date,
       id_card_status: 2
@@ -132,6 +133,7 @@ export class TaskDialogDetailComponent implements OnInit {
     var updatedTask = {
       id_task_card: this.data.id_task_card,
       header: this.data.header,
+      visible:this.data.visible,
       description: this.data.description,
       due_date: this.data.due_date,
       id_card_status: 1
@@ -150,6 +152,7 @@ export class TaskDialogDetailComponent implements OnInit {
     var updatedTask = {
       id_task_card: this.data.id_task_card,
       header: this.data.header,
+      visible:this.data.visible,
       description: this.data.description,
       due_date: this.data.due_date,
       id_card_status: 3
@@ -194,7 +197,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
   // Update colum to id = 4 and hide
   archiveTask() {
-    this.data.id_card_status = 4;
+    this.data.visible = false;
     this.adminService.updateTask(this.data).subscribe(data => {
     })
   }

@@ -103,4 +103,12 @@ export class AdminService implements CanActivate {
   getTaskList(id_task_board){
     return this.http.get("/admin/board/getTaskList/"+id_task_board,{responseType:'json'});
   }
+
+  getTaskAnalyse(){
+    return this.http.get("/admin/board/getTaskAnalizeAll",{responseType:'json'});
+  }
+
+  getTaskPerBoard(){
+   return this.http.get("/admin/board/getTaskPerBoard",{responseType:'json'});  
+  }
 }

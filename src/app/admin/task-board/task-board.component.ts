@@ -5,7 +5,8 @@ import { AdminService } from 'src/app/service/admin.service';
 import { CreateBoardDialogComponent } from './create-board-dialog/create-board-dialog.component';
 import { AddNewTaskDialogComponent } from './add-new-task-dialog/add-new-task-dialog.component';
 import { FormGroup, FormControl } from '@angular/forms';
-
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 @Component({
   selector: 'app-task-board',
   templateUrl: './task-board.component.html',
@@ -13,12 +14,28 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class TaskBoardComponent implements OnInit {
 
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  barChartLabels: Label[] = [];
+  barChartLabelsPie: Label[] = [];
+  barChartType: ChartType = 'bar';
+  barChartTypePie: ChartType = 'pie';
+  barChartLegend = true;
+  barChartPlugins = [];
+
+  barChartData: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}];
+
+  barChartDataPerBoard: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}];
+
   constructor(public dialog: MatDialog, public adminService: AdminService) { }
 
   theme = ''
 
+  listOfTaskPerBoard:any=[];
   listOfBoard: any = [];
   listOfTasks: any = [];
+  taskGraphList:any=[];
 
   // Id of current board
   id_board;
@@ -30,6 +47,8 @@ export class TaskBoardComponent implements OnInit {
   ngOnInit() {
     this.getBoards();
     this.saveTheme();
+    this.getTaskPerBoard();
+    this.getTaskAnalyse();
   }
 
   saveTheme(){
@@ -55,6 +74,8 @@ export class TaskBoardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getTasks();
+      this.getTaskAnalyse();
+      this.getTaskPerBoard();
     });
   }
 
@@ -69,6 +90,8 @@ export class TaskBoardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getTasks();
+      this.getTaskAnalyse();
+      this.getTaskPerBoard();
     });
   }
 
@@ -108,6 +131,43 @@ export class TaskBoardComponent implements OnInit {
         }
       });
 
+    })
+  }
+
+  getTaskAnalyse(){
+
+    var empty =0;
+    this.adminService.getTaskAnalyse().subscribe(data=>{
+      this.taskGraphList = data;
+      this.taskGraphList.forEach(element => {
+        this.barChartLabels.push(element.title);
+       this.barChartData[0].data.push(element.num_of_tasks)
+      
+      });
+
+      this.barChartData[0].data.push(empty)
+      
+    })
+  }
+
+
+
+  getTaskPerBoard(){
+
+    var empty =0;
+    this.adminService.getTaskPerBoard().subscribe(data=>{
+      this.listOfTaskPerBoard = data;
+
+      this.listOfTaskPerBoard.forEach(element => {
+        console.log(element);
+        
+        this.barChartLabelsPie.push(element.title);
+       this.barChartDataPerBoard[0].data.push(element.num_of_tasks)
+      
+      });
+
+      this.barChartDataPerBoard[0].data.push(empty)
+      
     })
   }
 

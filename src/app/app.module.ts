@@ -31,6 +31,7 @@ import { TaskBoardComponent } from './admin/task-board/task-board.component';
 import { TaskDialogDetailComponent } from './admin/task-board/task-dialog-detail/task-dialog-detail.component';
 import { CreateBoardDialogComponent } from './admin/task-board/create-board-dialog/create-board-dialog.component';
 import { AddNewTaskDialogComponent } from './admin/task-board/add-new-task-dialog/add-new-task-dialog.component';
+import { ChartsModule } from 'ng2-charts';
 import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/img-show-dialog/img-show-dialog.component';
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/im
     AboutRoutingModule,
     HttpClientModule,
     CKEditorModule,
+    ChartsModule,
     MaterialModule,
     BrowserAnimationsModule
   ],

@@ -7,6 +7,14 @@ h5 {
     margin: 0 !important;
 }
 
+.data-h1{
+    color: #fff;
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+.violet-divider{
+    border-top-color: #bb86fc;
+}
 .card-row {
     padding-right: 5%;
     padding-left: 5%;

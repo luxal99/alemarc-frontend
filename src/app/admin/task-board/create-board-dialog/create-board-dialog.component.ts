@@ -9,9 +9,12 @@ import { AdminService } from 'src/app/service/admin.service';
 })
 export class CreateBoardDialogComponent implements OnInit {
 
+  theme = '';
+
   constructor(public adminService: AdminService) { }
 
   ngOnInit() {
+    this.theme = localStorage.getItem('theme');
   }
 
   boardForm = new FormGroup({
