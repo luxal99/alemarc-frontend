@@ -79,7 +79,7 @@ import { ArchiveDialogComponent } from './admin/task-board/archive-dialog/archiv
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [ImgShowDialogComponent,AddNewTaskDialogComponent,TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+  entryComponents: [ImgShowDialogComponent,ArchiveDialogComponent,AddNewTaskDialogComponent,TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

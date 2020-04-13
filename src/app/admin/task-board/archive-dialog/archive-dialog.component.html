@@ -1,1 +1,17 @@
-<p>archive-dialog works!</p>
+<div class="container" style="height: 100vh;background-color: #121212;">
+<h1 class="text-center" style="color: #eee;">Archived</h1>
+<div class="row">
+    <div class="col">
+        <div class="task-card-div" *ngFor="let task of listOfArchivedTask">
+            <h2>{{task.header}}</h2>
+            <p>{{task.text}} </p>
+            <div class="row">
+                <div class="col text-right">
+                    <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+</div>

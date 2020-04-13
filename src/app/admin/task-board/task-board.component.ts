@@ -7,6 +7,7 @@ import { AddNewTaskDialogComponent } from './add-new-task-dialog/add-new-task-di
 import { FormGroup, FormControl } from '@angular/forms';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { ArchiveDialogComponent } from './archive-dialog/archive-dialog.component';
 @Component({
   selector: 'app-task-board',
   templateUrl: './task-board.component.html',
@@ -76,6 +77,18 @@ export class TaskBoardComponent implements OnInit {
     const dialogRef = this.dialog.open(AddNewTaskDialogComponent, {
       minWidth: '100vh',
       data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getTasks();
+    });
+  }
+
+  openArchiveDialog(tab): void {
+    const dialogRef = this.dialog.open(ArchiveDialogComponent, {
+      minWidth: '100vh',
+      position: { left: '0' },
+      data: tab
     });
 
     dialogRef.afterClosed().subscribe(result => {

@@ -111,4 +111,8 @@ export class AdminService implements CanActivate {
   getTaskPerBoard(){
    return this.http.get("/admin/board/getTaskPerBoard",{responseType:'json'});  
   }
+
+  getArchivedTask(id_task_board){
+    return this.http.get("/admin/board/getArchivedTask/"+id_task_board,{responseType:'json'});
+  }
 }
