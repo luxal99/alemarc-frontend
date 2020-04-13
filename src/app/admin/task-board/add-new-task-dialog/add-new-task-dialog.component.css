@@ -12,3 +12,27 @@ mat-form-field{
     font-size: 20px;
     padding-bottom: .3em;
 }
+
+.dialog-content {
+    padding-top: 2em;padding-left: 2em;
+    background-color: #121212;;
+}
+
+h2{
+    color: #fff;
+    opacity: 80%;
+}
+
+mat-icon{
+    color: #ff9000;
+}
+
+
+mat-divider {
+    border-top-color: #ff9000;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ff9000!important;
+     opacity: 1!important;
+}
