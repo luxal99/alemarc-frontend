@@ -46,6 +46,9 @@ export class AddNewTaskDialogComponent implements OnInit {
 
       }
     }
+
+    console.log(this.images);
+    
   }
 
   taskForm = new FormGroup({
@@ -98,6 +101,14 @@ export class AddNewTaskDialogComponent implements OnInit {
     })
 
 
+  }
+
+  removeImageFromList(item){
+      this.files.delete(item);
+
+      var index = this.images.indexOf(item);
+      this.images.splice(index,1);
+     
   }
 
 
