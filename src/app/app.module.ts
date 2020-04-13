@@ -33,6 +33,7 @@ import { CreateBoardDialogComponent } from './admin/task-board/create-board-dial
 import { AddNewTaskDialogComponent } from './admin/task-board/add-new-task-dialog/add-new-task-dialog.component';
 import { ChartsModule } from 'ng2-charts';
 import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/img-show-dialog/img-show-dialog.component';
+import { ArchiveDialogComponent } from './admin/task-board/archive-dialog/archive-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/im
     TaskDialogDetailComponent,
     CreateBoardDialogComponent,
     AddNewTaskDialogComponent,
-    ImgShowDialogComponent
+    ImgShowDialogComponent,
+    ArchiveDialogComponent
   ],
   imports: [
     CommonModule,

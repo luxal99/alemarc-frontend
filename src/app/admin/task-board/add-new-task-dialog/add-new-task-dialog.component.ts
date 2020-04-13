@@ -64,12 +64,8 @@ export class AddNewTaskDialogComponent implements OnInit {
     var due_date = this.taskForm.get('due_date').value;
     var description = this.editorComponent.editorInstance.getData();
 
-
     var shorter = String(due_date).substring(4, 10);
     console.log(shorter);
-
-
-
 
     if (this.files.size > 0) {
       this.files.forEach(element => {
