@@ -7,9 +7,6 @@ button {
     font-size: 18px;
 }
 
-.dialog-content {
-    background-color: #121212;
-}
 
 h1, h5, p {
     padding-top: 1em;
@@ -101,4 +98,43 @@ mat-icon {
     background-color: #040404;
     color: #fff;
     opacity: 87%;
+    border-radius: 3px;
+    border: 1px solid #040404;
 }
+
+.light-btn {
+    background-color: #eee;
+    color: #040404;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    opacity: 87%;
+}
+
+.dark-dialog-content {
+    background-color: #121212;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.light-dialog-content {
+    width: 100%;
+    color: #121212 !important;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.light-dialog-content h2 ,
+.light-dialog-content h3,
+.light-dialog-content h5 {
+    color: #121212 !important;
+}
+
+.dark-dialog-content h2 h3 h5 {
+    color: #eee !important;
+}
+

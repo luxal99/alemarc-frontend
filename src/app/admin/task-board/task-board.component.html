@@ -3,11 +3,11 @@
         <div [className]="theme+'-content'">
             <form [formGroup]="themeForm">
                 <div class="text-right" style="padding: 2em;color: orange;">
-                    <mat-slide-toggle (click)="openNewTaskDialog()" formControlName="theme" style="text-transform: uppercase;"  color="primary" (change)="setTheme($event)">{{theme}}</mat-slide-toggle>
+                    <mat-slide-toggle formControlName="theme" style="text-transform: uppercase;"  color="primary" (change)="setTheme($event)">{{theme}}</mat-slide-toggle>
                 </div>
             </form>
             <div style="padding-left: 5%;">
-                <button mat-icon-button color="primary"><mat-icon style="font-size: 30px;">add_circle</mat-icon></button>
+                <button mat-icon-button  (click)="openNewTaskDialog(tab)" color="primary"><mat-icon style="font-size: 30px;">add_circle</mat-icon></button>
             </div>
             <div class="row card-row">
                 <div class="col">

@@ -14,6 +14,8 @@ import { element } from 'protractor';
 })
 export class TaskDialogDetailComponent implements OnInit {
 
+  theme;
+
   // Use for show/hide edit inputs
   headerInput = true;
   descriptionInput = true;
@@ -48,6 +50,7 @@ export class TaskDialogDetailComponent implements OnInit {
   })
 
   ngOnInit() {
+    this.theme = localStorage.getItem('theme');
   }
 
   // When we close file input dialog item added to list

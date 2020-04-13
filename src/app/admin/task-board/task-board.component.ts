@@ -28,6 +28,7 @@ export class TaskBoardComponent implements OnInit {
   })
 
   ngOnInit() {
+    localStorage.setItem('theme','light')
     this.setTheme();
     this.getBoards();
   }
@@ -102,38 +103,15 @@ export class TaskBoardComponent implements OnInit {
   getBoard($event) {
     this.id_board = this.listOfBoard[$event.index].id_task_board
   }
-
-  // darkTheme(){
-  //   document.getElementById('content').style.backgroundColor='#121212';
-  //   document.getElementById('card').style.backgroundColor='#131313';
-  //   document.getElementById('card').style.color='#eee';
-  //   document.getElementById('card').style.boxShadow=' 10px 31px 8px -26px rgba(0, 0, 0, 0.75)';
-  //   document.getElementById('card').style.webkitBoxShadow='10px 31px 8px -26px rgba(0, 0, 0, 0.75)';
-  //   document.getElementById('card-content').style.boxShadow=' 3px 10px 24px -4px rgba(0, 0, 0, 0.75)';
-  //   document.getElementById('card-content').style.webkitBoxShadow=' 3px 10px 24px -4px rgba(0, 0, 0, 0.75)';
-  //   document.getElementById('card-content').style.backgroundColor='#222';
-  //   document.getElementById('card-content').style.color='#fff';
-  //   document.getElementById('card-header').style.backgroundColor='#080808';
-  //   document.getElementById('card-header').style.color='#fff !important';
-  // }
-
-  // lightTheme(){
-  //   document.getElementById('content').style.backgroundColor='#eee';
-  //   document.getElementById('card').style.backgroundColor='transparent';
-  //   document.getElementById('card').style.boxShadow='none';
-  //   document.getElementById('card-content').style.backgroundColor='transparent';
-  //   document.getElementById('card-content').style.color='#121212';
-  //   document.getElementById('card-content').style.color='#121212';
-  //   document.getElementById('card-header').style.backgroundColor='transparent';
-  // }
-
   
   setTheme(){
     
     if (this.themeForm.get('theme').value) {
       this.theme = 'dark'
+      localStorage.setItem('theme','dark')
     }else{
       this.theme = 'light'
+      localStorage.setItem('theme','light')
     }
   }
 

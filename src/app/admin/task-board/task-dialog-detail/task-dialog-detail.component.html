@@ -1,5 +1,6 @@
-<div class="container dialog-content" style="padding-bottom: 2em;">
-    <div class="text-right">
+<div [className]="theme+'-dialog-content'" style="padding-bottom: 2em;">
+  <div class="container">
+        <div class="text-right">
         <button mat-icon-button mat-dialog-close>
             <mat-icon>close</mat-icon>
         </button>
@@ -69,18 +70,18 @@
 
         </div>
         <div class="col-2 text-right">
-            <button class="dark-btn" mat-raised-button [matMenuTriggerFor]="menu">
+            <button [className]="theme +'-btn'" mat-raised-button [matMenuTriggerFor]="menu">
                 <mat-icon>menu</mat-icon> Menu
             </button>
             <mat-menu #menu="matMenu">
-                <button class="dark-btn" mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
-                <button class="dark-btn" mat-menu-item style="color: orange;"
+                <button [className]="theme +'-btn'" mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
+                <button [className]="theme +'-btn'" mat-menu-item style="color: orange;"
                     (click)="moveToInProgress()">In-progress</button>
                 <button class="dark-btn" mat-menu-item style="color: greenyellow;"
                     (click)="moveToToDone()">Done</button>
             </mat-menu>
             <div>
-                <button class="dark-btn" mat-button style="margin-top: 1em;;" (click)="showDueDate()">
+                <button [className]="theme +'-btn'"  style="margin-top: 1em;;" (click)="showDueDate()">
                     <mat-icon>date_range</mat-icon> Due Date
                 </button>
             </div>
@@ -92,9 +93,10 @@
                     </mat-form-field>
                 </form>
             </div>
-            <button class="dark-btn" style="margin-top: 1em;" mat-button (click)="archiveTask()" mat-dialog-close>
+            <button [className]="theme +'-btn'" style="margin-top: 1em;"  (click)="archiveTask()" mat-dialog-close>
                 <mat-icon>visibility_off</mat-icon> Archive
             </button>
         </div>
     </div>
+  </div>
 </div>
