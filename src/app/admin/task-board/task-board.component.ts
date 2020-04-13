@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TaskDialogDetailComponent } from './task-dialog-detail/task-dialog-detail.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDrawer } from '@angular/material';
 import { AdminService } from 'src/app/service/admin.service';
 import { CreateBoardDialogComponent } from './create-board-dialog/create-board-dialog.component';
 import { AddNewTaskDialogComponent } from './add-new-task-dialog/add-new-task-dialog.component';
@@ -13,6 +13,8 @@ import { Color, Label } from 'ng2-charts';
   styleUrls: ['./task-board.component.css']
 })
 export class TaskBoardComponent implements OnInit {
+
+  @ViewChild('drawer', { static: false }) drawer: MatDrawer;
 
   barChartOptions: ChartOptions = {
     responsive: true,
@@ -47,6 +49,10 @@ export class TaskBoardComponent implements OnInit {
   ngOnInit() {
     this.getBoards();
     this.saveTheme();
+  }
+
+  openMenu(){
+    this.drawer.toggle();
     this.getTaskPerBoard();
     this.getTaskAnalyse();
   }
@@ -74,8 +80,6 @@ export class TaskBoardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getTasks();
-      this.getTaskAnalyse();
-      this.getTaskPerBoard();
     });
   }
 
@@ -90,8 +94,6 @@ export class TaskBoardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.getTasks();
-      this.getTaskAnalyse();
-      this.getTaskPerBoard();
     });
   }
 
@@ -136,6 +138,10 @@ export class TaskBoardComponent implements OnInit {
 
   getTaskAnalyse(){
 
+    this.barChartData[0].data = [];
+    this.taskGraphList=[];
+    this.barChartLabels = [];
+
     var empty =0;
     this.adminService.getTaskAnalyse().subscribe(data=>{
       this.taskGraphList = data;
@@ -153,6 +159,10 @@ export class TaskBoardComponent implements OnInit {
 
 
   getTaskPerBoard(){
+
+    this.barChartDataPerBoard[0].data = [];
+    this.listOfTaskPerBoard=[];
+    this.barChartLabelsPie = [];
 
     var empty =0;
     this.adminService.getTaskPerBoard().subscribe(data=>{

@@ -90,6 +90,7 @@ export class AddNewTaskDialogComponent implements OnInit {
       description: description,
       id_task_board: this.data.id_task_board,
       id_card_type: 1,
+      visible:true,
       cardAttachmentList: this.images
     };
 
