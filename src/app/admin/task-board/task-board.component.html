@@ -1,20 +1,22 @@
-<mat-tab-group [selectedIndex]="1" style="background-color: #111;" (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
+<mat-tab-group [selectedIndex]="1"  (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
     <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
-        <div class="content">
+        <div [className]="theme+'-content'">
+            <form [formGroup]="themeForm">
+                <div class="text-right" style="padding: 2em;color: orange;">
+                    <mat-slide-toggle (click)="openNewTaskDialog()" formControlName="theme" style="text-transform: uppercase;"  color="primary" (change)="setTheme($event)">{{theme}}</mat-slide-toggle>
+                </div>
+            </form>
+            <div style="padding-left: 5%;">
+                <button mat-icon-button color="primary"><mat-icon style="font-size: 30px;">add_circle</mat-icon></button>
+            </div>
             <div class="row card-row">
                 <div class="col">
-                    <div class="new-card card">
-                        <div class="row new-card-title-row">
-                            <div class="col">
-                                <h1>To Do</h1>
-                            </div>
-                            <div class="col text-right">
-                                <button mat-button (click)="openNewTaskDialog(tab)"><i class="fa fa-plus-circle"
-                                        style="font-size: 30px;"></i></button>
-                            </div>
+                    <div [className]="theme+'-card-td'" id="card">
+                        <div>
+                            <h1 [className]="theme+'-card-header-title'" id="card-header" >To Do</h1>
                         </div>
                         <div class="container card-container" *ngFor="let task of tab.cardList">
-                            <div class="card-content" (click)="openTaskDetail(task)"
+                            <div id="card-content" [className]="theme+'-card-content'" (click)="openTaskDetail(task)"
                                 *ngIf="task.id_card_status.id_card_status===1;">
                                 <h2>{{task.header}}</h2>
                                 <p>{{task.text}} </p>
@@ -31,10 +33,12 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="in-progress-card card">
-                        <h1 class="card-header-title">In progress</h1>
+                    <div  [className]="theme+'-card-ip'">
+                        <div>
+                            <h1 [className]="theme+'-card-header-title'" id="card-header" >In progress</h1>
+                        </div>
                         <div class="container card-container" *ngFor="let task of tab.cardList">
-                            <div class="card-content" (click)="openTaskDetail(task)"
+                            <div [className]="theme+'-card-content'" id="card-content" (click)="openTaskDetail(task)"
                                 *ngIf="task.id_card_status.id_card_status===2;">
                                 <h2>{{task.header}}</h2>
                                 <p>{{task.text}} </p>
@@ -46,10 +50,10 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="done-card card">
-                        <h1 class="card-header-title">Done</h1>
+                    <div [className]="theme+'-card-dn'" id="card">
+                        <h1 [className]="theme+'-card-header-title'" id="card-header">Done</h1>
                         <div class="container card-container" *ngFor="let task of tab.cardList">
-                            <div class="card-content" (click)="openTaskDetail(task)"
+                            <div [className]="theme+'-card-content'" id="card-content" (click)="openTaskDetail(task)"
                                 *ngIf="task.id_card_status.id_card_status===3;">
                                 <h2>{{task.header}}</h2>
                                 <p>{{task.text}} </p>

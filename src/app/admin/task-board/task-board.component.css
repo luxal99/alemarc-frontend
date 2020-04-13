@@ -7,21 +7,41 @@ h5 {
     margin: 0 !important;
 }
 
-.content {
-    background-color: #121212;
-    min-height: 95vh;
+.card-row {
+    padding-right: 5%;
+    padding-left: 5%;
 }
 
-.card {
+
+/* Theme setting */
+
+/* Light */
+
+.light-card-ip {
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
     margin-top: 2em;
-    color: #eee;
-    background-color: #131313;
-    -webkit-box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
+    border-top: 3px solid #FFC830;
 }
 
-.card-content {
+.light-card-td {
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    margin-top: 2em;
+    border-top: 3px solid red;
+}
+
+.light-card-dn {
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    margin-top: 2em;
+    border-top: 3px solid #4BB543;
+}
+
+.light-card-content {
     -webkit-box-shadow: 3px 10px 24px -4px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 3px 10px 24px -4px rgba(0, 0, 0, 0.75);
     box-shadow: 3px 10px 24px -4px rgba(0, 0, 0, 0.75);
@@ -29,43 +49,101 @@ h5 {
     margin-top: 2em;
     margin-bottom: 2em;
     padding: 1em;
-    color: #fff;
     opacity: 70%;
 }
 
-.new-card {
-    border-top: 3px solid red;
-}
-
-.done-card {
-    border-top: 3px solid #4BB543;
-}
-
-.in-progress-card {
-    border-top: 3px solid #FFC830;
-}
-
-.card-row {
-    padding-right: 5%;
-    padding-left: 5%;
-}
-
-.new-card-title-row {
-    padding-top: 1em;
-    padding-left: 1em;
+.light-card-header-title {
     font-family: 'Baloo Bhai 2', cursive;
-    background-color: #080808;
-}
-
-.card-header-title {
-    font-family: 'Baloo Bhai 2', cursive;
-    background-color: #080808;
     padding-top: .4em;
     padding-bottom: .2em;
     padding-left: 1em;
 }
 
+/* Light */
+
+/* Dark */
+
+.dark-card-ip {
+    margin-top: 2em;
+    color: #eee;
+    background-color: #131313;
+    -webkit-box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+
+    border-top: 3px solid #FFC830;
+}
+
+.dark-card-td {
+    margin-top: 2em;
+    color: #eee;
+    background-clip: border-box;
+    background-color: #131313;
+    -webkit-box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    border-top: 3px solid red;
+}
+
+.dark-card-dn {
+    margin-top: 2em;
+    color: #eee;
+    background-color: #131313;
+    -webkit-box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+    border-top: 3px solid #4BB543;
+}
+
+.dark-card-content  {
+    -webkit-box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 10px 10px -4px rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    background-color: #222;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em;
+    color: #fff;
+    opacity: 70%;
+}
+
+.dark-card-content h2 {
+  color: orange;
+}
+.dark-card-header-title {
+    font-family: 'Baloo Bhai 2', cursive;
+    background-color: #080808;
+    padding-top: .4em;
+    padding-bottom: .2em;
+    padding-left: 1em;
+    -webkit-box-shadow: 2px 10px 10px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 10px 10px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 10px 10px -3px rgba(0, 0, 0, 0.75);
+}
+
+/* Dark */
+
 .modal, .modal-content {
     transition: none !important;
 }
 
+.dark-content {
+    background-color: #121212;
+    min-height: 95vh;
+    transition: ease-in .3s;
+}
+
+.light-content {
+    min-height: 95vh;
+    transition: ease-in .3s;
+}
