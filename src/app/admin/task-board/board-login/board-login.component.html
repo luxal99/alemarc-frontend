@@ -1,0 +1,41 @@
+<div class="login-content">
+    <div class="" >
+        <div class="row" style="padding-top: 10%;">
+            <div class="col-2"></div>
+            <div class="col-sm-8">
+               <div class="login-col row" style="background-color: #121212;padding: 5em;">
+                   <div class="col-sm text-center">
+                       <img src="../../../../assets/img/7640a57763b8b5c436ef70e7ec09a080_amazing-cliparts-jira-tool-training-clipart-45-4570book_2048-1730.png" style="width: 500px;" alt="" class="img-fluid">
+                   </div>
+                   <div class="col-sm text-center">
+                    <div class="container  text-center">
+                        <h1 class="text-center">Login</h1>
+                        <form [formGroup]="loginForm">
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Username</mat-label>
+                                    <input formControlName="username" matInput>
+                                    <mat-icon matSuffix style="color: #ff9800;">person_pin</mat-icon>
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Password</mat-label>
+                                    <input formControlName="password" type="password" matInput>
+                                    <mat-icon matSuffix style="color: #ff9800;">lock</mat-icon>
+                                </mat-form-field>
+                            </div>
+
+                            <a (click)="openRegistrationDialog()">Create account <i class="fa fa-arrow-right"></i></a>
+    
+                            <button class="login-btn" (click)="login()" mat-raised-button>Login</button>
+    
+                        </form>
+                    </div>
+                   </div>
+               </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</div>

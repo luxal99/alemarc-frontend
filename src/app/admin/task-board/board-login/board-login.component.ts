@@ -1,0 +1,54 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ClientService } from 'src/app/service/client.service';
+import { Router } from '@angular/router';
+import { TaskService } from "../../../service/task.service";
+import { BoardRegistrationDialogComponent } from './board-login-dialog/board-registration-dialog.component';
+import { MatDialog } from '@angular/material';
+
+@Component({
+  selector: 'app-board-login',
+  templateUrl: './board-login.component.html',
+  styleUrls: ['./board-login.component.css']
+})
+export class BoardLoginComponent implements OnInit {
+
+  constructor(public clientService: ClientService,public dialog:MatDialog, public router: Router, public taskService: TaskService) { }
+
+  ngOnInit() {
+  }
+
+  loginForm = new FormGroup({
+    username: new FormControl("", Validators.required),
+    password: new FormControl("", Validators.required)
+  })
+
+  login() {
+
+    var username = this.loginForm.get('username').value;
+    var password = this.loginForm.get('password').value;
+
+    var user = {
+      username: username,
+      password: password
+    }
+
+    this.clientService.login(user).subscribe(data => {
+      console.log(data);
+
+      this.taskService.pushArray(data);
+      this.router.navigate(['/board']);
+
+    })
+  }
+
+  openRegistrationDialog(): void {
+    const dialogRef = this.dialog.open(BoardRegistrationDialogComponent, {
+      width: 'auto',
+      backdropClass:'loginDialog'
+    });
+  }
+
+
+
+}

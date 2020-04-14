@@ -34,8 +34,8 @@ import { AddNewTaskDialogComponent } from './admin/task-board/add-new-task-dialo
 import { ChartsModule } from 'ng2-charts';
 import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/img-show-dialog/img-show-dialog.component';
 import { ArchiveDialogComponent } from './admin/task-board/archive-dialog/archive-dialog.component';
-import { BoardRegistrationComponent } from "./admin/task-board/board-registration/board-registration.component";
-import { BoardLoginDialogComponent } from './admin/task-board/board-registration/board-login-dialog/board-login-dialog.component';
+import { BoardLoginComponent } from "./admin/task-board/board-login/board-login.component";
+import { BoardRegistrationDialogComponent } from './admin/task-board/board-login/board-login-dialog/board-registration-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,8 +61,8 @@ import { BoardLoginDialogComponent } from './admin/task-board/board-registration
     AddNewTaskDialogComponent,
     ImgShowDialogComponent,
     ArchiveDialogComponent,
-    BoardRegistrationComponent,
-    BoardLoginDialogComponent
+    BoardLoginComponent,
+    BoardRegistrationDialogComponent
   ],
   imports: [
     CommonModule,
@@ -83,7 +83,7 @@ import { BoardLoginDialogComponent } from './admin/task-board/board-registration
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [BoardLoginDialogComponent,ImgShowDialogComponent,ArchiveDialogComponent,AddNewTaskDialogComponent,
+  entryComponents: [BoardRegistrationDialogComponent,ImgShowDialogComponent,ArchiveDialogComponent,AddNewTaskDialogComponent,
     TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent
     ,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, 
     OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],

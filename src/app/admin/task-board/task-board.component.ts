@@ -8,6 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { ArchiveDialogComponent } from './archive-dialog/archive-dialog.component';
+import { TaskService } from 'src/app/service/task.service';
 @Component({
   selector: 'app-task-board',
   templateUrl: './task-board.component.html',
@@ -15,6 +16,15 @@ import { ArchiveDialogComponent } from './archive-dialog/archive-dialog.componen
 })
 export class TaskBoardComponent implements OnInit {
 
+  constructor(public dialog: MatDialog, public adminService: AdminService,public taskService:TaskService) { }
+
+
+  ngOnInit() {
+    this.getBoards();
+    this.saveTheme();
+    console.log(this.taskService.getListOfBoardsByUser());
+    
+  }
   // Sidenav menu
   @ViewChild('drawer', { static: false }) drawer: MatDrawer;
 
@@ -40,8 +50,6 @@ export class TaskBoardComponent implements OnInit {
   // PieChart data
   barChartDataPerBoard: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}];
 
-  constructor(public dialog: MatDialog, public adminService: AdminService) { }
-
   theme = ''
 
   // PieChart data list
@@ -59,11 +67,6 @@ export class TaskBoardComponent implements OnInit {
   themeForm = new FormGroup({
     theme: new FormControl()
   })
-
-  ngOnInit() {
-    this.getBoards();
-    this.saveTheme();
-  }
 
   openMenu(){
     this.drawer.toggle();
@@ -222,7 +225,7 @@ export class TaskBoardComponent implements OnInit {
       this.listOfTaskPerBoard = data;
 
       this.listOfTaskPerBoard.forEach(element => {
-        console.log(element);
+       
         
         this.barChartLabelsPie.push(element.title);
        this.barChartDataPerBoard[0].data.push(element.num_of_tasks)

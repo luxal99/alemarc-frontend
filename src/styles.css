@@ -45,5 +45,9 @@ body {
 }
 
 .loginDialog{
-    background-color: #121212;
+   background-color: #ff9600;
+}
+
+.mat-dialog-container{
+    border-radius: 10px;
 }

@@ -3,16 +3,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
 import { ClientService } from 'src/app/service/client.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
-import { BoardLoginDialogComponent } from './board-login-dialog/board-login-dialog.component';
 
 @Component({
   selector: 'app-board-registration',
-  templateUrl: './board-registration.component.html',
-  styleUrls: ['./board-registration.component.css']
+  templateUrl: './board-registration-dialog.component.html',
+  styleUrls: ['./board-registration-dialog.component.css']
 })
-export class BoardRegistrationComponent implements OnInit {
+export class BoardRegistrationDialogComponent implements OnInit {
 
-  constructor(public clientService:ClientService,private _snackBar: MatSnackBar,public dialog:MatDialog) { }
+  constructor(public clientService:ClientService,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -50,13 +49,5 @@ export class BoardRegistrationComponent implements OnInit {
       duration: 2000,
     });
   }
-
-  openLoginDialog(): void {
-    const dialogRef = this.dialog.open(BoardLoginDialogComponent, {
-      width: 'auto',
-      backdropClass:'loginDialog'
-    });
-  }
-
 
 }
