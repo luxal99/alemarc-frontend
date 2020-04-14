@@ -12,6 +12,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class AddNewTaskDialogComponent implements OnInit {
 
+  // Value of theme 
   theme;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService) {
@@ -20,11 +21,19 @@ export class AddNewTaskDialogComponent implements OnInit {
   @ViewChild('file', { static: false }) file
   public files: Set<File> = new Set()
 
+  /**
+   * List where we push @files
+   */
   images: Array<any> = [];
+
+  /**
+   * Variable where we bind @FormData
+   *  and send to backend
+   */
   image_url;
 
 
-
+  // Attributes for CKEditor
   @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
   public Editor = ClassicEditor;
   editorData = '';
@@ -32,9 +41,15 @@ export class AddNewTaskDialogComponent implements OnInit {
 
 
   ngOnInit() {
-      this.theme = localStorage.getItem('theme');
+    // Set theme from localstorage
+    this.theme = localStorage.getItem('theme');
   }
 
+
+  /**
+   * Add files in @images list on
+   * open/close file chooser
+   */
   onFilesAdded() {
     const files: { [key: string]: File } = this.file.nativeElement.files;
     for (let key in files) {
@@ -42,31 +57,30 @@ export class AddNewTaskDialogComponent implements OnInit {
         this.files.add(files[key]);
         var attachment = { url: 'assets/img/task/' + files[key].name }
         this.images.push(attachment)
-
-
       }
     }
 
-    console.log(this.images);
-    
   }
 
+  // Input form for tasks
   taskForm = new FormGroup({
     header: new FormControl("", Validators.required),
     text: new FormControl("", Validators.required),
     due_date: new FormControl("", Validators.required)
   })
 
-
   saveTask() {
+
+    // Set atribute
     var header = this.taskForm.get('header').value;
     var text = this.taskForm.get('text').value;
     var due_date = this.taskForm.get('due_date').value;
     var description = this.editorComponent.editorInstance.getData();
 
+    // Date format convert to String
     var shorter = String(due_date).substring(4, 10);
-    console.log(shorter);
 
+    // Upload files if @files>0
     if (this.files.size > 0) {
       this.files.forEach(element => {
         const formData: FormData = new FormData();
@@ -86,27 +100,18 @@ export class AddNewTaskDialogComponent implements OnInit {
       description: description,
       id_task_board: this.data.id_task_board,
       id_card_type: 1,
-      visible:true,
+      visible: true,
       cardAttachmentList: this.images
     };
-
-    console.log(task);
-
     this.adminService.createNewTask(task).subscribe(data => {
-
-
     })
-
-
   }
 
-  removeImageFromList(item){
-      this.files.delete(item);
+  removeImageFromList(item) {
+    this.files.delete(item);
+    var index = this.images.indexOf(item);
+    this.images.splice(index, 1);
 
-      var index = this.images.indexOf(item);
-      this.images.splice(index,1);
-     
   }
-
 
 }

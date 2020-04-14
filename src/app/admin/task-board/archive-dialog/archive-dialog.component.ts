@@ -9,10 +9,18 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class ArchiveDialogComponent implements OnInit {
 
+
   theme;
+
+  /**
+   * List of archived tasks
+   * 
+   * If visible=0 
+   */
   listOfArchivedTask: any = [];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService) { }
+
 
   ngOnInit() {
     this.getArchived();
@@ -23,6 +31,7 @@ export class ArchiveDialogComponent implements OnInit {
     this.theme = localStorage.getItem('theme');
   }
 
+  // Service return archived tasks
   getArchived() {
     this.adminService.getArchivedTask(this.data).subscribe(data => {
       this.listOfArchivedTask = data;
@@ -31,6 +40,7 @@ export class ArchiveDialogComponent implements OnInit {
     })
   }
 
+  // Set visible to true and update task
   unArchiveTask(task) {
     task.visible = true;
     task.id_card_status = task.idCardStatusIdCardStatus
@@ -42,6 +52,7 @@ export class ArchiveDialogComponent implements OnInit {
   }
 
 
+  // Not used yet
   unArchiveAll(){
     this.adminService.unArchiveAll(this.listOfArchivedTask).subscribe(data=>{
       this.getArchived();

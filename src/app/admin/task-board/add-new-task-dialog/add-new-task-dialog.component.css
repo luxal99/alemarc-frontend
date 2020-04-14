@@ -13,6 +13,8 @@ mat-form-field {
     padding-bottom: .3em;
 }
 
+/* Dark theme */
+
 .dark-dialog-content {
     padding-top: 2em;
     padding-left: 2em;
@@ -25,6 +27,19 @@ mat-form-field {
     opacity: 80%;
 }
 
+.dark-input {
+    color: #eee;
+}
+
+/* Dark theme */
+
+/* Light theme */
+
+.light-input {
+    border: 0 !important;
+    color: #121212;
+}
+
 .light-dialog-content h2 {
     color: #121212;
     opacity: 80%;
@@ -33,8 +48,10 @@ mat-form-field {
 .light-dialog-content {
     padding-top: 2em;
     padding-left: 2em;
-    ;
+    background-color: #fff;
 }
+
+/* Light theme */
 
 mat-icon {
     color: #ff9000;
@@ -56,12 +73,4 @@ mat-label {
 ::ng-deep.mat-form-field-underline {
     /*change color of underline*/
     background-color: #ff9000 !important;
-}
-
-.dark-input{
-    color: #eee;
-}
-.light-input{
-    border: 0 !important;
-    color: #121212;
 }

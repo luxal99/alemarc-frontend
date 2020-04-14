@@ -27,8 +27,6 @@ export class CreateBoardDialogComponent implements OnInit {
     var board = {title:title}
     
     this.adminService.createNewTaskBoard(board).subscribe(data => {
-      console.log(data);
-
     })
   }
 

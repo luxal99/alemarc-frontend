@@ -1,48 +1,5 @@
-.dark-task-card-div {
-    border-radius: 8px;
-    border: 1.5px solid #ffa900;
-    -webkit-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
-    margin-top: 2em;
-    padding-left: 1em;
-    padding-top: 1em;
-    background-color: #000;
-}
-
-.light-task-card-div {
-    border-radius: 8px;
-    -webkit-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
-    margin-top: 2em;
-    padding-left: 1em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    background-color: #eee;
-}
-
-.dark-h1-card{
-    color: #fff;
-    opacity: 80%;
-}
-.dark-paragraf-card{
-    color: #fff;
-    opacity: 80%;  
-}
-
 .archived-content{
     height: 100vh;
-}
-
-.light-h1-card{
-    color: #ffa900;
-    opacity: 80%;
-}
-
-.light-paragraf-card{
-    color: #121212;
-    opacity: 80%;  
 }
 
 .archived-content{
@@ -67,3 +24,53 @@
 mat-divider{
     border-top-color: #ffa900;
 }
+
+
+/* Dark theme */
+.dark-task-card-div {
+    border-radius: 8px;
+    border: 1.5px solid #ffa900;
+    -webkit-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    margin-top: 2em;
+    padding-left: 1em;
+    padding-top: 1em;
+    background-color: #000;
+}
+
+.dark-h1-card{
+    color: #fff;
+    opacity: 80%;
+}
+.dark-paragraf-card{
+    color: #fff;
+    opacity: 80%;  
+}
+
+/* Dark theme */
+
+
+/* Light theme */
+.light-task-card-div {
+    border-radius: 8px;
+    -webkit-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    margin-top: 2em;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #eee;
+}
+
+.light-h1-card{
+    color: #ffa900;
+    opacity: 80%;
+}
+
+.light-paragraf-card{
+    color: #121212;
+    opacity: 80%;  
+}
+/* Light theme */
