@@ -6,6 +6,7 @@ import { TaskService } from "../../../service/task.service";
 import { BoardRegistrationDialogComponent } from './board-login-dialog/board-registration-dialog.component';
 import { MatDialog } from '@angular/material';
 import { empty } from 'rxjs';
+import { TaskLoginService } from 'src/app/service/task-login.service';
 
 @Component({
   selector: 'app-board-login',
@@ -14,7 +15,7 @@ import { empty } from 'rxjs';
 })
 export class BoardLoginComponent implements OnInit {
 
-  constructor(public clientService: ClientService,public dialog:MatDialog, public router: Router, public taskService: TaskService) { }
+  constructor(public taskLoginService: TaskLoginService,public dialog:MatDialog, public router: Router, public taskService: TaskService) { }
 
   ngOnInit() {
   }
@@ -34,7 +35,7 @@ export class BoardLoginComponent implements OnInit {
       password: password
     }
 
-    this.clientService.login(user).subscribe(data => {
+    this.taskLoginService.login(user).subscribe(data => {
       
       if(data!==empty){
         console.log(data);

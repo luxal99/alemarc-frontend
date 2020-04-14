@@ -32,20 +32,5 @@ export class ClientService implements CanActivate{
     return this.http.post("/client/createOrder", order, { responseType: 'text' });
   }
 
-  register(user) {
-    return this.http.post("/admin/board/register", user, { responseType: 'text' });
-  }
 
-  login(user) {
-    return this.http.post('/admin/board/login', user, { responseType: 'json' })
-  }
-
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('idUser')) { // logged in so return true
-      return true;
-    }
-    // not logged in so redirect to login page with the return url
-    this.router.navigate(['/board/login'], { queryParams: { returnUrl: state.url } });
-    return false;
-  }
 }

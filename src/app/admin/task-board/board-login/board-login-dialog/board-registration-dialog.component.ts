@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
 import { ClientService } from 'src/app/service/client.service';
 import { MatSnackBar, MatDialog } from '@angular/material';
+import { TaskLoginService } from 'src/app/service/task-login.service';
 
 @Component({
   selector: 'app-board-registration',
@@ -11,7 +12,7 @@ import { MatSnackBar, MatDialog } from '@angular/material';
 })
 export class BoardRegistrationDialogComponent implements OnInit {
 
-  constructor(public clientService:ClientService,private _snackBar: MatSnackBar) { }
+  constructor(public taskLoginService:TaskLoginService,private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
@@ -39,7 +40,7 @@ export class BoardRegistrationDialogComponent implements OnInit {
       password:password
     }
 
-    this.clientService.register(user).subscribe(data=>{
+    this.taskLoginService.register(user).subscribe(data=>{
       this.openSnackBar(data,"DONE");
     })
   }
