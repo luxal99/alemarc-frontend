@@ -9,6 +9,7 @@ import { AdminService } from './service/admin.service';
 import { BlogDetailComponent } from "./home/blog-detail/blog-detail.component";
 import { TaskBoardComponent } from './admin/task-board/task-board.component';
 import { BoardLoginComponent } from './admin/task-board/board-login/board-login.component';
+import { ClientService } from './service/client.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
@@ -28,7 +29,7 @@ const routes: Routes = [
 
   },
   { path: 'admin', component: AdminComponent, canActivate: [AdminService] },
-  { path: 'board', component: TaskBoardComponent,data:{preload:true}},
+  { path: 'board', component: TaskBoardComponent,data:{preload:true},canActivate:[ClientService]},
   {path:'board/login',component:BoardLoginComponent}
 ];
 
