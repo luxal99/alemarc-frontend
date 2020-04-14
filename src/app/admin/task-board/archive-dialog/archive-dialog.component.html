@@ -6,7 +6,7 @@
         <div [className]="theme+'-task-card-div'" *ngFor="let task of listOfArchivedTask">
             <h2 [className]="theme+'-h1-card'">{{task.header}}</h2>
             <p [className]="theme+'-paragraf-card'">{{task.text}} </p>
-            <button mat-icon-button><mat-icon>visibility_on</mat-icon></button>
+            <button (click)="unArchiveTask(task)" mat-icon-button><mat-icon>visibility_on</mat-icon></button>
         </div>
     </div>
 

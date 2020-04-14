@@ -31,4 +31,14 @@ export class ArchiveDialogComponent implements OnInit {
     })
   }
 
+  unArchiveTask(task){
+    task.visible = true;
+    task.id_card_status = task.idCardStatusIdCardStatus
+   
+    
+    this.adminService.updateTask(task).subscribe(data=>{
+      this.getArchived();
+     })
+  }
+
 }
