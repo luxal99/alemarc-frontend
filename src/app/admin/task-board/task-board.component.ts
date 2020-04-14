@@ -88,6 +88,7 @@ export class TaskBoardComponent implements OnInit {
     const dialogRef = this.dialog.open(ArchiveDialogComponent, {
       minWidth: '100vh',
       position: { left: '0' },
+      minHeight:'100vh',
       data: tab
     });
 

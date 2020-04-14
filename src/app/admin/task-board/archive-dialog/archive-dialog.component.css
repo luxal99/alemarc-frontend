@@ -47,7 +47,7 @@
 
 .archived-content{
     font-family: 'Baloo Bhai 2', cursive;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .h1-header{

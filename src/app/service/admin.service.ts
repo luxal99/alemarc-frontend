@@ -115,4 +115,8 @@ export class AdminService implements CanActivate {
   getArchivedTask(id_task_board){
     return this.http.get("/admin/board/getArchivedTask/"+id_task_board,{responseType:'json'});
   }
+
+  unArchiveAll(taskList){
+    return this.http.put("/admin/board/unArchiveAll",taskList,{responseType:'text'});
+  }
 }

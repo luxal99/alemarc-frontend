@@ -10,35 +10,43 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 export class ArchiveDialogComponent implements OnInit {
 
   theme;
-  listOfArchivedTask:any=[];
+  listOfArchivedTask: any = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,public adminService:AdminService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService) { }
 
   ngOnInit() {
     this.getArchived();
     this.setTheme();
   }
 
-  setTheme(){
+  setTheme() {
     this.theme = localStorage.getItem('theme');
   }
 
-  getArchived(){
-    this.adminService.getArchivedTask(this.data).subscribe(data=>{
+  getArchived() {
+    this.adminService.getArchivedTask(this.data).subscribe(data => {
       this.listOfArchivedTask = data;
       console.log(this.listOfArchivedTask);
-      
+
     })
   }
 
-  unArchiveTask(task){
+  unArchiveTask(task) {
     task.visible = true;
     task.id_card_status = task.idCardStatusIdCardStatus
-   
-    
-    this.adminService.updateTask(task).subscribe(data=>{
+
+
+    this.adminService.updateTask(task).subscribe(data => {
       this.getArchived();
-     })
+    })
   }
 
+
+  unArchiveAll(){
+    this.adminService.unArchiveAll(this.listOfArchivedTask).subscribe(data=>{
+      this.getArchived();
+      
+    })
+  
+  }
 }
