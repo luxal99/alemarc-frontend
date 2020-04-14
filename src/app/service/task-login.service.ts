@@ -25,4 +25,8 @@ export class TaskLoginService implements CanActivate {
     this.router.navigate(['/board/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }
+
+  getUserProfile(id_client){
+    return this.http.get("/admin/board/getUserProfile/"+id_client,{responseType:'json'})
+  }
 }

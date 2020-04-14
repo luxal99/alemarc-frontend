@@ -36,6 +36,7 @@ import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/im
 import { ArchiveDialogComponent } from './admin/task-board/archive-dialog/archive-dialog.component';
 import { BoardLoginComponent } from "./admin/task-board/board-login/board-login.component";
 import { BoardRegistrationDialogComponent } from './admin/task-board/board-login/board-login-dialog/board-registration-dialog.component';
+import { UserProfileDialogComponent } from './admin/task-board/user-profile-dialog/user-profile-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { BoardRegistrationDialogComponent } from './admin/task-board/board-login
     ImgShowDialogComponent,
     ArchiveDialogComponent,
     BoardLoginComponent,
-    BoardRegistrationDialogComponent
+    BoardRegistrationDialogComponent,
+    UserProfileDialogComponent
   ],
   imports: [
     CommonModule,
@@ -86,7 +88,7 @@ import { BoardRegistrationDialogComponent } from './admin/task-board/board-login
   entryComponents: [BoardRegistrationDialogComponent,ImgShowDialogComponent,ArchiveDialogComponent,AddNewTaskDialogComponent,
     TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent
     ,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, 
-    OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+    OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent,UserProfileDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

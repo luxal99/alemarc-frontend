@@ -1,0 +1,26 @@
+.change-btn{
+    width: 100%;
+    font-size: 18px;
+    background-color: red;
+    color: #fff;
+    padding-top: .3em;
+    padding-bottom: .3em;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ff9000!important;
+    opacity: 1!important;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #ff9000 !important;
+}
+mat-label {
+    color: #ff9000;
+}

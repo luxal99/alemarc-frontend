@@ -9,6 +9,8 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { ArchiveDialogComponent } from './archive-dialog/archive-dialog.component';
 import { TaskService } from 'src/app/service/task.service';
+import { UserProfileDialogComponent } from './user-profile-dialog/user-profile-dialog.component';
+import { TaskLoginService } from 'src/app/service/task-login.service';
 @Component({
   selector: 'app-task-board',
   templateUrl: './task-board.component.html',
@@ -16,13 +18,14 @@ import { TaskService } from 'src/app/service/task.service';
 })
 export class TaskBoardComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public adminService: AdminService, public taskService: TaskService) { }
+  constructor(public dialog: MatDialog, public adminService: AdminService,public taskLoginService:TaskLoginService, public taskService: TaskService) { }
 
 
   ngOnInit() {
     this.getBoards();
     this.saveTheme();
     this.getTaskForUser();
+    this.getUserProfile();
   }
   // Sidenav menu
   @ViewChild('drawer', { static: false }) drawer: MatDrawer;
@@ -49,6 +52,7 @@ export class TaskBoardComponent implements OnInit {
   // PieChart data
   barChartDataPerBoard: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
 
+  userProfile;
   theme = ''
 
   // PieChart data list
@@ -97,12 +101,31 @@ export class TaskBoardComponent implements OnInit {
     })
   }
 
+  getUserProfile(){
+    this.taskLoginService.getUserProfile(localStorage.getItem("idUser")).subscribe(data=>{
+      this.userProfile = data[0];
+      console.log(this.userProfile);
+      
+    })
+  }
+
 
   // Dialog for create task
   openNewTaskDialog(task): void {
     const dialogRef = this.dialog.open(AddNewTaskDialogComponent, {
       minWidth: '100vh',
       data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getTasks();
+    });
+  }
+
+  openUserProfile(): void {
+    const dialogRef = this.dialog.open(UserProfileDialogComponent, {
+      width: 'auto',
+      data: this.userProfile
     });
 
     dialogRef.afterClosed().subscribe(result => {

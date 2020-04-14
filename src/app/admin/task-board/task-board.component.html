@@ -36,7 +36,7 @@
         <mat-tab-group (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
             <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
                 <div [className]="theme+'-content'">
-                   
+                    
                     <div class="row">
                         <div class="col" style="padding: 1em;" >
                             <button mat-icon-button (click)="openMenu()">
@@ -44,6 +44,9 @@
                             </button>
                             <button mat-button color="primary" (click)="openArchiveDialog(tab.id_task_board)">
                                 <mat-icon style="color: #ffa200;">visibility_off</mat-icon> Archive
+                            </button>
+                            <button mat-button color="primary" (click)="openUserProfile(tab.id_task_board)">
+                                <mat-icon style="color: #ffa200;">account_circle</mat-icon> Profile
                             </button>
                         </div>
                         <div class="col">
