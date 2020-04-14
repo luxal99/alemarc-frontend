@@ -15,29 +15,42 @@ import { ArchiveDialogComponent } from './archive-dialog/archive-dialog.componen
 })
 export class TaskBoardComponent implements OnInit {
 
+  // Sidenav menu
   @ViewChild('drawer', { static: false }) drawer: MatDrawer;
 
-  barChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  barChartLabels: Label[] = [];
-  barChartLabelsPie: Label[] = [];
-  barChartType: ChartType = 'bar';
-  barChartTypePie: ChartType = 'pie';
+
+  // Barchart & PieChart
   barChartLegend = true;
   barChartPlugins = [];
+   barChartOptions: ChartOptions = {
+    responsive: true,
+  };
 
+  // Only bar chart
+  barChartLabels: Label[] = [];
+  barChartType: ChartType = 'bar';
+
+  // Only pie chart
+  barChartLabelsPie: Label[] = [];
+  barChartTypePie: ChartType = 'pie';
+
+  // BarChart Data
   barChartData: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}];
 
+  // PieChart data
   barChartDataPerBoard: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}];
 
   constructor(public dialog: MatDialog, public adminService: AdminService) { }
 
   theme = ''
 
+  // PieChart data list
   listOfTaskPerBoard:any=[];
+  // List of all board
   listOfBoard: any = [];
+  // List of tasks for board
   listOfTasks: any = [];
+  // BarChart data
   taskGraphList:any=[];
 
   // Id of current board
@@ -58,6 +71,7 @@ export class TaskBoardComponent implements OnInit {
     this.getTaskAnalyse();
   }
 
+  // Default theme is light
   saveTheme(){
     if (localStorage.getItem('theme') === null) {
       localStorage.setItem('theme', 'light');
@@ -84,6 +98,12 @@ export class TaskBoardComponent implements OnInit {
     });
   }
 
+  /**
+   * Send id_task_board 
+   * On dialog init service find all tasks for that board
+   * where visible = 0
+   * @param tab 
+   */
   openArchiveDialog(tab): void {
     const dialogRef = this.dialog.open(ArchiveDialogComponent, {
       minWidth: '100vh',
@@ -97,7 +117,11 @@ export class TaskBoardComponent implements OnInit {
     });
   }
 
-  // Overview task
+  /**
+   * Send one task
+   * And bind data of task into dialog content
+   * @param task 
+   */
   openTaskDetail(task): void {
     const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
       minWidth: '90vh',
@@ -106,6 +130,7 @@ export class TaskBoardComponent implements OnInit {
       data: task
     });
 
+    // Refresh taskboard 
     dialogRef.afterClosed().subscribe(result => {
       this.getTasks();
     });
@@ -117,6 +142,7 @@ export class TaskBoardComponent implements OnInit {
       width: 'auto',
     });
 
+    // Refresh board
     dialogRef.afterClosed().subscribe(result => {
       this.getBoards();
     });
@@ -150,6 +176,15 @@ export class TaskBoardComponent implements OnInit {
     })
   }
 
+  /**
+   * Service which count all tasks per category
+   * for all boards
+   *  1.To DO
+   *  2.In progress
+   *  3. Done
+   *  
+   * 
+   */
   getTaskAnalyse(){
 
     this.barChartData[0].data = [];
@@ -172,6 +207,10 @@ export class TaskBoardComponent implements OnInit {
 
 
 
+  /**
+   * Service which count how many
+   * tasks we have per board
+   */
   getTaskPerBoard(){
 
     this.barChartDataPerBoard[0].data = [];

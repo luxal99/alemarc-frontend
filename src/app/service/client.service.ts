@@ -29,4 +29,8 @@ export class ClientService {
   sendOrder(order) {
     return this.http.post("/client/createOrder", order, { responseType: 'text' });
   }
+
+  register(user){
+    return this.http.post("/admin/board/register",user,{responseType:'text'});
+  }
 }
