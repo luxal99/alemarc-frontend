@@ -41,7 +41,7 @@ export class ClientService implements CanActivate{
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('idClient')) { // logged in so return true
+    if (localStorage.getItem('idUser')) { // logged in so return true
       return true;
     }
     // not logged in so redirect to login page with the return url

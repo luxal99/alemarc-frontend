@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { TaskService } from "../../../service/task.service";
 import { BoardRegistrationDialogComponent } from './board-login-dialog/board-registration-dialog.component';
 import { MatDialog } from '@angular/material';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-board-login',
@@ -34,10 +35,14 @@ export class BoardLoginComponent implements OnInit {
     }
 
     this.clientService.login(user).subscribe(data => {
-      console.log(data);
-
+      
+      if(data!==empty){
+        console.log(data);
+        
+      localStorage.setItem("idUser",data[0].id_client.id_client)
       this.taskService.pushArray(data);
       this.router.navigate(['/board']);
+      }
 
     })
   }

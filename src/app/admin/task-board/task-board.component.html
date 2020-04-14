@@ -1,140 +1,153 @@
 <mat-drawer-container class="example-container" fullscreen>
-    <mat-drawer  style="width: 140vh;" #drawer mode="over">
+    <mat-drawer style="width: 140vh;" #drawer mode="over">
         <div class="text-center side-content" [style.backgroundColor]="theme=='dark' ? '#121212': '#eee'">
             <div class="container" style="padding-top: 5em;">
                 <h1 class="data-h1" [style.color]="theme=='dark' ? '#eee': '#121212'">Data analytics</h1>
-            <mat-divider class="violet-divider"></mat-divider>
+                <mat-divider class="violet-divider"></mat-divider>
             </div>
             <div class="row" style="padding-top: 5em;">
                 <div class="col">
-                    <h4 [style.color]="theme=='dark' ? '#eee': '#121212'">Chart return how many task have in all board per group</h4>
+                    <h4 [style.color]="theme=='dark' ? '#eee': '#121212'">Chart return how many task have in all board
+                        per group</h4>
                     <div class="chart-wrapper">
-                        <canvas baseChart 
-                        [datasets]="barChartData"
-                        [labels]="barChartLabels"
-                        [options]="barChartOptions"
-                        [plugins]="barChartPlugins"
-                        [legend]="barChartLegend"
-                        [chartType]="barChartType">
-                      </canvas>
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                            [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
                     </div>
                 </div>
                 <div class="col">
                     <h4 [style.color]="theme=='dark' ? '#eee': '#121212'">Chart return how many task have per board</h4>
                     <div class="chart-wrapper">
-                        <canvas baseChart 
-                        [datasets]="barChartDataPerBoard"
-                        [labels]="barChartLabelsPie"
-                        [options]="barChartOptions"
-                        [plugins]="barChartPlugins"
-                        [legend]="barChartLegend"
-                        [chartType]="barChartTypePie">
-                      </canvas>
+                        <canvas baseChart [datasets]="barChartDataPerBoard" [labels]="barChartLabelsPie"
+                            [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                            [chartType]="barChartTypePie">
+                        </canvas>
                     </div>
                 </div>
             </div>
         </div>
-        
- 
-    
+
+
+
     </mat-drawer>
     <mat-drawer-content>
- 
-<mat-tab-group [selectedIndex]="1"  (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
-    <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
-        <div [className]="theme+'-content'">
-         <div class="row">
-             <div class="col">
-                 <button mat-icon-button (click)="openMenu()"><mat-icon style="color: #ffa200;font-size: 30px;">menu</mat-icon></button>
-                 <button mat-button color="primary" (click)="openArchiveDialog(tab.id_task_board)"><mat-icon style="color: #ffa200;">visibility_off</mat-icon> Archive</button>
-             </div>
-             <div class="col">
-                <form [formGroup]="themeForm">
-                    <div class="text-right" style="padding: 2em;color: orange;">
-                        <mat-slide-toggle formControlName="theme" style="text-transform: uppercase;"  color="primary" (change)="setTheme($event)">{{theme}}</mat-slide-toggle>
-                    </div>
-                </form>
-             </div>
-         </div>
-            <div style="padding-left: 5%;">
-                <button mat-icon-button  (click)="openNewTaskDialog(tab)" color="primary"><mat-icon style="font-size: 30px;">add_circle</mat-icon></button>
-            </div>
-            <div class="row card-row">
-                <div class="col">
-                    <div [className]="theme+'-card-td'" id="card">
-                        <div>
-                            <h1 [className]="theme+'-card-header-title'" id="card-header" >To Do</h1>
+
+        <mat-tab-group (selectedTabChange)="getBoard($event)" mat-stretch-tabs>
+            <mat-tab *ngFor="let tab of listOfBoard" label="{{tab.title}}" (click)="getBoard(tab)">
+                <div [className]="theme+'-content'">
+                   
+                    <div class="row">
+                        <div class="col" style="padding: 1em;" >
+                            <button mat-icon-button (click)="openMenu()">
+                                <mat-icon style="color: #ffa200;font-size: 30px;">menu</mat-icon>
+                            </button>
+                            <button mat-button color="primary" (click)="openArchiveDialog(tab.id_task_board)">
+                                <mat-icon style="color: #ffa200;">visibility_off</mat-icon> Archive
+                            </button>
                         </div>
-                        <div class="container card-container" *ngFor="let task of tab.cardList">
-                            <div id="card-content" [className]="theme+'-card-content'" (click)="openTaskDetail(task)"
-                                *ngIf="task.id_card_status.id_card_status===1 && task.visible;">
-                                <h2>{{task.header}}</h2>
-                                <p>{{task.text}} </p>
-                                <div class="row">
-                                    <div class="text-left">
-                                        <h5 *ngIf="task.cardAttachmentList.length>0"><mat-icon style="color: #ffa200;">attach_file</mat-icon> {{task.cardAttachmentList.length}}</h5>
+                        <div class="col">
+                            <form [formGroup]="themeForm">
+                                <div class="text-right" style="padding: 2em;color: orange;">
+                                    <mat-slide-toggle formControlName="theme" style="text-transform: uppercase;"
+                                        color="primary" (change)="setTheme($event)">{{theme}}</mat-slide-toggle>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div style="padding-left: 5%;">
+                        <button mat-icon-button (click)="openNewTaskDialog(tab)" color="primary">
+                            <mat-icon style="font-size: 30px;">add_circle</mat-icon>
+                        </button>
+                    </div>
+                    <div class="row card-row">
+                        <div class="col">
+                            <div [className]="theme+'-card-td'" id="card">
+                                <div>
+                                    <h1 [className]="theme+'-card-header-title'" id="card-header">To Do</h1>
+                                </div>
+                                <div class="container card-container" *ngFor="let task of tab.cardList">
+                                    <div id="card-content" [className]="theme+'-card-content'"
+                                        (click)="openTaskDetail(task)"
+                                        *ngIf="task.id_card_status.id_card_status===1 && task.visible;">
+                                        <h2>{{task.header}}</h2>
+                                        <p>{{task.text}} </p>
+                                        <div class="row">
+                                            <div class="text-left">
+                                                <h5 *ngIf="task.cardAttachmentList.length>0">
+                                                    <mat-icon style="color: #ffa200;">attach_file</mat-icon>
+                                                    {{task.cardAttachmentList.length}}
+                                                </h5>
+                                            </div>
+                                            <div class="col text-right">
+                                                <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col text-right">
-                                        <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div [className]="theme+'-card-ip'">
+                                <div>
+                                    <h1 [className]="theme+'-card-header-title'" id="card-header">In progress</h1>
+                                </div>
+                                <div class="container card-container" *ngFor="let task of tab.cardList">
+                                    <div [className]="theme+'-card-content'" id="card-content"
+                                        (click)="openTaskDetail(task)"
+                                        *ngIf="task.id_card_status.id_card_status===2 && task.visible;">
+                                        <h2>{{task.header}}</h2>
+                                        <p>{{task.text}} </p>
+                                        <div class="row">
+                                            <div class="text-left">
+                                                <h5 *ngIf="task.cardAttachmentList.length>0">
+                                                    <mat-icon style="color: #ffa200;">attach_file</mat-icon>
+                                                    {{task.cardAttachmentList.length}}
+                                                </h5>
+                                            </div>
+                                            <div class="col text-right">
+                                                <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div [className]="theme+'-card-dn'" id="card">
+                                <h1 [className]="theme+'-card-header-title'" id="card-header">Done</h1>
+                                <div class="container card-container" *ngFor="let task of tab.cardList">
+                                    <div [className]="theme+'-card-content'" id="card-content"
+                                        (click)="openTaskDetail(task)"
+                                        *ngIf="task.id_card_status.id_card_status===3 && task.visible;">
+                                        <h2>{{task.header}}</h2>
+                                        <p>{{task.text}} </p>
+                                        <div class="row">
+                                            <div class="text-left">
+                                                <h5 *ngIf="task.cardAttachmentList.length>0">
+                                                    <mat-icon style="color: #ffa200;">attach_file</mat-icon>
+                                                    {{task.cardAttachmentList.length}}
+                                                </h5>
+                                            </div>
+                                            <div class="col text-right">
+                                                <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="col">
-                    <div  [className]="theme+'-card-ip'">
-                        <div>
-                            <h1 [className]="theme+'-card-header-title'" id="card-header" >In progress</h1>
-                        </div>
-                        <div class="container card-container" *ngFor="let task of tab.cardList">
-                            <div [className]="theme+'-card-content'" id="card-content" (click)="openTaskDetail(task)"
-                                *ngIf="task.id_card_status.id_card_status===2 && task.visible;">
-                                <h2>{{task.header}}</h2>
-                                <p>{{task.text}} </p>
-                                <div class="row">
-                                    <div class="text-left">
-                                        <h5 *ngIf="task.cardAttachmentList.length>0"><mat-icon style="color: #ffa200;">attach_file</mat-icon> {{task.cardAttachmentList.length}}</h5>
-                                    </div>
-                                    <div class="col text-right">
-                                        <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div [className]="theme+'-card-dn'" id="card">
-                        <h1 [className]="theme+'-card-header-title'" id="card-header">Done</h1>
-                        <div class="container card-container" *ngFor="let task of tab.cardList">
-                            <div [className]="theme+'-card-content'" id="card-content" (click)="openTaskDetail(task)"
-                                *ngIf="task.id_card_status.id_card_status===3 && task.visible;">
-                                <h2>{{task.header}}</h2>
-                                <p>{{task.text}} </p>
-                                <div class="row">
-                                    <div class="text-left">
-                                        <h5 *ngIf="task.cardAttachmentList.length>0"><mat-icon style="color: #ffa200;">attach_file</mat-icon> {{task.cardAttachmentList.length}}</h5>
-                                    </div>
-                                    <div class="col text-right">
-                                        <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </mat-tab>
-    <mat-tab disabled>
-        <ng-template mat-tab-label>
-            <button mat-icon-button (click)="openCreateBoardDialog()">
-                <mat-icon>add_circle</mat-icon>
-            </button>
-        </ng-template>
-    </mat-tab>
-</mat-tab-group>
+            </mat-tab>
+            <mat-tab disabled>
+                <ng-template mat-tab-label>
+                    <button mat-icon-button (click)="openCreateBoardDialog()">
+                        <mat-icon>add_circle</mat-icon>
+                    </button>
+                </ng-template>
+            </mat-tab>
+        </mat-tab-group>
     </mat-drawer-content>
-  </mat-drawer-container>
+</mat-drawer-container>

@@ -16,14 +16,13 @@ import { TaskService } from 'src/app/service/task.service';
 })
 export class TaskBoardComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public adminService: AdminService,public taskService:TaskService) { }
+  constructor(public dialog: MatDialog, public adminService: AdminService, public taskService: TaskService) { }
 
 
   ngOnInit() {
     this.getBoards();
     this.saveTheme();
-    console.log(this.taskService.getListOfBoardsByUser());
-    
+    this.getTaskForUser();
   }
   // Sidenav menu
   @ViewChild('drawer', { static: false }) drawer: MatDrawer;
@@ -32,7 +31,7 @@ export class TaskBoardComponent implements OnInit {
   // Barchart & PieChart
   barChartLegend = true;
   barChartPlugins = [];
-   barChartOptions: ChartOptions = {
+  barChartOptions: ChartOptions = {
     responsive: true,
   };
 
@@ -45,21 +44,23 @@ export class TaskBoardComponent implements OnInit {
   barChartTypePie: ChartType = 'pie';
 
   // BarChart Data
-  barChartData: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}];
+  barChartData: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
 
   // PieChart data
-  barChartDataPerBoard: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}];
+  barChartDataPerBoard: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
 
   theme = ''
 
   // PieChart data list
-  listOfTaskPerBoard:any=[];
+  listOfTaskPerBoard: any = [];
   // List of all board
   listOfBoard: any = [];
   // List of tasks for board
   listOfTasks: any = [];
   // BarChart data
-  taskGraphList:any=[];
+  taskGraphList: any = [];
+
+  listOfTaskByUser: any = [];
 
   // Id of current board
   id_board;
@@ -68,14 +69,14 @@ export class TaskBoardComponent implements OnInit {
     theme: new FormControl()
   })
 
-  openMenu(){
+  openMenu() {
     this.drawer.toggle();
     this.getTaskPerBoard();
     this.getTaskAnalyse();
   }
 
   // Default theme is light
-  saveTheme(){
+  saveTheme() {
     if (localStorage.getItem('theme') === null) {
       localStorage.setItem('theme', 'light');
       this.theme = localStorage.getItem('theme');
@@ -83,9 +84,17 @@ export class TaskBoardComponent implements OnInit {
       this.theme = localStorage.getItem('theme');
     }
 
-    if(localStorage.getItem('theme') === 'dark'){
+    if (localStorage.getItem('theme') === 'dark') {
       this.themeForm.get('theme').setValue(true)
     }
+  }
+
+  getTaskForUser() {
+    this.taskService.getListOfBoardByUserId(localStorage.getItem("idUser")).subscribe(data=>{
+      this.listOfTaskByUser = data;
+      console.log(this.listOfTaskByUser);
+      
+    })
   }
 
 
@@ -111,7 +120,7 @@ export class TaskBoardComponent implements OnInit {
     const dialogRef = this.dialog.open(ArchiveDialogComponent, {
       minWidth: '100vh',
       position: { left: '0' },
-      minHeight:'100vh',
+      minHeight: '100vh',
       data: tab
     });
 
@@ -188,23 +197,23 @@ export class TaskBoardComponent implements OnInit {
    *  
    * 
    */
-  getTaskAnalyse(){
+  getTaskAnalyse() {
 
     this.barChartData[0].data = [];
-    this.taskGraphList=[];
+    this.taskGraphList = [];
     this.barChartLabels = [];
 
-    var empty =0;
-    this.adminService.getTaskAnalyse().subscribe(data=>{
+    var empty = 0;
+    this.adminService.getTaskAnalyse().subscribe(data => {
       this.taskGraphList = data;
       this.taskGraphList.forEach(element => {
         this.barChartLabels.push(element.title);
-       this.barChartData[0].data.push(element.num_of_tasks)
-      
+        this.barChartData[0].data.push(element.num_of_tasks)
+
       });
 
       this.barChartData[0].data.push(empty)
-      
+
     })
   }
 
@@ -214,26 +223,26 @@ export class TaskBoardComponent implements OnInit {
    * Service which count how many
    * tasks we have per board
    */
-  getTaskPerBoard(){
+  getTaskPerBoard() {
 
     this.barChartDataPerBoard[0].data = [];
-    this.listOfTaskPerBoard=[];
+    this.listOfTaskPerBoard = [];
     this.barChartLabelsPie = [];
 
-    var empty =0;
-    this.adminService.getTaskPerBoard().subscribe(data=>{
+    var empty = 0;
+    this.adminService.getTaskPerBoard().subscribe(data => {
       this.listOfTaskPerBoard = data;
 
       this.listOfTaskPerBoard.forEach(element => {
-       
-        
+
+
         this.barChartLabelsPie.push(element.title);
-       this.barChartDataPerBoard[0].data.push(element.num_of_tasks)
-      
+        this.barChartDataPerBoard[0].data.push(element.num_of_tasks)
+
       });
 
       this.barChartDataPerBoard[0].data.push(empty)
-      
+
     })
   }
 
