@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { useAnimation } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,11 @@ export class ClientService {
     return this.http.post("/client/createOrder", order, { responseType: 'text' });
   }
 
-  register(user){
-    return this.http.post("/admin/board/register",user,{responseType:'text'});
+  register(user) {
+    return this.http.post("/admin/board/register", user, { responseType: 'text' });
+  }
+
+  login(user) {
+    return this.http.post('/admin/board/login', user, { responseType: 'json' })
   }
 }

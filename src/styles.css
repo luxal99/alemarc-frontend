@@ -43,3 +43,7 @@ body {
 .mat-dialog-container{
     background: none;
 }
+
+.loginDialog{
+    background-color: #121212;
+}
