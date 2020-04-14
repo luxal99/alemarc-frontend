@@ -1,13 +1,13 @@
 <mat-drawer-container class="example-container" fullscreen>
     <mat-drawer  style="width: 140vh;" #drawer mode="over">
-        <div class="text-center" style="background-color: #121212;height: 100vh;">
+        <div class="text-center side-content" [style.backgroundColor]="theme=='dark' ? '#121212': '#eee'">
             <div class="container" style="padding-top: 5em;">
-                <h1 class="data-h1">Data analytics</h1>
+                <h1 class="data-h1" [style.color]="theme=='dark' ? '#eee': '#121212'">Data analytics</h1>
             <mat-divider class="violet-divider"></mat-divider>
             </div>
             <div class="row" style="padding-top: 5em;">
                 <div class="col">
-                    <h4 style="color: #eee;">Chart return how many task have in all board per group</h4>
+                    <h4 [style.color]="theme=='dark' ? '#eee': '#121212'">Chart return how many task have in all board per group</h4>
                     <div class="chart-wrapper">
                         <canvas baseChart 
                         [datasets]="barChartData"
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <h4 style="color: #eee;">Chart return how many task have per board</h4>
+                    <h4 [style.color]="theme=='dark' ? '#eee': '#121212'">Chart return how many task have per board</h4>
                     <div class="chart-wrapper">
                         <canvas baseChart 
                         [datasets]="barChartDataPerBoard"

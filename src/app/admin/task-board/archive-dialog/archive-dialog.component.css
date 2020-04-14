@@ -1,4 +1,69 @@
-.task-card-div{
+.dark-task-card-div {
     border-radius: 8px;
-    border: 1px solid #bb86fc;
+    border: 1.5px solid #ffa900;
+    -webkit-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    margin-top: 2em;
+    padding-left: 1em;
+    padding-top: 1em;
+    background-color: #000;
+}
+
+.light-task-card-div {
+    border-radius: 8px;
+    -webkit-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 12px -1px rgba(0, 0, 0, 0.75);
+    margin-top: 2em;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #eee;
+}
+
+.dark-h1-card{
+    color: #fff;
+    opacity: 80%;
+}
+.dark-paragraf-card{
+    color: #fff;
+    opacity: 80%;  
+}
+
+.archived-content{
+    height: 100vh;
+}
+
+.light-h1-card{
+    color: #ffa900;
+    opacity: 80%;
+}
+
+.light-paragraf-card{
+    color: #121212;
+    opacity: 80%;  
+}
+
+.archived-content{
+    font-family: 'Baloo Bhai 2', cursive;
+    height: 100vh;
+}
+
+.h1-header{
+    padding-left: 1em;
+    padding-top: 1em;
+}
+
+.un-btn{
+    margin-top: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    font-size: 18px;
+}
+
+mat-divider{
+    border-top-color: #ffa900;
 }

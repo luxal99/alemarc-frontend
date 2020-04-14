@@ -9,12 +9,18 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class ArchiveDialogComponent implements OnInit {
 
+  theme;
   listOfArchivedTask:any=[];
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,public adminService:AdminService) { }
 
   ngOnInit() {
     this.getArchived();
+    this.setTheme();
+  }
+
+  setTheme(){
+    this.theme = localStorage.getItem('theme');
   }
 
   getArchived(){

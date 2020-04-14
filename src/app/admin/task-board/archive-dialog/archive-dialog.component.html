@@ -1,17 +1,17 @@
-<div class="container" style="height: 100vh;background-color: #121212;">
-<h1 class="text-center" style="color: #eee;">Archived</h1>
+<div class="container archived-content" [style.backgroundColor]="theme=='dark' ? '#121212': '#eee'">
+<h1 class="h1-header" [style.color]="theme=='dark' ? '#eee': '#121212'">Archived</h1>
+<mat-divider></mat-divider>
 <div class="row">
     <div class="col">
-        <div class="task-card-div" *ngFor="let task of listOfArchivedTask">
-            <h2>{{task.header}}</h2>
-            <p>{{task.text}} </p>
-            <div class="row">
-                <div class="col text-right">
-                    <h5 style="font-weight: bolder;color: red;">{{task.due_date}}</h5>
-                </div>
-            </div>
+        <div [className]="theme+'-task-card-div'" *ngFor="let task of listOfArchivedTask">
+            <h2 [className]="theme+'-h1-card'">{{task.header}}</h2>
+            <p [className]="theme+'-paragraf-card'">{{task.text}} </p>
+            <button mat-icon-button><mat-icon>visibility_on</mat-icon></button>
         </div>
     </div>
+
+   
     <div class="col"></div>
 </div>
+<button class="un-btn" mat-raised-button color="primary">Unarchive all</button>
 </div>
