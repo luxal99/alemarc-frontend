@@ -6,7 +6,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService implements CanActivate{
+export class ClientService{
 
   constructor(public http: HttpClient,public router:Router) { }
 

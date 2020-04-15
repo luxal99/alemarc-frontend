@@ -29,4 +29,9 @@ export class TaskLoginService implements CanActivate {
   getUserProfile(id_client){
     return this.http.get("/admin/board/getUserProfile/"+id_client,{responseType:'json'})
   }
+
+  changePassword(user){
+    return this.http.put("/admin/board/changePassword",user,{responseType:'text'});
+    
+  }
 }
