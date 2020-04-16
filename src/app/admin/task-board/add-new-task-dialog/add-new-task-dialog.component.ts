@@ -85,8 +85,9 @@ export class AddNewTaskDialogComponent implements OnInit {
       this.files.forEach(element => {
         const formData: FormData = new FormData();
         formData.append('image_url', element)
+        location.reload();
         this.adminService.uploadAttachment(formData).subscribe(data => {
-          console.log(data);
+         
 
         })
       });

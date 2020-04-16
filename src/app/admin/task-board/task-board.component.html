@@ -5,7 +5,7 @@
                 <h1 class="data-h1" [style.color]="theme=='dark' ? '#eee': '#121212'">Data analytics</h1>
                 <mat-divider class="violet-divider"></mat-divider>
             </div>
-            <div class="row" style="padding-top: 5em;">
+            <div class="row" style="padding-top: 5em;" *ngIf="loggedUser.id_client === null">
                 <div class="col">
                     <h4 [style.color]="theme=='dark' ? '#eee': '#121212'">Chart return how many task have in all board
                         per group</h4>
@@ -24,6 +24,14 @@
                             [chartType]="barChartTypePie">
                         </canvas>
                     </div>
+                </div>
+            </div>
+            <div class="container" *ngIf="loggedUser.id_admin === null">
+                <div class="chart-wrapper">
+                    <canvas baseChart [datasets]="barChartDataForUserId" [labels]="barChartLabelsForUserId"
+                        [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                        [chartType]="barChartType">
+                    </canvas>
                 </div>
             </div>
         </div>
@@ -66,7 +74,7 @@
                     <div class="row card-row">
                         <div class="col">
                             <div [className]="theme+'-card-td'" id="card">
-                                <div>
+                                <div (click)="openNewTaskDialog(tab)">
                                     <h1 [className]="theme+'-card-header-title'" id="card-header">To Do</h1>
                                 </div>
                                 <div class="container card-container" *ngFor="let task of tab.cardList">

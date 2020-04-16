@@ -5,7 +5,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanLoad, Rout
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService  {
+export class TaskService {
 
   private list: Array<any> = [];
   private listOfBoardByUser = new Set(this.list);
@@ -24,16 +24,20 @@ export class TaskService  {
     return this.http.get("/admin/board/getBoardPerUser/" + id_client, { responseType: 'json' });
   }
 
-   createNewTaskBoard(board) {
-     return this.http.post("/admin/createBoard", board, { responseType: 'json' });
-   }
+  createNewTaskBoard(board) {
+    return this.http.post("/admin/createBoard", board, { responseType: 'json' });
+  }
 
-   getBoard() {
+  getBoard() {
     return this.http.get("/admin/board/getBoard", { responseType: 'json' })
   }
 
-  getBoardByIdClient(id_client){
-    return this.http.get("/admin/board/getBoardByIdClient/"+id_client,{responseType:'json'});
+  getBoardByIdClient(id_client) {
+    return this.http.get("/admin/board/getBoardByIdClient/" + id_client, { responseType: 'json' });
+  }
+
+  getTaskAnalyzeByClienId(id_client) {
+    return this.http.get("/admin/board/getTaskAnalizeByIdClient/" + id_client, { responseType: 'json' });
   }
 
   // createNewTask(task){

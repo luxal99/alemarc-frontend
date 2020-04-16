@@ -45,7 +45,7 @@ export class UserProfileDialogComponent implements OnInit {
   }
 
   logout(){
-    localStorage.removeItem("idUser");
+    localStorage.removeItem("key");
     location.reload();
   }
 

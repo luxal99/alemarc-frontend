@@ -50,6 +50,9 @@ export class TaskBoardComponent implements OnInit {
   // Only bar chart
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'bar';
+  
+  barChartLabelsForUserId: Label[] = [];
+  barChartTypeForUserId: ChartType = 'bar';
 
   // Only pie chart
   barChartLabelsPie: Label[] = [];
@@ -57,6 +60,7 @@ export class TaskBoardComponent implements OnInit {
 
   // BarChart Data
   barChartData: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
+  barChartDataForUserId: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
 
   // PieChart data
   barChartDataPerBoard: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
@@ -72,6 +76,8 @@ export class TaskBoardComponent implements OnInit {
   // BarChart data
   taskGraphList: any = [];
 
+  taskAnalyseByUserId: any = [];
+
   listOfTaskByUser: any = [];
 
   // Id of current board
@@ -85,6 +91,7 @@ export class TaskBoardComponent implements OnInit {
     this.drawer.toggle();
     this.getTaskPerBoard();
     this.getTaskAnalyse();
+    this.getTaskAnalyseForUserId();
   }
 
   // Default theme is light
@@ -201,7 +208,7 @@ export class TaskBoardComponent implements OnInit {
     } else {
       this.taskService.getBoardByIdClient(this.loggedUser.id_client.id_client).subscribe(data => {
         console.log(data);
-        
+
         this.listOfBoard = data;
       })
     }
@@ -252,6 +259,29 @@ export class TaskBoardComponent implements OnInit {
       });
 
       this.barChartData[0].data.push(empty)
+
+    })
+  }
+
+  getTaskAnalyseForUserId() {
+
+    this.barChartDataForUserId[0].data = [];
+    this.taskAnalyseByUserId = [];
+    this.barChartLabelsForUserId = [];
+
+    var empty = 0;
+    this.taskService.getTaskAnalyzeByClienId(this.loggedUser.id_client.id_client).subscribe(data => {
+      console.log(data);
+      
+      this.taskAnalyseByUserId = data;
+      this.taskAnalyseByUserId.forEach(element => {
+        
+        this.barChartLabelsForUserId.push(element.title);
+        this.barChartDataForUserId[0].data.push(element.num_of_tasks)
+
+      });
+
+      this.barChartDataForUserId[0].data.push(empty);
 
     })
   }
