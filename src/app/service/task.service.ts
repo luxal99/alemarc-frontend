@@ -1,35 +1,40 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanLoad, Route } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService {
+export class TaskService  {
 
   private list: Array<any> = [];
   private listOfBoardByUser = new Set(this.list);
 
-  constructor(public http:HttpClient) { }
+  constructor(public http: HttpClient) { }
 
-  pushArray(arr){
+  pushArray(arr) {
     this.listOfBoardByUser = arr
   }
 
-  getListOfBoardsByUser(){
+  getLoggedUser() {
     return this.listOfBoardByUser;
   }
 
-  getListOfBoardByUserId(id_client){
-    return this.http.get("/admin/board/getBoardPerUser/"+id_client,{responseType:'json'});
+  getListOfBoardByUserId(id_client) {
+    return this.http.get("/admin/board/getBoardPerUser/" + id_client, { responseType: 'json' });
   }
 
-  // createNewTaskBoard(board) {
-  //   return this.http.post("/admin/createBoard", board, { responseType: 'json' });
-  // }
+   createNewTaskBoard(board) {
+     return this.http.post("/admin/createBoard", board, { responseType: 'json' });
+   }
 
-  // getBoard(){
-  //   return this.http.get("/admin/board/getBoard",{responseType:'json'})
-  // }
+   getBoard() {
+    return this.http.get("/admin/board/getBoard", { responseType: 'json' })
+  }
+
+  getBoardByIdClient(id_client){
+    return this.http.get("/admin/board/getBoardByIdClient/"+id_client,{responseType:'json'});
+  }
 
   // createNewTask(task){
   //   return this.http.post("/admin/board/createTask",task,{responseType:'text'});

@@ -27,7 +27,7 @@ export class BoardLoginComponent implements OnInit {
 
   login() {
 
-    try {
+
     var username = this.loginForm.get('username').value;
     var password = this.loginForm.get('password').value;
 
@@ -36,21 +36,33 @@ export class BoardLoginComponent implements OnInit {
       password: password
     }
 
-    
-      this.taskLoginService.login(user).subscribe(data => {
+    this.taskLoginService.login(user).subscribe(data => {
 
-        if (data !== empty) {
-          localStorage.setItem("idUser", data[0].id_client.id_client)
-          this.taskService.pushArray(data);
-          this.router.navigate(['/board']);
+      if (data !== empty) {
+        try {
+
+          sessionStorage.setItem('user',JSON.stringify(data[0]));
+
+          if (data[0].id_user_role.role_name === 'ADMIN') {
+
+            localStorage.setItem("key", data[0].id_admin.secretKey)
+            this.router.navigate(['/board']);
+
+          } else if (data[0].id_user_role.role_name === 'CLIENT') {
+            localStorage.setItem("key", data[0].id_client.secretKey)
+            this.router.navigate(['/board']);
+          }
+
         }
+        catch {
+          var err = new Error("User not found");
 
-      })
-    } catch {
-        var err = new Error("User not found");
+          this.openSnackBar(err.message, "");
+        }
+      }
 
-        this.openSnackBar(err.message,"");
-    }
+    })
+
   }
 
   openRegistrationDialog(): void {

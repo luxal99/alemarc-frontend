@@ -7,6 +7,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TaskLoginService implements CanActivate {
 
+  private roles: Array<any> = [];
+  loggedUser = null
+
   constructor(public http: HttpClient, public router: Router) { }
 
   register(user) {
@@ -18,7 +21,9 @@ export class TaskLoginService implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('idUser')) { // logged in so return true
+
+
+    if (localStorage.getItem('key')) { // logged in so return true
       return true;
     }
     // not logged in so redirect to login page with the return url
@@ -26,12 +31,18 @@ export class TaskLoginService implements CanActivate {
     return false;
   }
 
-  getUserProfile(id_client){
-    return this.http.get("/admin/board/getUserProfile/"+id_client,{responseType:'json'})
+  getUserProfile(user) {
+    return this.http.post('/admin/board/getUserProfile', user, { responseType: 'json' })
   }
 
-  changePassword(user){
-    return this.http.put("/admin/board/changePassword",user,{responseType:'text'});
-    
+  changePassword(user) {
+    return this.http.put("/admin/board/changePassword", user, { responseType: 'text' });
+  }
+
+  getUserByKey(key) {
+    return this.http.post("/admin/board/getUserByKey", key, { responseType: 'json' })
+  }
+  getUser() {
+    return JSON.parse(sessionStorage.getItem('user'))
   }
 }

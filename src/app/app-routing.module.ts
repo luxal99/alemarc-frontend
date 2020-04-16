@@ -10,6 +10,7 @@ import { BlogDetailComponent } from "./home/blog-detail/blog-detail.component";
 import { TaskBoardComponent } from './admin/task-board/task-board.component';
 import { BoardLoginComponent } from './admin/task-board/board-login/board-login.component';
 import { TaskLoginService } from './service/task-login.service';
+import { TaskService } from './service/task.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
@@ -29,7 +30,7 @@ const routes: Routes = [
 
   },
   { path: 'admin', component: AdminComponent, canActivate: [AdminService] },
-  { path: 'board', component: TaskBoardComponent,data:{preload:true},canActivate:[TaskLoginService]},
+  { path: 'board', component: TaskBoardComponent,data:{preload:true},canActivate:[TaskLoginService],canLoad:[TaskService]},
   {path:'board/login',component:BoardLoginComponent}
 ];
 

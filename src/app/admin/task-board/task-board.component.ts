@@ -18,18 +18,27 @@ import { TaskLoginService } from 'src/app/service/task-login.service';
 })
 export class TaskBoardComponent implements OnInit {
 
-  constructor(public dialog: MatDialog, public adminService: AdminService,public taskLoginService:TaskLoginService, public taskService: TaskService) { }
+  publiKey;
+  adminKey = 'fa2a1ba6601d4dcf721a496936b7f4022c6be89764c665e5b4b75ce7c20392be'
+
+  constructor(public dialog: MatDialog, public adminService: AdminService,
+    public taskLoginService: TaskLoginService, public taskService: TaskService) { }
 
 
   ngOnInit() {
+    this.publiKey = localStorage.getItem('key');
+    this.getLoggedUser()
     this.getBoards();
     this.saveTheme();
     this.getTaskForUser();
     this.getUserProfile();
+
   }
   // Sidenav menu
   @ViewChild('drawer', { static: false }) drawer: MatDrawer;
 
+
+  loggedUser;
 
   // Barchart & PieChart
   barChartLegend = true;
@@ -52,7 +61,6 @@ export class TaskBoardComponent implements OnInit {
   // PieChart data
   barChartDataPerBoard: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
 
-  userProfile;
   theme = ''
 
   // PieChart data list
@@ -93,20 +101,17 @@ export class TaskBoardComponent implements OnInit {
     }
   }
 
+
+  getLoggedUser() {
+    this.loggedUser = this.taskLoginService.getUser();
+  }
   getTaskForUser() {
-    this.taskService.getListOfBoardByUserId(localStorage.getItem("idUser")).subscribe(data=>{
+    this.taskService.getListOfBoardByUserId(localStorage.getItem("idUser")).subscribe(data => {
       this.listOfTaskByUser = data;
-      console.log(this.listOfTaskByUser);
-      
     })
   }
 
-  getUserProfile(){
-    this.taskLoginService.getUserProfile(localStorage.getItem("idUser")).subscribe(data=>{
-      this.userProfile = data[0];
-      console.log(this.userProfile);
-      
-    })
+  getUserProfile() {
   }
 
 
@@ -125,7 +130,7 @@ export class TaskBoardComponent implements OnInit {
   openUserProfile(): void {
     const dialogRef = this.dialog.open(UserProfileDialogComponent, {
       width: 'auto',
-      data: this.userProfile
+      data: this.loggedUser
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -175,6 +180,7 @@ export class TaskBoardComponent implements OnInit {
   openCreateBoardDialog(): void {
     const dialogRef = this.dialog.open(CreateBoardDialogComponent, {
       width: 'auto',
+      data: this.loggedUser.id_client
     });
 
     // Refresh board
@@ -186,9 +192,19 @@ export class TaskBoardComponent implements OnInit {
 
   // Service for get all boards
   getBoards() {
-    this.adminService.getBoard().subscribe(data => {
-      this.listOfBoard = data;
-    })
+    var key = 'fa2a1ba6601d4dcf721a496936b7f4022c6be89764c665e5b4b75ce7c20392be';
+
+    if (this.publiKey.match(this.adminKey) !== null) {
+      this.adminService.getBoard().subscribe(data => {
+        this.listOfBoard = data;
+      })
+    } else {
+      this.taskService.getBoardByIdClient(this.loggedUser.id_client.id_client).subscribe(data => {
+        console.log(data);
+        
+        this.listOfBoard = data;
+      })
+    }
   }
 
   /**
@@ -283,6 +299,14 @@ export class TaskBoardComponent implements OnInit {
       this.theme = 'light'
       localStorage.setItem('theme', 'light')
     }
+  }
+
+  tryCan() {
+    var someList = [];
+
+    this.taskService.getBoard().subscribe(data => {
+
+    })
   }
 
 }

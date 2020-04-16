@@ -15,6 +15,8 @@ export class UserProfileDialogComponent implements OnInit {
   theme;
 
   ngOnInit() {
+    console.log(this.data);
+    
     this.setTheme();
   }
 

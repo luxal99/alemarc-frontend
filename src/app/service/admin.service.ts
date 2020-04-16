@@ -65,9 +65,6 @@ export class AdminService implements CanActivate {
     return this.http.post("/admin/upload", photos, { responseType: 'text' })
   }
 
-  createNewTaskBoard(board) {
-    return this.http.post("/admin/createBoard", board, { responseType: 'json' });
-  }
 
   getBoard(){
     return this.http.get("/admin/board/getBoard",{responseType:'json'})
