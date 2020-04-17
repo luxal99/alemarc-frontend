@@ -1,0 +1,48 @@
+<div class="container" style="padding: 5em;" [style.backgroundColor]="theme=='dark' ? '#121212': '#fff'">
+    <div class="row">
+        <div class="col text-right">
+            <img style="width: 100px;" src="../../../../assets/img/8_avatar-512.png" alt="" class="img-fluid">
+        </div>
+        <div class="col">
+            <h4 [style.color]="theme=='dark' ? '#eee': '#121212'" *ngIf="data.id_admin!== null">
+                {{data.id_admin.full_name}}</h4>
+            <h4 [style.color]="theme=='dark' ? '#eee': '#121212'" *ngIf="data.id_client !== null">
+                {{data.id_client.fullname}}</h4>
+            <h6 [style.color]="theme=='dark' ? '#eee': '#121212'" *ngIf="data.id_client !== null">
+                {{data.id_client.mail}}</h6>
+
+        </div>
+    </div>
+    <div class="text-center" style="margin-top: 2em;">
+        <form [formGroup]="changePasswordForm">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input [style.color]="theme=='dark' ? '#eee': '#121212'" formControlName="username" matInput>
+                    <mat-icon matSuffix style="color: #ff9800;">person_pin</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Old password</mat-label>
+                    <input [style.color]="theme=='dark' ? '#eee': '#121212'" type="password"
+                        formControlName="old_password" matInput>
+                    <mat-icon matSuffix style="color: #ff9800;">person_pin</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>New password</mat-label>
+                    <input [style.color]="theme=='dark' ? '#eee': '#121212'" type="password"
+                        formControlName="new_password" matInput>
+                    <mat-icon matSuffix style="color: #ff9800;">person_pin</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button class="change-btn" (click)="changePassword()">Change password</button>
+                <button mat-raised-button class="logout-btn" color="basic" (click)="logout()">Logout</button>
+            </div>
+        </form>
+    </div>
+</div>

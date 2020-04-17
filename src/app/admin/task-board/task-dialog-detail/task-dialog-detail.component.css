@@ -1,0 +1,148 @@
+
+div, button {
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+button {
+    font-size: 18px;
+}
+
+
+h1, h5, p {
+    padding-top: 1em;
+    color: #fff;
+    opacity: 87%;
+}
+
+h2,h3 {
+    color: #fff;
+    opacity: 87%;
+}
+
+mat-divider {
+    border-top-color: #ff9000;
+}
+
+.header-row {
+    padding-top: 1em;
+    padding-left: .5em;
+}
+
+img {
+    border-radius: 8px;
+    -webkit-box-shadow: 3px 10px 22px -8px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 10px 22px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 10px 22px -8px rgba(0, 0, 0, 0.75);
+}
+
+.row {
+    margin: 0 !important;
+}
+
+a {
+    color: #fff;
+    opacity: 87%;
+}
+
+mat-icon {
+    color: #ff9000;
+}
+
+.update-btn {
+    font-size: 18px;
+    margin-top: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.attachment-container {
+    font-size: 0;
+    display: -ms-flexbox;
+    -ms-flexbox-wrap: wrap;
+    -ms-flexbox-direction: column;
+    flex-flow: row wrap;
+    display: -webkit-box;
+    display: flex;
+}
+
+.attachment-div {
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.dark-btn {
+    background-color: #040404;
+    color: #fff;
+    opacity: 87%;
+    border-radius: 3px;
+    border: 1px solid #040404;
+}
+
+.light-btn {
+    background-color: #eee;
+    color: #040404;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    opacity: 87%;
+}
+
+.dark-dialog-content {
+    background-color: #121212;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.light-dialog-content {
+    width: 100%;
+    color: #121212 !important;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    background-color: #eee;
+    margin-left: auto;
+}
+
+.light-dialog-content h2 ,
+.light-dialog-content h3,
+.light-dialog-content h5 {
+    color: #121212 !important;
+}
+
+.dark-dialog-content h2 h3 h5 {
+    color: #eee !important;
+}
+
+
+.dark-menu{
+    background-color: #040404;
+}
+.light-menu{
+    background-color: #eee;
+}

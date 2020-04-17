@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
+mat-label{
+    color: #fff;
+    opacity: 80%;
+}
+mat-form-field{
+    width: 90%;
+    color: #fff;
+    opacity: 100%;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #fff!important;
+    opacity: 80%;
+}   
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #fff!important;
+}
+
+.login-btn{
+    background-color: #4BB543;
+    width: 80%;
+    border-radius: 10px;
+    color: #fff;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+h1{
+    font-family: 'Fredoka One', cursive;
+    padding-top: 1em;
+    padding-bottom: .5em;
+    color: #fff;
+}
+
+.login-content{
+    background-color: #ff9800;
+    height: 100vh;
+}
+
+.row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.login-col{
+    border-radius: 20px;
+}
+
+a{
+    font-family: 'Baloo Bhai 2', cursive;
+    color: #4BB543;
+    font-size: 20px;
+}

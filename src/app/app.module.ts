@@ -27,6 +27,16 @@ import { BlogDialogComponent } from './admin/blog-dialog/blog-dialog.component';
 import { BlogPreviewDialogComponent } from './admin/blog-preview-dialog/blog-preview-dialog.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
+import { TaskBoardComponent } from './admin/task-board/task-board.component';
+import { TaskDialogDetailComponent } from './admin/task-board/task-dialog-detail/task-dialog-detail.component';
+import { CreateBoardDialogComponent } from './admin/task-board/create-board-dialog/create-board-dialog.component';
+import { AddNewTaskDialogComponent } from './admin/task-board/add-new-task-dialog/add-new-task-dialog.component';
+import { ChartsModule } from 'ng2-charts';
+import { ImgShowDialogComponent } from './admin/task-board/task-dialog-detail/img-show-dialog/img-show-dialog.component';
+import { ArchiveDialogComponent } from './admin/task-board/archive-dialog/archive-dialog.component';
+import { BoardLoginComponent } from "./admin/task-board/board-login/board-login.component";
+import { BoardRegistrationDialogComponent } from './admin/task-board/board-login/board-login-dialog/board-registration-dialog.component';
+import { UserProfileDialogComponent } from './admin/task-board/user-profile-dialog/user-profile-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +55,16 @@ import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
     ChangeLoginComponent,
     BlogDialogComponent,
     BlogPreviewDialogComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    TaskBoardComponent,
+    TaskDialogDetailComponent,
+    CreateBoardDialogComponent,
+    AddNewTaskDialogComponent,
+    ImgShowDialogComponent,
+    ArchiveDialogComponent,
+    BoardLoginComponent,
+    BoardRegistrationDialogComponent,
+    UserProfileDialogComponent
   ],
   imports: [
     CommonModule,
@@ -58,6 +77,7 @@ import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
     AboutRoutingModule,
     HttpClientModule,
     CKEditorModule,
+    ChartsModule,
     MaterialModule,
     BrowserAnimationsModule
   ],
@@ -65,7 +85,10 @@ import { BlogDetailComponent } from './home/blog-detail/blog-detail.component';
     {provide:LocationStrategy,useClass:HashLocationStrategy}
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [MessagePreviewDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent],
+  entryComponents: [BoardRegistrationDialogComponent,ImgShowDialogComponent,ArchiveDialogComponent,AddNewTaskDialogComponent,
+    TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent
+    ,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, 
+    OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent,UserProfileDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

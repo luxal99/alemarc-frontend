@@ -2,19 +2,52 @@
 
 @import '~font-awesome/css/font-awesome.css';
 @import url('assets/css/imagehover.css-master/css/imagehover.min.css');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai+2&display=swap');
 body {
     background-color: #f3f2f2;
 }
+
 .mat-progress-bar-fill::after {
     background-color: #ff9600 !important;
 }
+
 .mat-form-field-appearance-legacy .mat-form-field-label {
     color: #ff9600 !important;
 }
+
 .mat-dialog-container {
     padding: 0px !important;
 }
 
-.blogDialog{
-    background-color:rgba(26, 26, 26, 0.514);
+.blogDialog {
+    background-color: rgba(26, 26, 26, 0.514);
+}
+
+.mat-menu-content {
+    padding: 1em;
+}
+
+.mat-tab-group[mat-stretch-tabs]>.mat-tab-header .mat-tab-label {
+    color: orange;
+    opacity: 1;
+}
+
+.mat-tab-group[mat-stretch-tabs]>.mat-tab-header .mat-tab-label {
+    background-color: #121212;
+}
+
+.mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: 1px solid black;
+}
+
+.mat-dialog-container{
+    background: none;
+}
+
+.loginDialog{
+   background-color: #ff9600;
+}
+
+.mat-dialog-container{
+    border-radius: 10px;
 }

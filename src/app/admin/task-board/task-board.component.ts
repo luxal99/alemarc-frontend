@@ -1,0 +1,342 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { TaskDialogDetailComponent } from './task-dialog-detail/task-dialog-detail.component';
+import { MatDialog, MatDrawer } from '@angular/material';
+import { AdminService } from 'src/app/service/admin.service';
+import { CreateBoardDialogComponent } from './create-board-dialog/create-board-dialog.component';
+import { AddNewTaskDialogComponent } from './add-new-task-dialog/add-new-task-dialog.component';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
+import { ArchiveDialogComponent } from './archive-dialog/archive-dialog.component';
+import { TaskService } from 'src/app/service/task.service';
+import { UserProfileDialogComponent } from './user-profile-dialog/user-profile-dialog.component';
+import { TaskLoginService } from 'src/app/service/task-login.service';
+@Component({
+  selector: 'app-task-board',
+  templateUrl: './task-board.component.html',
+  styleUrls: ['./task-board.component.css']
+})
+export class TaskBoardComponent implements OnInit {
+
+  publiKey;
+  adminKey = 'fa2a1ba6601d4dcf721a496936b7f4022c6be89764c665e5b4b75ce7c20392be'
+
+  constructor(public dialog: MatDialog, public adminService: AdminService,
+    public taskLoginService: TaskLoginService, public taskService: TaskService) { }
+
+
+  ngOnInit() {
+    this.publiKey = localStorage.getItem('key');
+    this.getLoggedUser()
+    this.getBoards();
+    this.saveTheme();
+    this.getTaskForUser();
+    this.getUserProfile();
+
+  }
+  // Sidenav menu
+  @ViewChild('drawer', { static: false }) drawer: MatDrawer;
+
+
+  loggedUser;
+
+  // Barchart & PieChart
+  barChartLegend = true;
+  barChartPlugins = [];
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+
+  // Only bar chart
+  barChartLabels: Label[] = [];
+  barChartType: ChartType = 'bar';
+  
+  barChartLabelsForUserId: Label[] = [];
+  barChartTypeForUserId: ChartType = 'bar';
+
+  // Only pie chart
+  barChartLabelsPie: Label[] = [];
+  barChartTypePie: ChartType = 'pie';
+
+  // BarChart Data
+  barChartData: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
+  barChartDataForUserId: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
+
+  // PieChart data
+  barChartDataPerBoard: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
+
+  theme = ''
+
+  // PieChart data list
+  listOfTaskPerBoard: any = [];
+  // List of all board
+  listOfBoard: any = [];
+  // List of tasks for board
+  listOfTasks: any = [];
+  // BarChart data
+  taskGraphList: any = [];
+
+  taskAnalyseByUserId: any = [];
+
+  listOfTaskByUser: any = [];
+
+  // Id of current board
+  id_board;
+
+  themeForm = new FormGroup({
+    theme: new FormControl()
+  })
+
+  openMenu() {
+    this.drawer.toggle();
+    this.getTaskPerBoard();
+    this.getTaskAnalyse();
+    this.getTaskAnalyseForUserId();
+  }
+
+  // Default theme is light
+  saveTheme() {
+    if (localStorage.getItem('theme') === null) {
+      localStorage.setItem('theme', 'light');
+      this.theme = localStorage.getItem('theme');
+    } else {
+      this.theme = localStorage.getItem('theme');
+    }
+
+    if (localStorage.getItem('theme') === 'dark') {
+      this.themeForm.get('theme').setValue(true)
+    }
+  }
+
+
+  getLoggedUser() {
+    this.loggedUser = this.taskLoginService.getUser();
+  }
+  getTaskForUser() {
+    this.taskService.getListOfBoardByUserId(localStorage.getItem("idUser")).subscribe(data => {
+      this.listOfTaskByUser = data;
+    })
+  }
+
+  getUserProfile() {
+  }
+
+
+  // Dialog for create task
+  openNewTaskDialog(task): void {
+    const dialogRef = this.dialog.open(AddNewTaskDialogComponent, {
+      minWidth: '100vh',
+      data: task
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getTasks();
+    });
+  }
+
+  openUserProfile(): void {
+    const dialogRef = this.dialog.open(UserProfileDialogComponent, {
+      width: 'auto',
+      data: this.loggedUser
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getTasks();
+    });
+  }
+
+  /**
+   * Send id_task_board 
+   * On dialog init service find all tasks for that board
+   * where visible = 0
+   * @param tab 
+   */
+  openArchiveDialog(tab): void {
+    const dialogRef = this.dialog.open(ArchiveDialogComponent, {
+      minWidth: '100vh',
+      position: { left: '0' },
+      minHeight: '100vh',
+      data: tab
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getTasks();
+    });
+  }
+
+  /**
+   * Send one task
+   * And bind data of task into dialog content
+   * @param task 
+   */
+  openTaskDetail(task): void {
+    const dialogRef = this.dialog.open(TaskDialogDetailComponent, {
+      minWidth: '90vh',
+      minHeight: '20vh',
+      maxHeight: '90vh',
+      data: task
+    });
+
+    // Refresh taskboard 
+    dialogRef.afterClosed().subscribe(result => {
+      this.getTasks();
+    });
+  }
+
+  // Dialog for create board
+  openCreateBoardDialog(): void {
+    const dialogRef = this.dialog.open(CreateBoardDialogComponent, {
+      width: 'auto',
+      data: this.loggedUser.id_client
+    });
+
+    // Refresh board
+    dialogRef.afterClosed().subscribe(result => {
+      this.getBoards();
+    });
+  }
+
+
+  // Service for get all boards
+  getBoards() {
+    var key = 'fa2a1ba6601d4dcf721a496936b7f4022c6be89764c665e5b4b75ce7c20392be';
+
+    if (this.publiKey.match(this.adminKey) !== null) {
+      this.adminService.getBoard().subscribe(data => {
+        this.listOfBoard = data;
+      })
+    } else {
+      this.taskService.getBoardByIdClient(this.loggedUser.id_client.id_client).subscribe(data => {
+        console.log(data);
+
+        this.listOfBoard = data;
+      })
+    }
+  }
+
+  /**
+   * This service use for get all tasks of current board
+   * We forward @param id_board and get list of tasks
+   * 
+   * This use to refresh fine on update od add
+   * 
+   */
+  getTasks() {
+    this.adminService.getTaskList(this.id_board).subscribe(data => {
+      this.listOfTasks = data;
+
+      this.listOfBoard.forEach(element => {
+        if (element.id_task_board === this.id_board) {
+          element.cardList = data
+        }
+      });
+
+    })
+  }
+
+  /**
+   * Service which count all tasks per category
+   * for all boards
+   *  1.To DO
+   *  2.In progress
+   *  3. Done
+   *  
+   * 
+   */
+  getTaskAnalyse() {
+
+    this.barChartData[0].data = [];
+    this.taskGraphList = [];
+    this.barChartLabels = [];
+
+    var empty = 0;
+    this.adminService.getTaskAnalyse().subscribe(data => {
+      this.taskGraphList = data;
+      this.taskGraphList.forEach(element => {
+        this.barChartLabels.push(element.title);
+        this.barChartData[0].data.push(element.num_of_tasks)
+
+      });
+
+      this.barChartData[0].data.push(empty)
+
+    })
+  }
+
+  getTaskAnalyseForUserId() {
+
+    this.barChartDataForUserId[0].data = [];
+    this.taskAnalyseByUserId = [];
+    this.barChartLabelsForUserId = [];
+
+    var empty = 0;
+    this.taskService.getTaskAnalyzeByClienId(this.loggedUser.id_client.id_client).subscribe(data => {
+      console.log(data);
+      
+      this.taskAnalyseByUserId = data;
+      this.taskAnalyseByUserId.forEach(element => {
+        
+        this.barChartLabelsForUserId.push(element.title);
+        this.barChartDataForUserId[0].data.push(element.num_of_tasks)
+
+      });
+
+      this.barChartDataForUserId[0].data.push(empty);
+
+    })
+  }
+
+
+
+  /**
+   * Service which count how many
+   * tasks we have per board
+   */
+  getTaskPerBoard() {
+
+    this.barChartDataPerBoard[0].data = [];
+    this.listOfTaskPerBoard = [];
+    this.barChartLabelsPie = [];
+
+    var empty = 0;
+    this.adminService.getTaskPerBoard().subscribe(data => {
+      this.listOfTaskPerBoard = data;
+
+      this.listOfTaskPerBoard.forEach(element => {
+
+
+        this.barChartLabelsPie.push(element.title);
+        this.barChartDataPerBoard[0].data.push(element.num_of_tasks)
+
+      });
+
+      this.barChartDataPerBoard[0].data.push(empty)
+
+    })
+  }
+
+  // Funcion to get information of current board
+  getBoard($event) {
+    this.id_board = this.listOfBoard[$event.index].id_task_board
+  }
+
+  setTheme() {
+
+    if (this.themeForm.get('theme').value) {
+      this.theme = 'dark'
+      localStorage.setItem('theme', 'dark')
+    } else {
+      this.theme = 'light'
+      localStorage.setItem('theme', 'light')
+    }
+  }
+
+  tryCan() {
+    var someList = [];
+
+    this.taskService.getBoard().subscribe(data => {
+
+    })
+  }
+
+}

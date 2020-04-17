@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { useAnimation } from '@angular/animations';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
+export class ClientService{
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient,public router:Router) { }
 
   saveClient(client) {
     return this.http.post("/client/saveClient", client, { responseType: 'json' });
@@ -29,4 +31,6 @@ export class ClientService {
   sendOrder(order) {
     return this.http.post("/client/createOrder", order, { responseType: 'text' });
   }
+
+
 }

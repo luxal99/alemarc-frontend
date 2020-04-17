@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai+2&display=swap');
+h5 {
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+.content {
+    background-color: #121212;
+    min-height: 95vh;
+}
+
+.card {
+    margin-top: 2em;
+    color: #eee;
+    background-color: #131313;
+    -webkit-box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 31px 8px -26px rgba(0, 0, 0, 0.75);
+}
+
+.card-content {
+    -webkit-box-shadow: 3px 10px 24px -4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 3px 10px 24px -4px rgba(0, 0, 0, 0.75);
+    box-shadow: 3px 10px 24px -4px rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    background-color: #222;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1em;
+    color: #fff;
+    opacity: 70%;
+}
+
+.new-card {
+    border-top: 3px solid red;
+}
+
+.done-card {
+    border-top: 3px solid #4BB543;
+}
+
+.in-progress-card {
+    border-top: 3px solid #FFC830;
+}
+
+.card-row {
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.new-card-title-row {
+    padding-top: 1em;
+    padding-left: 1em;
+    font-family: 'Baloo Bhai 2', cursive;
+    background-color: #080808;
+}
+
+.card-header-title {
+    font-family: 'Baloo Bhai 2', cursive;
+    background-color: #080808;
+    padding-top: .4em;
+    padding-bottom: .2em;
+    padding-left: 1em;
+}
+
+.modal, .modal-content {
+    transition: none !important;
+}
+
+html[data-theme='dark'] {
+    --bg: #333333;
+    --bg-panel: #434343;
+    --color-headings: #ffa200;
+    --color-text: #B5B5B5;
+}
+
+html{
+    --bg: #FCFCFC;
+    --bg-panel: #EBEBEB;
+    --color-headings: #0077FF;
+    --color-text: #333333;
+}

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+h2 {
+    font-family: 'Fredoka One', cursive;
+    color: #fff;
+}
+
+.reg-container {
+    background-color: #121212;
+    padding: 5em;
+}
+
+input{
+    color: #fff;
+}
+mat-label {
+    color: #fff;
+    opacity: 80%;
+}
+
+mat-form-field {
+    width: 90%;
+    color: #222;
+    opacity: 80%;
+}
+
+.col {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
+.form-content {
+    padding-top: 1em;
+}
+
+.form-div {
+    background-color: #121212;
+    border-radius: 8px;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+
+.registration-btn {
+    width: 70%;
+    font-size: 18px;
+    background-color: #4BB543;
+    padding-top: .3em;
+    color: #fff;
+    padding-bottom: .2em;
+}
+
+.registration-btn:disabled{
+    background-color: #ff9800;
+}
+
+mat-icon{
+    color: #fff;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ff9800!important;
+    opacity: 80%;
+}
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #ff9800!important;
+}
