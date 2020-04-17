@@ -74,3 +74,42 @@ mat-label {
     /*change color of underline*/
     background-color: #ff9000 !important;
 }
+
+.attachment-container {
+    font-size: 0;
+    display: -ms-flexbox;
+    -ms-flexbox-wrap: wrap;
+    -ms-flexbox-direction: column;
+    flex-flow: row wrap;
+    display: -webkit-box;
+    display: flex;
+}
+
+.attachment-div {
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}

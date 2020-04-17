@@ -6,6 +6,8 @@ import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormGroup, FormControl } from '@angular/forms';
 import { element } from 'protractor';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-task-dialog-detail',
@@ -16,6 +18,8 @@ export class TaskDialogDetailComponent implements OnInit {
 
   theme;
 
+
+
   // Use for show/hide edit inputs
   headerInput = true;
   descriptionInput = true;
@@ -23,7 +27,7 @@ export class TaskDialogDetailComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
     public adminService: AdminService, public dialog: MatDialog,
-    private dialogRef: MatDialogRef<TaskDialogDetailComponent>) { }
+    private dialogRef: MatDialogRef<TaskDialogDetailComponent>, private afStorage: AngularFireStorage) { }
 
 
   // Set #editor tag.CKEditor
@@ -45,6 +49,7 @@ export class TaskDialogDetailComponent implements OnInit {
   image_url;
 
 
+
   editTaskForm = new FormGroup({
     header: new FormControl(this.data.header),
     due_date: new FormControl()
@@ -55,19 +60,35 @@ export class TaskDialogDetailComponent implements OnInit {
   }
 
   // When we close file input dialog item added to list
-  onFilesAdded() {
-    const files: { [key: string]: File } = this.file.nativeElement.files;
-    for (let key in files) {
-      if (!isNaN(parseInt(key))) {
-        this.files.add(files[key]);
-        var attachment = { url: 'assets/img/task/' + files[key].name }
-        this.images.push(attachment)
+  fileName;
+  listOfFileNames: any = []
 
 
-      }
+  upload(event: any) {
+    for (const file of event.target.files) {
+      this.afStorage.upload(file.name, file);
+
+      this.fileName = file.name
+      this.listOfFileNames.push(this.fileName)
     }
   }
 
+
+
+  uploadToFirebase() {
+    setTimeout(() => {
+      for (const fileName of this.listOfFileNames) {
+        const downloadUrl = this.afStorage.ref(fileName).getDownloadURL().subscribe(data => {
+          console.log('Secon func', data);
+          var attachment = { url: data }
+          this.images.push(attachment);
+
+        });
+
+      }
+    }, 500)
+
+  }
   /**
    * @param headerInput 
    */
@@ -215,24 +236,39 @@ export class TaskDialogDetailComponent implements OnInit {
     })
   }
 
+   uploadAttachment() {
 
-  async uploadAttachment() {
+     console.log('Usao');
 
-    var attachment = { id_task_card: this.data.id_task_card, cardAttachmentList: this.images }
+     setTimeout( () => {
+      for (const fileName of this.listOfFileNames) {
+         this.afStorage.ref(fileName).getDownloadURL().subscribe(async data => {
+           console.log('Secon func', data);
+          var attachment = { url: data }
+           this.images.push(attachment);
 
-    if (this.files.size > 0) {
-      this.data.cardAttachmentList = this.images;
-      this.files.forEach(element => {
-        const formData: FormData = new FormData();
-        formData.append('image_url', element)
-        this.adminService.uploadAttachment(formData).subscribe(data => {
+        });
 
-        })
-      });
+      }
 
-      await this.adminService.updateAttachment(attachment).subscribe(data => {
+      setTimeout(()=>{
+
+      const attachment = { id_task_card: this.data.id_task_card, cardAttachmentList: this.images };
+
+      console.log(this.images);
+      
+       this.adminService.updateAttachment(attachment).subscribe( data => {
       })
+      },550)
 
-    }
+    }, 500) ;
+
+
+
+     console.log('Izasao');
+
+
+
   }
 }
+

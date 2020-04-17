@@ -43,6 +43,6 @@ export class TaskLoginService implements CanActivate {
     return this.http.post("/admin/board/getUserByKey", key, { responseType: 'json' })
   }
   getUser() {
-    return JSON.parse(sessionStorage.getItem('user'))
+    return JSON.parse(localStorage.getItem('user'))
   }
 }

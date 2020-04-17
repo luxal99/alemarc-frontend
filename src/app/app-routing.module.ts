@@ -30,7 +30,7 @@ const routes: Routes = [
 
   },
   { path: 'admin', component: AdminComponent, canActivate: [AdminService] },
-  { path: 'board', component: TaskBoardComponent,data:{preload:true},canActivate:[TaskLoginService],canLoad:[TaskService]},
+  { path: 'board', component: TaskBoardComponent,data:{preload:true},canActivate:[TaskLoginService]},
   {path:'board/login',component:BoardLoginComponent}
 ];
 

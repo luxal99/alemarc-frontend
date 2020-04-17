@@ -41,7 +41,7 @@ export class BoardLoginComponent implements OnInit {
       if (data !== empty) {
         try {
 
-          sessionStorage.setItem('user',JSON.stringify(data[0]));
+          localStorage.setItem('user',JSON.stringify(data[0]));
 
           if (data[0].id_user_role.role_name === 'ADMIN') {
 

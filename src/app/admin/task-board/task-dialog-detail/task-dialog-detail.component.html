@@ -41,7 +41,7 @@
                         <button mat-icon-button>
                             <mat-icon>attach_file</mat-icon>
                         </button>
-                        <input style="width: 25vh;" type="file" onsubmit="return false" #file (change)="onFilesAdded()"
+                        <input style="width: 25vh;" type="file" #file (change)="upload($event)"
                             multiple />
                     </div>
                     <button mat-icon-button style="color: orange;" (click)="uploadAttachment()">

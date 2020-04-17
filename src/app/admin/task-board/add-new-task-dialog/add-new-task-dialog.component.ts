@@ -4,6 +4,8 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { AngularFireStorage } from 'angularfire2/storage';
+import * as firebase from 'firebase'
 
 @Component({
   selector: 'app-add-new-task-dialog',
@@ -14,8 +16,10 @@ export class AddNewTaskDialogComponent implements OnInit {
 
   // Value of theme 
   theme;
+  uploaded = ''
+  url;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService, private afStorage: AngularFireStorage) {
   }
 
   @ViewChild('file', { static: false }) file
@@ -56,9 +60,42 @@ export class AddNewTaskDialogComponent implements OnInit {
       if (!isNaN(parseInt(key))) {
         this.files.add(files[key]);
         var attachment = { url: 'assets/img/task/' + files[key].name }
-        this.images.push(attachment)
+
       }
     }
+
+  }
+
+  fileName;
+  listOfFileNames: any = []
+
+
+  upload(event:any) {
+    for (const file of event.target.files) {
+      this.afStorage.upload(file.name, file);
+
+       this.fileName =file.name
+       this.listOfFileNames.push(this.fileName)
+    }
+  }
+
+
+
+  uploadToFirebase() {
+    setTimeout(() => {
+      for (const fileName of this.listOfFileNames) {
+        const downloadUrl = this.afStorage.ref(fileName).getDownloadURL().subscribe(data => {
+          console.log('Secon func',data);
+          var attachment = { url: data }
+          this.images.push(attachment);
+          u
+
+        });
+
+      }
+
+      this.uploaded = '100%'
+    }, 500)
 
   }
 
@@ -80,19 +117,10 @@ export class AddNewTaskDialogComponent implements OnInit {
     // Date format convert to String
     var shorter = String(due_date).substring(4, 10);
 
-    // Upload files if @files>0
-    if (this.files.size > 0) {
-      this.files.forEach(element => {
-        const formData: FormData = new FormData();
-        formData.append('image_url', element)
-        location.reload();
-        this.adminService.uploadAttachment(formData).subscribe(data => {
-         
 
-        })
-      });
 
-    }
+    console.log(this.images);
+
 
     var task = {
       header: header,

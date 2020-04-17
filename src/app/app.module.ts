@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,6 +37,13 @@ import { ArchiveDialogComponent } from './admin/task-board/archive-dialog/archiv
 import { BoardLoginComponent } from "./admin/task-board/board-login/board-login.component";
 import { BoardRegistrationDialogComponent } from './admin/task-board/board-login/board-login-dialog/board-registration-dialog.component';
 import { UserProfileDialogComponent } from './admin/task-board/user-profile-dialog/user-profile-dialog.component';
+import { AngularFireModule } from 'angularfire2';
+import {
+  AngularFireStorageModule,
+  AngularFireStorageReference,
+  AngularFireUploadTask,
+  StorageBucket
+} from "@angular/fire/storage";
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,17 +85,28 @@ import { UserProfileDialogComponent } from './admin/task-board/user-profile-dial
     HttpClientModule,
     CKEditorModule,
     ChartsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAz8PX_PdPZo7WmWuxLYVMDiJUOozl0Fn4",
+      authDomain: "soy-smile-249718.firebaseapp.com",
+      databaseURL: "https://soy-smile-249718.firebaseio.com",
+      projectId: "soy-smile-249718",
+      storageBucket: "soy-smile-249718.appspot.com",
+      messagingSenderId: "870517553704",
+      appId: "1:870517553704:web:d238ce266071d519f8131d",
+      measurementId: "G-JGV7HTSL0B"
+    }),
     MaterialModule,
     BrowserAnimationsModule
   ],
   providers: [HttpClientModule,
-    {provide:LocationStrategy,useClass:HashLocationStrategy}
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [BoardRegistrationDialogComponent,ImgShowDialogComponent,ArchiveDialogComponent,AddNewTaskDialogComponent,
-    TaskDialogDetailComponent,MessagePreviewDialogComponent,TaskDialogDetailComponent
-    ,CreateBoardDialogComponent,BlogDialogComponent,BlogPreviewDialogComponent, 
-    OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent,UserProfileDialogComponent],
+  entryComponents: [BoardRegistrationDialogComponent, ImgShowDialogComponent, ArchiveDialogComponent, AddNewTaskDialogComponent,
+    TaskDialogDetailComponent, MessagePreviewDialogComponent, TaskDialogDetailComponent
+    , CreateBoardDialogComponent, BlogDialogComponent, BlogPreviewDialogComponent,
+    OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent, UserProfileDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

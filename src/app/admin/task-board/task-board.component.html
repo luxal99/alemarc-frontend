@@ -53,7 +53,7 @@
                             <button mat-button color="primary" (click)="openArchiveDialog(tab.id_task_board)">
                                 <mat-icon style="color: #ffa200;">visibility_off</mat-icon> Archive
                             </button>
-                            <button mat-button color="primary" (click)="openUserProfile(tab.id_task_board)">
+                            <button mat-button color="primary" (click)="openUserProfile()">
                                 <mat-icon style="color: #ffa200;">account_circle</mat-icon> Profile
                             </button>
                         </div>
@@ -61,7 +61,7 @@
                             <form [formGroup]="themeForm">
                                 <div class="text-right" style="padding: 2em;color: orange;">
                                     <mat-slide-toggle formControlName="theme" style="text-transform: uppercase;"
-                                        color="primary" (change)="setTheme($event)">{{theme}}</mat-slide-toggle>
+                                        color="primary" (change)="setTheme()">{{theme}}</mat-slide-toggle>
                                 </div>
                             </form>
                         </div>
