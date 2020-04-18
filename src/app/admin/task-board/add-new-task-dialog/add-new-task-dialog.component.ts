@@ -3,7 +3,7 @@ import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
-import { MAT_DIALOG_DATA } from '@angular/material';
+import { MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
 import { AngularFireStorage } from 'angularfire2/storage';
 import * as firebase from 'firebase'
 
@@ -18,8 +18,11 @@ export class AddNewTaskDialogComponent implements OnInit {
   theme;
   uploaded = ''
   url;
+  isUploaded = false;
+  updloadedStatus = 'Uploaded';
+  notUploaded = 'Not uploaded'
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public adminService: AdminService, private afStorage: AngularFireStorage) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, public _snackBar: MatSnackBar, public adminService: AdminService, private afStorage: AngularFireStorage) {
   }
 
   @ViewChild('file', { static: false }) file
@@ -54,48 +57,49 @@ export class AddNewTaskDialogComponent implements OnInit {
    * Add files in @images list on
    * open/close file chooser
    */
-  onFilesAdded() {
-    const files: { [key: string]: File } = this.file.nativeElement.files;
-    for (let key in files) {
-      if (!isNaN(parseInt(key))) {
-        this.files.add(files[key]);
-        var attachment = { url: 'assets/img/task/' + files[key].name }
 
-      }
-    }
-
-  }
 
   fileName;
   listOfFileNames: any = []
 
 
-  upload(event:any) {
+  upload(event: any) {
     for (const file of event.target.files) {
-      this.afStorage.upload(file.name, file);
+      const size = Math.round(file.size / 1000)
 
-       this.fileName =file.name
-       this.listOfFileNames.push(this.fileName)
+      if (size > 1700) {
+        this.openSnackBar(`Preveliki fajl: ${file.name}`, "DONE")
+      } else {
+
+        this.afStorage.upload(file.name, file);
+
+        this.fileName = file.name
+        this.listOfFileNames.push(this.fileName)
+      }
+
     }
   }
 
 
 
   uploadToFirebase() {
+    console.log(this.listOfFileNames.length);
+
     setTimeout(() => {
       for (const fileName of this.listOfFileNames) {
         const downloadUrl = this.afStorage.ref(fileName).getDownloadURL().subscribe(data => {
-          console.log('Secon func',data);
+          console.log('Secon func', data);
           var attachment = { url: data }
           this.images.push(attachment);
-          u
 
         });
 
       }
 
-      this.uploaded = '100%'
-    }, 500)
+      this.isUploaded = true;
+    }, 700)
+
+
 
   }
 
@@ -142,5 +146,12 @@ export class AddNewTaskDialogComponent implements OnInit {
     this.images.splice(index, 1);
 
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
 
 }

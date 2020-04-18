@@ -3,7 +3,7 @@
     <form [formGroup]="taskForm">
       <h2>Add new task</h2>
       <div style="padding-top: 1em;">
-        <mat-form-field appearance="outline">
+        <mat-form-field >
           <mat-label>Header</mat-label>
           <input [style.color]="theme=='dark' ? '#eee': '#121212'" formControlName="header" matInput>
           <mat-icon matSuffix>subject</mat-icon>
@@ -11,7 +11,7 @@
       </div>
 
       <div>
-        <mat-form-field appearance="outline">
+        <mat-form-field >
           <mat-label>Short text</mat-label>
           <input [style.color]="theme=='dark' ? '#eee': '#121212'" formControlName="text" matInput>
           <mat-icon matSuffix>subject</mat-icon>
@@ -28,8 +28,8 @@
         </mat-form-field>
       </div>
 
-      <div class="row">
-        <div class="col-2 text-right">
+      <div class="row" style="padding-top: 1em;">
+        <div class="col-3 text-left">
           <div class="upload-btn-wrapper">
 
             <button mat-raised-button>
@@ -39,7 +39,7 @@
         </div>
         </div>
 
-        <div class="col-2 text-left">
+        <div class="col-3 text-left">
           <div>
             <button mat-raised-button (click)="uploadToFirebase()">
               <mat-icon>cloud_upload</mat-icon> Upload
@@ -47,8 +47,14 @@
           </div>
         </div>
       </div>
+
+      <li *ngFor="let item of listOfFileNames">
+        {{item}}
+      </li>
+
+      <h5 class="text-left" style="color: green !important;" *ngIf="isUploaded">{{updloadedStatus}}</h5>
+      <h5 class="text-left" style="color: red;" *ngIf="!isUploaded">{{notUploaded}}</h5>
      
-      <h5>{{uploaded}}</h5>
       <div class="list" style="color: orange;margin-top: 1.5em;list-style-type: none;">
         <li *ngFor="let image of files">
           <h6>{{image.name}} <a (click)="removeImageFromList(image)">

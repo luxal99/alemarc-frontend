@@ -1,102 +1,102 @@
 <div [className]="theme+'-dialog-content'" style="padding-bottom: 2em;">
-  <div class="container">
+    <div class="container">
         <div class="text-right">
-        <button mat-icon-button mat-dialog-close>
-            <mat-icon>close</mat-icon>
-        </button>
-    </div>
-    <div class="row header-row">
-        <div class="col-10">
-            <h2><i class="fa fa-bookmark"></i> {{data.header}} <a (click)="showHeaderInput()">
-                    <mat-icon>edit</mat-icon>
-                </a></h2>
-            <div [hidden]="headerInput">
-                <form [formGroup]="editTaskForm">
-                    <mat-form-field appearance="outline">
-                        <input formControlName="header" matInput placeholder="Header">
-                        <mat-icon matSuffix>subject</mat-icon>
-                    </mat-form-field>
-
-                    <button mat-button (click)="hideHeaderInput()">
-                        <mat-icon>close</mat-icon>
-                    </button>
-                </form>
-            </div>
-            <div class="row" style="padding-top: 2em;">
-                <h3><i class="fa fa-align-left"></i> Description <a (click)="showDescriptionInput()">
-                        <mat-icon>edit</mat-icon>
-                    </a></h3>
-            </div>
-            <mat-divider></mat-divider>
-            <h5 [innerHTML]="data.description"></h5>
-            <div style="padding-top: 1em;" [hidden]="descriptionInput">
-                <ckeditor #editor [editor]="Editor" data="{{data.description}}"></ckeditor>
-            </div>
-
-            <div>
-                <div class="row text-right">
-                    <h3>Attachments</h3>
-                    <div class="upload-btn-wrapper">
-
-                        <button mat-icon-button>
-                            <mat-icon>attach_file</mat-icon>
-                        </button>
-                        <input style="width: 25vh;" type="file" #file (change)="upload($event)"
-                            multiple />
-                    </div>
-                    <button mat-icon-button style="color: orange;" (click)="uploadAttachment()">
-                        <mat-icon>cloud_upload</mat-icon>
-                    </button>
-                </div>
-            </div>
-            <mat-divider></mat-divider>
-            <div class="attachment-container">
-
-                <div class="attachment-div" *ngFor="let item of data.cardAttachmentList">
-                    <div class="row" style="padding-top: 1em;">
-                        <button color="warn" mat-button (click)="removeAttachment(item)">Delete</button>
-                        <a href="{{item.url}}" download><button color="warn" mat-icon-button>
-                                <mat-icon>cloud_download</mat-icon>
-                            </button></a>
-                    </div>
-                    <img (click)="openImg(item.url)" style="width: 200px;height: 200px;" src="{{item.url}}" alt=""
-                        class="img-fluid">
-
-                </div>
-            </div>
-
-            <button mat-raised-button class="update-btn" [hidden]="headerInput && descriptionInput && dueDate"
-                color="primary" (click)="updateTask()">Update</button>
-
-        </div>
-        <div class="col-2 text-right">
-            <button [className]="theme +'-btn'" mat-raised-button [matMenuTriggerFor]="menu">
-                <mat-icon>menu</mat-icon> Menu
+            <button mat-icon-button mat-dialog-close>
+                <mat-icon>close</mat-icon>
             </button>
-            <mat-menu style="background-color: orange;" #menu="matMenu">
-                <button  mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
-                <button  mat-menu-item style="color: orange;"
-                    (click)="moveToInProgress()">In-progress</button>
-                <button mat-menu-item style="color: greenyellow;"
-                    (click)="moveToToDone()">Done</button>
-            </mat-menu>
-            <div>
-                <button [className]="theme +'-btn'"  style="margin-top: 1em;;" (click)="showDueDate()">
-                    <mat-icon>date_range</mat-icon> Due Date
+        </div>
+        <div class="row header-row">
+            <div class="col-10">
+                <h2><i class="fa fa-bookmark"></i> {{data.header}} <a (click)="showHeaderInput()">
+                        <mat-icon>edit</mat-icon>
+                    </a></h2>
+                <div [hidden]="headerInput">
+                    <form [formGroup]="editTaskForm">
+                        <mat-form-field appearance="outline">
+                            <input formControlName="header" matInput placeholder="Header">
+                            <mat-icon matSuffix>subject</mat-icon>
+                        </mat-form-field>
+
+                        <button mat-button (click)="hideHeaderInput()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </form>
+                </div>
+                <div class="row" style="padding-top: 2em;">
+                    <h3><i class="fa fa-align-left"></i> Description <a (click)="showDescriptionInput()">
+                            <mat-icon>edit</mat-icon>
+                        </a></h3>
+                </div>
+                <mat-divider></mat-divider>
+                <h5 [innerHTML]="data.description"></h5>
+                <div style="padding-top: 1em;" [hidden]="descriptionInput">
+                    <ckeditor #editor [editor]="Editor" data="{{data.description}}"></ckeditor>
+                </div>
+
+                <div>
+                    <div class="row text-right">
+                        <h3>Attachments</h3>
+                        <div class="upload-btn-wrapper">
+
+                            <button mat-icon-button>
+                                <mat-icon>attach_file</mat-icon>
+                            </button>
+                            <input style="width: 25vh;" type="file" #file (change)="upload($event)" multiple />
+                        </div>
+                        <button mat-icon-button style="color: orange;" (click)="uploadAttachment()">
+                            <mat-icon>cloud_upload</mat-icon>
+                        </button>
+                        <h5 class="text-right" style="color: green !important;" *ngIf="isUploaded">{{updloadedStatus}}</h5>
+                        <h5 class="text-right" style="color: green;" *ngIf="!isUploaded">{{notUploaded}}</h5>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="attachment-container">
+
+                    <div class="attachment-div" *ngFor="let item of data.cardAttachmentList">
+                        <div class="row" style="padding-top: 1em;">
+                            <button color="warn" mat-button (click)="removeAttachment(item)">Delete</button>
+                            <a href="{{item.url}}" download><button color="warn" mat-icon-button>
+                                    <mat-icon>cloud_download</mat-icon>
+                                </button></a>
+                        </div>
+                        <img (click)="openImg(item.url)" style="width: 200px;height: 200px;" src="{{item.url}}" alt=""
+                            class="img-fluid">
+
+                    </div>
+                </div>
+
+                <button mat-raised-button class="update-btn" [hidden]="headerInput && descriptionInput && dueDate"
+                    color="primary" (click)="updateTask()">Update</button>
+
+            </div>
+            <div class="col-2 text-right">
+                <button [className]="theme +'-btn'" mat-raised-button [matMenuTriggerFor]="menu">
+                   <i class="fa fa-bars" style="color: #ffa900;"></i> Menu
+                </button>
+                <mat-menu style="background-color: orange;" #menu="matMenu">
+                    <button mat-menu-item style="color: red;" (click)="moveToToDo()">To do</button>
+                    <button mat-menu-item style="color: orange;" (click)="moveToInProgress()">In-progress</button>
+                    <button mat-menu-item style="color: greenyellow;" (click)="moveToToDone()">Done</button>
+                </mat-menu>
+                <div>
+                    <button [className]="theme +'-btn'" style="margin-top: 1em;;" (click)="showDueDate()">
+                        <i class="fa fa-calendar-day" style="color: #ffa900;"></i> Due Date
+                    </button>
+                </div>
+                <div class="text-center">
+                    <form [formGroup]="editTaskForm">
+                        <mat-form-field class="example-full-width" [hidden]="dueDate">
+                            <input matInput formControlName="due_date" [matDatepicker]="picker"
+                                placeholder="Choose a date">
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </form>
+                </div>
+                <button [className]="theme +'-btn'" style="margin-top: 1em;" (click)="archiveTask()" mat-dialog-close>
+                    <i class="fa fa-eye-slash" style="color: #ffa900;"></i> Archive
                 </button>
             </div>
-            <div class="text-center">
-                <form [formGroup]="editTaskForm">
-                    <mat-form-field class="example-full-width" [hidden]="dueDate">
-                        <input matInput formControlName="due_date" [matDatepicker]="picker" placeholder="Choose a date">
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
-                </form>
-            </div>
-            <button [className]="theme +'-btn'" style="margin-top: 1em;"  (click)="archiveTask()" mat-dialog-close>
-                <mat-icon>visibility_off</mat-icon> Archive
-            </button>
         </div>
     </div>
-  </div>
 </div>

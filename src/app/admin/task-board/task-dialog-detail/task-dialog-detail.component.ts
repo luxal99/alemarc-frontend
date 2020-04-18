@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Inject, Directive } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDatepicker, MatDatepickerInput, MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialog, MatDatepicker, MatDatepickerInput, MatDialogRef, MatSnackBar } from '@angular/material';
 import { AdminService } from 'src/app/service/admin.service';
 import { ImgShowDialogComponent } from './img-show-dialog/img-show-dialog.component';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
@@ -17,8 +17,9 @@ import { async } from '@angular/core/testing';
 export class TaskDialogDetailComponent implements OnInit {
 
   theme;
-
-
+  isUploaded = false;
+  updloadedStatus = 'Uploaded';
+  notUploaded = 'Not uploaded'
 
   // Use for show/hide edit inputs
   headerInput = true;
@@ -26,7 +27,7 @@ export class TaskDialogDetailComponent implements OnInit {
   dueDate = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any,
-    public adminService: AdminService, public dialog: MatDialog,
+    public adminService: AdminService, public dialog: MatDialog,public _snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<TaskDialogDetailComponent>, private afStorage: AngularFireStorage) { }
 
 
@@ -65,30 +66,24 @@ export class TaskDialogDetailComponent implements OnInit {
 
 
   upload(event: any) {
-    for (const file of event.target.files) {
-      this.afStorage.upload(file.name, file);
+    
 
-      this.fileName = file.name
-      this.listOfFileNames.push(this.fileName)
+    for (const file of event.target.files) {
+      const size=Math.round(file.size/1000)
+
+      if (size>1700) {
+        this.openSnackBar("Preveliki fajl","DONE")
+      }else{
+
+        this.afStorage.upload(file.name, file);
+
+        this.fileName = file.name
+        this.listOfFileNames.push(this.fileName)
+      }
+      
     }
   }
 
-
-
-  uploadToFirebase() {
-    setTimeout(() => {
-      for (const fileName of this.listOfFileNames) {
-        const downloadUrl = this.afStorage.ref(fileName).getDownloadURL().subscribe(data => {
-          console.log('Secon func', data);
-          var attachment = { url: data }
-          this.images.push(attachment);
-
-        });
-
-      }
-    }, 500)
-
-  }
   /**
    * @param headerInput 
    */
@@ -253,15 +248,17 @@ export class TaskDialogDetailComponent implements OnInit {
 
       setTimeout(()=>{
 
+
       const attachment = { id_task_card: this.data.id_task_card, cardAttachmentList: this.images };
 
       console.log(this.images);
       
        this.adminService.updateAttachment(attachment).subscribe( data => {
+         this.isUploaded = true
       })
-      },550)
+      },700)
 
-    }, 500) ;
+    }, 750) ;
 
 
 
@@ -270,5 +267,12 @@ export class TaskDialogDetailComponent implements OnInit {
 
 
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
 }
 
