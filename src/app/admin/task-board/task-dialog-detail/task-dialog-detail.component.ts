@@ -71,14 +71,15 @@ export class TaskDialogDetailComponent implements OnInit {
     for (const file of event.target.files) {
       const size=Math.round(file.size/1000)
 
-      if (size>1700) {
-        this.openSnackBar("Preveliki fajl","DONE")
+      if (size>1400) {
+        this.openSnackBar(`File is too large: ${file.name}`, "DONE")
       }else{
 
         this.afStorage.upload(file.name, file);
 
         this.fileName = file.name
         this.listOfFileNames.push(this.fileName)
+
       }
       
     }
@@ -238,7 +239,6 @@ export class TaskDialogDetailComponent implements OnInit {
      setTimeout( () => {
       for (const fileName of this.listOfFileNames) {
          this.afStorage.ref(fileName).getDownloadURL().subscribe(async data => {
-           console.log('Secon func', data);
           var attachment = { url: data }
            this.images.push(attachment);
 
@@ -256,9 +256,9 @@ export class TaskDialogDetailComponent implements OnInit {
        this.adminService.updateAttachment(attachment).subscribe( data => {
          this.isUploaded = true
       })
-      },700)
+      },1000)
 
-    }, 750) ;
+    }, 1100) ;
 
 
 

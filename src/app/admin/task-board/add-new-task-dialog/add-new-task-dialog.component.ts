@@ -68,7 +68,7 @@ export class AddNewTaskDialogComponent implements OnInit {
       const size = Math.round(file.size / 1000)
 
       if (size > 1700) {
-        this.openSnackBar(`Preveliki fajl: ${file.name}`, "DONE")
+        this.openSnackBar(`File is too large: ${file.name}`, "DONE")
       } else {
 
         this.afStorage.upload(file.name, file);
@@ -97,7 +97,7 @@ export class AddNewTaskDialogComponent implements OnInit {
       }
 
       this.isUploaded = true;
-    }, 700)
+    }, 800)
 
 
 

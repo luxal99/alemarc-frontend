@@ -47,7 +47,7 @@
                             <mat-icon>cloud_upload</mat-icon>
                         </button>
                         <h5 class="text-right" style="color: green !important;" *ngIf="isUploaded">{{updloadedStatus}}</h5>
-                        <h5 class="text-right" style="color: green;" *ngIf="!isUploaded">{{notUploaded}}</h5>
+                        <h5 class="text-right" style="color: red;" *ngIf="!isUploaded">{{notUploaded}}</h5>
                     </div>
                 </div>
                 <mat-divider></mat-divider>

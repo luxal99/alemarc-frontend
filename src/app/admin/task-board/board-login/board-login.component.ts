@@ -37,6 +37,8 @@ export class BoardLoginComponent implements OnInit {
     }
 
     this.taskLoginService.login(user).subscribe(data => {
+      console.log(data);
+      
 
       if (data !== empty) {
         try {
