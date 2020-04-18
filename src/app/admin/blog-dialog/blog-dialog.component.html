@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="background-color: #fff;">
 
     <!-- <button mat-raised-button color="basic" (click)="getEditor()" >Add</button>
     <button mat-raised-button color="basic" (click)="someFunction()" >Print</button> -->
@@ -29,7 +29,11 @@
 
         
         <div style="margin-top: 2em;">
-            <input type="file" #file (change)="onFilesAdded()" style="border: 0 !important;" multiple />
+            <input type="file" (change)="upload($event)" style="border: 0 !important;" multiple />
+        </div>
+
+        <div>
+            <button mat-raised-button (click)="uploadToFirebase()">Upload</button>
         </div>
 
         <div class="list">
@@ -40,21 +44,19 @@
         </div>
 
 
-    </div>
-    <div class="row">
-        <div class="col-6">
+    </div>  
+        <div class="col-12">
 
             <div class="container" style="margin-top: 2em;">
                 <h3>Sprski</h3>
                 <ckeditor #editorSn [editor]="Editor"  data="{{editorData}}"></ckeditor>
             </div>
         </div>
-        <div class="col-6">
+    <div class="col-12">
 
-            <div class="container" style="margin-top: 2em;">
-                <h3>English</h3>
-                <ckeditor #editorEn [editor]="Editor" data="{{editorData}}"></ckeditor>
-            </div>
+        <div class="container" style="margin-top: 2em;">
+            <h3>English</h3>
+            <ckeditor #editorEn [editor]="Editor" data="{{editorData}}"></ckeditor>
         </div>
     </div>
 

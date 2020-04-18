@@ -51,3 +51,7 @@ body {
 .mat-dialog-container{
     border-radius: 10px;
 }
+
+.mat-dialog-container{
+    background-color: #fff;
+}

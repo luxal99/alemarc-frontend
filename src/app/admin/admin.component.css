@@ -122,3 +122,8 @@ mat-paginator {
     padding: 1em;
     margin-bottom: 2em;
 }
+
+
+.mat-dialog-container{
+    background-color: #fff;
+}

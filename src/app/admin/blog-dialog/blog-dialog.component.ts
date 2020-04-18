@@ -3,6 +3,8 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { AdminService } from 'src/app/service/admin.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 
 @Component({
@@ -26,7 +28,7 @@ export class BlogDialogComponent implements OnInit {
    */
   images: Array<any> = [];
 
-  constructor(public adminService: AdminService) { }
+  constructor(public adminService: AdminService, public _snackBar: MatSnackBar,private afStorage: AngularFireStorage) { }
 
   ngOnInit() {
 
@@ -56,18 +58,49 @@ export class BlogDialogComponent implements OnInit {
   editorData = '';
 
 
-  // Add images to list for upload
-  onFilesAdded() {
-    const files: { [key: string]: File } = this.file.nativeElement.files;
-    for (let key in files) {
-      if (!isNaN(parseInt(key))) {
-        this.files.add(files[key]);
-        this.images.push('assets/img/blog/' + files[key].name)
+  fileName;
+  listOfFileNames: any = []
 
 
+  upload(event: any) {
+    for (const file of event.target.files) {
+      const size = Math.round(file.size / 1000)
+
+      if (size > 1700) {
+        this.openSnackBar(`File is too large: ${file.name}`, "DONE")
+      } else {
+
+        this.afStorage.upload(file.name, file);
+
+        this.fileName = file.name
+        this.listOfFileNames.push(this.fileName)
       }
+
     }
   }
+
+
+
+  uploadToFirebase() {
+    console.log(this.listOfFileNames.length);
+
+    setTimeout(() => {
+      for (const fileName of this.listOfFileNames) {
+        const downloadUrl = this.afStorage.ref(fileName).getDownloadURL().subscribe(data => {
+          console.log('Secon func', data);
+          var attachment = { url: data }
+          this.images.push(data);
+
+        });
+
+      }
+
+    }, 800)
+
+
+
+  }
+
 
   // Save blog service
   saveBlog() {
@@ -76,13 +109,6 @@ export class BlogDialogComponent implements OnInit {
     this.text_en = this.editorComponentEn.editorInstance.getData();
     this.text_sr = this.editorComponentSr.editorInstance.getData();
 
-    // Service for image upload
-    this.files.forEach(element => {
-      const formData: FormData = new FormData();
-      formData.append('image_url', element)
-      this.adminService.uploadPhoto(formData).subscribe(data => {
-      })
-    });
 
     // Object which send data to NODE JS
     var blog = {
@@ -102,6 +128,15 @@ export class BlogDialogComponent implements OnInit {
 
     this.listOfTechnologies.push(technologie);
   }
+
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
+
 
 
 

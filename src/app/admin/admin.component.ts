@@ -141,7 +141,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   openBlogPreview(blog): void {
     const dialogRef = this.dialog.open(BlogPreviewDialogComponent, {
-      width: 'auto',
+      maxWidth: '99vh',
+      height:'100vh',
       data: blog
     });
 

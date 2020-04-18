@@ -17,9 +17,16 @@ h1,h3{
 
 
 .list{
-    padding-top: 2em;
-    padding-bottom: 2em;
+    
+    list-style-type: none;
 }
 li{
     color: orange;
+}
+.row{
+    margin: 0 !important;
+}
+
+.mat-dialog-container{
+    background-color: #fff;
 }
