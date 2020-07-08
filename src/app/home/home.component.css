@@ -7,6 +7,7 @@
     background-image: url('../../assets/img/header.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 a {
@@ -27,17 +28,17 @@ a {
 
 .first-h1 {
     color: #333333;
-    font-size: 60px;
+    font-size: 70px;
 }
 
 .second-h1 {
     color: #666;
-    font-size: 65px;
+    font-size: 75px;
 }
 
 .third-h1 {
     color: #999;
-    font-size: 70px;
+    font-size: 80px;
 }
 
 .header-container {
@@ -46,7 +47,7 @@ a {
 }
 
 .header-left-col {
-    padding-top: 10em;
+    padding-top: 8em;
 }
 
 .header-btn {
@@ -91,9 +92,9 @@ a {
 
 .bio-img-blue {
     height: 600px;
-    -webkit-box-shadow: 33px 79px 0px 0px #0011FF;
-    -moz-box-shadow: 33px 79px 0px 0px #0011FF;
-    box-shadow: 33px 79px 0px 0px #0011FF;
+    -webkit-box-shadow: 33px 79px 0px 0px #0011ff7c;
+    -moz-box-shadow: 33px 79px 0px 0px #0011ff7c;
+    box-shadow: 33px 79px 0px 0px #0011ff7c;
 }
 
 .about-div {
@@ -116,10 +117,12 @@ a {
 }
 
 .vertical-divider {
-    margin-left: 50%;
-    border-left: 2px solid #ffa900;
-    height: 200px;
-    background-color: #121212;
+    /* border-left: 1px solid #38546d;
+    border-right: 1px solid #16222c;
+    height: 80px;
+    position: absolute;
+    right: 249px;
+    top: 10px; */
 }
 
 ul {

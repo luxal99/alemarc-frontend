@@ -17,3 +17,13 @@ body {
 .mat-dialog-container {
     padding: 0px !important;
 }
+
+::-webkit-scrollbar {
+    height: 1em;
+    background-color: #121212;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #ffa900;
+    border-radius: 10px;
+}
