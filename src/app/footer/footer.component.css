@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+.footer {
+    background-color: #121212;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+input {
+    font-size: 20px;
+    color: #e1e1e1;
+}
+
+.footer-container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 65px;
+    color: #ffa900;
+}
+
+mat-divider {
+    border-top-color: #333;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #333 !important;
+}
+
+.sub-btn {
+    width: 50%;
+    border: 1px solid #ffa900;
+    border-radius: 3px;
+    background-color: #ffa900;
+    font-size: 20px;
+    padding: 0.5em 0 0.5em 0;
+    margin-top: 1em;
+}
