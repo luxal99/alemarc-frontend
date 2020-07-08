@@ -2,9 +2,72 @@
     <mat-tab label="Overview"> Overview </mat-tab>
     <mat-tab label="Message"> Message</mat-tab>
     <mat-tab label="Blog">
-        <div class="container" style="padding-top: 5%;">
-            <div>
-                <button mat-raised-button color="primary" style="width: 100%;">ADD BLOG </button>
+        <div>
+            <div class="container" style="padding-top: 5%;">
+                <div>
+                    <button mat-raised-button color="primary" style="width: 100%;" (click)="editDate()">ADD BLOG </button>
+                </div>
+
+                <div style="padding-top: 2em;padding-bottom: 2em;display: none;" id="blog">
+
+                    <mat-horizontal-stepper [linear]="true" #stepper style="background-color: #222;">
+                        <mat-step [stepControl]="">
+                            <div style="padding-top: 2em;padding-bottom: 2em;">
+                                <div>
+                                    <mat-form-field appearance="standard" style="width: 80%;">
+                                        <mat-label>Username</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <mat-form-field appearance="standard" style="width: 80%;">
+                                        <mat-label>Password</mat-label>
+                                        <input matInput type="password">
+                                    </mat-form-field>
+                                </div>
+                                <div>
+                                    <button mat-raised-button (click)="stepper.next()" color="primary" style="width: 40%;">NEXT</button>
+                                </div>
+                            </div>
+                        </mat-step>
+                        <mat-step [stepControl]="">
+                            <h1 class="blog-h1">Blog description</h1>
+                            <mat-divider></mat-divider>
+                            <div style="padding-top: 2em;padding-bottom: 2em;">
+                                <ckeditor #editor [editor]="Editor" data="{{editorData}}"></ckeditor>
+                            </div>
+                            <div>
+                                <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">back</button>
+                                <button mat-raised-button (click)="stepper.next()" style="width: 40%;margin-left: 1em;background-color: #ffa900;">next</button>
+                            </div>
+                        </mat-step>
+
+                        <mat-step [stepControl]="">
+                            <h1 class="blog-h1">Images</h1>
+
+                            <mat-divider></mat-divider>
+                            <div style="padding-top: 2em;">
+                                <input type="file" style="border: 0 !important;" multiple />
+                            </div>
+
+                            <div style="padding-top: 2em;">
+                                <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">back</button>
+                                <button mat-raised-button (click)="stepper.next()" style="width: 40%;margin-left: 1em;background-color: #ffa900;">next</button>
+                            </div>
+                        </mat-step>
+                        <mat-step>
+                            <ng-template matStepLabel>Done</ng-template>
+                            <a class="technology-a" (click)="openAddTechDialog()">
+                                <h1 class="blog-h1 technology-a">Technologies</h1>
+                            </a>
+                            <div>
+                                <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">BACK</button>
+                                <button mat-raised-button style="width: 40%;margin-left: 1em;background-color: #ffa900;">SAVE</button>
+                            </div>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+                </div>
+
             </div>
         </div>
     </mat-tab>

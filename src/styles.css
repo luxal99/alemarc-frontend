@@ -34,3 +34,7 @@ body {
     background: #ffa900;
     border-radius: 10px;
 }
+
+.techDialog {
+    filter: blur(20px);
+}

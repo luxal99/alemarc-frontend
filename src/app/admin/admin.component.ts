@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { ChangeLoginComponent } from './change-login/change-login.component';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
+import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
 
 export interface Mail {
   id: number;
@@ -34,175 +35,44 @@ export interface Order {
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit, AfterViewInit {
+export class AdminComponent implements OnInit {
 
   @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
-
-  html = '';
-  editorData = '';
-
-  getEditor() {
-    // Warning: This may return "undefined" if the editor is hidden behind the `*ngIf` directive or
-    // if the editor is not fully initialised yet.
-
-    this.html = this.editorComponent.editorInstance.getData();
-    return this.editorComponent.change;
-  }
-
-  someFunction(text) {
-    console.log(text);
-
-  }
-
-  onChange({ editor }: ChangeEvent) {
-    const data = editor.getData();
-
-    console.log(data);
-  }
-
   public Editor = ClassicEditor;
 
-  mailColumn: string[] = ['id', 'name', 'lastname', 'subject', 'option'];
-  orderColumn: string[] = ['name', 'lastname', 'mail', 'telephone', 'option'];
-
-  dataSource: any = [];
-  orderSource: MatTableDataSource<Order>
-  @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
-  @ViewChildren(MatSort) sort = new QueryList<MatSort>();
+  editorData = '';
+  description = '';
 
 
   listOfMessages: any = [];
   listOfOrder: any = [];
   listOfMail: any = [];
 
-  testArray: Array<any> = [
-    { id: 1, title: "Naslov 1" },
-    { id: 2, title: "Naslov 2" },
-    { id: 3, title: "Naslov 3" }
-  ]
-
-
   constructor(public dialog: MatDialog, public adminService: AdminService, private router: Router, public _snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
-    this.getAllMessages();
-    this.getAllOrders();
-    this.removeToken();
 
   }
 
-  ngAfterViewInit() {
 
-  }
-
-  showOrder() {
-    document.getElementById('mail-div').style.display = 'none';
-    document.getElementById('order-div').style.display = 'block';
-    document.getElementById('order-div').toggleAttribute('slow');
-    document.getElementById('mail-div').style.transition = 'opacity 1s ease-out';
-  }
-
-  showMail() {
-    document.getElementById('mail-div').style.display = 'block';
-    document.getElementById('order-div').style.display = 'none';
-    document.getElementById('mail-div').style.transition = 'opacity 1s ease-out';
-  }
-
-
-  openMessage(mail): void {
-    const dialogRef = this.dialog.open(MessagePreviewDialogComponent, {
-      width: 'auto',
-      position: { left: '0' },
-      height: '100vh',
-      data: {
-        mail: mail
-      }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
-    });
-  }
-  getAllMessages() {
-    const token = localStorage.getItem("token");
-
-    this.adminService.getAllMessages(token).subscribe(data => {
-      this.dataSource = data;
-
-
-    })
-  }
-  deleteMail(id_mail) {
-    this.adminService.deleteMail(id_mail).subscribe(data => {
-      this.getAllMessages();
-
-    })
-  }
-
-  getAllOrders() {
-    this.adminService.getAllOrders().subscribe(data => {
-      this.listOfOrder = data;
-
-
-    })
-  }
-
-  deleteOrder(id_site_order) {
-    this.adminService.deleteOrder(id_site_order).subscribe(data => {
-      this.getAllOrders();
-
-    })
-  }
-
-  openOrderPreview(order): void {
-    const dialogRef = this.dialog.open(OrderPreviewComponent, {
-      width: 'auto',
-      position: { left: '0' },
-      height: '100vh',
-      data: order
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
+  openAddTechDialog(): void {
+    const dialogRef = this.dialog.open(AddTechnologyDialogComponent, {
+      width: '250px'
     });
   }
 
-  logout() {
-    var isAuthenticated = { "isAuthenticated": false };
 
-    this.adminService.logout(isAuthenticated).subscribe(data => {
-
-    })
-    this.router.navigate(['login']);
-    localStorage.removeItem("token");
-  }
-
-  openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action, {
-      duration: 2000,
-    });
-  }
-
-  openChangeLoginDialog(): void {
-    const dialogRef = this.dialog.open(ChangeLoginComponent, {
-      width: 'auto'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (localStorage.getItem('isPasswordChanged') === 'true') {
-        this.router.navigate(['/login']);
-      }
-    });
-
-
+  editDate() {
+    const x = document.getElementById("blog");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
   }
 
 
-  removeToken() {
-    setTimeout(() => {
-      localStorage.removeItem('token')
-    }, 1000 * 30);
-  }
 
 
 }

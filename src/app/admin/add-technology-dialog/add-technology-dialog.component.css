@@ -1,0 +1,12 @@
+mat-label {
+    color: #ffa900;
+}
+
+input {
+    color: #eee;
+}
+
+::ng-deep.mat-dialog-container {
+    background: none;
+    box-shadow: none;
+}
