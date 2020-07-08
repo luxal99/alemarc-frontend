@@ -1,7 +1,4 @@
 @import '../../assets/css/sidebar/sidebar.css';
-@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Cairo|Dosis&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 .header {
     height: 100vh;
     background-image: url('../../assets/img/header.jpg');

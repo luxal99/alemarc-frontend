@@ -1,0 +1,46 @@
+.login {
+    background-image: url('../../assets/img/login1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position-y: 50%;
+}
+
+.login-container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+h1 {
+    padding-top: 25%;
+    color: #ffa900;
+    font-size: 70px;
+    font-family: 'Righteous', cursive;
+}
+
+mat-divider {
+    border-top-color: #333;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #333 !important;
+}
+
+mat-label {
+    color: #ffa900;
+}
+
+.login-btn {
+    width: 50%;
+    border: 1px solid #ffa900;
+    border-radius: 3px;
+    background-color: #ffa900;
+    font-size: 20px;
+    padding: 0.5em 0 0.5em 0;
+    margin-top: 1em;
+}
+
+input {
+    color: #eee;
+}
