@@ -29,6 +29,7 @@ mat-divider {
 
 mat-label {
     color: #ffa900;
+    font-size: 15px;
 }
 
 .login-btn {
@@ -43,4 +44,5 @@ mat-label {
 
 input {
     color: #eee;
+    font-size: 20px;
 }
