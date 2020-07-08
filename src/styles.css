@@ -17,6 +17,10 @@ body {
     color: #ff9600 !important;
 }
 
+.mat-tab-label {
+    color: #eee;
+}
+
 .mat-dialog-container {
     padding: 0px !important;
 }
