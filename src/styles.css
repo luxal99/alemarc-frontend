@@ -36,22 +36,23 @@ body {
     background-color: #121212;
 }
 
-.mat-tab-nav-bar, .mat-tab-header {
+.mat-tab-nav-bar,
+.mat-tab-header {
     border-bottom: 1px solid black;
 }
 
-.mat-dialog-container{
+.mat-dialog-container {
     background: none;
 }
 
-.loginDialog{
-   background-color: #ff9600;
+.loginDialog {
+    background-color: #ff9600;
 }
 
-.mat-dialog-container{
-    border-radius: 10px;
-}
-
-.mat-dialog-container{
+.mat-dialog-container {
     background-color: #fff;
+}
+
+.surveyClass {
+    background-color: #121212;
 }

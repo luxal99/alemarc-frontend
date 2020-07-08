@@ -32,5 +32,9 @@ export class ClientService{
     return this.http.post("/client/createOrder", order, { responseType: 'text' });
   }
 
+  sendSurvey(survey){
+    return this.http.post("/client/saveSurvey",survey,{responseType:"text"});
+  }
+
 
 }

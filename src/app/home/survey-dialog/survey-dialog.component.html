@@ -1,0 +1,34 @@
+<div class="content-dialog">
+    <form [formGroup]="surveyForm">
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Ime i prezime</mat-label>
+                <input matInput formControlName="full_name">
+                <mat-icon matSuffix>account_circle</mat-icon>
+
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Broj telefona/Mail</mat-label>
+                <input formControlName="email" matInput>
+                <mat-icon matSuffix>alternate_email</mat-icon>
+
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Tip vebsajta za koji se zainteresovani</mat-label>
+                <input formControlName="surveyAnswer" matInput>
+                <mat-icon matSuffix>text_rotation_none</mat-icon>
+            </mat-form-field>
+        </div>
+
+        <button mat-raised-button class="post-btn" mat-dialog-close (click)="saveSurvey()">POSALJI  </button>
+    </form>
+
+
+</div>

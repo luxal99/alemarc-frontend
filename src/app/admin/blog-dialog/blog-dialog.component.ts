@@ -9,7 +9,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-blog-dialog',
-  templateUrl: './blog-dialog.component.html',
+templateUrl: './blog-dialog.component.html',
   styleUrls: ['./blog-dialog.component.css']
 })
 export class BlogDialogComponent implements OnInit {
@@ -120,6 +120,9 @@ export class BlogDialogComponent implements OnInit {
       technologies: this.listOfTechnologies
     }
     this.adminService.saveBlog(blog).subscribe(data => {
+      console.log(data);
+      this.openSnackBar(data,"DONE");
+      
     })
   }
 

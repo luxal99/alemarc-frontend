@@ -44,6 +44,7 @@ import {
   AngularFireUploadTask,
   StorageBucket
 } from "@angular/fire/storage";
+import { SurveyDialogComponent } from './home/survey-dialog/survey-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +72,8 @@ import {
     ArchiveDialogComponent,
     BoardLoginComponent,
     BoardRegistrationDialogComponent,
-    UserProfileDialogComponent
+    UserProfileDialogComponent,
+    SurveyDialogComponent
   ],
   imports: [
     CommonModule,
@@ -106,7 +108,7 @@ import {
   entryComponents: [BoardRegistrationDialogComponent, ImgShowDialogComponent, ArchiveDialogComponent, AddNewTaskDialogComponent,
     TaskDialogDetailComponent, MessagePreviewDialogComponent, TaskDialogDetailComponent
     , CreateBoardDialogComponent, BlogDialogComponent, BlogPreviewDialogComponent,
-    OrderPreviewComponent, MailAnswerComponent, ChangeLoginComponent, UserProfileDialogComponent],
+    OrderPreviewComponent,SurveyDialogComponent, MailAnswerComponent, ChangeLoginComponent, UserProfileDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

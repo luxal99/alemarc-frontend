@@ -3,6 +3,7 @@ import { HomeTranslate } from '../translate/home';
 import * as $ from 'jquery';
 import { AdminService } from '../service/admin.service';
 import { MatDialog } from '@angular/material';
+import { SurveyDialogComponent } from './survey-dialog/survey-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     this.printTest();
+    this.openSurveyDialog();
     window.scrollTo(0, 0);
     this.setDefault();
     this.language = localStorage.getItem('language');
@@ -69,6 +71,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  openSurveyDialog(): void {
+    const dialogRef = this.dialog.open(SurveyDialogComponent, {
+      width: 'auto',
+      backdropClass:"surveyClass"
+    });
+  }
 
   printTest() {
 

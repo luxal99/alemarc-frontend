@@ -4,8 +4,8 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/service/admin.service';
 import { MAT_DIALOG_DATA, MatSnackBar } from '@angular/material';
-import { AngularFireStorage } from 'angularfire2/storage';
 import * as firebase from 'firebase'
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-add-new-task-dialog',
@@ -83,23 +83,17 @@ export class AddNewTaskDialogComponent implements OnInit {
 
 
   uploadToFirebase() {
-    console.log(this.listOfFileNames.length);
-
     setTimeout(() => {
       for (const fileName of this.listOfFileNames) {
         const downloadUrl = this.afStorage.ref(fileName).getDownloadURL().subscribe(data => {
-          console.log('Secon func', data);
           var attachment = { url: data }
           this.images.push(attachment);
 
         });
 
       }
-
       this.isUploaded = true;
-    }, 800)
-
-
+    }, 1000)
 
   }
 

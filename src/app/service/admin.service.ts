@@ -29,7 +29,8 @@ export class AdminService implements CanActivate {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (localStorage.getItem('token')) { // logged in so return true
+    if (localStorage.getItem('token')) {
+      // logged in so return true
       return true;
     }
 
@@ -60,36 +61,36 @@ export class AdminService implements CanActivate {
   findBlogById(_id) {
     return this.http.get("/admin/getOneBlog/" + _id, { responseType: 'json' })
   }
-  
+
   uploadPhoto(photos) {
     return this.http.post("/admin/upload", photos, { responseType: 'text' })
   }
 
 
-  getBoard(){
-    return this.http.get("/admin/board/getBoard",{responseType:'json'})
+  getBoard() {
+    return this.http.get("/admin/board/getBoard", { responseType: 'json' })
   }
 
-  createNewTask(task){
-    return this.http.post("/admin/board/createTask",task,{responseType:'text'});
+  createNewTask(task) {
+    return this.http.post("/admin/board/createTask", task, { responseType: 'text' });
   }
 
-  uploadAttachment(attachemnts){
+  uploadAttachment(attachemnts) {
     return this.http.post("/admin/board/upload", attachemnts, { responseType: 'text' })
   }
 
-  updateTask(task){
-    return this.http.put("/admin/board/updateTask",task,{responseType:'text'});
+  updateTask(task) {
+    return this.http.put("/admin/board/updateTask", task, { responseType: 'text' });
   }
 
 
-  deleteAttachment(url){
-    return this.http.post("/admin/board/updateAttachmentList",url,{responseType:'text'});
+  deleteAttachment(url) {
+    return this.http.post("/admin/board/updateAttachmentList", url, { responseType: 'text' });
   }
 
   // Add attachment to board
-  updateAttachment(attachemnt){
-    return this.http.post("/admin/board/addNewAttachment",attachemnt,{responseType:'text'})
+  updateAttachment(attachemnt) {
+    return this.http.post("/admin/board/addNewAttachment", attachemnt, { responseType: 'text' })
   }
 
   /**
@@ -97,23 +98,23 @@ export class AdminService implements CanActivate {
    * @param id_task_board
    * @returns listOfTasks for cureent board 
    */
-  getTaskList(id_task_board){
-    return this.http.get("/admin/board/getTaskList/"+id_task_board,{responseType:'json'});
+  getTaskList(id_task_board) {
+    return this.http.get("/admin/board/getTaskList/" + id_task_board, { responseType: 'json' });
   }
 
-  getTaskAnalyse(){
-    return this.http.get("/admin/board/getTaskAnalizeAll",{responseType:'json'});
+  getTaskAnalyse() {
+    return this.http.get("/admin/board/getTaskAnalizeAll", { responseType: 'json' });
   }
 
-  getTaskPerBoard(){
-   return this.http.get("/admin/board/getTaskPerBoard",{responseType:'json'});  
+  getTaskPerBoard() {
+    return this.http.get("/admin/board/getTaskPerBoard", { responseType: 'json' });
   }
 
-  getArchivedTask(id_task_board){
-    return this.http.get("/admin/board/getArchivedTask/"+id_task_board,{responseType:'json'});
+  getArchivedTask(id_task_board) {
+    return this.http.get("/admin/board/getArchivedTask/" + id_task_board, { responseType: 'json' });
   }
 
-  unArchiveAll(taskList){
-    return this.http.put("/admin/board/unArchiveAll",taskList,{responseType:'text'});
+  unArchiveAll(taskList) {
+    return this.http.put("/admin/board/unArchiveAll", taskList, { responseType: 'text' });
   }
 }

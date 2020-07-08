@@ -1,0 +1,26 @@
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #ffa900!important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: #121212!important;
+}
+
+.content-dialog {
+    padding: 10em 5em 10em 5em;
+    zoom: 120%;
+}
+
+.post-btn {
+    background-color: #ffa900;
+    width: 100%;
+    padding-bottom: .7em;
+    padding-top: .7em;
+}
+
+@media screen and (max-width:600px) {
+    .content-dialog {
+        padding: 1em;
+        zoom: 110%;
+    }
+}
