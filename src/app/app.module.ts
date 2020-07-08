@@ -16,6 +16,7 @@ import { OrderPreviewComponent } from './admin/order-preview/order-preview.compo
 import { MailAnswerComponent } from './admin/order-preview/mail-answer/mail-answer.component';
 import { ChangeLoginComponent } from './admin/change-login/change-login.component';
 import { LoginRoutingModule } from "./login/login.module";
+import { ChartsModule } from 'ng2-charts';
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 @NgModule({
@@ -34,6 +35,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
   imports: [
     CommonModule,
     BrowserModule,
+    ChartsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     LoginRoutingModule,

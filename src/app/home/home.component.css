@@ -77,3 +77,74 @@ a {
     color: #eee;
     padding-top: 1em;
 }
+
+.about-div {
+    background-color: #121212;
+}
+
+.bio-img {
+    height: 600px;
+    -webkit-box-shadow: 33px 79px 0px 0px rgba(255, 170, 0, 0.61);
+    -moz-box-shadow: 33px 79px 0px 0px rgba(255, 170, 0, 0.61);
+    box-shadow: 33px 79px 0px 0px rgba(255, 170, 0, 0.61);
+}
+
+.bio-img-blue {
+    height: 600px;
+    -webkit-box-shadow: 33px 79px 0px 0px #0011FF;
+    -moz-box-shadow: 33px 79px 0px 0px #0011FF;
+    box-shadow: 33px 79px 0px 0px #0011FF;
+}
+
+.about-div {
+    padding: 15em 0 15em 0;
+}
+
+.bio-h1 {
+    font-family: 'Righteous', cursive;
+    color: #e1e1e1;
+}
+
+.bio-h3 {
+    color: #ffa900 !important;
+}
+
+.bio-paragraf {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #eee !important;
+    font-size: 20px;
+}
+
+.vertical-divider {
+    margin-left: 50%;
+    border-left: 2px solid #ffa900;
+    height: 200px;
+    background-color: #121212;
+}
+
+ul {
+    list-style: none;
+    padding-top: 1em;
+    /* Remove default bullets */
+}
+
+ul li::before {
+    content: "\2022";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #0011FF;
+    /* Change the color */
+    font-weight: bold;
+    /* If you want it to be bold */
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1em;
+    /* Also needed for space (tweak if needed) */
+    margin-left: -1em;
+    /* Also needed for space (tweak if needed) */
+}
+
+li {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #e1e1e1;
+}
