@@ -10,14 +10,6 @@ const routes: Routes = [
   { path: '', component: HomeComponent, },
   {
     path: 'login',component:LoginComponent,
-    //loadChildren:()=>import('./login/login.module').then(m=>m.LoginRoutingModule)
-  },
-  {
-    path: 'about', component: AboutComponent
-    
-  },
-  {
-    path: 'order',component:OrderSiteComponent
   },
   { path: 'admin', component: AdminComponent, canActivate: [AdminService] }
 ];

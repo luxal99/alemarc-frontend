@@ -26,11 +26,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.printTest();
-    window.scrollTo(0, 0);
-    this.setDefault();
-    this.language = localStorage.getItem('language');
-    document.getElementById(localStorage.getItem('language')).style.color='#fff';
+   
 
   }
   scrollToElement($element): void {
@@ -38,34 +34,7 @@ export class HomeComponent implements OnInit {
 
   }
 
-  changeLanguage(changeLanguage) {
-    localStorage.setItem("language", changeLanguage);
-    document.getElementById(localStorage.getItem('language')).style.color='#fff';
-    this.language = changeLanguage;
-    document.getElementById('main').style.display = 'none';
-    location.reload();
-  }
 
-
-
-
-  printTest() {
-
-    $('.skill-div').mouseover(function () {
-      $('.circle-text').each(function () {
-        $(this).prop('Counter', 0).animate({
-          Counter: $(this).data('value')
-        }, {
-          duration: 1000,
-          easing: 'swing',
-          step: function (now) {
-            $(this).text(this.Counter.toFixed(0));
-          }
-        });
-      });
-    })
-
-  }
 
 
 

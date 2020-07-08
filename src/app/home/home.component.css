@@ -1,2 +1,79 @@
 @import '../../assets/css/sidebar/sidebar.css';
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Cairo|Dosis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.header {
+    height: 100vh;
+    background-image: url('../../assets/img/header.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a {
+    color: #e1e1e1 !important;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.navbar {
+    padding-top: 3em;
+    padding-left: 3em;
+}
+
+.header-left-col h1 {
+    font-family: 'Righteous', cursive;
+}
+
+.first-h1 {
+    color: #333333;
+    font-size: 60px;
+}
+
+.second-h1 {
+    color: #666;
+    font-size: 65px;
+}
+
+.third-h1 {
+    color: #999;
+    font-size: 70px;
+}
+
+.header-container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.header-left-col {
+    padding-top: 10em;
+}
+
+.header-btn {
+    padding: .7em 5em .7em 5em;
+    background-color: #ffa900;
+    border: 1px solid #ffa900;
+    border-radius: 3px;
+    font-size: 20px;
+}
+
+.icon-div {
+    padding-top: 2em;
+    font-family: 'Dosis', sans-serif;
+    color: #ffa900;
+}
+
+.icon-div h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.header-container h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #eee;
+    padding-top: 1em;
+}

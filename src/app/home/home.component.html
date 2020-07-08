@@ -1,63 +1,46 @@
 <mat-drawer-container class="example-container" value="true">
     <mat-drawer #drawer mode="over" class="sidenav-content zoom">
-        <div class="text-right">
-            <a><i class="fa fa-times close-icon" (click)="drawer.toggle()"></i></a>
-        </div>
-        <div class="content text-left" style="position: fixed;padding-top: 3em;">
 
-            <a (click)="scrollToElement(target)">
-                <h2 class="nav-link-h2">{{this.multiLanguage[0][0][language].sidebar_text1}}</h2>
-            </a>
-            <a [routerLink]="['/about']" routerLinkActive="router-link-active">
-                <h2 class="nav-link-h2">{{this.multiLanguage[0][0][language].sidebar_text2}}</h2>
-            </a>
-            <a [routerLink]="['/order']" routerLinkActive="router-link-active">
-                <h2 class="nav-link-h2">{{this.multiLanguage[0][0][language].sidebar_text3}}</h2>
-            </a>
-
-
-            <div class="text-left small-link-div">
-                <a (click)="scrollToElement(skill)">
-                    <a (click)="drawer.toggle()">
-                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text4}}</h4>
-                    </a>
-                </a>
-                <a (click)="scrollToElement(table)">
-                    <a (click)="drawer.toggle()">
-                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text5}}</h4>
-                    </a>
-                </a>
-                <a (click)="scrollToElement(webapp)">
-                    <a (click)="drawer.toggle()">
-                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text6}}</h4>
-                    </a>
-                </a>
-                <a (click)="scrollToElement(photo)">
-                    <a (click)="drawer.toggle()">
-                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text7}}</h4>
-                    </a>
-                </a>
-                <a (click)="scrollToElement(contact)">
-                    <a (click)="drawer.toggle()">
-                        <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text8}}</h4>
-                    </a>
-                </a>
-                <a [routerLink]="['/admin']" routerLinkActive="router-link-active">
-                    <h4 class="nav-link-h4">{{this.multiLanguage[0][0][language].sidebar_text9}}</h4>
-                </a>
-
-
-            </div>
-
-            <div class="text-left-social-div side-icon" style="padding-top: 4em;">
-                <a href=""><i class="fa fa-facebook social-icon"></i></a>
-                <a href=""><i class="fa fa-instagram social-icon-left"></i></a>
-                <a href=""><i class="fa fa-linkedin social-icon-left"></i></a>
-            </div>
-        </div>
     </mat-drawer>
     <mat-drawer-content>
 
+        <div class="header">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#"><img src="../../assets/img/1200px-Code 1.png" class="img-fluid" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="#">Features</a>
+                        <a class="nav-item nav-link" href="#">Pricing</a>
+                        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-container">
+                <div class="row text-center">
+                    <div class="col-sm header-left-col">
+                        <h1 class="first-h1 text-left">Look</h1>
+                        <h1 class="second-h1 text-left">At</h1>
+                        <h1 class="third-h1 text-left">Our work</h1>
+                        <div class="text-left">
+                            <button class="header-btn">MORE</button>
+                        </div>
+                        <h3 class="text-left">Lorem ipsum dolor nunc nuc dolor</h3>
+                        <div class="text-left row icon-div">
+                            <h1><i class="fa fa-github" aria-hidden="true"></i> Github</h1>
+                            <h1 style="padding-left: 2em;"><i class="fa fa-envelope" aria-hidden="true"></i> Email</h1>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <img src="../../assets/img/header-right.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </mat-drawer-content>
 </mat-drawer-container>
