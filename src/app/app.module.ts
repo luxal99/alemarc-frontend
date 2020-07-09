@@ -21,6 +21,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddTechnologyDialogComponent } from './admin/add-technology-dialog/add-technology-dialog.component';
 import { ErrorComponent } from './error/error.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
+import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
     AdminComponent,
     ChangeLoginComponent,
     AddTechnologyDialogComponent,
-    ErrorComponent
+    ErrorComponent,
+    BlogPreviewComponent
   ],
   imports: [
     CommonModule,

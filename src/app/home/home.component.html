@@ -55,11 +55,14 @@
 
                 <div class="swiper-wrapper product-slider-container">
 
-                    <div class="swiper-slide slider" *ngFor="let blog of listOfBlogs | slice:0:3,let i = index">
+                    <div class="swiper-slide slider" *ngFor="let blog of listOfBlogs|slice:0:3; let i = index" [attr.data-index]="i">
                         <a>
                             <div class="img-container">
+                                <div style="padding-bottom: 1em;">
+                                    <h3 id="slider-h3" class="blog-slider-h3 text-center">{{blog.header}}</h3>
+                                </div>
                                 <img class="slider-img" id="slider-img" src="{{blog.listOfImages[0].url}} " />
-                                <h3 id="slider-h3" class="blog-slider-h3 centered text-center">{{blog.header}}</h3>
+
 
                                 <div>
                                     <!-- <button class="border-btn-orange " routerLink="/detail/{{product.idProduct}} " routerLinkActive="router-link-active " mat-button>Detail</button>
@@ -84,43 +87,50 @@
                     <h4 class="blog-h4">Lorem ipsum dolor nunc</h4>
 
                 </div>
-                <div class="row" style="margin-top: 5em;">
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm" style="padding: 0;">
-                                <img [src]="listOfBlogs[4].listOfImages[0].url" style="opacity: .1;" alt="" class="img-fluid">
+                <div class="row" style="margin-top: 7em;">
+                    <div class="col-sm-7">
+                        <div class="row" *ngFor="let blog of listOfBlogs|slice:3:4; let i = index" [attr.data-index]="i">
+                            <div class="col-sm" style="padding: 1em;background-color: #272727;">
+                                <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid blog-small-preview-img">
                             </div>
-                            <div class="col-sm-4" style="background-color: #ffa900;padding: 0;">
+                            <div class="col-sm-7" style="background-color: #ffa900;padding: 1em;">
                                 <div style="padding: 1em;">
-                                    <h3 class="text-center">{{listOfBlogs[4].header}}</h3>
-                                    <h4 class="text-center">{{listOfBlogs[4].shortText}}</h4>
-                                    <p style="font-size: 5px;">{{listOfBlogs[4].longText}}</p>
-                                    <div class="text-center">
+                                    <div class="text-right">
                                         <button class="blog-btn">MORE</button>
+                                    </div>
+                                    <h1 class="text-left blog-small-preview-h3">{{blog.header}}</h1>
+                                    <h4 class="text-left blog-small-preview-h4">{{blog.shortText}}</h4>
+                                    <p style="font-size: 5px;">{{blog.longText}}</p>
+
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <img src="{{blog.listOfImages[1].url}} " alt="" class="img-fluid small-img">
+                                        </div>
+                                        <div class="col-sm">
+                                            <img src="{{blog.listOfImages[2].url}} " alt="" class="img-fluid small-img">
+                                        </div>
+                                        <div class="col-sm">
+                                            <img src="{{blog.listOfImages[3].url}} " alt="" class="img-fluid small-img">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm">
-                        <a>
-                            <img [src]="listOfBlogs[5].listOfImages[0].url" alt="" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-5">
                         <div class="row">
-                            <div class="col-sm" style="background-color: #0011FF;padding: 2em;">
+                            <div class="col-sm small-blog-col" style="background-color: #0011FF;padding: 2em;">
                                 <h3 class="small-blog" style="color: #121212;">{{listOfBlogs[6].header}}</h3>
                             </div>
-                            <div class="col-sm" style="background-color: #0011FF;margin-left: 1em;padding: 2em;">
+                            <div class="col-sm small-blog-col" style="background-color: #0011FF;margin-left: 1em;padding: 2em;">
                                 <h3 class="small-blog text-center">{{listOfBlogs[6].header}}</h3>
                             </div>
                         </div>
                         <div class="row" style="margin-top: 1em;">
-                            <div class="col-sm" style="background-color: #ffa900;padding: 2em;">
+                            <div class="col-sm small-blog-col" style="background-color: #ffa900;padding: 2em;">
                                 <h3 class="small-blog">{{listOfBlogs[6].header}}</h3>
                             </div>
-                            <div class="col-sm" style="background-color: #ffa900;margin-left: 1em;padding: 2em;">
+                            <div class="col-sm small-blog-col" style="background-color: #ffa900;margin-left: 1em;padding: 2em;">
                                 <h3 class="small-blog text-center" style="color: #121212;">{{listOfBlogs[6].header}}</h3>
                             </div>
                         </div>

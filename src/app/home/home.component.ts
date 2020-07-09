@@ -6,6 +6,8 @@ import * as $ from 'jquery';
 import Swiper, { SwiperOptions } from 'swiper';
 import { Blog } from '../model/Blog';
 import { BlogService } from '../service/blog.service';
+import { error } from 'protractor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -54,16 +56,7 @@ export class HomeComponent implements OnInit {
   }
 
 
-  constructor(private blogService: BlogService) { }
-
-  setDefault() {
-    var isLanguageSet = localStorage.getItem('language');
-
-    if (isLanguageSet === null) {
-      localStorage.setItem('language', 'en');
-      this.language = localStorage.getItem('language');
-    }
-  }
+  constructor(private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
 
@@ -75,11 +68,13 @@ export class HomeComponent implements OnInit {
   }
 
 
+  blog = null;
+
   getAll() {
     this.blogService.getAll().subscribe(data => {
       this.listOfBlogs = JSON.parse(JSON.stringify(data)) as Array<Blog>;
-      console.log(data);
-      
+    }, error => {
+      this.router.navigate(['/err'])
     })
   }
 
