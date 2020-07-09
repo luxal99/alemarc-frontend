@@ -7,7 +7,7 @@
     background-attachment: fixed;
 }
 
-a {
+.navbar a {
     color: #e1e1e1 !important;
     font-family: 'Dosis', sans-serif;
     font-size: 20px;
@@ -74,6 +74,70 @@ a {
     font-family: 'Montserrat', sans-serif;
     color: #eee;
     padding-top: 1em;
+}
+
+.blog-h1 {
+    font-family: 'Righteous', cursive;
+    font-size: 70px;
+    padding-top: 2em;
+    color: #0011FF;
+}
+
+.img-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    border-bottom: 1px solid #0011FF;
+    transform: translate(-50%, -50%);
+}
+
+.slider-img {
+    -webkit-box-shadow: 3px 81px 49px -55px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 3px 81px 49px -55px rgba(255, 255, 255, 1);
+    box-shadow: 3px 81px 49px -55px rgba(255, 255, 255, 1);
+    vertical-align: auto !important;
+    width: 500px;
+    opacity: .1;
+}
+
+#slider-img:hover {
+    opacity: .9;
+    transition: .5s;
+}
+
+#slider-img:hover~#slider-h3 {
+    display: none;
+    transition: .5s;
+}
+
+.slider-img h3:hover {
+    display: none;
+}
+
+.blog-slider-h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.blog-slider-h3:hover {
+    display: none;
+    transition: .5s;
+}
+
+.blog-h4 {
+    color: #666;
+    padding-top: .5em;
+    margin: 0 !important;
+    font-family: 'Montserrat', sans-serif;
+}
+
+mat-divider {
+    border-top-color: #333;
 }
 
 .about-div {

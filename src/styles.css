@@ -38,3 +38,7 @@ body {
 .techDialog {
     filter: blur(20px);
 }
+
+img {
+    vertical-align: baseline;
+}

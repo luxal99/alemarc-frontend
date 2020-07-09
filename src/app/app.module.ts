@@ -20,6 +20,7 @@ import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/c
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddTechnologyDialogComponent } from './admin/add-technology-dialog/add-technology-dialog.component';
 import { ErrorComponent } from './error/error.component';
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +37,7 @@ import { ErrorComponent } from './error/error.component';
     CommonModule,
     BrowserModule,
     ChartsModule,
+    NgxUsefulSwiperModule,
     ReactiveFormsModule,
     AppRoutingModule,
     LoginRoutingModule,

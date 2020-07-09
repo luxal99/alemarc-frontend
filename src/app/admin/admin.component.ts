@@ -64,7 +64,7 @@ export class AdminComponent implements OnInit {
   addFiles(event) {
 
     for (let index = 0; index < event.length; index++) {
-      if (event[index].size / 1000 > 500) {
+      if (event[index].size / 1000 > 700) {
         this.openSnackBar("Prevelik fajl", "DONE");
       } else {
 
