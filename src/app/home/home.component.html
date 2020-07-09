@@ -49,31 +49,82 @@
                     <h1 class="blog-h1">Our works</h1>
                     <mat-divider></mat-divider>
                     <h4 class="blog-h4">Lorem ipsum dolor nunc</h4>
+                </div>
+            </div>
+            <swiper [config]="config" style="margin-top: 5em;">
 
-                    <swiper [config]="config">
+                <div class="swiper-wrapper product-slider-container">
 
-                        <div class="swiper-wrapper product-slider-container">
+                    <div class="swiper-slide slider" *ngFor="let blog of listOfBlogs | slice:0:3,let i = index">
+                        <a>
+                            <div class="img-container">
+                                <img class="slider-img" id="slider-img" src="{{blog.listOfImages[0].url}} " />
+                                <h3 id="slider-h3" class="blog-slider-h3 centered text-center">{{blog.header}}</h3>
 
-                            <div class="swiper-slide slider" *ngFor="let blog of listOfBlogs | slice:0:3,let i = index">
-                                <a>
-                                    <div class="img-container">
-                                        <img class="slider-img" id="slider-img" src="{{blog.listOfImages[0].url}} " />
-                                        <h3 id="slider-h3" class="blog-slider-h3 centered text-center">{{blog.header}}</h3>
-
-                                        <div>
-                                            <!-- <button class="border-btn-orange " routerLink="/detail/{{product.idProduct}} " routerLinkActive="router-link-active " mat-button>Detail</button>
-                                        <button mat-button class="full-btn-orange " (click)="addToCart(product) ">Add to card</button> -->
-                                        </div>
-                                    </div>
-                                </a>
+                                <div>
+                                    <!-- <button class="border-btn-orange " routerLink="/detail/{{product.idProduct}} " routerLinkActive="router-link-active " mat-button>Detail</button>
+                                <button mat-button class="full-btn-orange " (click)="addToCart(product) ">Add to card</button> -->
+                                </div>
                             </div>
+                        </a>
+                    </div>
 
+                </div>
+
+                <!-- Add Arrows -->
+
+            </swiper>
+        </div>
+
+        <div style="background-color: #121212;padding-top: 10em;">
+            <div class="header-container">
+                <div class="text-right">
+                    <h1 class="blog-right-text">Look at our works</h1>
+                    <mat-divider style="border-top-color: #333;"></mat-divider>
+                    <h4 class="blog-h4">Lorem ipsum dolor nunc</h4>
+
+                </div>
+                <div class="row" style="margin-top: 5em;">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm" style="padding: 0;">
+                                <img [src]="listOfBlogs[4].listOfImages[0].url" style="opacity: .1;" alt="" class="img-fluid">
+                            </div>
+                            <div class="col-sm-4" style="background-color: #ffa900;padding: 0;">
+                                <div style="padding: 1em;">
+                                    <h3 class="text-center">{{listOfBlogs[4].header}}</h3>
+                                    <h4 class="text-center">{{listOfBlogs[4].shortText}}</h4>
+                                    <p style="font-size: 5px;">{{listOfBlogs[4].longText}}</p>
+                                    <div class="text-center">
+                                        <button class="blog-btn">MORE</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- Add Arrows -->
-
-                    </swiper>
-
+                    </div>
+                    <div class="col-sm">
+                        <a>
+                            <img [src]="listOfBlogs[5].listOfImages[0].url" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-sm" style="background-color: #0011FF;padding: 2em;">
+                                <h3 class="small-blog" style="color: #121212;">{{listOfBlogs[6].header}}</h3>
+                            </div>
+                            <div class="col-sm" style="background-color: #0011FF;margin-left: 1em;padding: 2em;">
+                                <h3 class="small-blog text-center">{{listOfBlogs[6].header}}</h3>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 1em;">
+                            <div class="col-sm" style="background-color: #ffa900;padding: 2em;">
+                                <h3 class="small-blog">{{listOfBlogs[6].header}}</h3>
+                            </div>
+                            <div class="col-sm" style="background-color: #ffa900;margin-left: 1em;padding: 2em;">
+                                <h3 class="small-blog text-center" style="color: #121212;">{{listOfBlogs[6].header}}</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
