@@ -173,6 +173,26 @@
     font-size: 70px;
 }
 
+.blog-card {
+    background-color: #333333;
+    height: 100%;
+}
+
+.card-content {}
+
+.card-content i {
+    color: #0011FF;
+}
+
+.card-content h4 {
+    color: #e1e1e1;
+}
+
+.card-content h5 {
+    color: #999;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .small-blog {
     font-family: 'Righteous', cursive !important;
     padding: 0 !important;

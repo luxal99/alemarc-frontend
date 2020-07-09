@@ -5,6 +5,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';;
 import { AuthService } from "./service/auth.service";
 import { ErrorComponent } from './error/error.component';
+import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
@@ -13,6 +14,7 @@ const routes: Routes = [
   },
   { path: 'err', component: ErrorComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthService] },
+  {path:'blog/:id',component:BlogPreviewComponent}
   { path: '**', component: ErrorComponent }
 ];
 
