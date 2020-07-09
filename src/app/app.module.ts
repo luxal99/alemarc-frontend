@@ -14,9 +14,12 @@ import { LoginComponent } from './login/login.component';
 import { ChangeLoginComponent } from './admin/change-login/change-login.component';
 import { LoginRoutingModule } from "./login/login.module";
 import { ChartsModule } from 'ng2-charts';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { AddTechnologyDialogComponent } from './admin/add-technology-dialog/add-technology-dialog.component';
+import { ErrorComponent } from './error/error.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,8 @@ import { AddTechnologyDialogComponent } from './admin/add-technology-dialog/add-
     LoginComponent,
     AdminComponent,
     ChangeLoginComponent,
-    AddTechnologyDialogComponent
+    AddTechnologyDialogComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +42,17 @@ import { AddTechnologyDialogComponent } from './admin/add-technology-dialog/add-
     HttpClientModule,
     CKEditorModule,
     MaterialModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAz8PX_PdPZo7WmWuxLYVMDiJUOozl0Fn4",
+      authDomain: "soy-smile-249718.firebaseapp.com",
+      databaseURL: "https://soy-smile-249718.firebaseio.com",
+      projectId: "soy-smile-249718",
+      storageBucket: "soy-smile-249718.appspot.com",
+      messagingSenderId: "870517553704",
+      appId: "1:870517553704:web:d238ce266071d519f8131d",
+      measurementId: "G-JGV7HTSL0B"
+    }),
     BrowserAnimationsModule
   ],
   providers: [HttpClientModule,

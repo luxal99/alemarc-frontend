@@ -64,3 +64,18 @@ li {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
 }
+
+.uploadfilecontainer {
+    background-image: url("../../assets/img/upload-png-upload-icon-512.png");
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.upload-btn {
+    margin-left: 1em;
+    font-size: 30px;
+    color: #ffa900;
+}

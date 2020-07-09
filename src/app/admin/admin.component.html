@@ -13,18 +13,20 @@
                     <mat-horizontal-stepper [linear]="true" #stepper style="background-color: #222;">
                         <mat-step [stepControl]="">
                             <div style="padding-top: 2em;padding-bottom: 2em;">
-                                <div>
-                                    <mat-form-field appearance="standard" style="width: 80%;">
-                                        <mat-label>Header</mat-label>
-                                        <input matInput>
-                                    </mat-form-field>
-                                </div>
-                                <div>
-                                    <mat-form-field appearance="standard" style="width: 80%;">
-                                        <mat-label>Short header</mat-label>
-                                        <input matInput type="password">
-                                    </mat-form-field>
-                                </div>
+                                <form [formGroup]="blogHeadersForm">
+                                    <div>
+                                        <mat-form-field appearance="standard" style="width: 80%;">
+                                            <mat-label>Header</mat-label>
+                                            <input formControlName="header" matInput>
+                                        </mat-form-field>
+                                    </div>
+                                    <div>
+                                        <mat-form-field appearance="standard" style="width: 80%;">
+                                            <mat-label>Short header</mat-label>
+                                            <input formControlName="shortText" matInput type="text">
+                                        </mat-form-field>
+                                    </div>
+                                </form>
                                 <div>
                                     <button mat-raised-button (click)="stepper.next()" color="primary" style="width: 40%;">NEXT</button>
                                 </div>
@@ -43,17 +45,31 @@
                         </mat-step>
 
                         <mat-step [stepControl]="">
-                            <h1 class="blog-h1">Images</h1>
+                            <form [formGroup]="imageForm">
+                                <h1 class="blog-h1">Images</h1>
 
-                            <mat-divider></mat-divider>
-                            <div style="padding-top: 2em;">
-                                <input type="file" style="border: 0 !important;" multiple />
-                            </div>
+                                <mat-divider></mat-divider>
+                                <div style="padding-top: 2em;">
+                                    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="addFiles($event)">
+                                        <input hidden type="file" #fileInput multiple (change)="addFiles($event.target.files)">
+                                    </div>
 
-                            <div style="padding-top: 2em;">
-                                <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">back</button>
-                                <button mat-raised-button (click)="stepper.next()" style="width: 40%;margin-left: 1em;background-color: #ffa900;">next</button>
-                            </div>
+                                </div>
+
+                                <div class="text-left" style="margin-bottom: 1em;">
+                                    <mat-slide-toggle #toggle id="toggle" formControlName="isUploaded" [style.color]="isReady ? 'red':'#4BB543' ">{{isReady}}</mat-slide-toggle>
+                                    <button class="upload-btn" mat-icon-button (click)="uploadFiles()"><mat-icon>cloud_upload</mat-icon></button>
+                                </div>
+                                <div class="text-left">
+                                    <mat-progress-bar mode="determinate" [value]="percentage"></mat-progress-bar><br>
+                                </div>
+
+
+                                <div style="padding-top: 2em;">
+                                    <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">back</button>
+                                    <button mat-raised-button (click)="stepper.next()" style="width: 40%;margin-left: 1em;background-color: #ffa900;">next</button>
+                                </div>
+                            </form>
                         </mat-step>
                         <mat-step>
                             <ng-template matStepLabel>Done</ng-template>
@@ -61,13 +77,13 @@
                                 <h1 class="blog-h1 technology-a">Technologies</h1>
                             </a>
                             <li *ngFor="let tech of listOfTechnology">
-                                <mat-checkbox>
+                                <mat-checkbox (change)="addTechnology($event,tech)">
                                     {{tech.title}}
                                 </mat-checkbox>
                             </li>
                             <div>
                                 <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">BACK</button>
-                                <button mat-raised-button style="width: 40%;margin-left: 1em;background-color: #ffa900;">SAVE</button>
+                                <button mat-raised-button style="width: 40%;margin-left: 1em;background-color: #ffa900;" (click)="save()">SAVE</button>
                             </div>
                         </mat-step>
                     </mat-horizontal-stepper>

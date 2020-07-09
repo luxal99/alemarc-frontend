@@ -4,13 +4,16 @@ import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';;
 import { AuthService } from "./service/auth.service";
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
   {
-    path: 'login',component:LoginComponent,
+    path: 'login', component: LoginComponent,
   },
-  { path: 'admin', component: AdminComponent, canActivate: [AuthService] }
+  { path: 'err', component: ErrorComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthService] },
+  { path: '**', component: ErrorComponent }
 ];
 
 
