@@ -4,23 +4,25 @@
         <mat-divider></mat-divider>
 
         <div class="container text-center">
-            <div style="padding-top: 2em;padding-bottom: 2em;">
-                <div>
-                    <mat-form-field appearance="standard" style="width: 80%;">
-                        <mat-label>Username</mat-label>
-                        <input matInput>
-                    </mat-form-field>
+            <form [formGroup]="loginForm">
+                <div style="padding-top: 2em;padding-bottom: 2em;">
+                    <div>
+                        <mat-form-field appearance="standard" style="width: 80%;">
+                            <mat-label>Username</mat-label>
+                            <input formControlName="username" matInput>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="standard" style="width: 80%;">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" type="password">
+                        </mat-form-field>
+                    </div>
                 </div>
-                <div>
-                    <mat-form-field appearance="standard" style="width: 80%;">
-                        <mat-label>Password</mat-label>
-                        <input matInput type="password">
-                    </mat-form-field>
+                <div class="text-center">
+                    <button class="login-btn" (click)="login()">LOGIN</button>
                 </div>
-            </div>
-            <div class="text-center">
-                <button class="login-btn">LOGIN</button>
-            </div>
+            </form>
         </div>
     </div>
 </div>

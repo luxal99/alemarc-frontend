@@ -3,12 +3,8 @@ import { MatSidenav, MatDialog, MatSnackBar } from '@angular/material';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MessagePreviewDialogComponent } from './message-preview-dialog/message-preview-dialog.component';
 import * as $ from 'jquery';
-import { AdminService } from '../service/admin.service';
-import { OrderPreviewComponent } from './order-preview/order-preview.component';
 import { Router } from '@angular/router';
-import { ChangeLoginComponent } from './change-login/change-login.component';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
@@ -48,7 +44,7 @@ export class AdminComponent implements OnInit {
   listOfOrder: any = [];
   listOfMail: any = [];
 
-  constructor(public dialog: MatDialog, public adminService: AdminService, private router: Router, public _snackBar: MatSnackBar) {
+  constructor(public dialog: MatDialog, private router: Router, public _snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
