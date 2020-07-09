@@ -7,10 +7,17 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 })
 export class AuthService implements CanActivate {
 
+
+  token: string = '$2b$10$A2egROl0y7Ke8Fap9ZKywujqmLzIJvnNzsiZ/20GOPswgsu5QTfcu';
+
   constructor(private http: HttpClient, private router: Router) { }
 
   auth(user: User) {
     return this.http.post("/user/auth", user, { responseType: 'text' });
+  }
+
+  isValid(token: string) {
+    if(token === this.token) return true;
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
 import { AuthService } from '../service/auth.service';
 import { User } from '../model/User';
-import { error } from 'console';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +16,6 @@ export class LoginComponent implements OnInit {
     username: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required)
   })
-
-
-
 
   constructor(public router: Router, private authService: AuthService, public _snackBar: MatSnackBar) { }
 

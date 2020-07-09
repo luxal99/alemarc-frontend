@@ -8,23 +8,7 @@ import { Router } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
-
-export interface Mail {
-  id: number;
-  id_client: Client;
-  subject: string;
-  message: string;
-}
-
-export class Client {
-
-}
-
-export interface Order {
-  id: number;
-  name: string;
-  lastname: string;
-}
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-admin',
@@ -40,15 +24,11 @@ export class AdminComponent implements OnInit {
   description = '';
 
 
-  listOfMessages: any = [];
-  listOfOrder: any = [];
-  listOfMail: any = [];
-
-  constructor(public dialog: MatDialog, private router: Router, public _snackBar: MatSnackBar) {
+  constructor(public dialog: MatDialog,private authService:AuthService, private router: Router, public _snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
-
+    this.isValid();
   }
 
 
@@ -66,6 +46,10 @@ export class AdminComponent implements OnInit {
     } else {
       x.style.display = "none";
     }
+  }
+
+  isValid(){
+    if(!this.authService.isValid(localStorage.getItem("token"))) this.router.navigate(['/'])
   }
 
 

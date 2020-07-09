@@ -27,6 +27,11 @@ mat-divider {
     background-color: #333 !important;
 }
 
+::ng-deep.mat-form-field-underline:hover {
+    /*change color of underline*/
+    background-color: #999 !important;
+}
+
 mat-label {
     color: #ffa900;
     font-size: 15px;
