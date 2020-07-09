@@ -1,19 +1,15 @@
 <div style="background-color: #121212;padding: 2em;">
     <div style="padding-top: 2em;padding-bottom: 2em;">
-        <div>
-            <mat-form-field appearance="standard" style="width: 100%;">
-                <mat-label>Username</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="standard" style="width: 100%;">
-                <mat-label>Password</mat-label>
-                <input matInput type="password">
-            </mat-form-field>
-        </div>
-        <div class="text-center">
-            <button mat-raised-button style="width: 100%;background-color: #FFA900;">SAVE</button>
-        </div>
+        <form [formGroup]="techForm">
+            <div>
+                <mat-form-field appearance="standard" style="width: 100%;">
+                    <mat-label>Username</mat-label>
+                    <input formControlName="title" matInput>
+                </mat-form-field>
+            </div>
+            <div class="text-center">
+                <button mat-raised-button (click)="save()" style="width: 100%;background-color: #FFA900;">SAVE</button>
+            </div>
+        </form>
     </div>
 </div>

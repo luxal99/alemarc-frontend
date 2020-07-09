@@ -60,6 +60,11 @@
                             <a class="technology-a" (click)="openAddTechDialog()">
                                 <h1 class="blog-h1 technology-a">Technologies</h1>
                             </a>
+                            <li *ngFor="let tech of listOfTechnology">
+                                <mat-checkbox>
+                                    {{tech.title}}
+                                </mat-checkbox>
+                            </li>
                             <div>
                                 <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">BACK</button>
                                 <button mat-raised-button style="width: 40%;margin-left: 1em;background-color: #ffa900;">SAVE</button>

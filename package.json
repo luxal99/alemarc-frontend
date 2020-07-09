@@ -23,6 +23,7 @@
     "@angular/router": "~8.2.14",
     "@ckeditor/ckeditor5-angular": "^1.2.3",
     "@ckeditor/ckeditor5-build-classic": "^18.0.0",
+    "angularfire2": "^5.4.2",
     "aos": "^2.3.4",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",

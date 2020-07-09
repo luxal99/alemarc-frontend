@@ -9,6 +9,8 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
 import { AuthService } from '../service/auth.service';
+import { TechnologyService } from '../service/technology.service';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-admin',
@@ -24,11 +26,14 @@ export class AdminComponent implements OnInit {
   description = '';
 
 
-  constructor(public dialog: MatDialog,private authService:AuthService, private router: Router, public _snackBar: MatSnackBar) {
+  listOfTechnology: any = [];
+
+  constructor(public dialog: MatDialog, private technologyService: TechnologyService, private authService: AuthService, private router: Router, public _snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
     this.isValid();
+    this.getTechnology();
   }
 
 
@@ -48,8 +53,17 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  isValid(){
-    if(!this.authService.isValid(localStorage.getItem("token"))) this.router.navigate(['/'])
+  isValid() {
+    if (!this.authService.isValid(localStorage.getItem("token"))) this.router.navigate(['/'])
+  }
+
+  getTechnology() {
+    this.technologyService.getAll().subscribe(data => {
+      this.listOfTechnology = data;
+      
+    }, error => {
+
+    })
   }
 
 

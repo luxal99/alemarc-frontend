@@ -48,3 +48,19 @@ button {
     color: #eee;
     transition: .5s;
 }
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: #ffa900;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #ffa900 !important;
+}
+
+li {
+    color: #eee;
+    list-style-type: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
