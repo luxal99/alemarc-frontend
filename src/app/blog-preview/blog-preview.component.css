@@ -1,0 +1,63 @@
+.header {
+    height: 80vh;
+    background-color: #121212;
+    background-repeat: no-repeat;
+    background-size: 1920px;
+}
+
+.navbar a {
+    color: #e1e1e1 !important;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.navbar {
+    padding-top: 3em;
+    padding-left: 3em;
+}
+
+.header h1 {
+    font-family: 'Righteous', cursive;
+    color: #ffa900;
+    font-size: 80px;
+    padding-top: 2em;
+}
+
+h5,
+h3 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+h5 {
+    color: #e1e1e1;
+}
+
+.header-container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+ul li::before {
+    content: "\2022";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #ffa900 !important;
+    /* Change the color */
+    font-weight: bold;
+    /* If you want it to be bold */
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1em;
+    /* Also needed for space (tweak if needed) */
+    margin-left: -1em;
+    /* Also needed for space (tweak if needed) */
+}
+
+.slider-img {
+    -webkit-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
+    vertical-align: auto !important;
+    width: 600px;
+    opacity: .7;
+}

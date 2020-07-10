@@ -34,7 +34,7 @@ export class AdminComponent implements OnInit {
   percentage = 0;
 
   listOfTechnology: Array<Technology> = [];
-  selectedTechnology = new Set();
+  selectedTechnology = new Set<Technology>();
   listOfImages: Array<Image> = [];
   fileUploadList: Array<File> = [];
 
@@ -148,12 +148,15 @@ export class AdminComponent implements OnInit {
 
     let blog = new Blog();
 
+
     blog.header = this.blogHeadersForm.get("header").value;
     blog.shortText = this.blogHeadersForm.get("shortText").value;
     blog.listOfImages = this.listOfImages;
-    blog.listOfTechnologies = this.selectedTechnology;
+    blog.listOfTechnologies = Array.from(this.selectedTechnology)
     blog.longText = this.editorComponent.editorInstance.getData();
 
+    console.log(blog.listOfTechnologies);
+    
     this.blogService.save(blog).subscribe(data => {
       console.log(data);
 

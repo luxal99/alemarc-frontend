@@ -14,6 +14,10 @@ export class FactoryService<T> {
     return this.http.post(`${this.route}`, entity, { responseType: 'text' });
   }
 
+  findById(id){
+    return this.http.get(`${this.route}/`+id,{responseType:'json'})
+  }
+
   getAll(){
     return this.http.get(`${this.route}`,{responseType:'json'});
   }

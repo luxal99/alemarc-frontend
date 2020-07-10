@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   { path: 'err', component: ErrorComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthService] },
-  {path:'blog/:id',component:BlogPreviewComponent}
+  { path: 'blog/:id', component: BlogPreviewComponent },
   { path: '**', component: ErrorComponent }
 ];
 
