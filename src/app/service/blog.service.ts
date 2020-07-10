@@ -7,4 +7,8 @@ import { Blog } from '../model/Blog';
 export class BlogService extends FactoryService<Blog> {
 
   route = 'blog'
+
+  getMostPopular(){
+    return this.http.post(`/${this.route}/popular`,{responseType:'json'});
+  }
 }

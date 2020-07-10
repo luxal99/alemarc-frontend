@@ -4,6 +4,7 @@ import { Blog } from '../model/Blog';
 import { BlogService } from '../service/blog.service';
 
 import Swiper, { SwiperOptions } from 'swiper';
+import { asLiteral } from '@angular/compiler/src/render3/view/util';
 @Component({
   selector: 'app-blog-preview',
   templateUrl: './blog-preview.component.html',
@@ -15,12 +16,21 @@ export class BlogPreviewComponent implements OnInit {
 
   ngOnInit() {
     this.findBlog();
+    this.getAll();
+    this.getPopular();
+
+    window.scrollTo(0,0)
   }
 
+  listOfBlogs: Array<Blog> = [];
+  popularBlogs: any = [];
+  listOfTechnologies: any = [];
+  listOfImages: any = [];
+
   config: SwiperOptions = {
-    slidesPerView: 3,
+    slidesPerView: 2,
     spaceBetween: 100,
-    slidesPerGroup: 3,
+    slidesPerGroup: 2,
     loop: true,
     loopFillGroupWithBlank: false,
     pagination: {
@@ -33,19 +43,40 @@ export class BlogPreviewComponent implements OnInit {
     }
   }
 
-  blog: Blog;
+  blog;
   background = '';
+  header;
+  shortText;
+  longText;
 
   findBlog() {
     this.route.params.subscribe(params => {
       this.blogService.findById(params.id).subscribe(data => {
-        this.blog = JSON.parse(JSON.stringify(data)) as Blog;
+        this.blog = data
         this.background = this.blog.listOfImages[0].url;
-        console.log(this.blog);
-        
+
+        this.listOfTechnologies = this.blog.listOfTechnologies;
+        this.listOfImages = this.blog.listOfImages;
+        this.header = this.blog.header;
+        this.longText = this.blog.longText;
+        this.shortText = this.blog.shortText;
       })
     })
 
+  }
+
+  getAll() {
+    this.blogService.getAll().subscribe(data => {
+      this.listOfBlogs = JSON.parse(JSON.stringify(data)) as Array<Blog>
+    })
+  }
+
+  getPopular() {
+    this.blogService.getMostPopular().subscribe(data => {
+      this.popularBlogs = JSON.parse(JSON.stringify(data)) as Array<Blog>;
+      console.log(data);
+      
+    })
   }
 
 }

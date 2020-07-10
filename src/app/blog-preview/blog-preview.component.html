@@ -1,4 +1,4 @@
-<div class="header" [ngStyle]="{ 'background-image': 'url(' + background + ')'}">
+<div>
     <nav class="navbar navbar-expand-lg ">
         <a class="navbar-brand" href="#"><img src="../../assets/img/1200px-Code 1.png" class="img-fluid" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,48 +10,105 @@
                 <a class="nav-item nav-link" href="#">Features</a>
                 <a class="nav-item nav-link" href="#">Pricing</a>
                 <a class="nav-item nav-link disabled" href="#">Disabled</a>
+
+
             </div>
         </div>
     </nav>
-    <div class="text-center">
-        <h1>{{blog.header}}</h1>
-    </div>
-</div>
 
-<div class="header-container" style="padding-top: 5em;">
-    <div class="row">
-        <div class="col-sm-2" *ngFor="let tech of blog.listOfTechnologies">
-            <h3 style="color: #eee;"><i class="fa fa-arrow-circle-right" style="color: #ffa900;" aria-hidden="true"></i> {{tech.title}}</h3>
+    <div class="row" style="padding-top: 5em;">
+        <div class="col-sm-4">
+            <div class="header text-center header-container">
+                <div style="padding-top: 7em;">
+                    <h4 class="text-left">{{shortText}}</h4>
+                    <h1>{{header}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4" *ngFor="let tech of listOfTechnologies;let i = index" [attr.data-index]="i">
+                        <h3 style="color: #eee;"><i class="fa fa-arrow-circle-right" style="color: #ffa900;" aria-hidden="true"></i> {{tech.title}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm" style="border-left: 1px solid #ffa900;">
+            <div class="container">
+                <swiper [config]="config" style="margin-top: 5em;">
+
+                    <div class="swiper-wrapper product-slider-container">
+
+                        <div class="swiper-slide slider" *ngFor="let image of listOfImages">
+                            <a routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
+                                <div class="img-container">
+                                    <img class="slider-img" id="slider-img" src="{{image.url}} " />
+
+
+                                    <div>
+                                        <!-- <button class="border-btn-orange " routerLink="/detail/{{product.idProduct}} " routerLinkActive="router-link-active " mat-button>Detail</button>
+                                    <button mat-button class="full-btn-orange " (click)="addToCart(product) ">Add to card</button> -->
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Add Arrows -->
+
+                </swiper>
+            </div>
         </div>
     </div>
-    <mat-divider style="border-top-color: #333;"></mat-divider>
-    <div style="padding-top: 5em;">
-        <h5 [innerHTML]="blog.longText"></h5>
+
+    <div class="header-container" style="padding-top: 15em;">
+
+        <h1>Read.</h1>
+        <mat-divider style="border-top-color: #333;"></mat-divider>
+        <div style="padding-top: 5em;">
+            <h5 [innerHTML]="longText"></h5>
+        </div>
     </div>
-</div>
 
-<div>
-    <swiper [config]="config" style="margin-top: 5em;">
+    <div class="header-container" style="padding-top: 5em;">
+        <div class="row">
+            <div class="col-sm-6" *ngFor="let image of listOfImages">
+                <img src="{{image.url}}" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
 
-        <div class="swiper-wrapper product-slider-container">
-
-            <div class="swiper-slide slider" *ngFor="let image of blog.listOfImages">
-                <a routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
-                    <div class="img-container">
-                        <img class="slider-img" id="slider-img" src="{{image.url}} " />
-
-
-                        <div>
-                            <!-- <button class="border-btn-orange " routerLink="/detail/{{product.idProduct}} " routerLinkActive="router-link-active " mat-button>Detail</button>
-                        <button mat-button class="full-btn-orange " (click)="addToCart(product) ">Add to card</button> -->
+    <div class="header-container" style="padding-top: 15em;">
+        <div class="text-right">
+            <h1 style="color: #0011FF;">Most popular works</h1>
+            <mat-divider style="border-top-color: #333;"></mat-divider>
+            <div class="row" style="padding-top: 5em;">
+                <div class="col-sm" *ngFor="let popular of popularBlogs">
+                    <div class="popular-blog-figure">
+                        <img src="{{popular.url}}" alt="" class="img-fluid">
+                        <div class="blog-figure-content text-left">
+                            <h4>{{popular.shortText}}</h4>
+                            <h2 style="color: #0011FF;">{{popular.header}}</h2>
+                            <div class="row">
+                                <div class="col-sm btn-col text-left">
+                                    <div>
+                                        <button class="blog-content-btn">VIEW</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="text-right">
+                                        <h4><i class="fa fa-eye" aria-hidden="true"></i> {{popular.numberOfViews}}</h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-
         </div>
+    </div>
 
-        <!-- Add Arrows -->
 
-    </swiper>
+
+    <div style="padding-top: 20%;padding-bottom: 5em;">
+        <app-footer></app-footer>
+    </div>
 </div>
