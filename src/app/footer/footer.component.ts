@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
 import { FooterTranslate } from '../translate/footer';
+import { MessageService } from '../service/message.service';
+import { Message } from 'src/app/model/Message';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -10,7 +13,7 @@ import { FooterTranslate } from '../translate/footer';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(public _snackBar: MatSnackBar) {
+  constructor(public _snackBar: MatSnackBar, private messageService: MessageService,private router:Router) {
 
 
   }
@@ -23,7 +26,7 @@ export class FooterComponent implements OnInit {
     localStorage.getItem('language');
     this.language = localStorage.getItem('language');
   }
- 
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
@@ -31,16 +34,20 @@ export class FooterComponent implements OnInit {
   }
 
   sendMessageForm = new FormGroup({
-    name: new FormControl(""),
-    lastname: new FormControl(""),
-    mail: new FormControl(""),
-    subject: new FormControl(""),
-    message: new FormControl("")
+    full_name: new FormControl(""),
+    email: new FormControl(""),
+    message: new FormControl(""),
   });
 
   sendMessage() {
-
-
+    const message = new Message(this.sendMessageForm.get("full_name").value, this.sendMessageForm.get("email").value, this.sendMessageForm.get("message").value);
+    
+    
+    this.messageService.save(message).subscribe(data=>{
+        console.log(data);
+    },err=>{
+      this.router.navigate(['/err']);
+    })
   }
 
 }

@@ -2,24 +2,26 @@
     <div class="text-center footer-container ">
         <h1 class="text-left">Contact us.</h1>
         <mat-divider></mat-divider>
-        <div class="row text" style="padding-top: 2em;">
-            <mat-form-field class="example-full-width" style="width: 48%;">
-                <mat-label>Full name</mat-label>
-                <input matInput value="">
-            </mat-form-field>
-            <mat-form-field class="example-full-width" style="width: 48%;margin-left: 2%;">
-                <mat-label>Email</mat-label>
-                <input matInput value="">
-            </mat-form-field>
-        </div>
-        <div style="width: 100%;">
-            <mat-form-field class="example-full-width" style="width: 100%;">
-                <mat-label>Message</mat-label>
-                <input matInput value="">
-            </mat-form-field>
-        </div>
-        <div class="text-center">
-            <button class="sub-btn">SUBMIT</button>
-        </div>
+        <form [formGroup]="sendMessageForm">
+            <div class="row text" style="padding-top: 2em;">
+                <mat-form-field class="example-full-width" style="width: 48%;">
+                    <mat-label>Full name</mat-label>
+                    <input formControlName="full_name" matInput value="">
+                </mat-form-field>
+                <mat-form-field class="example-full-width" style="width: 48%;margin-left: 2%;">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput value="">
+                </mat-form-field>
+            </div>
+            <div style="width: 100%;">
+                <mat-form-field class="example-full-width" style="width: 100%;">
+                    <mat-label>Message</mat-label>
+                    <input formControlName="message" matInput value="">
+                </mat-form-field>
+            </div>
+            <div class="text-center">
+                <button class="sub-btn" (click)="sendMessage()">SUBMIT</button>
+            </div>
+        </form>
     </div>
 </div>

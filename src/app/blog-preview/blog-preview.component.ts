@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Blog } from '../model/Blog';
 import { BlogService } from '../service/blog.service';
 
@@ -12,14 +12,14 @@ import { asLiteral } from '@angular/compiler/src/render3/view/util';
 })
 export class BlogPreviewComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private blogService: BlogService) { }
+  constructor(private route: ActivatedRoute, private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
     this.findBlog();
     this.getAll();
     this.getPopular();
 
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
   }
 
   listOfBlogs: Array<Blog> = [];
@@ -44,10 +44,12 @@ export class BlogPreviewComponent implements OnInit {
   }
 
   blog;
+  id;
   background = '';
   header;
   shortText;
   longText;
+  numberOfViews;
 
   findBlog() {
     this.route.params.subscribe(params => {
@@ -60,6 +62,15 @@ export class BlogPreviewComponent implements OnInit {
         this.header = this.blog.header;
         this.longText = this.blog.longText;
         this.shortText = this.blog.shortText;
+        this.numberOfViews = this.blog.numberOfViews;
+        this.id = this.blog.id;
+
+        this.blogService.incrementView(this.blog).subscribe(data => {
+          console.log(data);
+
+        }, err => {
+          this.router.navigate(['/err']);
+        })
       })
     })
 
@@ -75,7 +86,7 @@ export class BlogPreviewComponent implements OnInit {
     this.blogService.getMostPopular().subscribe(data => {
       this.popularBlogs = JSON.parse(JSON.stringify(data)) as Array<Blog>;
       console.log(data);
-      
+
     })
   }
 
