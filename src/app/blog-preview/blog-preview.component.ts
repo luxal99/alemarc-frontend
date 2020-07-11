@@ -15,11 +15,10 @@ export class BlogPreviewComponent implements OnInit {
   constructor(private route: ActivatedRoute, private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
+    this.topBlog()
     this.findBlog();
     this.getAll();
     this.getPopular();
-
-    window.scrollTo(0, 0)
   }
 
   listOfBlogs: Array<Blog> = [];
@@ -88,6 +87,10 @@ export class BlogPreviewComponent implements OnInit {
       console.log(data);
 
     })
+  }
+
+  topBlog(){
+    window.scrollTo(0, 0)
   }
 
 }

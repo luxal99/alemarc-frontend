@@ -173,6 +173,30 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row" style="padding-top: 10em;">
+                    <div class="col-sm-3" *ngFor="let popular of listOfBlogs|slice:7">
+                        <div class="popular-blog-figure">
+                            <img src="{{popular.listOfImages[0].url}}" alt="" class="img-fluid">
+                            <div class="blog-figure-content text-left">
+                                <h4>{{popular.shortText}}</h4>
+                                <h2 style="color: #0011FF;">{{popular.header}}</h2>
+                                <div class="row">
+                                    <div class="col-sm btn-col text-left">
+                                        <div>
+                                            <button class="blog-content-btn" routerLink="/blog/{{popular.id}}" routerLinkActive="router-link-active" (click)="topBlog()">VIEW</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="text-right">
+                                            <h4><i class="fa fa-eye" aria-hidden="true"></i> {{popular.numberOfViews}}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
