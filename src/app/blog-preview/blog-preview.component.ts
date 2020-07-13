@@ -41,6 +41,21 @@ export class BlogPreviewComponent implements OnInit {
       prevEl: '.swiper-button-prev',
     }
   }
+  mobileConfig: SwiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 100,
+    slidesPerGroup: 1,
+    loop: true,
+    loopFillGroupWithBlank: false,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  }
 
   blog;
   id;

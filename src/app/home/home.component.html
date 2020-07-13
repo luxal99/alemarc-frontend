@@ -34,7 +34,7 @@
                             <h1 class="fasfa" style="padding-left: 2em;"><i class="fa fa-envelope" aria-hidden="true"></i> Email</h1>
                         </div>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-sm-7 construction-img">
                         <img src="../../assets/img/header-right.png" alt="" class="img-fluid">
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <h4 class="blog-h4">Lorem ipsum dolor nunc</h4>
                 </div>
             </div>
-            <swiper [config]="config" style="margin-top: 5em;">
+            <swiper [config]="config" style="margin-top: 5em;" class="desktop-slider">
 
                 <div class="swiper-wrapper product-slider-container">
 
@@ -78,7 +78,7 @@
                 <!-- Add Arrows -->
 
             </swiper>
-            <swiper [config]="mobileConfig" style="margin-top: 5em;display: none;" class="mobile-slider">
+            <swiper [config]="mobileConfig" style="margin-top: 5em; display: none;" class="mobile-slider">
 
                 <div class="swiper-wrapper product-slider-container">
 
@@ -132,17 +132,17 @@
                                     <h4 class="text-left blog-small-preview-h4">{{blog.shortText}}</h4>
                                     <p style="font-size: 5px;">{{blog.longText}}</p>
 
-                                    <div class="row">
-                                        <div class="col-sm">
+                                <div class="row"> 
+                                        <div class="col">
                                             <img src="{{blog.listOfImages[1].url}} " alt="" class="img-fluid small-img">
                                         </div>
-                                        <div class="col-sm">
+                                        <div class="col">
                                             <img src="{{blog.listOfImages[2].url}} " alt="" class="img-fluid small-img">
                                         </div>
                                         <div class="col-sm">
                                             <img src="{{blog.listOfImages[3].url}} " alt="" class="img-fluid small-img">
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
                             </div>
 
@@ -293,6 +293,9 @@
         <div class="about-div ">
             <div class="header-container ">
                 <div class="row ">
+                    <div class="col-sm-5 text-center marko-img" style="display: none;">
+                        <img src="../../assets/img/marko.jpeg " alt=" " class="img-fluid bio-img-blue ">
+                    </div>
                     <div class="col-sm text-left ">
                         <h3 class="bio-h3 " style="color: #0011FF !important; ">My name is</h3>
                         <h1 class="bio-h1 ">Marko</h1>
@@ -337,7 +340,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5 text-center ">
+                    <div class="col-sm-5 text-center marko-imgDef">
                         <img src="../../assets/img/marko.jpeg " alt=" " class="img-fluid bio-img-blue ">
                     </div>
 
