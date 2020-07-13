@@ -1,14 +1,25 @@
 <mat-drawer-container class="example-container" value="true">
-    <mat-drawer #drawer mode="over" class="sidenav-content zoom">
-
+    <mat-drawer #drawer mode="over" class="sidenav-content zoom" style="width: 100%;">
+        <div class="navbar-nav side-menu">
+            <div class="text-right">
+                <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
+                    <i class="fa fa-close" style="color: #121212;"></i>
+                  </button>
+            </div>
+            <div style="padding-top: 10em;">
+                <a class="nav-item nav-link active">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Works</a>
+                <a class="nav-item nav-link" (click)="scrollToElement('contact')">Contact</a>
+            </div>
+        </div>
     </mat-drawer>
     <mat-drawer-content>
 
         <div class="header">
             <nav class="navbar navbar-expand-lg ">
                 <a class="navbar-brand" href="#"><img src="../../assets/img/1200px-Code 1.png" class="img-fluid" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
+                <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
+                  <i class="fa fa-align-right" style="color: #ffa900;"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
@@ -132,7 +143,7 @@
                                     <h4 class="text-left blog-small-preview-h4">{{blog.shortText}}</h4>
                                     <p style="font-size: 5px;">{{blog.longText}}</p>
 
-                                <div class="row"> 
+                                    <div class="row">
                                         <div class="col">
                                             <img src="{{blog.listOfImages[1].url}} " alt="" class="img-fluid small-img">
                                         </div>
@@ -142,7 +153,7 @@
                                         <div class="col-sm">
                                             <img src="{{blog.listOfImages[3].url}} " alt="" class="img-fluid small-img">
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
 
@@ -213,7 +224,7 @@
                                 <div class="row">
                                     <div class="col-sm btn-col text-left">
                                         <div>
-                                            <button class="blog-content-btn" routerLink="/blog/{{popular.id}}" routerLinkActive="router-link-active" (click)="topBlog()">VIEW</button>
+                                            <button class="blog-content-btn" routerLink="/blog/{{popular.id}}" routerLinkActive="router-link-active">VIEW</button>
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -334,7 +345,7 @@
                                     </ul>
                                 </div>
                                 <div class="col-sm ">
-                                    <canvas baseChart [datasets]="barChartDataBackend " [labels]="barChartLabelsBackend " [options]="barChartOptions " [plugins]="barChartPlugins " [legend]="barChartLegend " [chartType]="pieChartType ">
+                                    <canvas baseChart [datasets]="barChartDataMarko" [labels]="barChartLabelsBackend " [options]="barChartOptions " [plugins]="barChartPlugins " [legend]="barChartLegend " [chartType]="pieChartType ">
                                         </canvas>
                                 </div>
                             </div>
@@ -348,7 +359,7 @@
             </div>
         </div>
 
-        <app-footer></app-footer>
+        <app-footer id="contact"></app-footer>
 
     </mat-drawer-content>
 </mat-drawer-container>

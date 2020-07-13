@@ -57,6 +57,9 @@ export class BlogPreviewComponent implements OnInit {
     }
   }
 
+
+
+
   blog;
   id;
   background = '';
@@ -104,7 +107,7 @@ export class BlogPreviewComponent implements OnInit {
     })
   }
 
-  topBlog(){
+  topBlog() {
     window.scrollTo(0, 0)
   }
 

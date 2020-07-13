@@ -35,8 +35,10 @@ export class HomeComponent implements OnInit {
   pieChartType: ChartType = 'pie';
   taskGraphList: any = [];
 
-  barChartData: ChartDataSets[] = [{ data: [8, 10, 9, 7], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
-  barChartDataBackend: ChartDataSets[] = [{ data: [60, 40], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }];
+  barChartData: ChartDataSets[] = [{ data: [8, 10, 9, 7], backgroundColor: ['#EC6B56', "#ffa900", "#47B39C"] }];
+  barChartDataBackend: ChartDataSets[] = [{ data: [60, 40], backgroundColor: ['#EC6B56', "#ffa900", "#47B39C"] }];
+
+  barChartDataMarko: ChartDataSets[] = [{ data: [30, 70], backgroundColor: ['#EC6B56', "#ffa900", "#47B39C"] }];
 
 
   config: SwiperOptions = {
