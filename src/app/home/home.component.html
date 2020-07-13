@@ -71,7 +71,37 @@
                         </a>
                     </div>
 
+
                 </div>
+
+
+                <!-- Add Arrows -->
+
+            </swiper>
+            <swiper [config]="mobileConfig" style="margin-top: 5em;display: none;" class="mobile-slider">
+
+                <div class="swiper-wrapper product-slider-container">
+
+                    <div class="swiper-slide slider" *ngFor="let blog of listOfBlogs|slice:0:3; let i = index" [attr.data-index]="i">
+                        <a routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
+                            <div class="img-container">
+                                <div style="padding-bottom: 1em;">
+                                    <h3 id="slider-h3" class="blog-slider-h3 text-center">{{blog.header}}</h3>
+                                </div>
+                                <img class="slider-img" id="slider-img" src="{{blog.listOfImages[0].url}} " />
+
+
+                                <div>
+                                    <!-- <button class="border-btn-orange " routerLink="/detail/{{product.idProduct}} " routerLinkActive="router-link-active " mat-button>Detail</button>
+                                <button mat-button class="full-btn-orange " (click)="addToCart(product) ">Add to card</button> -->
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
+
 
                 <!-- Add Arrows -->
 
@@ -229,7 +259,7 @@
                                         <li>NodeJS/Express</li>
                                         <li>JSP/ORM</li>
                                         <li>TypeScript</li>
-                                        
+
                                     </ul>
                                 </div>
 
@@ -266,7 +296,9 @@
                     <div class="col-sm text-left ">
                         <h3 class="bio-h3 " style="color: #0011FF !important; ">My name is</h3>
                         <h1 class="bio-h1 ">Marko</h1>
-                        <p class="bio-paragraf ">Hi, I’m Marko! I’m 21 years old, self-taught Web Developer, from Serbia. After my high school, I enrolled in information technology at Metropolitan University, where I continue to study. For whole year I create high number HTML & CSS websites following given designs. After a year of working, I started learning more advanced web programming technologies. The technologies that I learned:JavaScript, Angular, and PHP. Together, me, my colleague and our team, we will do our best to turn all your wishes into reality and bring you one step ahead of the competition.</p>
+                        <p class="bio-paragraf ">Hi, I’m Marko! I’m 21 years old, self-taught Web Developer, from Serbia. After my high school, I enrolled in information technology at Metropolitan University, where I continue to study. For whole year I create high number HTML
+                            & CSS websites following given designs. After a year of working, I started learning more advanced web programming technologies. The technologies that I learned:JavaScript, Angular, and PHP. Together, me, my colleague and our
+                            team, we will do our best to turn all your wishes into reality and bring you one step ahead of the competition.</p>
                         <div class="text-left ">
                             <div class="row ">
                                 <div class="col-sm ">
@@ -284,7 +316,7 @@
                                     <ul id="blue">
                                         <li>Java</li>
                                         <!-- <li>NodeJS</li> -->
-                                       <li>PHP</li>
+                                        <li>PHP</li>
                                     </ul>
                                 </div>
 
