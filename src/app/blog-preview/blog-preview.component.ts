@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Blog } from '../model/Blog';
 import { BlogService } from '../service/blog.service';
 
 import Swiper, { SwiperOptions } from 'swiper';
 import { asLiteral } from '@angular/compiler/src/render3/view/util';
+import { MatDrawer } from '@angular/material';
 @Component({
   selector: 'app-blog-preview',
   templateUrl: './blog-preview.component.html',
@@ -12,7 +13,9 @@ import { asLiteral } from '@angular/compiler/src/render3/view/util';
 })
 export class BlogPreviewComponent implements OnInit {
 
+
   constructor(private route: ActivatedRoute, private blogService: BlogService, private router: Router) { }
+
 
   ngOnInit() {
     this.topBlog()
@@ -110,5 +113,13 @@ export class BlogPreviewComponent implements OnInit {
   topBlog() {
     window.scrollTo(0, 0)
   }
+
+  scrollToElement($element): void {
+    $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+  
+  }
+
+  
+
 
 }

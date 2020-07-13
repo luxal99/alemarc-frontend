@@ -8,8 +8,8 @@
             </div>
             <div style="padding-top: 10em;">
                 <a class="nav-item nav-link active">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Works</a>
-                <a class="nav-item nav-link" (click)="scrollToElement(contact)">Contact</a>
+                <a class="nav-item nav-link" (click)="scrollToElement(work)"><a (click)="drawer.toggle()">Works</a></a>
+                <a class="nav-item nav-link" (click)="scrollToElement(contact)"><a (click)="drawer.toggle()">Contact</a></a>
             </div>
         </div>
     </mat-drawer>
@@ -215,7 +215,7 @@
                 </div>
 
                 <div class="row" style="padding-top: 10em;">
-                    <div class="col-sm-3 work-card" *ngFor="let popular of listOfBlogs|slice:7" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="2100">
+                    <div class="col-sm-3 work-card" *ngFor="let popular of listOfBlogs|slice:7">
                         <div class="popular-blog-figure">
                             <img src="{{popular.listOfImages[0].url}}" alt="" class="img-fluid">
                             <div class="blog-figure-content text-left">
