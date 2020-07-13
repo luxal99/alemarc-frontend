@@ -9,7 +9,7 @@
             </div>
             <div style="padding-top: 10em;">
                 <a class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
-                <a (click)="scrollToElement(about)"><a class="nav-item nav-link" (click)="drawer.toggle()">Works</a></a>
+                <a (click)="scrollToElement(work)"><a class="nav-item nav-link" (click)="drawer.toggle()">Works</a></a>
                 <a (click)="scrollToElement(contact)"><a class="nav-item nav-link" (click)="drawer.toggle()">Contact</a></a>
             </div>
         </div>
@@ -24,8 +24,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="nav-item nav-link active" style="color: #ffa900 !important;">Home <span class="sr-only">(current)</span></a>
-                        <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="nav-item nav-link" (click)="scrollToElement(work)">Works</a>
+                        <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="nav-item nav-link active" style="color: #ffa900 !important;" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
+                        <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="nav-item nav-link" (click)="scrollToElement(work)">Desctiption</a>
                         <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" class="nav-item nav-link" (click)="scrollToElement(contact)">Contact</a>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
 
 
 
-            <div class="header-container" #about style="padding-top: 15em;">
+            <div class="header-container" #work style="padding-top: 15em;">
 
                 <h1>Read.</h1>
                 <mat-divider style="border-top-color: #333;"></mat-divider>

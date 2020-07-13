@@ -86,7 +86,6 @@ export class BlogPreviewComponent implements OnInit {
         this.id = this.blog.id;
 
         this.blogService.incrementView(this.blog).subscribe(data => {
-          console.log(data);
 
         }, err => {
           this.router.navigate(['/err']);
@@ -105,8 +104,6 @@ export class BlogPreviewComponent implements OnInit {
   getPopular() {
     this.blogService.getMostPopular().subscribe(data => {
       this.popularBlogs = JSON.parse(JSON.stringify(data)) as Array<Blog>;
-      console.log(data);
-
     })
   }
 

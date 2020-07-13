@@ -159,11 +159,7 @@ export class AdminComponent implements OnInit {
     blog.listOfTechnologies = Array.from(this.selectedTechnology)
     blog.longText = this.editorComponent.editorInstance.getData();
 
-    console.log(blog.listOfTechnologies);
-    
     this.blogService.save(blog).subscribe(data => {
-      console.log(data);
-
     }, error => {
       this.router.navigate(['/err'])
     })

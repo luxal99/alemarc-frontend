@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(public _snackBar: MatSnackBar, private messageService: MessageService,private router:Router) {
+  constructor(public _snackBar: MatSnackBar, private messageService: MessageService, private router: Router) {
 
 
   }
@@ -40,12 +40,11 @@ export class FooterComponent implements OnInit {
   });
 
   sendMessage() {
+
     const message = new Message(this.sendMessageForm.get("full_name").value, this.sendMessageForm.get("email").value, this.sendMessageForm.get("message").value);
-    
-    
-    this.messageService.save(message).subscribe(data=>{
-        console.log(data);
-    },err=>{
+
+    this.messageService.save(message).subscribe(data => {
+    }, err => {
       this.router.navigate(['/err']);
     })
   }

@@ -8,7 +8,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 export class AuthService implements CanActivate {
 
 
-  token: string = '$2b$10$A2egROl0y7Ke8Fap9ZKywujqmLzIJvnNzsiZ/20GOPswgsu5QTfcu';
+  token: string = '$2b$10$luVmNPa2qSD2/IW2L7FuPOekTHG0TJatfvWUPcNsafY/fDWpbtXMG';
 
   constructor(private http: HttpClient, private router: Router) { }
 

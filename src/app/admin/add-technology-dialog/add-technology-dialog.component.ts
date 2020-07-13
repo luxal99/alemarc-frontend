@@ -20,7 +20,6 @@ export class AddTechnologyDialogComponent implements OnInit {
 
   save() {
     this.technologyService.save(new Technology(this.techForm.get("title").value)).subscribe(data => {
-      console.log(data);
 
     }, error => {
         
