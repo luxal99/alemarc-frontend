@@ -30,8 +30,8 @@
                         </div>
                         <h3 class="text-left">Lorem ipsum dolor nunc nuc dolor</h3>
                         <div class="text-left row icon-div">
-                            <h1><i class="fa fa-github" aria-hidden="true"></i> Github</h1>
-                            <h1 style="padding-left: 2em;"><i class="fa fa-envelope" aria-hidden="true"></i> Email</h1>
+                            <h1 class="fasfa"><i class="fa fa-github" aria-hidden="true"></i> Github</h1>
+                            <h1 class="fasfa" style="padding-left: 2em;"><i class="fa fa-envelope" aria-hidden="true"></i> Email</h1>
                         </div>
                     </div>
                     <div class="col-sm-7">
@@ -174,7 +174,7 @@
                 </div>
 
                 <div class="row" style="padding-top: 10em;">
-                    <div class="col-sm-3" *ngFor="let popular of listOfBlogs|slice:7">
+                    <div class="col-sm-3 work-card" *ngFor="let popular of listOfBlogs|slice:7">
                         <div class="popular-blog-figure">
                             <img src="{{popular.listOfImages[0].url}}" alt="" class="img-fluid">
                             <div class="blog-figure-content text-left">
@@ -225,9 +225,11 @@
                                     <h3>Backend</h3>
                                     <mat-divider style="border-top-color: #ffa900; "></mat-divider>
                                     <ul id="orange">
-                                        <li>Java/SpringBoot/JSP</li>
-                                        <li>NodeJS/Express/TypeScript/ORM</li>
-                                        <li>Bootstrap</li>
+                                        <li>Java/SpringBoot</li>
+                                        <li>NodeJS/Express</li>
+                                        <li>JSP/ORM</li>
+                                        <li>TypeScript</li>
+                                        
                                     </ul>
                                 </div>
 
@@ -263,9 +265,8 @@
                 <div class="row ">
                     <div class="col-sm text-left ">
                         <h3 class="bio-h3 " style="color: #0011FF !important; ">My name is</h3>
-                        <h1 class="bio-h1 ">Aleksa</h1>
-                        <p class="bio-paragraf ">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                            specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+                        <h1 class="bio-h1 ">Marko</h1>
+                        <p class="bio-paragraf ">Hi, I’m Marko! I’m 21 years old, self-taught Web Developer, from Serbia. After my high school, I enrolled in information technology at Metropolitan University, where I continue to study. For whole year I create high number HTML & CSS websites following given designs. After a year of working, I started learning more advanced web programming technologies. The technologies that I learned:JavaScript, Angular, and PHP. Together, me, my colleague and our team, we will do our best to turn all your wishes into reality and bring you one step ahead of the competition.</p>
                         <div class="text-left ">
                             <div class="row ">
                                 <div class="col-sm ">
@@ -281,9 +282,9 @@
                                     <h3>Backend</h3>
                                     <mat-divider style="border-top-color: #0011FF; "></mat-divider>
                                     <ul id="blue">
-                                        <li>Java/SpringBoot/JSP</li>
-                                        <li>NodeJS/Express/TypeScript/ORM</li>
-                                        <li>Bootstrap</li>
+                                        <li>Java</li>
+                                        <!-- <li>NodeJS</li> -->
+                                       <li>PHP</li>
                                     </ul>
                                 </div>
 
@@ -294,7 +295,7 @@
                                     <mat-divider style="border-top-color: #0011FF; "></mat-divider>
                                     <ul id="blue">
                                         <li>MySQL</li>
-                                        <li>MongoDB</li>
+                                        <!-- <li>MongoDB</li> -->
                                     </ul>
                                 </div>
                                 <div class="col-sm ">
@@ -305,7 +306,7 @@
                         </div>
                     </div>
                     <div class="col-sm-5 text-center ">
-                        <img src="../../assets/img/D17D5CFC-50B4-4DBD-A835-73663553726A.jpg " alt=" " class="img-fluid bio-img-blue ">
+                        <img src="../../assets/img/marko.jpeg " alt=" " class="img-fluid bio-img-blue ">
                     </div>
 
                 </div>

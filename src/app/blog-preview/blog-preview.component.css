@@ -114,3 +114,22 @@ ul li::before {
 .btn-col {
     padding: 0 !important;
 }
+
+@media screen and (max-width:420px){
+
+.popular-blog-figure{
+   
+    margin-top: 3em !important;
+}
+#slider-img{
+   width: 250px;
+   padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+.header-container{
+    padding-top: 3em !important;
+}
+.blog-photo{
+    padding-top: 1em;
+}
+}

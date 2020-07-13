@@ -331,3 +331,46 @@ li {
 .btn-col {
     padding: 0 !important;
 }
+
+
+@media screen and (max-width:420px){
+.header-left-col{
+    padding-top: 3em;
+  }
+  .blog-h1{
+      padding-top: 6em;
+  }
+
+  .fasfa{
+      font-size: 1.5rem;
+  }
+
+.slider-img{
+    width: 190px;
+    
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+}
+.blog-slider-h3{
+    padding-left: 1em;
+}
+.blog-card{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.small-blog-col{
+    margin-top: 3.5em;
+   margin-left: 0em !important;
+}
+.work-card{
+    padding-bottom: 3em;
+}
+.bio-img{
+    zoom: 70%;
+    margin-bottom: 4em;
+}
+.bio-img-blue{
+    zoom: 70%;
+    margin-top: 3em;
+}
+}
