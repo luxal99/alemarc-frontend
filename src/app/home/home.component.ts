@@ -75,9 +75,11 @@ export class HomeComponent implements OnInit {
   constructor(private blogService: BlogService, private router: Router) { }
 
   ngOnInit() {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     this.getAll()
   }
+
+  
   scrollToElement($element): void {
     $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
 
