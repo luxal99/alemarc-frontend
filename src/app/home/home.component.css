@@ -116,6 +116,10 @@
     transition: .5s;
 }
 
+.slider-img h3:hover {
+    display: none;
+}
+
 .blog-slider-h3 {
     font-family: 'Righteous', cursive;
 }

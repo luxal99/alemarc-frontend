@@ -109,6 +109,10 @@ export class AdminComponent implements OnInit {
     const dialogRef = this.dialog.open(AddTechnologyDialogComponent, {
       width: '250px'
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+     this.getTechnology();
+    });
   }
 
 
