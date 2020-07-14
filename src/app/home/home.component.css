@@ -350,7 +350,7 @@ li {
         font-size: 1.5rem;
     }
     .slider-img {
-        width: 300px;
+        width: 450px !important;
     }
     .blog-card {
         margin-top: 2em;
@@ -403,7 +403,7 @@ li {
         font-size: 1.5rem;
     }
     .slider-img {
-        width: 300px;
+        width: 450px !important;
     }
     .blog-card {
         margin-top: 2em;
