@@ -37,21 +37,10 @@
                         <h4><i class="fa fa-eye" aria-hidden="true"></i> {{numberOfViews}}</h4>
                     </div>
                     <div class="header text-center header-container">
-                        <div class="header-div" style="padding-top: 7em;">
+                        <div class="header-div" style="padding-top: 4em;">
                             <h4 class="text-left">{{shortText}}</h4>
-                            <h1>{{header}}</h1>
+                            <h1 class="text-left">{{header}}</h1>
                         </div>
-                        <div class="row mobile">
-                            <div class="col-sm-4" *ngFor="let tech of listOfTechnologies;let i = index" [attr.data-index]="i">
-                                <h3 style="color: #eee;"><i class="fa fa-arrow-circle-right" style="color: #ffa900;" aria-hidden="true"></i> {{tech.title}}</h3>
-                            </div>
-                        </div>
-                        <div class="container mobile-container" style="display: none;">
-                            <div class="col" *ngFor="let tech of listOfTechnologies;let i = index" [attr.data-index]="i">
-                                <h3 style="color: #eee;"><i class="fa fa-arrow-circle-right" style="color: #ffa900;" aria-hidden="true"></i> {{tech.title}}</h3>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
                 <div class="col-sm" style="border-left: 1px solid #ffa900;">
@@ -115,6 +104,14 @@
 
                 <h1>Read.</h1>
                 <mat-divider style="border-top-color: #333;"></mat-divider>
+
+                <div class="row" style="padding-top: 2em;">
+                    <div class="col-sm" *ngFor="let tech of listOfTechnologies;let i = index" [attr.data-index]="i" style="list-style-type: none;">
+                        <h3 style="color: #eee;"><i class="fa fa-arrow-circle-right" style="color: #ffa900;" aria-hidden="true"></i> {{tech.title}}</h3>
+
+                    </div>
+                </div>
+
                 <div style="padding-top: 5em;">
                     <h5 [innerHTML]="longText"></h5>
                 </div>
