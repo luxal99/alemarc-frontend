@@ -31,7 +31,7 @@
                 </div>
             </nav>
 
-            <div class="row" style="padding-top: 5em;">
+            <div class="row zoom" style="padding-top: 5em;">
                 <div class="col-sm-4">
                     <div class="text-right view-fafa">
                         <h4><i class="fa fa-eye" aria-hidden="true"></i> {{numberOfViews}}</h4>
@@ -100,7 +100,7 @@
 
 
 
-            <div class="header-container" #work style="padding-top: 15em;">
+            <div class="header-container zoom" #work style="padding-top: 15em;">
 
                 <h1>Read.</h1>
                 <mat-divider style="border-top-color: #333;"></mat-divider>
@@ -127,7 +127,7 @@
 
             <div class="header-container" style="padding-top: 15em;">
                 <div class="text-right">
-                    <h1 style="color: #0011FF;">Most popular works</h1>
+                    <h1 style="color: #00ffff;">Most popular works</h1>
                     <mat-divider style="border-top-color: #333;"></mat-divider>
                     <div class="row" style="padding-top: 5em;">
                         <div class="col-sm" *ngFor="let popular of popularBlogs">
@@ -135,7 +135,7 @@
                                 <img src="{{popular.listOfImages[0].url}}" alt="" class="img-fluid">
                                 <div class="blog-figure-content text-left">
                                     <h4>{{popular.shortText}}</h4>
-                                    <h2 style="color: #0011FF;">{{popular.header}}</h2>
+                                    <h2 style="color: #00ffff80;">{{popular.header}}</h2>
                                     <div class="row">
                                         <div class="col-sm btn-col text-left">
                                             <div>

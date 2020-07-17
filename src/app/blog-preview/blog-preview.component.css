@@ -59,6 +59,10 @@ h5 {
 
 .row {
     margin: 0 !important;
+    /* zoom: 80%; */
+}
+.zoom{
+    zoom: 80%;
 }
 
 .blog-figure-content h4 {
@@ -84,9 +88,9 @@ h5 {
 }
 
 .blog-content-btn {
-    background-color: #0011FF;
-    color: #eee;
-    border: 1px solid #0011FF;
+    background-color: #00ffff;
+    color: #121212;
+    border: 1px solid #00ffff;
     border-radius: 3px;
     margin-top: 1em;
     padding-top: .3em;

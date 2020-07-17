@@ -41,6 +41,7 @@
 .header-container {
     padding-left: 10%;
     padding-right: 10%;
+    zoom: 80% !important;
 }
 
 .header-left-col {
@@ -72,7 +73,7 @@
 
 .header-container h3 {
     font-family: 'Montserrat', sans-serif;
-    color: #eee;
+    color: #121212;
     padding-top: 1em;
 }
 
@@ -80,7 +81,7 @@
     font-family: 'Righteous', cursive;
     font-size: 70px;
     padding-top: 2em;
-    color: #0011FF;
+    color: #00ffff;
 }
 
 .img-container {
@@ -168,7 +169,7 @@
 }
 
 .blog-right-text {
-    color: #ffa900;
+    color: #fff;
     font-family: 'Righteous', cursive;
     font-size: 70px;
 }
@@ -221,9 +222,9 @@ mat-divider {
 
 .bio-img-blue {
     height: 600px;
-    -webkit-box-shadow: 33px 79px 0px 0px #0011ff7c;
-    -moz-box-shadow: 33px 79px 0px 0px #0011ff7c;
-    box-shadow: 33px 79px 0px 0px #0011ff7c;
+    -webkit-box-shadow: 33px 79px 0px 0px #00ffff;
+    -moz-box-shadow: 33px 79px 0px 0px #00ffff;
+    box-shadow: 33px 79px 0px 0px #00ffff;
 }
 
 .about-div {
@@ -263,7 +264,7 @@ ul {
 #blue li::before {
     content: "\2022";
     /* Add content: \2022 is the CSS Code/unicode for a bullet */
-    color: #0011FF;
+    color: #00ffff;
     /* Change the color */
     font-weight: bold;
     /* If you want it to be bold */
