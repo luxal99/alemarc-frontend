@@ -7,9 +7,9 @@
                   </button>
             </div>
             <div style="padding-top: 10em;">
-                <a class="nav-item nav-link active">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link"><a (click)="drawer.toggle()">Works</a></a>
-                <a class="nav-item nav-link"><a (click)="drawer.toggle()">Contact</a></a>
+                <a class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Works</a>
+                <a class="nav-item nav-link">Contact</a>
 
 
 

@@ -44,6 +44,7 @@ mat-divider {
     padding: 0.5em 0 0.5em 0;
     margin-top: 1em;
 }
+
 .navbar a {
     color: #e1e1e1 !important;
     font-family: 'Dosis', sans-serif;
@@ -55,13 +56,26 @@ mat-divider {
     padding-top: 3em;
     padding-left: 3em;
 }
-mat-drawer-content{
+
+mat-drawer-content {
     background-color: #121212;
 }
 
-h4{
+h4 {
     font-family: 'Montserrat', sans-serif;
 }
-h3{
+
+h3 {
     font-family: 'Righteous', cursive;
+}
+
+.sub-btn:hover {
+    opacity: .8;
+    transition: .5s;
+}
+
+@media screen and (max-width:600px) {
+    .sub-btn {
+        width: 100% !important;
+    }
 }

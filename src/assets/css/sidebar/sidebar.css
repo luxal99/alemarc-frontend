@@ -6,6 +6,10 @@
     background-color: transparent;
 }
 
+mat-drawer {
+    width: 100% !important;
+}
+
 .side-menu a {
     color: #121212;
     font-family: 'Righteous', cursive;
@@ -82,7 +86,7 @@ a:hover {
 @media screen and (max-width:380px) {
     .sidenav-content {
         padding: 3em !important;
-        width: 45vh !important;
+        width: 100% !important;
         margin-top: -2em !important;
     }
     .social-div {
@@ -100,20 +104,11 @@ a:hover {
     .sidenav-content {
         margin-top: -1em !important;
         padding: 3em !important;
-        width: 40vh !important;
+        width: 100vh;
     }
     .mob-sidenav {
         margin-top: -1em !important;
         padding: 3em !important;
         width: 40vh !important;
-    }
-    .social-div {
-        padding-top: 2em !important;
-    }
-    .small-link-div {
-        padding-top: 2em !important;
-    }
-    .side-icon {
-        padding-top: 1em !important;
     }
 }

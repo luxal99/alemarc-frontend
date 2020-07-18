@@ -9,7 +9,7 @@
             <div style="padding-top: 10em;">
                 <a class="nav-item nav-link active">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" (click)="scrollToElement(work)"><a (click)="drawer.toggle()">Works</a></a>
-                <a class="nav-item nav-link"><a (click)="drawer.toggle()">Contact</a></a>
+                <a (click)="drawer.toggle()" [routerLink]="['/contact']" routerLinkActive="router-link-active">Contact</a>
 
                 <!-- <a class="nav-item nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active"></a> -->
 
