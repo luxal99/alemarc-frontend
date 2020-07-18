@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';;
 import { AuthService } from "./service/auth.service";
 import { ErrorComponent } from './error/error.component';
 import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
+import {FooterComponent} from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent,
   },
   { path: 'err', component: ErrorComponent },
+  {path:'contact', component: FooterComponent},
   { path: 'admin', component: AdminComponent, canActivate: [AuthService] },
   { path: 'blog/:id', component: BlogPreviewComponent },
   { path: '**', component: ErrorComponent }

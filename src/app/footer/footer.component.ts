@@ -6,6 +6,7 @@ import { MessageService } from '../service/message.service';
 import { Message } from 'src/app/model/Message';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',

@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
 
   config: SwiperOptions = {
     slidesPerView: 3,
-    spaceBetween: 100,
+    spaceBetween: 200,
     slidesPerGroup: 3,
     loop: true,
     loopFillGroupWithBlank: false,

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import '../../assets/css/sidebar/sidebar.css';
 .footer {
     background-color: #121212;
     padding-top: 0em;
@@ -42,4 +43,25 @@ mat-divider {
     font-size: 20px;
     padding: 0.5em 0 0.5em 0;
     margin-top: 1em;
+}
+.navbar a {
+    color: #e1e1e1 !important;
+    font-family: 'Dosis', sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.navbar {
+    padding-top: 3em;
+    padding-left: 3em;
+}
+mat-drawer-content{
+    background-color: #121212;
+}
+
+h4{
+    font-family: 'Montserrat', sans-serif;
+}
+h3{
+    font-family: 'Righteous', cursive;
 }
