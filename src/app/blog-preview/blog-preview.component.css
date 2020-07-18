@@ -61,7 +61,8 @@ h5 {
     margin: 0 !important;
     /* zoom: 80%; */
 }
-.zoom{
+
+.zoom {
     zoom: 80%;
 }
 
@@ -107,7 +108,7 @@ h5 {
 
 @media screen and (max-width:420px) {
     #slider-img {
-        width: 320px;
+        width: 450px;
     }
     .header-container {
         padding-top: 3em !important;
@@ -156,5 +157,11 @@ h5 {
     }
     .mobile-container {
         display: block !important;
+    }
+    .popular-card {
+        margin-top: 2em;
+    }
+    div {
+        zoom: 90%;
     }
 }

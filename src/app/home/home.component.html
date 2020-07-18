@@ -39,7 +39,7 @@
                         <div class="text-left">
                             <button class="header-btn" (click)="scrollToElement(more)" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">MORE</button>
                         </div>
-                        <h3 class="text-left" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">Check out our recent blogs</h3>
+                        <h3 class="text-left" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500" style="color: #F3F4F5;">Check out our recent blogs</h3>
                         <div class="text-left row icon-div">
                             <a href="https://github.com/luxal99" style="color: #ffa900;">
                                 <h1 class="fasfa" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600"><i class="fa fa-github" aria-hidden="true"></i> Github</h1>
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     <div class="col-sm-7 construction-img">
-                        <img data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="800" src="../../assets/img/header-right.png" alt="" class="img-fluid">
+                        <img data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="800" src="../../assets/img/right.png" alt="" class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -176,7 +176,8 @@
                     </div>
                     <div class="col-sm-5">
                         <div class="row">
-                            <div class="col-sm-6 small-blog-col" style="background-color: #F3F4F5;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:5:6; let i = index" [attr.data-index]="i" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1700">
+                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #F3F4F5;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:5:6; let i = index" [attr.data-index]="i" data-aos="fade-right"
+                                data-aos-duration="1000" data-aos-delay="1700">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -185,7 +186,8 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm small-blog-col" *ngFor="let blog of listOfBlogs|slice:6:7; let i = index" [attr.data-index]="i" style="background-color: #F3F4F5;margin-left: 1em;padding-bottom: 2em;" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1800">
+                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:6:7; let i = index" [attr.data-index]="i" style="background-color: #F3F4F5;margin-left: 1em;padding-bottom: 2em;"
+                                data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1800">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -195,7 +197,8 @@
                             </div>
                         </div>
                         <div class="row" style="margin-top: 1em;">
-                            <div class="col-sm-6 small-blog-col" style="background-color: #ffa900;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:7:8; let i = index" [attr.data-index]="i" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1900">
+                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #ffa900;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:7:8; let i = index" [attr.data-index]="i" data-aos="fade-up"
+                                data-aos-duration="1000" data-aos-delay="1900">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -204,7 +207,8 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm small-blog-col" *ngFor="let blog of listOfBlogs|slice:8:9; let i = index" [attr.data-index]="i" style="background-color: #ffa900 ;margin-left: 1em;padding-bottom: 2em;" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2000">
+                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:8:9; let i = index" [attr.data-index]="i" style="background-color: #ffa900 ;margin-left: 1em;padding-bottom: 2em;"
+                                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2000">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -272,7 +276,8 @@
                                     <ul id="orange">
                                         <li>Java/SpringBoot</li>
                                         <li>NodeJS/Express</li>
-                                        <li>JSP/ORM</li>
+                                        <li>JSP</li>
+                                        <li>ORM</li>
                                         <li>TypeScript</li>
 
                                     </ul>

@@ -107,27 +107,17 @@
     opacity: .7;
 }
 
+#slider-img {
+    opacity: .5;
+}
+
 #slider-img:hover {
     opacity: 1;
     transition: .5s;
 }
 
-#slider-img:hover~#slider-h3 {
-    display: none;
-    transition: .5s;
-}
-
-.slider-img h3:hover {
-    display: none;
-}
-
 .blog-slider-h3 {
     font-family: 'Righteous', cursive;
-}
-
-.blog-slider-h3:hover {
-    display: none;
-    transition: .5s;
 }
 
 .blog-h4 {
