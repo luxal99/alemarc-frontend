@@ -8,62 +8,61 @@
             </div>
             <div style="padding-top: 10em;">
                 <a class="nav-item nav-link active">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" (click)="scrollToElement(work)"><a (click)="drawer.toggle()">Works</a></a>
-                <a class="nav-item nav-link" (click)="scrollToElement(contact)"><a (click)="drawer.toggle()">Contact</a></a>
-                
-            
-             
+                <a class="nav-item nav-link"><a (click)="drawer.toggle()">Works</a></a>
+                <a class="nav-item nav-link"><a (click)="drawer.toggle()">Contact</a></a>
+
+
+
             </div>
         </div>
     </mat-drawer>
     <mat-drawer-content>
-        
-<nav class="navbar navbar-expand-lg ">
-    <a class="navbar-brand" href="#" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100"><img src="../../assets/img/1200px-Code 1.png" class="img-fluid" alt=""></a>
-    <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
+
+        <nav class="navbar navbar-expand-lg ">
+            <a class="navbar-brand" href="#" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100"><img src="../../assets/img/1200px-Code 1.png" class="img-fluid" alt=""></a>
+            <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
       <i class="fa fa-align-right" style="color: #ffa900;"></i>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active" >Home <span class="sr-only">(current)</span></a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
 
-            <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="nav-item nav-link" (click)="scrollToElement(work)" [routerLink]="['/']" routerLinkActive="router-link-active" >Works</a>
-            <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" class="nav-item nav-link" (click)="scrollToElement(contact)" style="color: #ffa900 !important;">Contact</a>
+                    <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="nav-item nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Works</a>
+                    <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" class="nav-item nav-link" style="color: #ffa900 !important;">Contact</a>
+                </div>
+            </div>
+        </nav>
+        <div class="footer" style="padding-top: 5em;">
+            <div class="text-center footer-container ">
+                <h1 class="text-center">Contact <span style="color: #999;">Us.</span></h1>
+                <h3 class="text-center" style="padding-bottom: .5em;"><span style="color: #fff;">We will do our best to respond in a record time</span></h3>
+                <form [formGroup]="sendMessageForm">
+                    <div class="row text" style="padding-top: 2em;">
+                        <mat-form-field class="example-full-width" style="width: 48%;">
+                            <mat-label>Full name</mat-label>
+                            <input formControlName="full_name" matInput value="">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width" style="width: 48%;margin-left: 2%;">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput value="">
+                        </mat-form-field>
+                    </div>
+                    <div style="width: 100%;">
+                        <mat-form-field class="example-full-width" style="width: 100%;">
+                            <mat-label>Message</mat-label>
+                            <input formControlName="message" matInput value="">
+                        </mat-form-field>
+                    </div>
+                    <div class="text-center">
+                        <button class="sub-btn" (click)="sendMessage()">SEND</button>
+                    </div>
+                    <div class="text-center" style="color: #fff; padding-top: 2em;">
+                        <h4>+381 69 695095</h4>
+                        <h4>+381 69 5103007</h4>
+                        <h4>18000 Niš.</h4>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-</nav>
-<div class="footer" style="padding-top: 5em;">
-    <div class="text-center footer-container ">
-        <h1 class="text-center">Contact <span style="color: #999;">Us.</span></h1>
-        <h3 class="text-center"><span style="color: #fff;">Lorem ipsum dolor nunc</span></h3>
-        <mat-divider></mat-divider>
-        <form [formGroup]="sendMessageForm">
-            <div class="row text" style="padding-top: 2em;">
-                <mat-form-field class="example-full-width" style="width: 48%;">
-                    <mat-label>Full name</mat-label>
-                    <input formControlName="full_name" matInput value="">
-                </mat-form-field>
-                <mat-form-field class="example-full-width" style="width: 48%;margin-left: 2%;">
-                    <mat-label>Email</mat-label>
-                    <input formControlName="email" matInput value="">
-                </mat-form-field>
-            </div>
-            <div style="width: 100%;">
-                <mat-form-field class="example-full-width" style="width: 100%;">
-                    <mat-label>Message</mat-label>
-                    <input formControlName="message" matInput value="">
-                </mat-form-field>
-            </div>
-            <div class="text-center">
-                <button class="sub-btn" (click)="sendMessage()">SUBMIT</button>
-            </div>
-            <div class="text-center" style="color: #fff; padding-top: 2em;">
-                <h4 >+381 69 695095</h4>
-                <h4 >+381 69 5103007</h4>
-                <h4>18000 Niš.</h4>
-            </div>
-        </form>
-    </div>
-</div>
-     </mat-drawer-content>
-    </mat-drawer-container>
+    </mat-drawer-content>
+</mat-drawer-container>
