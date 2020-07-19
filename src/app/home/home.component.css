@@ -1,4 +1,5 @@
 @import '../../assets/css/sidebar/sidebar.css';
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 .header {
     height: 100vh;
     background-image: url('../../assets/img/header.jpg');
@@ -14,13 +15,17 @@
     letter-spacing: 3px;
 }
 
+h1 {
+    font-family: 'Righteous', cursive !important;
+}
+
 .navbar {
     padding-top: 3em;
     padding-left: 3em;
 }
 
 .header-left-col h1 {
-    font-family: 'Righteous', cursive;
+    font-family: 'Righteous', cursive !important;
 }
 
 .first-h1 {
@@ -78,7 +83,7 @@
 }
 
 .blog-h1 {
-    font-family: 'Righteous', cursive;
+    font-family: 'Righteous', cursive !important;
     font-size: 70px;
     padding-top: 2em;
     color: #00ffff;
