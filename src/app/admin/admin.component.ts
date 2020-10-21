@@ -7,12 +7,10 @@ import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
 import { AuthService } from '../service/auth.service';
 import { TechnologyService } from '../service/technology.service';
-import * as firebase from 'firebase'
 import { Image } from "../model/Image";
-import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Technology } from '../model/Technology';
-import { asLiteral } from '@angular/compiler/src/render3/view/util';
 import { Blog } from "../model/Blog";
 import { BlogService } from "../service/blog.service";
 @Component({
@@ -49,7 +47,10 @@ export class AdminComponent implements OnInit {
     isUploaded: new FormControl("", Validators.required)
   })
 
-  constructor(public dialog: MatDialog, private blogService: BlogService, private afStorage: AngularFireStorage, private technologyService: TechnologyService, private authService: AuthService, private router: Router, public _snackBar: MatSnackBar) {
+  constructor(public dialog: MatDialog, private blogService: BlogService,private technologyService: TechnologyService,
+      private authService: AuthService, private router: Router, public _snackBar: MatSnackBar,
+      
+     private afStorage: AngularFireStorage) {
   }
 
   ngOnInit() {
@@ -101,10 +102,6 @@ export class AdminComponent implements OnInit {
 
   }
 
-
-
-
-
   openAddTechDialog(): void {
     const dialogRef = this.dialog.open(AddTechnologyDialogComponent, {
       width: '250px'
@@ -144,9 +141,6 @@ export class AdminComponent implements OnInit {
       duration: 2000,
     });
   }
-
-
-
 
   save() {
 
