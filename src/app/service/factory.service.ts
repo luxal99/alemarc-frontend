@@ -21,4 +21,7 @@ export class FactoryService<T> {
   getAll(){
     return this.http.get(`/${this.route}`,{responseType:'json'});
   }
+  update(entity:T){
+    return this.http.put(`/${this.route}`,entity,{responseType:'text'})
+  }
 }

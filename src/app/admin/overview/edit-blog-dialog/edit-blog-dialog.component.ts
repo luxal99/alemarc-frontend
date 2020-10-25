@@ -77,8 +77,16 @@ export class EditBlogDialogComponent implements OnInit {
     this.data.listOfImages.splice(index, 1)
   }
   update() {
-    console.log(this.data);
 
+    this.data.header = this.headerForm.get("header").value;
+    this.data.shortText = this.headerForm.get("shortText").value;
+
+    this.data.longText = this.editorComponent.editorInstance.getData();
+    
+    this.blogService.update(this.data).subscribe(resp => {
+      console.log(resp);
+
+    })
   }
 
 
