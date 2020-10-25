@@ -47,10 +47,10 @@ export class AdminComponent implements OnInit {
     isUploaded: new FormControl("", Validators.required)
   })
 
-  constructor(public dialog: MatDialog, private blogService: BlogService,private technologyService: TechnologyService,
-      private authService: AuthService, private router: Router, public _snackBar: MatSnackBar,
-      
-     private afStorage: AngularFireStorage) {
+  constructor(public dialog: MatDialog, private blogService: BlogService, private technologyService: TechnologyService,
+    private authService: AuthService, private router: Router, public _snackBar: MatSnackBar,
+
+    private afStorage: AngularFireStorage) {
   }
 
   ngOnInit() {
@@ -75,32 +75,29 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  uploadFiles() {
+
+  changeToggle() {
+    this.toggle.writeValue(true);
+    this.isReady = 'Spremno je';
+    document.getElementById('toggle').style.color = "#4BB543";
+  }
+
+  async getFiles() {
 
     for (const file of this.fileUploadList) {
-      this.afStorage.upload(file.name, file).percentageChanges().subscribe(data => {
-        this.percentage = data
-      });
+      this.afStorage.upload(file.name, file)
+        .then(() => {
+          const downloadUrl = this.afStorage.ref(file.name).getDownloadURL().subscribe(data => {
+
+            this.listOfImages.push(new Image(file.name, data));
+            this.changeToggle();
+
+          });
+        });
     }
 
-    setTimeout(() => {
-
-      for (const fileName of this.fileUploadList) {
-        const downloadUrl = this.afStorage.ref(fileName.name).getDownloadURL().subscribe(data => {
-          var ti = new Image()
-          ti.fileName = fileName.name;
-          ti.url = data;
-          this.listOfImages.push(ti);
-
-          this.toggle.writeValue(true);
-          this.isReady = 'Spremno je';
-          document.getElementById('toggle').style.color = "#4BB543";
-
-        });
-      }
-    }, 1500 * this.fileUploadList.length)
-
   }
+
 
   openAddTechDialog(): void {
     const dialogRef = this.dialog.open(AddTechnologyDialogComponent, {
@@ -108,7 +105,7 @@ export class AdminComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-     this.getTechnology();
+      this.getTechnology();
     });
   }
 

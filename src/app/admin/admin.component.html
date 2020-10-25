@@ -58,7 +58,7 @@
 
                                 <div class="text-left" style="margin-bottom: 1em;">
                                     <mat-slide-toggle #toggle id="toggle" formControlName="isUploaded" [style.color]="isReady ? 'red':'#4BB543' ">{{isReady}}</mat-slide-toggle>
-                                    <button class="upload-btn" mat-icon-button (click)="uploadFiles()"><mat-icon>cloud_upload</mat-icon></button>
+                                    <button class="upload-btn" mat-icon-button (click)="getFiles()"><mat-icon>cloud_upload</mat-icon></button>
                                 </div>
                                 <div>
                                     <li *ngFor="let item of fileUploadList">
