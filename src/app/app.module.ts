@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +22,8 @@ import { AddTechnologyDialogComponent } from './admin/add-technology-dialog/add-
 import { ErrorComponent } from './error/error.component';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
+import { OverviewComponent } from './admin/overview/overview.component';
+import { EditBlogDialogComponent } from './admin/overview/edit-blog-dialog/edit-blog-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
     ChangeLoginComponent,
     AddTechnologyDialogComponent,
     ErrorComponent,
-    BlogPreviewComponent
+    BlogPreviewComponent,
+    OverviewComponent,
+    EditBlogDialogComponent
   ],
   imports: [
     CommonModule,
@@ -60,10 +64,10 @@ import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
     BrowserAnimationsModule
   ],
   providers: [HttpClientModule,
-    {provide:LocationStrategy,useClass:HashLocationStrategy}
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [AddTechnologyDialogComponent, ChangeLoginComponent],
+  entryComponents: [AddTechnologyDialogComponent, ChangeLoginComponent, OverviewComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

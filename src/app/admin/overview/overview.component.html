@@ -1,0 +1,22 @@
+<div class="overview-container text-left">
+    <div class="text-left">
+        <h1>Blog overview</h1>
+    </div>
+    <swiper [config]="config" style="margin-top: 5em;" class="desktop-slider">
+        <div class="swiper-wrapper product-slider-container text-left">
+            <div class="swiper-slide slider" *ngFor="let blog of listOfBlogs">
+                <div class="img-container">
+                    <img class="img-fluid" src="{{blog.listOfImages[0].url}} " />
+                    <div class="content-div">
+                        <h3>{{blog.header}}</h3>
+                        <h5>{{blog.shortText}}</h5>
+                        <div style="display: inline-flex;width: 100%;">
+                            <button class="white-btn" mat-button routerLink="/blog/{{blog.id}}">Preview</button>
+                            <button class="orange-btn" mat-button>Edit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </swiper>
+</div>

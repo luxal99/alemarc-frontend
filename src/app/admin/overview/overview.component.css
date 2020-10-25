@@ -1,0 +1,68 @@
+h1,
+h3 {
+    font-family: 'Righteous', cursive !important;
+}
+
+h1 {
+    color: #ffa900;
+}
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.slider-img {
+    -webkit-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
+    vertical-align: auto !important;
+    width: 300px;
+    opacity: .7;
+}
+
+#slider-img {
+    opacity: .5;
+}
+
+#slider-img:hover {
+    opacity: 1;
+    transition: .5s;
+}
+
+.img-container {
+    text-align: center;
+    color: white;
+    background-color: #282828;
+    border-radius: 3px;
+}
+
+.content-div {
+    background-color: #282828;
+    text-align: left !important;
+    padding: 2em;
+}
+
+.overview-container {
+    padding: 10%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+button {
+    width: 100% !important;
+    padding-top: .5em;
+    padding-bottom: .5em;
+}
+
+.white-btn {
+    background-color: #fff;
+    color: #ffa900;
+}
+
+.orange-btn {
+    background-color: #ffa900;
+    color: #fff;
+    margin-left: 1em;
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, QueryList, ViewChildren, AfterViewInit, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { MatSidenav, MatDialog, MatSnackBar, MatSlideToggle, MatCheckbox, MatCheckboxChange } from '@angular/material';
 import * as $ from 'jquery';
 import { Router } from '@angular/router';
@@ -13,6 +13,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Technology } from '../model/Technology';
 import { Blog } from "../model/Blog";
 import { BlogService } from "../service/blog.service";
+import { async } from 'rxjs/internal/scheduler/async';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -24,6 +25,8 @@ export class AdminComponent implements OnInit {
   public Editor = ClassicEditor;
 
   @ViewChild('toggle', { static: false }) toggle: MatSlideToggle;
+
+  @ViewChild('target', { read: ViewContainerRef, static: false }) entry: ViewContainerRef;
 
   editorData = '';
   description = '';
@@ -49,13 +52,23 @@ export class AdminComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private blogService: BlogService, private technologyService: TechnologyService,
     private authService: AuthService, private router: Router, public _snackBar: MatSnackBar,
-
+    private cvRef: ViewContainerRef, private resolver: ComponentFactoryResolver,
     private afStorage: AngularFireStorage) {
   }
 
   ngOnInit() {
     this.isValid();
     this.getTechnology();
+  }
+  ngAfterViewInit(): void {
+    this.loadOverviewComponent()
+  }
+
+  async loadOverviewComponent() {
+    this.entry.clear();
+    const { OverviewComponent } = await import('./overview/overview.component');
+    const factory = this.resolver.resolveComponentFactory(OverviewComponent)
+    this.entry.createComponent(factory);
   }
 
   addTechnology($event: MatCheckboxChange, technology: Technology) {
@@ -161,9 +174,4 @@ export class AdminComponent implements OnInit {
 
 
 }
-
-
-
-
-/** Builds and returns a new User. */
 
