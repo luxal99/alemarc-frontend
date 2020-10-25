@@ -1,1 +1,38 @@
-<p>edit-blog-dialog works!</p>
+<div class="blog-container">
+    <mat-horizontal-stepper>
+        <mat-step>
+            <form [formGroup]="headerForm">
+                <div>
+
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Header</mat-label>
+                        <input matInput formControlName="header">
+
+                        <mat-icon matSuffix>subject</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div>
+
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Short text</mat-label>
+                        <input matInput formControlName="shortText">
+                        <mat-icon matSuffix>text_rotation_none</mat-icon>
+                    </mat-form-field>
+                </div>
+            </form>
+
+            <ckeditor #editor [editor]="Editor" [data]="data.longText"></ckeditor>
+
+        </mat-step>
+        <mat-step>
+            <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let image of data.listOfImages" cdkDrag>
+                    <img *ngIf="data.listOfImages.length !== 0" [src]="image.url" (error)="errorHandler($event)" height="200px" alt="" class="img-fluid">
+                    <div class="text-center">
+                        <button class="silver-btn" mat-button style="margin-top: 1em;width: 90%;">Obrisi</button>
+                    </div>
+                </div>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

@@ -12,7 +12,7 @@
                         <h5>{{blog.shortText}}</h5>
                         <div style="display: inline-flex;width: 100%;">
                             <button class="white-btn" mat-button routerLink="/blog/{{blog.id}}">Preview</button>
-                            <button class="orange-btn" mat-button>Edit</button>
+                            <button class="orange-btn" mat-button (click)="openEditBlogDialog(blog)">Edit</button>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
 import { Blog } from 'src/app/model/Blog';
 import { BlogService } from 'src/app/service/blog.service';
 import { SwiperOptions } from 'swiper';
+import { EditBlogDialogComponent } from './edit-blog-dialog/edit-blog-dialog.component';
 
 @Component({
   selector: 'app-overview',
@@ -11,7 +13,7 @@ import { SwiperOptions } from 'swiper';
 export class OverviewComponent implements OnInit {
 
   listOfBlogs: Array<Blog> = [];
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private dialog: MatDialog) { }
 
   async ngOnInit(): Promise<void> {
     this.getBlogs();
@@ -37,6 +39,20 @@ export class OverviewComponent implements OnInit {
     this.blogService.getAll().subscribe(resp => {
       this.listOfBlogs = resp as Array<Blog>;
     })
+  }
+
+  openEditBlogDialog(blog) {
+    const dialogRef = this.dialog.open(EditBlogDialogComponent, {
+      minWidth: '40%',
+      position: { right: '0' },
+      height: '100vh',
+      data:blog
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getBlogs();
+    });
   }
 
 }

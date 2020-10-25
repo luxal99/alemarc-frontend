@@ -67,7 +67,7 @@ import { EditBlogDialogComponent } from './admin/overview/edit-blog-dialog/edit-
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [AddTechnologyDialogComponent, ChangeLoginComponent, OverviewComponent],
+  entryComponents: [AddTechnologyDialogComponent, ChangeLoginComponent, OverviewComponent, EditBlogDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
