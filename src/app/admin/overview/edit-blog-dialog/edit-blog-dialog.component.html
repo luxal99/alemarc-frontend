@@ -22,6 +22,36 @@
             <button matStepperNext mat-button color="orange">Next</button>
         </mat-step>
         <mat-step label="Image step">
+            <form [formGroup]="imageForm">
+                <h1 class="blog-h1">Images</h1>
+
+                <mat-divider></mat-divider>
+                <div style="padding-top: 2em;">
+                    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="addFiles($event)">
+                        <input hidden type="file" #fileInput multiple (change)="addFiles($event.target.files)">
+                    </div>
+
+                </div>
+
+                <div class="text-left" style="margin-bottom: 1em;">
+                    <mat-slide-toggle #toggle id="toggle" formControlName="isUploaded" [style.color]="isReady ? 'red':'#4BB543' ">{{isReady}}</mat-slide-toggle>
+                    <button class="upload-btn" mat-icon-button (click)="getFiles()"><mat-icon>cloud_upload</mat-icon></button>
+                </div>
+                <div>
+                    <li *ngFor="let item of fileUploadList">
+                        {{item.name}}
+                    </li>
+                </div>
+                <div class="text-left">
+                    <mat-progress-bar mode="determinate" [value]="percentage"></mat-progress-bar><br>
+                </div>
+
+
+                <div style="padding-top: 2em;">
+                    <button mat-raised-button matStepperPrevious style="width: 40%;background-color: #333;color: #ffa900;">back</button>
+                    <button mat-raised-button style="width: 40%;margin-left: 1em;background-color: #ffa900;">next</button>
+                </div>
+            </form>
             <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
                 <div class="example-box" *ngFor="let image of data.listOfImages" cdkDrag>
                     <img *ngIf="data.listOfImages.length !== 0" [src]="image.url" (error)="errorHandler($event)" height="200px" alt="" class="img-fluid">

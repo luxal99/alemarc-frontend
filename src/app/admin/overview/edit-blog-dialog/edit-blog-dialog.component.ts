@@ -1,15 +1,16 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { MatCheckboxChange, MAT_DIALOG_DATA } from '@angular/material';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatCheckboxChange, MatSlideToggle, MatSnackBar, MAT_DIALOG_DATA } from '@angular/material';
 import { CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { Blog } from 'src/app/model/Blog';
 import { BlogService } from 'src/app/service/blog.service';
-
+import { Image } from "src/app/model/Image";
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Technology } from 'src/app/model/Technology';
 import { TechnologyDTO } from 'src/app/model/TechnologyDTO';
 import { TechnologyService } from 'src/app/service/technology.service';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-edit-blog-dialog',
@@ -21,10 +22,26 @@ export class EditBlogDialogComponent implements OnInit {
   @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
   public Editor = ClassicEditor;
 
+
+  @ViewChild('toggle', { static: false }) toggle: MatSlideToggle;
+
+  listOfImages: Array<Image> = [];
+  fileUploadList: Array<File> = [];
+
+
+  isReady = 'Nije spremno';
+
+  percentage = 0;
+
+
+  imageForm = new FormGroup({
+    isUploaded: new FormControl("", Validators.required)
+  })
+
   selectedTechnology: Array<TechnologyDTO> = [];
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Blog, private blogService: BlogService,
-    private technologyService: TechnologyService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Blog,private afStorage: AngularFireStorage, private blogService: BlogService,
+    private technologyService: TechnologyService,public _snackBar: MatSnackBar) { }
 
   headerForm = new FormGroup({
     header: new FormControl(this.data.header),
@@ -33,6 +50,42 @@ export class EditBlogDialogComponent implements OnInit {
 
   ngOnInit() {
     this.getTechnologies();
+  }
+
+  addFiles(event) {
+
+    for (let index = 0; index < event.length; index++) {
+      if (event[index].size / 1000 > 700) {
+        this.openSnackBar("Prevelik fajl", "DONE");
+      } else {
+
+        const element = event[index];
+        this.fileUploadList.push(element);
+      }
+    }
+  }
+
+
+  changeToggle() {
+    this.toggle.writeValue(true);
+    this.isReady = 'Spremno je';
+    document.getElementById('toggle').style.color = "#4BB543";
+  }
+
+  async getFiles() {
+
+    for (const file of this.fileUploadList) {
+      this.afStorage.upload(file.name, file)
+        .then(() => {
+          const downloadUrl = this.afStorage.ref(file.name).getDownloadURL().subscribe(data => {
+
+            this.data.listOfImages.push(new Image(file.name, data));
+            this.changeToggle();
+
+          });
+        });
+    }
+
   }
 
   getTechnologies() {
@@ -83,12 +136,20 @@ export class EditBlogDialogComponent implements OnInit {
 
     this.data.longText = this.editorComponent.editorInstance.getData();
     
-    this.blogService.update(this.data).subscribe(resp => {
-      console.log(resp);
 
+    this.blogService.update(this.data).subscribe(resp => {
+ 
+    },err =>{
+      console.log('err');
+      
     })
   }
 
 
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 }

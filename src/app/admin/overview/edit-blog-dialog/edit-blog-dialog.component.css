@@ -6,6 +6,15 @@ mat-form-field {
     padding: 5em 2em 5em 2em;
 }
 
+.uploadfilecontainer {
+    background-image: url("../../../../assets/img/upload-png-upload-icon-512.png");
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    height: 200px;
+    border-radius: 10px;
+}
+
 .example-list {
     width: 300px;
     max-width: 100%;
