@@ -422,6 +422,9 @@ li {
     .construction-img {
         display: none;
     }
+    #slider-img {
+        height: 20em;
+    }
     .header-left-col {
         padding-top: 3em;
     }
