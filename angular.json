@@ -31,6 +31,7 @@
                             "./node_modules/swiper/js/swiper.min.js",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "node_modules/font-awesome/css/font-awesome.css",
+                            "node_modules/marked/lib/marked.js",
                             "src/styles.css"
                         ],
                         "scripts": []
