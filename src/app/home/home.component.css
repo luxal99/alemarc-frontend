@@ -124,11 +124,11 @@ h1 {
     vertical-align: auto !important;
     width: 600px;
     height: 500px;
-    opacity: .7;
+    opacity: .9;
 }
 
 #slider-img {
-    opacity: .5;
+    opacity: .9;
 }
 
 #slider-img:hover {
@@ -351,9 +351,57 @@ li {
     padding-top: 10em;
 }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width:380px) {
+    .first-h1 {
+        font-size: 45px;
+    }
+    .latest-post-div {
+        padding: 1em;
+    }
+    .second-h1 {
+        font-size: 55px;
+    }
+    .third-h1 {
+        font-size: 60px;
+    }
+    .header-container .row .col-sm-6 {
+        padding-top: 4em;
+    }
+    .header-btn {
+        padding: .5em 5em .5em 5em;
+    }
+    .icon-div {
+        padding-top: 6em;
+    }
+    .line-col {
+        display: none;
+    }
+    .bio-paragraf {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:420px) and (max-width:570px) {
     .construction-img {
         display: none;
+    }
+    .latest-post-div {
+        padding: 1em;
+    }
+    .line-col {
+        display: none;
+    }
+    .first-h1 {
+        font-size: 55px;
+    }
+    .second-h1 {
+        font-size: 60px;
+    }
+    .third-h1 {
+        font-size: 65px;
+    }
+    .header-btn {
+        padding: .5em 5em .5em 5em;
     }
     .header {
         height: 150vh;
@@ -375,47 +423,66 @@ li {
     .blog-h1 {
         padding-top: 4em !important;
     }
-    .fasfa {
-        font-size: 1.5rem;
+    .bio-paragraf {
+        font-size: 20px;
     }
-    .slider-img {
-        width: 450px !important;
-    }
-    .blog-card {
-        margin-top: 2em;
-        margin-bottom: 2em;
-    }
-    .small-blog-col {
-        margin-top: 3.5em;
-        margin-left: 0em !important;
-    }
-    .work-card {
-        padding-bottom: 3em;
-    }
-    .bio-img {
-        zoom: 70% !important;
-        margin-bottom: 4em;
-    }
-    .bio-img-blue {
-        zoom: 70% !important;
-        margin-top: 3em;
-    }
-    .mobile-slider {
-        display: block !important;
-    }
-    .desktop-slider {
-        display: none;
-    }
-    .marko-imgDef {
-        display: none;
-    }
-    .marko-img {
-        display: block !important;
-        padding-bottom: 3em;
-    }
-    .header-container {
-        zoom: 0% !important;
-    }
+}
+
+.fasfa {
+    font-size: 1.5rem;
+}
+
+.slider-img {
+    width: 450px !important;
+}
+
+.blog-card {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.bio-paragraf {
+    font-size: 16px;
+}
+
+.small-blog-col {
+    margin-top: 3.5em;
+    margin-left: 0em !important;
+}
+
+.work-card {
+    padding-bottom: 3em;
+}
+
+.bio-img {
+    zoom: 70% !important;
+    margin-bottom: 4em;
+}
+
+.bio-img-blue {
+    zoom: 70% !important;
+    margin-top: 3em;
+}
+
+.mobile-slider {
+    display: block !important;
+}
+
+.desktop-slider {
+    display: none;
+}
+
+.marko-imgDef {
+    display: none;
+}
+
+.marko-img {
+    display: block !important;
+    padding-bottom: 3em;
+}
+
+.header-container {
+    zoom: 0% !important;
 }
 
 @media screen and (max-width: 812px) and (min-width: 375px) {

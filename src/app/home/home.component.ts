@@ -19,7 +19,6 @@ export class HomeComponent implements OnInit {
   language = '';
   multiLanguage: Array<any> = [HomeTranslate.languagesWords];
 
-
   listOfBlogs: Array<Blog> = [];
 
 
@@ -81,7 +80,6 @@ export class HomeComponent implements OnInit {
   
   scrollToElement($element): void {
     $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-
   }
 
 
