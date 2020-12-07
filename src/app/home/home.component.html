@@ -163,10 +163,10 @@
                     <div class="col-sm-5 ">
                         <div class="row" *ngFor="let blog of listOfBlogs|slice:3:4; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
 
-                            <div class="col-sm" style="padding: 1em;background-color: #272727;">
+                            <div class="col-sm huge-card-left-col" style="padding: 1em;background-color: #121212;">
                                 <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid blog-small-preview-img">
                             </div>
-                            <div class="col-sm-7" style="background-color: #ffa900;padding: 1em;">
+                            <div class="col-sm-7 huge-card-right-col" style="background-color: #ffa900;padding: 1em;">
                                 <div style="padding: 1em;">
                                     <div class="text-right">
                                         <button class="blog-btn" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">MORE</button>
@@ -332,10 +332,6 @@
 
                 </div>
             </div>
-
-            <markdown src="assets/requirements.md" lineNumbers [start]="5"></markdown>
         </div>
-
-
     </mat-drawer-content>
 </mat-drawer-container>

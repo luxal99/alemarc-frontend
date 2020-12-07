@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,8 @@ export class FactoryService<T> {
     return this.http.get(`/${this.route}/`+id,{responseType:'json'})
   }
 
-  getAll(){
-    return this.http.get(`/${this.route}`,{responseType:'json'});
+  getAll():Observable<T[]>{
+    return this.http.get<T[]>(`/${this.route}`,{responseType:'json'});
   }
   update(entity:T){
     return this.http.put(`/${this.route}`,entity,{responseType:'text'})
