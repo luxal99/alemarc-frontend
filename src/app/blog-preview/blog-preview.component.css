@@ -44,8 +44,7 @@ h5 {
 }
 
 .header-container {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 4em 10%;
 }
 
 .slider-img {
@@ -127,6 +126,9 @@ h5 {
     }
     .desktop-slider {
         display: none;
+    }
+    .header-container h1 {
+        font-size: 55px;
     }
 }
 
