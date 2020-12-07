@@ -31,7 +31,7 @@
                 </div>
             </nav>
 
-            <div class="header-container">
+            <div class="transparent-container">
                 <div class="row">
                     <div class="col-sm-3 header-left-col line-col">
                         <div style="display: inline-flex;width: 100%;">
@@ -94,175 +94,146 @@
 
         </div>
 
-        <div style="background-color: rgba(0, 0, 0, 0.979);;zoom: 90%;">
-            <div class="header-container">
-                <div class="text-left">
-                    <h1 class="blog-h1" #more data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100">Our works</h1>
-                    <mat-divider data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"></mat-divider>
-                    <h4 class="blog-h4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">Slide for more projects</h4>
-                </div>
+        <div class="header-container">
+            <div class="text-left">
+                <h1 class="blog-h1" #more data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100">Our works</h1>
+                <mat-divider data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"></mat-divider>
+                <h4 class="blog-h4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">Slide for more projects</h4>
             </div>
             <div class="latest-post-div">
                 <div class="row">
-                    <div class="col-sm-7">
-                        <div *ngFor="let blog of listOfBlogs|slice:0:1; let i = index" [attr.data-index]="i">
-                            <div>
-                                <a routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
-                                    <div class="img-container">
-                                        <div style="padding-bottom: 1em;">
-                                            <h3 id="slider-h3" class="blog-slider-h3 text-center">{{blog.header}}</h3>
-                                        </div>
-                                        <img width="100%" height="50%" id="slider-img" src="{{blog.listOfImages[0].url}} " />
-
-                                    </div>
-                                </a>
-                            </div>
+                    <div class="col-sm-7" *ngFor="let blog of listOfBlogs|slice:0:1; let i = index" [attr.data-index]="i">
+                        <div class="img-card" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
+                            <h3 class="text-center">{{blog.header}}</h3>
+                            <img src="{{blog.listOfImages[0].url}} " />
                         </div>
                     </div>
-                    <div class="col-sm-5">
-                        <div *ngFor="let blog of listOfBlogs|slice:1:2; let i = index" [attr.data-index]="i">
-                            <div>
-                                <a routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
-                                    <div class="img-container">
-                                        <div style="padding-bottom: 1em;">
-                                            <h3 id="slider-h3" class="blog-slider-h3 text-center">{{blog.header}}</h3>
-                                        </div>
-                                        <img width="100%" height="50%" id="slider-img" src="{{blog.listOfImages[0].url}} " />
-
-                                    </div>
-                                </a>
-                            </div>
+                    <div class="col-sm-5" *ngFor="let blog of listOfBlogs|slice:1:2; let i = index" [attr.data-index]="i">
+                        <div class="img-card" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
+                            <h3 class="text-center">{{blog.header}}</h3>
+                            <img src="{{blog.listOfImages[0].url}} " />
                         </div>
                     </div>
                 </div>
                 <div *ngFor="let blog of listOfBlogs|slice:2:3; let i = index" [attr.data-index]="i">
-                    <div class="big-post">
-                        <a routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
-                            <div class="img-container">
-                                <div style="padding-bottom: 1em;">
-                                    <h3 id="slider-h3" class="blog-slider-h3 text-center">{{blog.header}}</h3>
-                                </div>
-                                <img width="100%" height="50%" id="slider-img" src="{{blog.listOfImages[0].url}} " />
-
-                            </div>
-                        </a>
+                    <div class="img-card" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
+                        <h3 class="text-center">{{blog.header}}</h3>
+                        <img src="{{blog.listOfImages[0].url}} " />
                     </div>
                 </div>
             </div>
         </div>
 
-        <div style="background-color: rgba(0, 0, 0, 0.979);;padding-top: 10em;" #work>
-            <div class="header-container">
-                <div class="text-right">
-                    <h1 class="blog-right-text" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100">Look at our works</h1>
-                    <mat-divider style="border-top-color: #333;" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"></mat-divider>
-                    <h4 class="blog-h4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">You can see some of our projects</h4>
+        <div class="header-container" #work>
+            <div class="text-right">
+                <h1 class="blog-right-text" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100">Look at our works</h1>
+                <mat-divider style="border-top-color: #333;" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200"></mat-divider>
+                <h4 class="blog-h4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">You can see some of our projects</h4>
 
-                </div>
-                <div class="row" style="margin-top: 5em;">
-                    <div class="col-sm-5 ">
-                        <div class="row" *ngFor="let blog of listOfBlogs|slice:3:4; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
+            </div>
+            <div class="row" style="margin-top: 5em;">
+                <div class="col-sm-5">
+                    <div class="row huge-col" *ngFor="let blog of listOfBlogs|slice:3:4; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
 
-                            <div class="col-sm huge-card-left-col" style="padding: 1em;background-color: #121212;">
-                                <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid blog-small-preview-img">
-                            </div>
-                            <div class="col-sm-7 huge-card-right-col" style="background-color: #ffa900;padding: 1em;">
-                                <div style="padding: 1em;">
-                                    <div class="text-right">
-                                        <button class="blog-btn" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">MORE</button>
-                                    </div>
-                                    <h1 class="text-left blog-small-preview-h3">{{blog.header}}</h1>
-                                    <h4 class="text-left blog-small-preview-h4">{{blog.shortText}}</h4>
-                                    <p style="font-size: 5px;">{{blog.longText}}</p>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <img src="{{blog.listOfImages[1].url}} " alt="" class="img-fluid small-img">
-                                        </div>
-                                        <div class="col">
-                                            <img src="{{blog.listOfImages[2].url}} " alt="" class="img-fluid small-img">
-                                        </div>
-                                        <div class="col-sm">
-                                            <img src="{{blog.listOfImages[3].url}} " alt="" class="img-fluid small-img">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                        <div class="col-sm-5">
+                            <img src="{{blog.listOfImages[0].url}} " class="img-fluid">
                         </div>
-                    </div>
-                    <div class="col-sm-2" *ngFor="let blog of listOfBlogs|slice:4:5; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
-                        <div class="blog-card">
-                            <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid">
-
-                            <div class="card-content" style="padding: 1em;">
-                                <h4 style="padding: 0 !important;">{{blog.header}}</h4>
-                                <h5>{{blog.shortText}}</h5>
-                                <h4><i class="fa fa-eye" aria-hidden="true"></i> {{blog.numberOfViews}}</h4>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="row">
-                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #F3F4F5;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:5:6; let i = index" [attr.data-index]="i">
+                        <div class="col-sm-7 ">
+                            <div>
                                 <div class="text-right">
-                                    <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
+                                    <button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">MORE</button>
                                 </div>
-                                <div class="text-center">
-                                    <h3 class="small-blog" style="color: #121212;">{{blog.header}}</h3>
-                                </div>
+                                <h1 class="text-left">{{blog.header}}</h1>
+                                <h4 class="text-left">{{blog.shortText}}</h4>
+                                <p>{{blog.longText}}</p>
 
-                            </div>
-                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:6:7; let i = index" [attr.data-index]="i" style="background-color: #F3F4F5;margin-left: 1em;padding-bottom: 2em;">
-                                <div class="text-right">
-                                    <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
-                                </div>
-                                <div class="text-center">
-                                    <h3 class="small-blog text-center">{{blog.header}}</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" style="margin-top: 1em;">
-                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #ffa900;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:7:8; let i = index" [attr.data-index]="i">
-                                <div class="text-right">
-                                    <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
-                                </div>
-                                <div class="text-center">
-                                    <h3 class="small-blog" style="color: #121212;">{{blog.header}}</h3>
-                                </div>
-
-                            </div>
-                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:8:9; let i = index" [attr.data-index]="i" style="background-color: #ffa900 ;margin-left: 1em;padding-bottom: 2em;">
-                                <div class="text-right">
-                                    <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
-                                </div>
-                                <div class="text-center">
-                                    <h3 class="small-blog text-center">{{blog.header}}</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style="padding-top: 10em;">
-                    <div class="col-sm work-card" *ngFor="let popular of listOfBlogs|slice:7">
-                        <div class="popular-blog-figure">
-                            <img src="{{popular.listOfImages[0].url}}" alt="" class="img-fluid">
-                            <div class="blog-figure-content text-left">
-                                <h4 style="color: #fff;">{{popular.shortText}}</h4>
-                                <h2 style="color: #0011FF;">{{popular.header}}</h2>
                                 <div class="row">
-                                    <div class="col-sm btn-col text-left">
-                                        <div>
-                                            <button class="blog-content-btn" routerLink="/blog/{{popular.id}}" routerLinkActive="router-link-active">VIEW</button>
-                                        </div>
+                                    <div class="col">
+                                        <img src="{{blog.listOfImages[1].url}} " alt="" class="img-fluid">
                                     </div>
-                                    <div class="col-sm">
-                                        <div class="text-right">
-                                            <h4 style="color: #fff;"><i class="fa fa-eye" aria-hidden="true"></i> {{popular.numberOfViews}}</h4>
-                                        </div>
+                                    <div class="col">
+                                        <img src="{{blog.listOfImages[2].url}} " alt="" class="img-fluid">
+                                    </div>
+                                    <div class="col">
+                                        <img src="{{blog.listOfImages[3].url}} " alt="" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-sm-2" *ngFor="let blog of listOfBlogs|slice:4:5; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
+                    <div class="blog-card">
+                        <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid">
+
+                        <div class="card-content" style="padding: 1em;">
+                            <h4 style="padding: 0 !important;">{{blog.header}}</h4>
+                            <h5>{{blog.shortText}}</h5>
+                            <h4><i class="fa fa-eye" aria-hidden="true"></i> {{blog.numberOfViews}}</h4>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #F3F4F5;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:5:6; let i = index" [attr.data-index]="i">
+                            <div class="text-right">
+                                <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="small-blog" style="color: #121212;">{{blog.header}}</h3>
+                            </div>
+
+                        </div>
+                        <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:6:7; let i = index" [attr.data-index]="i" style="background-color: #F3F4F5;margin-left: 1em;padding-bottom: 2em;">
+                            <div class="text-right">
+                                <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="small-blog text-center">{{blog.header}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 1em;">
+                        <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #ffa900;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:7:8; let i = index" [attr.data-index]="i">
+                            <div class="text-right">
+                                <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="small-blog" style="color: #121212;">{{blog.header}}</h3>
+                            </div>
+
+                        </div>
+                        <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:8:9; let i = index" [attr.data-index]="i" style="background-color: #ffa900 ;margin-left: 1em;padding-bottom: 2em;">
+                            <div class="text-right">
+                                <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="small-blog text-center">{{blog.header}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="padding-top: 10em;">
+                <div class="col-sm work-card" *ngFor="let popular of listOfBlogs|slice:7">
+                    <div class="popular-blog-figure">
+                        <img src="{{popular.listOfImages[0].url}}" alt="" class="img-fluid">
+                        <div class="blog-figure-content text-left">
+                            <h4 style="color: #fff;">{{popular.shortText}}</h4>
+                            <h2 style="color: #0011FF;">{{popular.header}}</h2>
+                            <div class="row">
+                                <div class="col-sm btn-col text-left">
+                                    <div>
+                                        <button class="blog-content-btn" routerLink="/blog/{{popular.id}}" routerLinkActive="router-link-active">VIEW</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="text-right">
+                                        <h4 style="color: #fff;"><i class="fa fa-eye" aria-hidden="true"></i> {{popular.numberOfViews}}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -272,65 +243,60 @@
             </div>
         </div>
         <app-cv-aleksa></app-cv-aleksa>
-        <div style="background-color: rgba(0, 0, 0, 0.979);;max-width: 100%; ">
-            <div class="container vertical-divider "></div>
-        </div>
 
-        <div class="about-div ">
-            <div class="header-container " style="zoom: 90%;">
-                <div class="row ">
-                    <div class="col-sm-5 text-center marko-img" style="display: none;">
-                        <img src="../../assets/img/marko.jpeg " alt=" " class="img-fluid bio-img-blue ">
-                    </div>
-                    <div class="col-sm text-left ">
-                        <h3 class="bio-h3 " style="color: #00ffff !important; ">My name is</h3>
-                        <h1 class="bio-h1 ">Marko</h1>
-                        <p class="bio-paragraf ">Hi, I’m Marko! I’m 21 years old, self-taught Web Developer, from Serbia. After my high school, I enrolled in information technology at Metropolitan University, where I continue to study. For whole year I create high number HTML
-                            & CSS websites following given designs. After a year of working, I started learning more advanced web programming technologies. The technologies that I learned:JavaScript, Angular, and PHP. Together, me, my colleague and our
-                            team, we will do our best to turn all your wishes into reality and bring you one step ahead of the competition.</p>
-                        <div class="text-left ">
-                            <div class="row ">
-                                <div class="col-sm ">
-                                    <h3>Frontend</h3>
-                                    <mat-divider style="border-top-color: #00ffff; "></mat-divider>
-                                    <ul id="blue">
-                                        <li>HTML/CSS</li>
-                                        <li>Angular</li>
-                                        <li>Bootstrap</li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm ">
-                                    <h3>Backend</h3>
-                                    <mat-divider style="border-top-color: #00ffff; "></mat-divider>
-                                    <ul id="blue">
-                                        <li>Java</li>
-                                        <!-- <li>NodeJS</li> -->
-                                        <li>PHP</li>
-                                    </ul>
-                                </div>
-
+        <div class="header-container " style="zoom: 90%;">
+            <div class="row ">
+                <div class="col-sm-5 text-center marko-img" style="display: none;">
+                    <img src="../../assets/img/marko.jpeg " alt=" " class="img-fluid bio-img-blue ">
+                </div>
+                <div class="col-sm text-left ">
+                    <h3 class="bio-h3 " style="color: #00ffff !important; ">My name is</h3>
+                    <h1 class="bio-h1 ">Marko</h1>
+                    <p class="bio-paragraf ">Hi, I’m Marko! I’m 21 years old, self-taught Web Developer, from Serbia. After my high school, I enrolled in information technology at Metropolitan University, where I continue to study. For whole year I create high number HTML & CSS
+                        websites following given designs. After a year of working, I started learning more advanced web programming technologies. The technologies that I learned:JavaScript, Angular, and PHP. Together, me, my colleague and our team, we
+                        will do our best to turn all your wishes into reality and bring you one step ahead of the competition.</p>
+                    <div class="text-left ">
+                        <div class="row ">
+                            <div class="col-sm ">
+                                <h3>Frontend</h3>
+                                <mat-divider style="border-top-color: #00ffff; "></mat-divider>
+                                <ul id="blue">
+                                    <li>HTML/CSS</li>
+                                    <li>Angular</li>
+                                    <li>Bootstrap</li>
+                                </ul>
                             </div>
-                            <div class="row ">
-                                <div class="col-sm ">
-                                    <h3>Database</h3>
-                                    <mat-divider style="border-top-color: #00ffff; "></mat-divider>
-                                    <ul id="blue">
-                                        <li>MySQL</li>
-                                        <!-- <li>MongoDB</li> -->
-                                    </ul>
-                                </div>
-                                <div class="col-sm ">
-                                    <canvas baseChart [datasets]="barChartDataMarko" [labels]="barChartLabelsBackend " [options]="barChartOptions " [plugins]="barChartPlugins " [legend]="barChartLegend " [chartType]="pieChartType ">
+                            <div class="col-sm ">
+                                <h3>Backend</h3>
+                                <mat-divider style="border-top-color: #00ffff; "></mat-divider>
+                                <ul id="blue">
+                                    <li>Java</li>
+                                    <!-- <li>NodeJS</li> -->
+                                    <li>PHP</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm ">
+                                <h3>Database</h3>
+                                <mat-divider style="border-top-color: #00ffff; "></mat-divider>
+                                <ul id="blue">
+                                    <li>MySQL</li>
+                                    <!-- <li>MongoDB</li> -->
+                                </ul>
+                            </div>
+                            <div class="col-sm ">
+                                <canvas baseChart [datasets]="barChartDataMarko" [labels]="barChartLabelsBackend " [options]="barChartOptions " [plugins]="barChartPlugins " [legend]="barChartLegend " [chartType]="pieChartType ">
                                         </canvas>
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-5 text-center marko-imgDef">
-                        <img src="../../assets/img/marko.jpeg " alt=" " class="img-fluid bio-img-blue ">
-                    </div>
-
                 </div>
+                <div class="col-sm-5 text-center marko-imgDef">
+                    <img src="../../assets/img/marko.jpeg " alt=" " class="img-fluid bio-img-blue ">
+                </div>
+
             </div>
         </div>
     </mat-drawer-content>
