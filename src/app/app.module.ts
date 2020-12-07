@@ -24,6 +24,7 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
 import { OverviewComponent } from './admin/overview/overview.component';
 import { EditBlogDialogComponent } from './admin/overview/edit-blog-dialog/edit-blog-dialog.component';
+import { CvAleksaComponent } from './home/cv-aleksa/cv-aleksa.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { EditBlogDialogComponent } from './admin/overview/edit-blog-dialog/edit-
     ErrorComponent,
     BlogPreviewComponent,
     OverviewComponent,
-    EditBlogDialogComponent
+    EditBlogDialogComponent,
+    CvAleksaComponent
   ],
   imports: [
     CommonModule,

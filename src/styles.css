@@ -36,6 +36,10 @@ img {
     vertical-align: baseline;
 }
 
+body {
+    background-color: rgba(0, 0, 0, 0.979);
+}
+
 @media screen and (max-width:600px) {
     body {
         zoom: 90%;

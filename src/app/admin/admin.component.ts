@@ -1,19 +1,22 @@
-import { Component, OnInit, ViewChild, QueryList, ViewChildren, AfterViewInit, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
-import { MatSidenav, MatDialog, MatSnackBar, MatSlideToggle, MatCheckbox, MatCheckboxChange } from '@angular/material';
 import * as $ from 'jquery';
-import { Router } from '@angular/router';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
+
+import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { CKEditorComponent, ChangeEvent } from '@ckeditor/ckeditor5-angular';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatCheckbox, MatCheckboxChange, MatDialog, MatSidenav, MatSlideToggle, MatSnackBar } from '@angular/material';
+
 import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
-import { AuthService } from '../service/auth.service';
-import { TechnologyService } from '../service/technology.service';
-import { Image } from "../model/Image";
 import { AngularFireStorage } from '@angular/fire/storage';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { Technology } from '../model/Technology';
+import { AuthService } from '../service/auth.service';
 import { Blog } from "../model/Blog";
 import { BlogService } from "../service/blog.service";
+import { Image } from "../model/Image";
+import { Router } from '@angular/router';
+import { Technology } from '../model/Technology';
+import { TechnologyService } from '../service/technology.service';
 import { async } from 'rxjs/internal/scheduler/async';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -78,13 +81,9 @@ export class AdminComponent implements OnInit {
   addFiles(event) {
 
     for (let index = 0; index < event.length; index++) {
-      if (event[index].size / 1000 > 700) {
-        this.openSnackBar("Prevelik fajl", "DONE");
-      } else {
-
         const element = event[index];
         this.fileUploadList.push(element);
-      }
+      
     }
   }
 

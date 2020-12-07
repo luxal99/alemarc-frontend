@@ -38,17 +38,21 @@ h1 {
 
 .first-h1 {
     color: #333333;
-    font-size: 6em;
+    font-size: 3em;
 }
 
 .second-h1 {
     color: #666;
-    font-size: 7em;
+    font-size: 4em;
 }
 
 .third-h1 {
     color: #999;
-    font-size: 8em;
+    font-size: 5em;
+}
+
+.col-sm-5 {
+    cursor: pointer;
 }
 
 .header-container {
@@ -213,6 +217,7 @@ h1 {
     -webkit-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
     box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }
 
 mat-divider {
@@ -254,15 +259,6 @@ mat-divider {
     font-family: 'Montserrat', sans-serif !important;
     color: #eee !important;
     font-size: 20px;
-}
-
-.vertical-divider {
-    /* border-left: 1px solid #38546d;
-    border-right: 1px solid #16222c;
-    height: 80px;
-    position: absolute;
-    right: 249px;
-    top: 10px; */
 }
 
 ul {
@@ -439,6 +435,7 @@ li {
 .blog-card {
     margin-top: 2em;
     margin-bottom: 2em;
+    cursor: pointer;
 }
 
 .bio-paragraf {

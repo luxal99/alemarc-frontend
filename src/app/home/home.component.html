@@ -160,30 +160,30 @@
 
                 </div>
                 <div class="row" style="margin-top: 5em;">
-                    <div class="col-sm-5">
+                    <div class="col-sm-5 ">
                         <div class="row" *ngFor="let blog of listOfBlogs|slice:3:4; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
 
-                            <div class="col-sm" style="padding: 1em;background-color: #272727;" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
-                                <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid blog-small-preview-img" data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="400">
+                            <div class="col-sm" style="padding: 1em;background-color: #272727;">
+                                <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid blog-small-preview-img">
                             </div>
-                            <div class="col-sm-7" style="background-color: #ffa900;padding: 1em;" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                            <div class="col-sm-7" style="background-color: #ffa900;padding: 1em;">
                                 <div style="padding: 1em;">
                                     <div class="text-right">
-                                        <button class="blog-btn" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="500">MORE</button>
+                                        <button class="blog-btn" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">MORE</button>
                                     </div>
-                                    <h1 class="text-left blog-small-preview-h3" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">{{blog.header}}</h1>
-                                    <h4 class="text-left blog-small-preview-h4" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="700">{{blog.shortText}}</h4>
-                                    <p style="font-size: 5px;" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="800">{{blog.longText}}</p>
+                                    <h1 class="text-left blog-small-preview-h3">{{blog.header}}</h1>
+                                    <h4 class="text-left blog-small-preview-h4">{{blog.shortText}}</h4>
+                                    <p style="font-size: 5px;">{{blog.longText}}</p>
 
                                     <div class="row">
                                         <div class="col">
-                                            <img src="{{blog.listOfImages[1].url}} " alt="" class="img-fluid small-img" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900">
+                                            <img src="{{blog.listOfImages[1].url}} " alt="" class="img-fluid small-img">
                                         </div>
                                         <div class="col">
-                                            <img src="{{blog.listOfImages[2].url}} " alt="" class="img-fluid small-img" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1000">
+                                            <img src="{{blog.listOfImages[2].url}} " alt="" class="img-fluid small-img">
                                         </div>
                                         <div class="col-sm">
-                                            <img src="{{blog.listOfImages[3].url}} " alt="" class="img-fluid small-img" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1100">
+                                            <img src="{{blog.listOfImages[3].url}} " alt="" class="img-fluid small-img">
                                         </div>
                                     </div>
                                 </div>
@@ -192,22 +192,21 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-2" *ngFor="let blog of listOfBlogs|slice:4:5; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1200">
+                    <div class="col-sm-2" *ngFor="let blog of listOfBlogs|slice:4:5; let i = index" [attr.data-index]="i" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active">
                         <div class="blog-card">
-                            <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="1300">
+                            <img src="{{blog.listOfImages[0].url}} " alt="" class="img-fluid">
 
                             <div class="card-content" style="padding: 1em;">
-                                <h4 style="padding: 0 !important;" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1400">{{blog.header}}</h4>
-                                <h5 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1500">{{blog.shortText}}</h5>
-                                <h4 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1600"><i class="fa fa-eye" aria-hidden="true"></i> {{blog.numberOfViews}}</h4>
+                                <h4 style="padding: 0 !important;">{{blog.header}}</h4>
+                                <h5>{{blog.shortText}}</h5>
+                                <h4><i class="fa fa-eye" aria-hidden="true"></i> {{blog.numberOfViews}}</h4>
 
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-5">
                         <div class="row">
-                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #F3F4F5;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:5:6; let i = index" [attr.data-index]="i" data-aos="fade-right"
-                                data-aos-duration="1000" data-aos-delay="1700">
+                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #F3F4F5;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:5:6; let i = index" [attr.data-index]="i">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -216,8 +215,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:6:7; let i = index" [attr.data-index]="i" style="background-color: #F3F4F5;margin-left: 1em;padding-bottom: 2em;"
-                                data-aos="fade-right" data-aos-duration="1000" data-aos-delay="1800">
+                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:6:7; let i = index" [attr.data-index]="i" style="background-color: #F3F4F5;margin-left: 1em;padding-bottom: 2em;">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -227,8 +225,7 @@
                             </div>
                         </div>
                         <div class="row" style="margin-top: 1em;">
-                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #ffa900;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:7:8; let i = index" [attr.data-index]="i" data-aos="fade-up"
-                                data-aos-duration="1000" data-aos-delay="1900">
+                            <div class="col-sm-6 small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" style="background-color: #ffa900;padding-bottom: 2em;" *ngFor="let blog of listOfBlogs|slice:7:8; let i = index" [attr.data-index]="i">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -237,8 +234,7 @@
                                 </div>
 
                             </div>
-                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:8:9; let i = index" [attr.data-index]="i" style="background-color: #ffa900 ;margin-left: 1em;padding-bottom: 2em;"
-                                data-aos="fade-up" data-aos-duration="1000" data-aos-delay="2000">
+                            <div class="col-sm small-blog-col" routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active" *ngFor="let blog of listOfBlogs|slice:8:9; let i = index" [attr.data-index]="i" style="background-color: #ffa900 ;margin-left: 1em;padding-bottom: 2em;">
                                 <div class="text-right">
                                     <button mat-icon-button routerLink="/blog/{{blog.id}}" routerLinkActive="router-link-active"><mat-icon>add_circle</mat-icon></button>
                                 </div>
@@ -275,67 +271,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="about-div ">
-            <div class="header-container " style="zoom: 90%;">
-                <div class="row ">
-                    <div class="col-sm-5 text-center ">
-                        <img src="../../assets/img/D17D5CFC-50B4-4DBD-A835-73663553726A.jpg " alt=" " class="img-fluid bio-img ">
-                    </div>
-                    <div class="col-sm text-left ">
-                        <h3 class="bio-h3 ">My name is</h3>
-                        <h1 class="bio-h1 ">Aleksa</h1>
-                        <p class="bio-paragraf ">My name is Aleksa Lukić and I'm currently student of the second year of the Metropolitan University,software engineering. Thanks to a modern program and individual effort, I gained the necessary knowledge to create modern websites
-                            and web application that you can see in gallery of works, and I have successfully mastered Java to the level that I can make applications for companies that make work easier. Over and above, I've mastered MySQL,NodeJS,Angular,TypeScript
-                            too.
-                        </p>
-                        <div class="text-left ">
-                            <div class="row ">
-                                <div class="col-sm ">
-                                    <h3>Frontend</h3>
-                                    <mat-divider style="border-top-color: #ffa900; "></mat-divider>
-                                    <ul id="orange">
-                                        <li>HTML/CSS</li>
-                                        <li>Angular</li>
-                                        <li>Bootstrap</li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm ">
-                                    <h3>Backend</h3>
-                                    <mat-divider style="border-top-color: #ffa900; "></mat-divider>
-                                    <ul id="orange">
-                                        <li>Java/SpringBoot</li>
-                                        <li>NodeJS/Express</li>
-                                        <li>JSP</li>
-                                        <li>ORM</li>
-                                        <li>TypeScript</li>
-
-                                    </ul>
-                                </div>
-
-                            </div>
-                            <div class="row ">
-                                <div class="col-sm ">
-                                    <h3>Database</h3>
-                                    <mat-divider style="border-top-color: #ffa900; "></mat-divider>
-                                    <ul id="orange">
-                                        <li>MySQL</li>
-                                        <li>MongoDB</li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm ">
-                                    <canvas baseChart [datasets]="barChartDataBackend " [labels]="barChartLabelsBackend " [options]="barChartOptions " [plugins]="barChartPlugins " [legend]="barChartLegend " [chartType]="pieChartType ">
-                                        </canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </div>
-
+        <app-cv-aleksa></app-cv-aleksa>
         <div style="background-color: rgba(0, 0, 0, 0.979);;max-width: 100%; ">
             <div class="container vertical-divider "></div>
         </div>
