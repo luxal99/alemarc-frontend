@@ -1,1 +1,177 @@
-@import "../../../assets/cv/cv.css";
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+::-webkit-scrollbar {
+    height: 1em;
+    background-color: #282828;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffa900;
+    border-radius: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+li,
+h6,
+p {
+    font-family: 'Dosis', sans-serif;
+}
+
+p {
+    font-size: 18px;
+    letter-spacing: normal;
+    line-height: normal;
+    color: #fff;
+}
+
+h2 {
+    padding: 10px;
+}
+
+.body {
+    padding: 1em 3em;
+    background-color: rgba(0, 0, 0, 0.979);
+}
+
+.cv-content {
+    padding: 5em 10em 5em 10em;
+}
+
+h1 {
+    padding-top: 2em;
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: lighter;
+    color: #fff;
+}
+
+.content h3 {
+    padding-top: 1em;
+}
+
+.h3-silver {
+    color: #999;
+    font-weight: lighter;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+li {
+    color: #999 !important;
+    padding-top: 1em;
+}
+
+h5 {
+    font-weight: lighter;
+    padding-bottom: .5em;
+    color: #999;
+}
+
+.col {
+    width: 50% !important;
+}
+
+span {
+    font-weight: bold;
+}
+
+.header {
+    min-width: 50vh;
+    padding: 1em 10em 1em 10em;
+    background-size: cover;
+}
+
+.row {
+    width: 100% !important;
+    display: inline-flex !important;
+}
+
+.person-info {
+    width: 50%;
+    color: #fff;
+    padding: 5em;
+}
+
+.profile-image {
+    text-align: right !important;
+    width: 100%;
+    padding: 5em;
+}
+
+.profile-image img {
+    border-radius: 10em;
+}
+
+.label {
+    background-color: #ffa900;
+    border-radius: 5em;
+}
+
+.profile-section {
+    margin: 2em;
+}
+
+.content {
+    padding: 2em;
+}
+
+.progress-container {
+    background-color: #f3f3f7;
+    width: 100%;
+    height: 5px;
+}
+
+.bio {
+    letter-spacing: 1.5px;
+}
+
+.general-skill-h5 {
+    background-color: #f3f3f7;
+    padding: .5em 1em;
+    color: #333;
+    border-radius: 20px;
+    font-weight: bold;
+    margin: .3em;
+}
+
+@media screen and (max-width:900px) {
+    .col {
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .profile-image {
+        text-align: center !important;
+        margin: 5em 0 !important;
+    }
+    .body {
+        padding: 2em;
+    }
+    h1 {
+        color: #fff;
+    }
+    .header {
+        padding: 0;
+    }
+    li {
+        text-align: left !important;
+    }
+    .cv-content {
+        padding: 0 !important;
+    }
+    .body {
+        text-align: center !important;
+        padding: 0 !important;
+    }
+}
