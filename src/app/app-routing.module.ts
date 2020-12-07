@@ -2,29 +2,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './login/login.component';
-import { AboutComponent } from './about/about.component';
-import { OrderSiteComponent } from './order-site/order-site.component';
-import { AdminService } from './service/admin.service';
-
+import { LoginComponent } from './login/login.component';;
+import { AuthService } from "./service/auth.service";
+import { ErrorComponent } from './error/error.component';
+import { BlogPreviewComponent } from './blog-preview/blog-preview.component';
+import {FooterComponent} from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
   {
-    path: 'login',component:LoginComponent,
-    //loadChildren:()=>import('./login/login.module').then(m=>m.LoginRoutingModule)
+    path: 'login', component: LoginComponent,
   },
-  {
-    path: 'about', component: AboutComponent,
-     loadChildren:()=>import('./about/about.module').then(m=>m.AboutRoutingModule)
-    
-  },
-  {
-    path: 'order',component:OrderSiteComponent,
-   loadChildren:()=>import('./order-site/order.module').then(m=>m.OrderRoutingModule) 
-    
-  },
-  { path: 'admin', component: AdminComponent, canActivate: [AdminService] }
+  { path: 'err', component: ErrorComponent },
+  {path:'contact', component: FooterComponent},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthService] },
+  { path: 'blog/:id', component: BlogPreviewComponent },
+  { path: '**', component: ErrorComponent }
 ];
 
 

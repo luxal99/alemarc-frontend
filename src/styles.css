@@ -3,14 +3,45 @@
 @import '~font-awesome/css/font-awesome.css';
 @import url('assets/css/imagehover.css-master/css/imagehover.min.css');
 body {
-    background-color: #f3f2f2;
+    background-color: #121212 !important;
 }
-.mat-progress-bar-fill::after {
-    background-color: #ff9600 !important;
-}
+
 .mat-form-field-appearance-legacy .mat-form-field-label {
     color: #ff9600 !important;
 }
+
+.mat-tab-label {
+    color: #eee;
+}
+
 .mat-dialog-container {
     padding: 0px !important;
+}
+
+::-webkit-scrollbar {
+    height: 1em;
+    background-color: #010101
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #ffa900;
+    border-radius: 10px;
+}
+
+.techDialog {
+    filter: blur(20px);
+}
+
+img {
+    vertical-align: baseline;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.979);
+}
+
+@media screen and (max-width:600px) {
+    body {
+        zoom: 90%;
+    }
 }

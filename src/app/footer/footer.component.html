@@ -1,72 +1,68 @@
-<section style="position: relative;">
-    <div class="it-div"></div>
-    <div class="footer">
-        <div class="text-center">
-
-            <div class="row">
-
-                <div class="text-left col-sm-7" style="padding: 5em;background-color: #f3f2f2;">
-                    <h1 class="mail-text">{{this.multiLanguage[0][0][language].contact_us2}}</h1>
-
-                    <form [formGroup]="sendMessageForm">
-
-                        <div>
-                            <mat-form-field class="example-full-width" class="input">
-                                <mat-label>E-Mail</mat-label>
-                                <input formControlName="mail" matInput placeholder="" value="">
-                            </mat-form-field>
-                        </div>
-                        <div>
-                            <mat-form-field class="example-full-width" class="input">
-                                <mat-label>{{this.multiLanguage[0][0][language].subject}}</mat-label>
-                                <input formControlName="subject" matInput placeholder="" value="">
-                            </mat-form-field>
-                        </div>
-                        <div>
-                            <div class="row text-center container">
-                                <mat-form-field class="example-full-width" class="input inline-input">
-                                    <mat-label>{{this.multiLanguage[0][0][language].name}}</mat-label>
-                                    <input formControlName="name" matInput placeholder="" value="">
-                                </mat-form-field>
-                                <mat-form-field class="example-full-width" class="input inline-input-right">
-                                    <mat-label>{{this.multiLanguage[0][0][language].lastname}}</mat-label>
-                                    <input formControlName="lastname" matInput placeholder="" value="">
-                                </mat-form-field>
-                            </div>
-
-                        </div>
-                        <div>
-                            <mat-form-field class="example-full-width" class="input">
-                                <mat-label>{{this.multiLanguage[0][0][language].message}}</mat-label>
-                                <textarea formControlName="message" matInput placeholder="Ex. It makes me feel..."></textarea>
-                            </mat-form-field>
-                        </div>
-                        <div class="btn-div">
-                            <button class="header-btn " (click)="sendMessage()">{{this.multiLanguage[0][0][language].message_btn}}</button>
-                        </div>
-                    </form>
+<mat-drawer-container class="example-container" value="true">
+    <mat-drawer #drawer mode="over" class="sidenav-content zoom" style="width: 100%;">
+        <div class="navbar-nav side-menu">
+            <div class="text-right">
+                <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
+                    <i class="fa fa-close" style="color: #121212;"></i>
+                  </button>
+            </div>
+            <div style="padding-top: 10em;">
+                <a class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Works</a>
+                <a class="nav-item nav-link">Contact</a>
 
 
-                </div>
-                <div class="col-sm-5 right-col">
-                    <h1 class="text-left address-text">
-                        {{this.multiLanguage[0][0][language].contact_us}}
-                    </h1>
-                    <p class="text-left right-col-txt">
-                        {{this.multiLanguage[0][0][language].contact_more}}
-                    </p>
-                    <div class="contact-div text-left">
-                        <p class="contact-text"><i class="fa fa-address-card" style="color: #ff9600;font-size: 26px;"></i> +381 69695095 <br><i class="fa fa-address-card" style="color: #ff9600;font-size: 26px;"></i> +381 695103007</p>
-                        <p class="contact-text"><i class="fa fa-envelope" style="color: #ff9600;font-size: 26px;"></i> office@alemarc.com</p>
-                        <p class="contact-text"><i class="fa fa-location-arrow" style="color: #ff9600;font-size: 26px;"></i> Nis</p>
-                    </div>
 
-                </div>
             </div>
         </div>
-    </div>
-    <div class="social-dark-div">
+    </mat-drawer>
+    <mat-drawer-content>
 
-    </div>
+        <nav class="navbar navbar-expand-lg ">
+            <a class="navbar-brand" href="#" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100"><img src="../../assets/img/1200px-Code 1.png" class="img-fluid" alt=""></a>
+            <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
+      <i class="fa fa-align-right" style="color: #ffa900;"></i>
+    </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
 
-</section>
+                    <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="nav-item nav-link" [routerLink]="['/']" routerLinkActive="router-link-active">Works</a>
+                    <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" class="nav-item nav-link" style="color: #ffa900 !important;">Contact</a>
+                </div>
+            </div>
+        </nav>
+        <div class="footer" style="padding-top: 5em;">
+            <div class="text-center footer-container ">
+                <h1 class="text-center">Contact <span style="color: #999;">Us.</span></h1>
+                <h3 class="text-center" style="padding-bottom: .5em;"><span style="color: #fff;">We will do our best to respond in a record time</span></h3>
+                <form [formGroup]="sendMessageForm">
+                    <div class="row text" style="padding-top: 2em;">
+                        <mat-form-field class="example-full-width" style="width: 48%;">
+                            <mat-label>Full name</mat-label>
+                            <input formControlName="full_name" matInput value="">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width" style="width: 48%;margin-left: 2%;">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput value="">
+                        </mat-form-field>
+                    </div>
+                    <div style="width: 100%;">
+                        <mat-form-field class="example-full-width" style="width: 100%;">
+                            <mat-label>Message</mat-label>
+                            <input formControlName="message" matInput value="">
+                        </mat-form-field>
+                    </div>
+                    <div class="text-center">
+                        <button class="sub-btn" (click)="sendMessage()">SEND</button>
+                    </div>
+                    <div class="text-center" style="color: #fff; padding-top: 2em;">
+                        <h4>+381 69 695095</h4>
+                        <h4>+381 69 5103007</h4>
+                        <h4>18000 Niš.</h4>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>

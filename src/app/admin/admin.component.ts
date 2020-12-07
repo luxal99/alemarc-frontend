@@ -1,181 +1,149 @@
-import { Component, OnInit, ViewChild, QueryList, ViewChildren, AfterViewInit } from '@angular/core';
-import { MatSidenav, MatDialog, MatSnackBar } from '@angular/material';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { MessagePreviewDialogComponent } from './message-preview-dialog/message-preview-dialog.component';
 import * as $ from 'jquery';
-import { AdminService } from '../service/admin.service';
-import { OrderPreviewComponent } from './order-preview/order-preview.component';
-import { Router } from '@angular/router';
-import { ChangeLoginComponent } from './change-login/change-login.component';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 
-export interface Mail {
-  id: number;
-  id_client: Client;
-  subject: string;
-  message: string;
-}
+import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
+import { CKEditorComponent, ChangeEvent } from '@ckeditor/ckeditor5-angular';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatCheckbox, MatCheckboxChange, MatDialog, MatSidenav, MatSlideToggle, MatSnackBar } from '@angular/material';
 
-export class Client {
-
-}
-
-export interface Order {
-  id: number;
-  name: string;
-  lastname: string;
-}
+import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { AuthService } from '../service/auth.service';
+import { Blog } from "../model/Blog";
+import { BlogService } from "../service/blog.service";
+import { Image } from "../model/Image";
+import { Router } from '@angular/router';
+import { Technology } from '../model/Technology';
+import { TechnologyService } from '../service/technology.service';
+import { async } from 'rxjs/internal/scheduler/async';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit, AfterViewInit {
+export class AdminComponent implements OnInit {
 
   @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
-
-  html = '';
-  editorData = '';
-
-  getEditor() {
-    // Warning: This may return "undefined" if the editor is hidden behind the `*ngIf` directive or
-    // if the editor is not fully initialised yet.
-
-    this.html = this.editorComponent.editorInstance.getData();
-    return this.editorComponent.change;
-  }
-
-  someFunction(text) {
-    console.log(text);
-
-  }
-
-  onChange({ editor }: ChangeEvent) {
-    const data = editor.getData();
-
-    console.log(data);
-  }
-
   public Editor = ClassicEditor;
 
-  mailColumn: string[] = ['id', 'name', 'lastname', 'subject', 'option'];
-  orderColumn: string[] = ['name', 'lastname', 'mail', 'telephone', 'option'];
+  @ViewChild('toggle', { static: false }) toggle: MatSlideToggle;
 
-  dataSource: any = [];
-  orderSource: MatTableDataSource<Order>
-  @ViewChildren(MatPaginator) paginator = new QueryList<MatPaginator>();
-  @ViewChildren(MatSort) sort = new QueryList<MatSort>();
+  @ViewChild('target', { read: ViewContainerRef, static: false }) entry: ViewContainerRef;
 
-
-  listOfMessages: any = [];
-  listOfOrder: any = [];
-  listOfMail: any = [];
-
-  testArray: Array<any> = [
-    { id: 1, title: "Naslov 1" },
-    { id: 2, title: "Naslov 2" },
-    { id: 3, title: "Naslov 3" }
-  ]
+  editorData = '';
+  description = '';
 
 
-  constructor(public dialog: MatDialog, public adminService: AdminService, private router: Router, public _snackBar: MatSnackBar) {
+  percentage = 0;
+
+  listOfTechnology: Array<Technology> = [];
+  selectedTechnology = new Set<Technology>();
+  listOfImages: Array<Image> = [];
+  fileUploadList: Array<File> = [];
+
+  isReady = 'Nije spremno';
+
+  blogHeadersForm = new FormGroup({
+    header: new FormControl("", Validators.required),
+    shortText: new FormControl("", Validators.required)
+  })
+
+  imageForm = new FormGroup({
+    isUploaded: new FormControl("", Validators.required)
+  })
+
+  constructor(public dialog: MatDialog, private blogService: BlogService, private technologyService: TechnologyService,
+    private authService: AuthService, private router: Router, public _snackBar: MatSnackBar,
+    private cvRef: ViewContainerRef, private resolver: ComponentFactoryResolver,
+    private afStorage: AngularFireStorage) {
   }
 
   ngOnInit() {
-    this.getAllMessages();
-    this.getAllOrders();
-    this.removeToken();
+    this.isValid();
+    this.getTechnology();
+  }
+  ngAfterViewInit(): void {
+    this.loadOverviewComponent()
+  }
+
+  async loadOverviewComponent() {
+    this.entry.clear();
+    const { OverviewComponent } = await import('./overview/overview.component');
+    const factory = this.resolver.resolveComponentFactory(OverviewComponent)
+    this.entry.createComponent(factory);
+  }
+
+  addTechnology($event: MatCheckboxChange, technology: Technology) {
+    var c = (($event.checked)) ? this.selectedTechnology.add(technology) : this.selectedTechnology.delete(technology);
+  }
+
+  addFiles(event) {
+
+    for (let index = 0; index < event.length; index++) {
+        const element = event[index];
+        this.fileUploadList.push(element);
+      
+    }
+  }
+
+
+  changeToggle() {
+    this.toggle.writeValue(true);
+    this.isReady = 'Spremno je';
+    document.getElementById('toggle').style.color = "#4BB543";
+  }
+
+  async getFiles() {
+
+    for (const file of this.fileUploadList) {
+      this.afStorage.upload(file.name, file)
+        .then(() => {
+          const downloadUrl = this.afStorage.ref(file.name).getDownloadURL().subscribe(data => {
+
+            this.listOfImages.push(new Image(file.name, data));
+            this.changeToggle();
+
+          });
+        });
+    }
 
   }
 
-  ngAfterViewInit() {
 
-  }
-
-  showOrder() {
-    document.getElementById('mail-div').style.display = 'none';
-    document.getElementById('order-div').style.display = 'block';
-    document.getElementById('order-div').toggleAttribute('slow');
-    document.getElementById('mail-div').style.transition = 'opacity 1s ease-out';
-  }
-
-  showMail() {
-    document.getElementById('mail-div').style.display = 'block';
-    document.getElementById('order-div').style.display = 'none';
-    document.getElementById('mail-div').style.transition = 'opacity 1s ease-out';
-  }
-
-
-  openMessage(mail): void {
-    const dialogRef = this.dialog.open(MessagePreviewDialogComponent, {
-      width: 'auto',
-      position: { left: '0' },
-      height: '100vh',
-      data: {
-        mail: mail
-      }
+  openAddTechDialog(): void {
+    const dialogRef = this.dialog.open(AddTechnologyDialogComponent, {
+      width: '250px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
-    });
-  }
-  getAllMessages() {
-    const token = localStorage.getItem("token");
-
-    this.adminService.getAllMessages(token).subscribe(data => {
-      this.dataSource = data;
-
-
-    })
-  }
-  deleteMail(id_mail) {
-    this.adminService.deleteMail(id_mail).subscribe(data => {
-      this.getAllMessages();
-
-    })
-  }
-
-  getAllOrders() {
-    this.adminService.getAllOrders().subscribe(data => {
-      this.listOfOrder = data;
-
-
-    })
-  }
-
-  deleteOrder(id_site_order) {
-    this.adminService.deleteOrder(id_site_order).subscribe(data => {
-      this.getAllOrders();
-
-    })
-  }
-
-  openOrderPreview(order): void {
-    const dialogRef = this.dialog.open(OrderPreviewComponent, {
-      width: 'auto',
-      position: { left: '0' },
-      height: '100vh',
-      data: order
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
+      this.getTechnology();
     });
   }
 
-  logout() {
-    var isAuthenticated = { "isAuthenticated": false };
 
-    this.adminService.logout(isAuthenticated).subscribe(data => {
+  editDate() {
+    const x = document.getElementById("blog");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  isValid() {
+    if (!this.authService.isValid(localStorage.getItem("token"))) this.router.navigate(['/'])
+  }
+
+  getTechnology() {
+    this.technologyService.getAll().subscribe(data => {
+      this.listOfTechnology = JSON.parse(JSON.stringify(data)) as Array<Technology>;
+
+    }, error => {
 
     })
-    this.router.navigate(['login']);
-    localStorage.removeItem("token");
   }
+
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
@@ -183,32 +151,26 @@ export class AdminComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openChangeLoginDialog(): void {
-    const dialogRef = this.dialog.open(ChangeLoginComponent, {
-      width: 'auto'
-    });
+  save() {
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (localStorage.getItem('isPasswordChanged') === 'true') {
-        this.router.navigate(['/login']);
-      }
-    });
+    let blog = new Blog();
 
 
-  }
+    blog.header = this.blogHeadersForm.get("header").value;
+    blog.shortText = this.blogHeadersForm.get("shortText").value;
+    blog.listOfImages = this.listOfImages;
+    blog.listOfTechnologies = Array.from(this.selectedTechnology)
+    blog.longText = this.editorComponent.editorInstance.getData();
+
+    this.blogService.save(blog).subscribe(data => {
+    }, error => {
+      this.router.navigate(['/err'])
+    })
 
 
-  removeToken() {
-    setTimeout(() => {
-      localStorage.removeItem('token')
-    }, 1000 * 30);
+
   }
 
 
 }
-
-
-
-
-/** Builds and returns a new User. */
 

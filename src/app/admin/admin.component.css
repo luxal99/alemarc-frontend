@@ -1,118 +1,81 @@
-.example-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
-table {
-    width: 100%;
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #555 !important;
 }
 
-.mat-form-field {
-    font-size: 14px;
-    width: 100%;
+input {
+    color: #eee;
+    font-size: 20px;
 }
 
-td,
-th {
-    width: 2%;
+mat-label {
+    color: #ffa900;
 }
 
-th {
-    background-color: #ff9000;
+mat-horizontal-stepper {
+    -webkit-box-shadow: 10px 10px 20px -13px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 20px -13px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 20px -13px rgba(0, 0, 0, 0.75);
 }
 
-table {
-    -webkit-box-shadow: 2px 6px 24px -3px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 6px 24px -3px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 6px 24px -3px rgba(0, 0, 0, 0.75);
+.blog-h1 {
+    color: #ffa900;
+    font-family: 'Righteous', cursive;
 }
 
-mat-paginator {
-    margin-top: 1em;
-    -webkit-box-shadow: 2px 6px 24px -3px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 2px 6px 24px -3px rgba(0, 0, 0, 0.75);
-    box-shadow: 2px 6px 24px -3px rgba(0, 0, 0, 0.75);
+mat-divider {
+    border-top-color: #666;
 }
 
-#order-div {
+button {
+    text-transform: uppercase;
+}
+
+.new_Btn {
+    background-color: #ffa900;
+}
+
+#html_btn {
     display: none;
 }
 
-.nav-link-div {
-    padding: .5em;
-    font-family: 'Dosis', sans-serif;
-    font-size: 45px;
+.technology-a:hover {
+    color: #eee;
+    transition: .5s;
 }
 
-.nav-link-div:hover {
-    background-color: #222;
-    transition: .5s ease;
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: #ffa900;
 }
 
-.menu-btn {
-    background-color: transparent;
-    color: #ff9000;
-    font-size: 50px;
-    border: 0px;
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+    background-color: #ffa900 !important;
 }
 
-.alemarc-txt {
-    font-family: 'Dosis', sans-serif;
-    color: #fff;
+li {
+    color: #eee;
+    list-style-type: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
 }
 
-.header-text {
-    font-family: 'Dosis', sans-serif;
-    padding-bottom: .2em;
-    font-size: 50px;
+.uploadfilecontainer {
+    background-image: url("../../assets/img/upload-png-upload-icon-512.png");
+    background-repeat: no-repeat;
+    background-size: 100px;
+    background-position: center;
+    height: 200px;
+    border-radius: 10px;
 }
 
-.preview-btn {
-    background-color: transparent;
-    border: 2px solid #ff9000;
-}
-
-.delete-btn {
-    background-color: red;
-    color: white;
-}
-
-@media screen and (max-width:899px) {
-    .delete-btn {
-        margin-left: 0px;
-        margin-top: .5em;
-        margin-bottom: .5em;
-    }
-    #mail-div,
-    #order-div {
-        padding-bottom: 2em;
-    }
-}
-
-@media screen and (min-width:900px) {
-    .delete-btn {
-        margin-left: 2em;
-    }
-}
-
-.orange-btn {
-    padding-top: .5em;
-    padding-bottom: .5em;
-    margin-top: 2em;
-    padding-left: 2em;
-    padding-right: 2em;
-    background-color: #ff9600;
-}
-
-.white-btn {
-    padding-top: .5em;
-    padding-bottom: .5em;
-    padding-left: 2em;
-    padding-right: 2em;
-    color: #222;
-    border: 0;
-    background-color: #fff;
+.upload-btn {
+    margin-left: 1em;
+    font-size: 30px;
+    color: #ffa900;
 }

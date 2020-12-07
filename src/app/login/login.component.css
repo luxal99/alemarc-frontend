@@ -1,68 +1,53 @@
-.background {
-    background-image: url('../../assets/img/login.svg');
+.login {
+    background-image: url('../../assets/img/login1.jpg');
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
+    background-position-y: 50%;
 }
 
 .login-container {
-    padding-top: 5em;
-    
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.border-btn {
-    width: 40%;
-    height: 50px;
-    border-radius: 25px;
+h1 {
+    padding-top: 25%;
+    color: #ffa900;
+    font-size: 70px;
+    font-family: 'Righteous', cursive;
+}
+
+mat-divider {
+    border-top-color: #333;
+}
+
+::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #333 !important;
+}
+
+::ng-deep.mat-form-field-underline:hover {
+    /*change color of underline*/
+    background-color: #999 !important;
+}
+
+mat-label {
+    color: #ffa900;
+    font-size: 15px;
+}
+
+.login-btn {
+    width: 50%;
+    border: 1px solid #ffa900;
+    border-radius: 3px;
+    background-color: #ffa900;
+    font-size: 20px;
+    padding: 0.5em 0 0.5em 0;
     margin-top: 1em;
-    font-size: 1.2em;
-    outline: none;
-    border: none;
-    background-color: #ff9600;
-    cursor: pointer;
-    color: #fff;
-    background-size: 200%;
-    transition: .5s;
-}
-mat-form-field{
-    width: 30%;
 }
 
-.img-fluid {
-    width: 40%;
-    height: auto;
+input {
+    color: #eee;
+    font-size: 20px;
 }
-
-.img-men {
-    width: 75%;
-    height: auto;
-    padding-top: 10em;
-}
-
-/* -------------------------------------------------------- RESPONSIVE ----------------------------------------------- */
-
-@media screen and (max-width:380px) {
-    .img-men {
-        display: none;
-    }
-}
-
-@media screen and (max-width:420px) {
-    .img-men {
-        display: none;
-    }
-    .login-container {
-        padding-top: 8em !important;
-    }
-    mat-form-field{
-        width: 80%;
-    }
-}
-
-@media screen and (min-width:421px), screen and (max-height:375px) {
-    .login-container {
-        padding-top: 5em !important;
-    }
-}
-
-/* -------------------------------------------------------- RESPONSIVE ----------------------------------------------- */

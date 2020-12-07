@@ -1,25 +1,27 @@
-<div class="container">
-    <div class="text-center login-container">
-        <img src="../../assets/img/avatar3.png" class="img-fluid">
-        <h2 class="text-center login-heading">Welcome</h2>
+<div class="login">
+    <div class="container">
+        <h1>Login.</h1>
+        <mat-divider></mat-divider>
 
-        <div class="text-center">
+        <div class="container text-center">
             <form [formGroup]="loginForm">
-                <i class="fa fa-user" style="padding-right: .5em;"></i>
-                <mat-form-field class="example-full-width">
-
-                    <input matInput formControlName="username" placeholder="Username" value="">
-                </mat-form-field><br>
-                <i class="fa fa-lock" style="padding-right: .5em;"></i>
-                <mat-form-field class="example-full-width">
-                    <input matInput type="password" placeholder="Password" formControlName="password" value="">
-                </mat-form-field>
-                <div class="col text-center">
-                    <button mat-button class="border-btn" (click)="login();">Login</button>
+                <div style="padding-top: 2em;padding-bottom: 2em;">
+                    <div>
+                        <mat-form-field appearance="standard" style="width: 80%;">
+                            <mat-label>Username</mat-label>
+                            <input formControlName="username" matInput>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="standard" style="width: 80%;">
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" type="password">
+                        </mat-form-field>
+                    </div>
                 </div>
-
-
-
+                <div class="text-center">
+                    <button class="login-btn" (click)="login()">LOGIN</button>
+                </div>
             </form>
         </div>
     </div>

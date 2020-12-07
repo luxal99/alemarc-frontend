@@ -1,0 +1,108 @@
+<mat-drawer-container class="example-container" value="true">
+
+    <mat-drawer #drawer mode="over" class="sidenav-content zoom" style="width: 100%;">
+        <div class="navbar-nav side-menu">
+            <div class="text-right">
+                <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
+                        <i class="fa fa-close" style="color: #121212;"></i>
+                    </button>
+            </div>
+            <div style="padding-top: 10em;">
+                <a class="nav-item nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
+                <a (click)="scrollToElement(work)"><a class="nav-item nav-link" (click)="drawer.toggle()">Works</a></a>
+                <a class="nav-item nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active">Contact</a>
+            </div>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+
+        <div style="background-color: #121212;">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="100"><img src="../../assets/img/1200px-Code 1.png" class="img-fluid" alt=""></a>
+                <button class="navbar-toggler" (click)="drawer.toggle()" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" style="font-size: 40px;" aria-label="Toggle navigation">
+                  <i class="fa fa-align-right" style="color: #ffa900;"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" class="nav-item nav-link active" style="color: #ffa900 !important;" [routerLink]="['/']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
+                        <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" class="nav-item nav-link" (click)="scrollToElement(work)">Desctiption</a>
+                        <a data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" [routerLink]="['/contact']" routerLinkActive="router-link-active" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="zoom header-container" style="padding-top: 5em;">
+                <div class="text-right view-fafa">
+                    <h4><i class="fa fa-eye" aria-hidden="true"></i> {{numberOfViews}}</h4>
+                </div>
+                <div class="header text-center header-container">
+                    <div class="header-div" style="padding-top: 4em;">
+                        <h4>{{shortText}}</h4>
+                        <h1>{{header}}</h1>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+            <div class="header-container zoom" #work style="padding-top: 15em;">
+
+                <h1>Read.</h1>
+                <mat-divider style="border-top-color: #333;"></mat-divider>
+
+                <div class="row" style="padding-top: 2em;">
+                    <div class="col-sm" *ngFor="let tech of listOfTechnologies;let i = index" [attr.data-index]="i" style="list-style-type: none;">
+                        <h3 style="color: #eee;"><i class="fa fa-arrow-circle-right" style="color: #ffa900;" aria-hidden="true"></i> {{tech.title}}</h3>
+
+                    </div>
+                </div>
+
+                <div style="padding-top: 5em;">
+                    <h5 [innerHTML]="longText"></h5>
+                </div>
+            </div>
+
+            <div class="header-container" style="padding-top: 5em;">
+                <div class="row">
+                    <div class="col-sm-6 blog-photo" *ngFor="let image of listOfImages">
+                        <img src="{{image.url}}" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-container" style="padding-top: 15em;padding-bottom: 10em;">
+                <div class="text-right">
+                    <h1 style="color: #00ffff;">Most popular works</h1>
+                    <mat-divider style="border-top-color: #333;"></mat-divider>
+                    <div class="row" style="padding-top: 5em;">
+                        <div class="col-sm popular-card" *ngFor="let popular of popularBlogs">
+                            <div class="popular-blog-figure">
+                                <img src="{{popular.listOfImages[0].url}}" alt="" class="img-fluid">
+                                <div class="blog-figure-content text-left">
+                                    <h4>{{popular.shortText}}</h4>
+                                    <h2 style="color: #00ffff80;">{{popular.header}}</h2>
+                                    <div class="row">
+                                        <div class="col-sm btn-col text-left">
+                                            <div>
+                                                <button class="blog-content-btn" routerLink="/blog/{{popular.id}}" routerLinkActive="router-link-active" (click)="topBlog()">VIEW</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="text-right">
+                                                <h4><i class="fa fa-eye" aria-hidden="true"></i> {{popular.numberOfViews}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
