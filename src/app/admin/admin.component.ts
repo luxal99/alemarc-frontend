@@ -4,7 +4,11 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, QueryList, ViewChild, ViewChildren, ViewContainerRef } from '@angular/core';
 import { CKEditorComponent, ChangeEvent } from '@ckeditor/ckeditor5-angular';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatCheckbox, MatCheckboxChange, MatDialog, MatSidenav, MatSlideToggle, MatSnackBar } from '@angular/material';
+import { MatCheckbox, MatCheckboxChange } from '@angular/material/checkbox';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSidenav } from '@angular/material/sidenav';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { AddTechnologyDialogComponent } from './add-technology-dialog/add-technology-dialog.component';
 import { AngularFireStorage } from '@angular/fire/storage';

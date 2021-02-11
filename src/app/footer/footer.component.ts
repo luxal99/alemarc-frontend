@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { FooterTranslate } from '../translate/footer';
 import { MessageService } from '../service/message.service';
 import { Message } from 'src/app/model/Message';

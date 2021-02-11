@@ -5,7 +5,7 @@ import { BlogService } from '../service/blog.service';
 
 import Swiper, { SwiperOptions } from 'swiper';
 import { asLiteral } from '@angular/compiler/src/render3/view/util';
-import { MatDrawer } from '@angular/material';
+import { MatDrawer } from '@angular/material/sidenav';
 @Component({
   selector: 'app-blog-preview',
   templateUrl: './blog-preview.component.html',

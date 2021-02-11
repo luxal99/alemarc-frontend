@@ -1,6 +1,9 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatCheckboxChange, MatSlideToggle, MatSnackBar, MAT_DIALOG_DATA } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSlideToggle } from '@angular/material/slide-toggle';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CKEditorComponent } from '@ckeditor/ckeditor5-angular';
 import { Blog } from 'src/app/model/Blog';
 import { BlogService } from 'src/app/service/blog.service';

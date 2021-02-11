@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import { Blog } from 'src/app/model/Blog';
 import { BlogService } from 'src/app/service/blog.service';
 import { SwiperOptions } from 'swiper';
