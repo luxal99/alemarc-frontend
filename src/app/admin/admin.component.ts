@@ -24,12 +24,12 @@ import { async } from 'rxjs/internal/scheduler/async';
 })
 export class AdminComponent implements OnInit {
 
-  @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
+  @ViewChild('editor') editorComponent: CKEditorComponent;
   public Editor = ClassicEditor;
 
-  @ViewChild('toggle', { static: false }) toggle: MatSlideToggle;
+  @ViewChild('toggle') toggle: MatSlideToggle;
 
-  @ViewChild('target', { read: ViewContainerRef, static: false }) entry: ViewContainerRef;
+  @ViewChild('target', { read: ViewContainerRef }) entry: ViewContainerRef;
 
   editorData = '';
   description = '';

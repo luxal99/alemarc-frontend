@@ -19,11 +19,11 @@ import { AngularFireStorage } from 'angularfire2/storage';
 })
 export class EditBlogDialogComponent implements OnInit {
 
-  @ViewChild('editor', { static: false }) editorComponent: CKEditorComponent;
+  @ViewChild('editor') editorComponent: CKEditorComponent;
   public Editor = ClassicEditor;
 
 
-  @ViewChild('toggle', { static: false }) toggle: MatSlideToggle;
+  @ViewChild('toggle') toggle: MatSlideToggle;
 
   listOfImages: Array<Image> = [];
   fileUploadList: Array<File> = [];
