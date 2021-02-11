@@ -1,7 +1,11 @@
 @import "../../assets/css/sidebar/sidebar.css";
 .header {
-    background-color: #121212;
     background-repeat: no-repeat;
+}
+
+.content {
+    background-color: rgba(0, 0, 0, 0.979);
+    ;
 }
 
 .navbar a {
@@ -79,12 +83,17 @@ h5 {
     background-color: #eee;
 }
 
+img {
+    border-radius: 20px;
+}
+
 .popular-blog-figure {
-    background-color: #222;
+    background-color: #121212;
+    border-radius: 20px;
+}
+
+.blog-figure-content {
     padding: 1em;
-    -webkit-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 38px -16px rgba(0, 0, 0, 0.75);
 }
 
 .blog-content-btn {
