@@ -1,10 +1,13 @@
-[{
+[
+  {
     "context": [
-        "/user",
-        "/technology",
-        "/blog",
-        "/message"
+      "/jwt",
+      "/user",
+      "/technology",
+      "/blog",
+      "/message"
     ],
     "target": "http://localhost:8080",
     "secure": false
-}]
+  }
+]

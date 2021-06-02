@@ -1,33 +1,31 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../model/User';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {User} from '../model/User';
+import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {AuthResponse} from '../model/AuthResponse';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements CanActivate {
 
 
-  token: string = '$2b$10$luVmNPa2qSD2/IW2L7FuPOekTHG0TJatfvWUPcNsafY/fDWpbtXMG';
-
-  constructor(private http: HttpClient, private router: Router) { }
-
-  auth(user: User) {
-    return this.http.post("/user/auth", user, { responseType: 'text' });
+  constructor(private http: HttpClient, private router: Router) {
   }
 
-  isValid(token: string) {
-    if(token === this.token) return true;
+  auth(user: User): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>('/user/auth', user, {responseType: 'json'});
   }
+
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-
 
     if (localStorage.getItem('token')) { // logged in so return true
       return true;
     }
     // not logged in so redirect to login page with the return url
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    this.router.navigate(['/login'], {queryParams: {returnUrl: state.url}});
     return false;
   }
 }

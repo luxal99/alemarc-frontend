@@ -1,0 +1,81 @@
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #555 !important;
+}
+
+input {
+  color: #eee;
+  font-size: 20px;
+}
+
+mat-label {
+  color: #ffa900;
+}
+
+mat-horizontal-stepper {
+  -webkit-box-shadow: 10px 10px 20px -13px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 20px -13px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 20px -13px rgba(0, 0, 0, 0.75);
+}
+
+.blog-h1 {
+  color: #ffa900;
+  font-family: 'Righteous', cursive;
+}
+
+mat-divider {
+  border-top-color: #666;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+.new_Btn {
+  background-color: #ffa900;
+}
+
+#html_btn {
+  display: none;
+}
+
+.technology-a:hover {
+  color: #eee;
+  transition: .5s;
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+  border-color: #ffa900;
+}
+
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #ffa900 !important;
+}
+
+li {
+  color: #eee;
+  list-style-type: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+
+.uploadfilecontainer {
+  background-image: url("../../../../assets/img/upload-png-upload-icon-512.png");
+  background-repeat: no-repeat;
+  background-size: 100px;
+  background-position: center;
+  height: 200px;
+  border-radius: 10px;
+}
+
+.upload-btn {
+  margin-left: 1em;
+  font-size: 30px;
+  color: #ffa900;
+}
